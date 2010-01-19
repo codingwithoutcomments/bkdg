@@ -17680,3 +17680,287 @@ SyntaxError (/Users/joopjoob/Programming/bkdg/app/controllers/shows_controller.r
 Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (173.1ms)
 Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.3ms)
 Rendering /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-19 08:08:10) [GET]
+  Session ID: 8b904a29882f1c12bce4db9188933051
+  Parameters: {"action"=>"index", "controller"=>"shows"}
+
+
+SyntaxError (/Users/joopjoob/bkdg/app/controllers/shows_controller.rb:232: syntax error, unexpected tIVAR, expecting kTHEN or ':' or '\n' or ';'
+       if(@PartialMatch != nil) @isPartialMatch = "true"
+                                               ^):
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_without_new_constant_marking'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_file'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:381:in `load_file'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:256:in `require_or_load'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:427:in `load_missing_constant'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:77:in `const_missing'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:89:in `const_missing'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `each'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:388:in `recognize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:103:in `handle_dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:74:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:60:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/webrick.rb:66
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (125.7ms)
+Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.7ms)
+Rendering /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-19 08:12:37) [GET]
+  Session ID: 8b904a29882f1c12bce4db9188933051
+  Parameters: {"action"=>"index", "controller"=>"shows"}
+
+
+SyntaxError (/Users/joopjoob/bkdg/app/controllers/shows_controller.rb:232: syntax error, unexpected tIVAR, expecting kTHEN or ':' or '\n' or ';'
+       if(@PartialMatch != nil) @isPartialMatch = "true"
+                                               ^):
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_without_new_constant_marking'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_file'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:381:in `load_file'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:256:in `require_or_load'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:427:in `load_missing_constant'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:77:in `const_missing'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:89:in `const_missing'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `each'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:388:in `recognize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:103:in `handle_dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:74:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:60:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/webrick.rb:66
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (92.4ms)
+Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.4ms)
+Rendering /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-19 08:13:09) [GET]
+  Session ID: 8b904a29882f1c12bce4db9188933051
+  Parameters: {"action"=>"index", "controller"=>"shows"}
+
+
+SyntaxError (/Users/joopjoob/bkdg/app/controllers/shows_controller.rb:232: syntax error, unexpected tIVAR, expecting kTHEN or ':' or '\n' or ';'
+       if(@PartialMatch != nil) @isPartialMatch = "true" end
+                                               ^
+/Users/joopjoob/bkdg/app/controllers/shows_controller.rb:299: syntax error, unexpected kEND, expecting $end):
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_without_new_constant_marking'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:382:in `load_file'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:381:in `load_file'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:256:in `require_or_load'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:427:in `load_missing_constant'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:77:in `const_missing'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:89:in `const_missing'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:352:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `each'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/inflector.rb:351:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:388:in `recognize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:103:in `handle_dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:74:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/webrick_server.rb:60:in `dispatch'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/webrick.rb:66
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/joopjoob/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/joopjoob/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (92.6ms)
+Rendered /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.4ms)
+Rendering /Users/joopjoob/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ShowsController#index (for 127.0.0.1 at 2010-01-19 08:13:28) [GET]
+  Session ID: 8b904a29882f1c12bce4db9188933051
+  Parameters: {"action"=>"index", "controller"=>"shows"}
+  [4;36;1mLocation Load (0.7ms)[0m   [0;1mSELECT * FROM "locations" WHERE (city = 'Seattle' and state = 'Washington') LIMIT 1[0m
+  [4;35;1mShow Load (2.1ms)[0m   [0mSELECT * FROM "shows" WHERE ("shows".location_id = 1 AND (date > '2010-01-18')) ORDER BY date ASC, attending DESC[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/shows
+Rendering shows/index
+  [4;35;1mShow Load (4.9ms)[0m   [0mSELECT * FROM "shows" INNER JOIN "shows_users" ON "shows".id = "shows_users".show_id WHERE ("shows_users".user_id = 1 ) [0m
+16
+66
+18
+66
+23
+66
+59
+66
+60
+66
+61
+66
+Rendered shows/_number_attending (0.5ms)
+  [4;36;1mSQL (12.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".show_id = 66) [0m
+  [4;35;1mBand Load (1.3ms)[0m   [0mSELECT * FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;36;1mVenue Load (0.8ms)[0m   [0;1mSELECT * FROM "venues" WHERE ("venues"."id" = 3) [0m
+16
+61
+18
+61
+23
+61
+59
+61
+60
+61
+61
+61
+Rendered shows/_number_attending (0.5ms)
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".show_id = 61) [0m
+  [4;36;1mBand Load (1.2ms)[0m   [0;1mSELECT * FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "venues" WHERE ("venues"."id" = 3) [0m
+Completed in 498ms (View: 194, DB: 27) | 200 OK [http://localhost/shows]
+
+
+Processing ShowsController#new (for 127.0.0.1 at 2010-01-19 08:13:31) [GET]
+  Session ID: 8b904a29882f1c12bce4db9188933051
+  Parameters: {"action"=>"new", "controller"=>"shows"}
+Rendering template within layouts/shows
+Rendering shows/new
+Completed in 161ms (View: 120, DB: 1) | 200 OK [http://localhost/shows/new]
+
+
+Processing ShowsController#index (for 127.0.0.1 at 2010-01-19 08:13:33) [GET]
+  Session ID: 8b904a29882f1c12bce4db9188933051
+  Parameters: {"action"=>"index", "controller"=>"shows"}
+  [4;36;1mLocation Load (0.8ms)[0m   [0;1mSELECT * FROM "locations" WHERE (city = 'Seattle' and state = 'Washington') LIMIT 1[0m
+  [4;35;1mShow Load (2.1ms)[0m   [0mSELECT * FROM "shows" WHERE ("shows".location_id = 1 AND (date > '2010-01-18')) ORDER BY date ASC, attending DESC[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/shows
+Rendering shows/index
+  [4;35;1mShow Load (4.9ms)[0m   [0mSELECT * FROM "shows" INNER JOIN "shows_users" ON "shows".id = "shows_users".show_id WHERE ("shows_users".user_id = 1 ) [0m
+16
+66
+18
+66
+23
+66
+59
+66
+60
+66
+61
+66
+Rendered shows/_number_attending (0.5ms)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".show_id = 66) [0m
+  [4;35;1mBand Load (1.2ms)[0m   [0mSELECT * FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 66 ) [0m
+  [4;36;1mVenue Load (0.8ms)[0m   [0;1mSELECT * FROM "venues" WHERE ("venues"."id" = 3) [0m
+16
+61
+18
+61
+23
+61
+59
+61
+60
+61
+61
+61
+Rendered shows/_number_attending (0.5ms)
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".show_id = 61) [0m
+  [4;36;1mBand Load (1.2ms)[0m   [0;1mSELECT * FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bands" INNER JOIN "bands_shows" ON "bands".id = "bands_shows".band_id WHERE ("bands_shows".show_id = 61 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "venues" WHERE ("venues"."id" = 3) [0m
+Completed in 286ms (View: 172, DB: 15) | 200 OK [http://localhost/shows]

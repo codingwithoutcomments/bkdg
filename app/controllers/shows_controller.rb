@@ -229,7 +229,9 @@ class ShowsController < ApplicationController
        @venueFound = "false"
        
        @PartialMatch = Venue.name_like(@venueName);
-       if(@PartialMatch != nil) @isPartialMatch = "true"
+       if(@PartialMatch != nil) then
+         @isPartialMatch = "true" 
+        end
        
        else 
          @venueFound = "true" 
