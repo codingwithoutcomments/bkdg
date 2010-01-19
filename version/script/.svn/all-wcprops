@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/bkdg/!svn/ver/1/version/script
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/bkdg/!svn/ver/1/version/script/console
+END
+server
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/bkdg/!svn/ver/1/version/script/server
+END
+dbconsole
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/bkdg/!svn/ver/1/version/script/dbconsole
+END
+destroy
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/bkdg/!svn/ver/1/version/script/destroy
+END
+runner
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/bkdg/!svn/ver/1/version/script/runner
+END
+about
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/bkdg/!svn/ver/1/version/script/about
+END
+generate
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/bkdg/!svn/ver/1/version/script/generate
+END
+plugin
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/bkdg/!svn/ver/1/version/script/plugin
+END

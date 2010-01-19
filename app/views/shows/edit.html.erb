@@ -1,0 +1,44 @@
+<div id="mainbar-full">
+
+<h1>Editing show</h1>
+
+<% form_for(@show) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :headliner %><br />
+    <%= f.text_field :headliner %>
+  </p>
+  <p>
+    <%= f.label :openers %><br />
+    <%= f.text_field :openers %>
+  </p>
+  <p>
+    <%= f.label :venue %><br />
+    <%= f.text_field :venue %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+   <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+	Time<br />
+    <%= f.select :time, Show::SHOW_TIMES, :prompt => "Select Show Time"%>
+  <p>
+	<br/>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @show %> |
+<%= link_to 'Back', shows_path %>
+
+</div>

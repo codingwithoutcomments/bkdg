@@ -1,0 +1,118 @@
+<div id="mainbar-full">
+<div id="showinfo">
+	
+	<% attending_highlight_helper(@current_user, @shows_that_user_is_attending, @show) %>
+	
+	<div id = "subheader">
+		<b><h3><%= @show.bands.at(0).band_name %> @ <%= @show.venue.name %> </h3></b>
+	</div>
+	
+	<div class ="show-date">
+		<h2><%=h @show.date.strftime("%A, %b %e %Y") %></h2>
+	</div>
+	
+	<div class="attendingcontainer">
+		<div class="attending" id="attending-id-<%= @show.id %>">
+			<%= render(:partial => "number_attending", :object => @show.attending)%>
+		</div>
+		<div class="attendingword" id="attending-word-<%= @show.id %>">Attending</div> 
+    </div>	
+	
+	<div id = "showinformation">
+			
+		<div class = "show-bandlisting">
+		   	 <% @show.bands.each do |band| %>
+				   <%= link_to band.band_name, :controller => "bands", :action => "show", :id => band.id %><br />
+			 <% end %>
+		    </div>
+		
+		<div class="show-address">
+			  <%= link_to @show.venue.name, :controller => "venues", :action => "show", :id =>@show.venue.id %><br />
+			  <%=h @show.venue.address %><br />
+			  <%=h @show.location.city %>, <%=h @show.location.state %><br />
+			  <span class="mapit"><a href = <%= map_it(@show) %>>Show On Map</a></span>
+		  </div>
+	
+
+		<div class = "price-time">
+			<% if(@show.price != nil) %>
+				$<%= @show.price.to_i %>
+			<% else %>
+				<%= link_to 'Add Price', edit_show_path(@show) %>
+			<% end %>
+			
+			|
+	
+			<% if(@show.time != '') %>
+				<%= @show.time %><br />
+			<% else %>
+				<%= link_to 'Add Show Time', edit_show_path(@show) %>
+			<% end %>
+	
+
+		  <% if(@show.description != nil) %>
+		  	<b>Description:</b>
+		  	<%=h @show.description %>
+		  <% end %>
+		
+		</div>
+
+  		<div class = "attendcommentcontainer">
+			<div class="attend-recommend">
+					<% if @current_user %>
+						<%= link_to_remote attendingshow?, {
+					   		:url => { :action => "increment_attending", :id => @show.id, :user_id => @current_user.id, :show_detail_page => true }}, :class => "attendincrement", :title => "Click to Attend/Unattend" %>
+					<% else %>
+					    <%= link_to_remote "Attend", {
+					   		:url => { :action => "need_to_be_logged_in", :id => @show.id }}, :class => "attenderror" %>
+					<% end %>
+			</div> 
+				
+			<div class = "attend-recommend"><% if @current_user %>
+						<%=link_to 'Comment', :action => "comment" %>
+					<% else %>
+					    <%= link_to_remote "Comment", {
+					   		:url => { :action => "need_to_be_logged_in", :id => @show.id }}, :class => "commenterror" %>
+					<% end %>
+			</div>
+		</div>
+			
+		<div class="extrausercontrols">
+			<%= link_to 'Edit', edit_show_path(@show) %>
+		</div>
+		
+		
+
+		
+	</div>
+
+	<div id = "show-images">
+		<img src = "<%= @show.bands.at(0).bandpictures.at(0).largesquare %>"><br /><img src = "<%= @show.bands.at(0).bandpictures.at(1).largesquare %>"><br />
+		<div><%= link_to 'View all ' + @show.bands.at(0).bandpictures.count.to_s + ' pictures', edit_show_path(@show) %></div>
+	</div>
+	
+</div>
+
+<div id="commentarea">
+	<div class = "comments">
+	<% @show.comments.each do |comment| %>
+		<div class = usercomment><%= comment.user.username %> -- <%= comment.user_comment %></div>
+	  <% end %>
+	<div class="usercomment"></div>
+	</div>
+	<br />
+	
+	<div id = "leaveacomment">
+		Leave A Comment:<br /><br />
+		<% form_remote_tag :url => { :action => "LeaveComment", :id => @show.id } do %>
+			<%= text_area_tag :comment, nil, :rows => 5, :cols => 60, :class =>"resizable" %><br /><br />
+		<div class="wmd-preview"></div>
+		<br />
+		<input name="commit" type="submit" value="Add Comment" />
+
+		<% end %>
+
+		<br /><br />
+	</div>
+</div>
+</div>

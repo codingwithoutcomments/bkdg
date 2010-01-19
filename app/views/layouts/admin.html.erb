@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Admin: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold', 'login' %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+<div id = "container">
+	<div id ="header">
+	    <div class = "bkdg-title">
+				<h1>
+					<a href = "/">Bad Kids Dance Good</a>
+				</h1>
+					<code class="header">$ show listings</code>
+	    </div>
+	    <div class = "beta">Beta</div>
+		
+	 </div>	
+</div>	
+
+<%= yield  %>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/bkdg/!svn/ver/1/version/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bkdg/!svn/ver/1/version/config/initializers/inflections.rb
+END
+new_rails_defaults.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bkdg/!svn/ver/1/version/config/initializers/new_rails_defaults.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bkdg/!svn/ver/1/version/config/initializers/mime_types.rb
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/bkdg/!svn/ver/1/version/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/bkdg/!svn/ver/1/version/config/routes.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/bkdg/!svn/ver/1/version/config/database.yml
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/bkdg/!svn/ver/1/version/config/boot.rb
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/bkdg/!svn/ver/1/version/config/environment.rb
+END

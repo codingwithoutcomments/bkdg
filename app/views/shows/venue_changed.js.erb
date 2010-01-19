@@ -1,0 +1,37 @@
+var $j = jQuery.noConflict();
+
+var venueFound  = '<%= @venueFound %>';
+var nameOfVenue = '<%= @venueName %>';
+var locationCity = '<%= @location.city %>'
+var locationState = '<%= @location.state %>'
+
+$j(document).ready(function()
+{
+  if(venueFound == "false")
+  {
+	dehighlightAll();
+	
+	$j("#VenueErrorContainer").remove();
+	
+	var errorString = "<div id='VenueErrorContainer' class='venueErrorExplanation'>";
+	errorString    += "The Venue '<b>"+ nameOfVenue +"</b>' was not found in "+ locationCity +", "+locationState+"<br/>";
+	errorString    += "Maybe you typed wrong. Or maybe you know something we don't.<br/>";
+	errorString    += "Help us out? <a id='CreateANewVenue'>Create A New Venue?</a></div>";
+	
+	$j("#VenueContainer").after(errorString);
+	
+	$j("#VenueErrorContainer").fadeIn();
+	
+	unselectAllInputBoxes();
+	
+	$j("#CreateANewVenue").click(function(){  
+		alert("here");
+	});
+	
+  }else{
+	
+	$j("#VenueErrorContainer").fadeOut();
+	
+ }
+	
+});

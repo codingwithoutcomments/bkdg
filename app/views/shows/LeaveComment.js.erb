@@ -1,0 +1,1 @@
+jQuery('<div class = "usercomment"><%= @comment.user.username %><%= @comment.user_comment.gsub(/'/, "&apos;") %></div>').insertAfter(".usercomment:last");

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/bkdg/!svn/ver/1/version/config/environments
+END
+test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bkdg/!svn/ver/1/version/config/environments/test.rb
+END
+development.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bkdg/!svn/ver/1/version/config/environments/development.rb
+END
+production.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bkdg/!svn/ver/1/version/config/environments/production.rb
+END

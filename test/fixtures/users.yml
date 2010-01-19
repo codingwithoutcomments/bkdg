@@ -1,0 +1,27 @@
+# == Schema Information
+# Schema version: 20091207050051
+#
+# Table name: users
+#
+#  id              :integer         not null, primary key
+#  name            :string(255)
+#  hashed_password :string(255)
+#  salt            :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  username        :string(255)
+#  admin           :boolean
+#  points          :integer         default(0)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  hashed_password: MyString
+  salt: MyString
+
+two:
+  name: MyString
+  hashed_password: MyString
+  salt: MyString

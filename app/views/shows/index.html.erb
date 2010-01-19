@@ -1,0 +1,102 @@
+<div id = "mainbar-full">
+
+	<div id = "subheader">
+		<h3>Shows in Seattle</h3>
+		<!-- <div id="tabs">
+	        <%= link_to 'date', { :action => "index", :sort_by => "date"}, 
+					{:class => is_primary_tab?("date", @sort_by) }  %>
+	   		<%= link_to 'attending', { :action => "index", :sort_by => "attending" } ,
+	 				{:class => is_primary_tab?("attending", @sort_by) }%>
+	   		<%= link_to 'hott',  { :action => "index", :sort_by => "price"}, 
+							{:class => is_primary_tab?("price", @sort_by) } %>
+		</div> -->
+	</div>
+
+	<div id = "shows">
+		
+		<div id="single-show">
+		<% for show in @shows %>
+				<% if firstShowOnDate(@previousDate, show) %>
+					<div class ="show-date">
+						<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
+					</div>
+				<% end %>
+				<% @previousDate = show.date %>
+				<div class="<%= attending_highlight_helper(@current_user, @shows_that_user_is_attending, show) %>" id="show-summary-<%= show.id %>">
+				
+	    		<div>
+				
+					<div class="attendingcontainer">
+						<div class="attending" id="attending-id-<%= show.id %>">
+							<%= render(:partial => "number_attending", :object => show.attending)%>
+						</div>
+						<div class="attendingword" id="attending-word-<%= show.id %>">Attending</div> 
+				    </div>
+				
+				<div class="commentcontainer">
+					<div class="comment">
+							<span class="comment-counts">
+								<<%= comment_counts_helper(0) %>><%= show.comments.count %></<%= comment_counts_helper(0) %>>
+							</span>
+		            </div>
+					<div class="attendingword">Comments</div>
+		        </div>
+		
+			</div>
+	
+				<div>
+				<div class="headliner">
+					<div class="headliner-name"><%=link_to populate_headliner(show), show %></div>
+					<div class="openers">
+						<% if (show.bands.count > 1)%>
+							<%= populate_openers(show) %>
+						<% else %>
+							<%= link_to 'Add Opening Band(s)', :action =>'index' %>
+						<% end %>
+					</div>
+					<div class="attend-recommend">
+						<% if @current_user %>
+							<%= link_to_remote attendingshow?, {
+						   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, :class => "attendincrement", :title => "Click to Attend/Unattend" %>
+						<% else %>
+						    <%= link_to_remote "Attend", {
+						   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "attenderror" %>
+						<% end %>
+						 </div> 
+						<div class = "attend-recommend"><% if @current_user %>
+							<%=link_to 'Comment', :action => "comment" %>
+						<% else %>
+						    <%= link_to_remote "Comment", {
+						   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "commenterror" %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		
+				<div>
+				<div class="venue">
+					<div class="venue-name"><%=h show.venue.name %></div>
+				    <div class="date-time-price">
+						<%=h show.date.strftime("%b %e") %> | <%= show.time %> | $<%=h show.price.to_i %>
+					</div>
+						
+				</div>
+			</div>
+
+			</div>
+			</span>
+		<% end %>
+		</div>
+
+		<div id="sidebar">  
+		  <div class="module">This is where we make the $$ </div>
+		  <div class="module">More $$$$ </div>
+		</div>
+	
+	</div>
+
+	
+</div>
+<br />
+
+

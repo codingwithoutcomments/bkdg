@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/bkdg/!svn/ver/1/test/fixtures
+END
+users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/bkdg/!svn/ver/4/test/fixtures/users.yml
+END
+shows.yml
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/bkdg/!svn/ver/4/test/fixtures/shows.yml
+END

@@ -1,0 +1,126 @@
+.login-form
+{
+	width: 300px;
+	margin: 1em auto;
+
+}
+
+.login-form fieldset {
+	background: #f2f2f2;
+}
+
+.login-form legend{
+	color: #fff;
+	background: #f90887;
+	font-family: sans-serif;
+	padding: 0.2em 1em;
+}
+
+.login-form label {
+	width: 5em;
+	float: left;
+	text-align: right;
+	padding-top: 0.2em;
+	display: block;
+}
+
+.login-form select, .depot-form textarea, .depot-form input {
+	margin-left: 0.5em;
+}
+
+.login-form .submit{
+	margin-left: 17em;
+}
+
+.login-form div{
+	margin: 0.5em 0;
+}
+
+h1 {
+        color: #226;
+		text-transform: uppercase;
+}
+
+/* Styles for products/index */
+
+h2 {
+	
+	font-family: Verdana, sans-serif;
+	font-size: 130%;
+	font-weight: bold;
+}
+
+div.bkdg-title 
+{   
+	background-color: #fff;
+	line-height: 35px;
+	vertical-align: center;
+	padding-top: -10px;
+	width: 800px;
+}
+
+div.bkdg-title h1 { 
+
+	font:  425% Verdana;
+	clear: both; 
+	font-weight: bold; 
+	letter-spacing: -10px; 
+	height:20px;
+	
+}
+	
+.bkdg-title h1 a { 
+	text-decoration: none;	 
+}
+
+.bkdg-title a:link, a:visited { 
+	color: #7C0343; 
+}
+
+.bkdg-title	a:hover { 
+	text-decoration: none; 
+	color: #f90887;
+}
+
+code.header { 
+	margin-left: 70px;
+    font-size: 90%; 
+	background-color: #fcf095;
+}
+
+code {
+	 
+	background-color: #fcf095;
+}
+
+#header {
+	
+	width: 700px;
+	margin: 0 auto 35px;
+	
+}
+
+#container{
+	
+	clear:both;
+	overflow:hidden;
+	width:100%;
+	
+}
+
+.beta
+{
+	float: right;
+	display: block;
+	width: 5em;
+	padding: 0.1em;
+	line-height: 1.4;
+	background-color: #60A49F;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	margin: 10px 5px 0px 0px;
+	
+}
+
+

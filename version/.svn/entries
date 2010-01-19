@@ -1,0 +1,129 @@
+10
+
+dir
+1
+http://www.jlazer.com/bkdg/version
+http://www.jlazer.com/bkdg
+
+
+
+2009-12-02T04:55:22.738043Z
+1
+jlazer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+536a61a6-023f-48ce-8837-39fabe16fc86
+
+test
+dir
+
+app
+dir
+
+tmp
+dir
+
+log
+dir
+
+Rakefile
+file
+
+
+
+
+2009-12-02T04:56:12.000000Z
+17f2f134da4cd31ea095d5868ca89e86
+2009-12-02T04:55:22.738043Z
+1
+jlazer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+307
+
+script
+dir
+
+config
+dir
+
+db
+dir
+
+doc
+dir
+
+lib
+dir
+
+vendor
+dir
+
+README
+file
+
+
+
+
+2009-12-02T04:56:12.000000Z
+0cdf56769f20a2b73a929ac3ba633152
+2009-12-02T04:55:22.738043Z
+1
+jlazer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10619
+
+public
+dir
+
