@@ -2,8 +2,10 @@ var $j = jQuery.noConflict();
 
 var venueFound  = '<%= @venueFound %>';
 var nameOfVenue = '<%= @venueName %>';
-var locationCity = '<%= @location.city %>'
-var locationState = '<%= @location.state %>'
+var locationCity = '<%= @location.city %>';
+var locationState = '<%= @location.state %>';
+var isPartialMatch = '<%= @isPartialMatch %>';
+var possibleVenue  = '<%= @MatchName %>';
 
 $j(document).ready(function()
 {
@@ -14,9 +16,18 @@ $j(document).ready(function()
 	$j("#VenueErrorContainer").remove();
 	
 	var errorString = "<div id='VenueErrorContainer' class='venueErrorExplanation'>";
-	errorString    += "The Venue '<b>"+ nameOfVenue +"</b>' was not found in "+ locationCity +", "+locationState+"<br/>";
-	errorString    += "Maybe you typed wrong. Or maybe you know something we don't.<br/>";
-	errorString    += "Help us out? <a id='CreateANewVenue'>Create A New Venue?</a></div>";
+	errorString    += "The venue '<b>"+ nameOfVenue +"</b>' was not found in "+ locationCity +", "+locationState+".<br/>";
+	
+	if(isPartialMatch == "true")
+	{
+		errorString    += "Did you mean '"+possibleVenue+"'?  <a id='yes'>Yes</a> <a id='no'>No</a><br/>";
+		errorString    += "Or would you like to <a id='CreateANewVenue'>Create A New Venue?</a></div>";
+		
+	}else{
+		
+		errorString    += "Maybe you typed wrong. Or maybe you know something we don't.<br/>";
+		errorString    += "Help us out? <a id='CreateANewVenue'>Create A New Venue?</a></div>";
+	}
 	
 	$j("#VenueContainer").after(errorString);
 	
@@ -28,10 +39,25 @@ $j(document).ready(function()
 		alert("here");
 	});
 	
+	$j("#yes").click(function(){
+		fadeOutErrorContainer();
+		$j("#name_of_venue").attr("value",possibleVenue);
+	});
+	
+	$j("#no").click(function(){
+		fadeOutErrorContainer();
+	});
+	
   }else{
 	
-	$j("#VenueErrorContainer").fadeOut();
+	fadeOutErrorContainer();
 	
  }
 	
 });
+
+function fadeOutErrorContainer()
+{
+	$j("#VenueErrorContainer").fadeOut();
+	
+}

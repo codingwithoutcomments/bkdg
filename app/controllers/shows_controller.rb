@@ -220,20 +220,23 @@ class ShowsController < ApplicationController
     
      @venueFound = "false"
      @isPartialMatch = "false"
+     @MatchName = ""
+     
      @venueName = params[:venueName]
      
      @location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
      @venue = Venue.find(:first, :conditions => ["name = ? and location_id = ?", @venueName, @location.id] )
 
      if(@venue == nil) then 
+       
        @venueFound = "false"
-       
        @PartialMatch = Venue.name_like(@venueName);
-       if(@PartialMatch != nil) then
+       if(@PartialMatch.length != 0) then 
          @isPartialMatch = "true" 
-        end
+         @MatchName = @PartialMatch.at(0).name
+      end
        
-       else 
+      else 
          @venueFound = "true" 
      end
 
