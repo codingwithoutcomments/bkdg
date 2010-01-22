@@ -230,12 +230,13 @@ class ShowsController < ApplicationController
      if(@venue == nil) then 
        
        @venueFound = "false"
-       @venueNameModified = formatVenueNameForSearch(@venueName)
-       @PartialMatch = Venue.name_like(@venueNameModified);
-       if(@PartialMatch.length != 0) then 
+       
+       venueNameModified = formatVenueNameForSearch(@venueName)
+       @PartialMatch = Venue.name_like(venueNameModified);
+       if(@PartialMatch.length > 0) then 
          @isPartialMatch = "true" 
          @MatchName = @PartialMatch.at(0).name
-      end
+       end
        
       else 
          @venueFound = "true" 
@@ -250,10 +251,14 @@ class ShowsController < ApplicationController
 private
 
   def formatVenueNameForSearch(venueName)
-    venueName = venueName.sub(/the/, "")
-    venueName = venueName.sub(/The/, "")
-    venueName = venueName.sub(/THE/, "")
+    venueName = venueName.gsub("the", "")
+    venueName = venueName.gsub("The", "")
+    venueName = venueName.gsub("THE", "")
+    
     venueName.strip!
+    #logger.debug(venueName)
+    
+    return venueName
   end
 
   def getCityOfUser
