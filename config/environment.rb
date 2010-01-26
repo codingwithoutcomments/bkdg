@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   #config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
   config.gem "searchlogic", :version=>'2.4.2', :lib=>false
-  config.gem "hpricot", :version=>'0.8.2', :lib=>false
+  config.gem "hpricot", :version=>'0.8.1', :lib=>false
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
