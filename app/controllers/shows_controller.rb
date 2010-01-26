@@ -9,8 +9,8 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.xml
   def index
-      city = getCityOfUser()
-      state = getStateOfUser()
+      city = "seattle"
+      state = "wa"
       
       location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
       @shows = location.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
