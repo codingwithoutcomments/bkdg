@@ -21,8 +21,8 @@
 	<div id = "showinformation">
 			
 		<div class = "show-bandlisting">
-		   	 <% @show.bands.each do |band| %>
-				   <%= link_to band.band_name, :controller => "bands", :action => "show", :id => band.id %><br />
+			 <% @show.bands.each do |band| %>
+				   <%= link_to band.band_name, { :controller => "bands", :action => "index", :id => band.id }, :id => band.id %><br />
 			 <% end %>
 		    </div>
 		
