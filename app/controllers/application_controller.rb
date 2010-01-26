@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  #before_filter :authorize, :except => :login
+  before_filter :authorize, :except => :login
   before_filter :set_city
   helper :all # include all helpers, all the time
 
