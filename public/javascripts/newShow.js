@@ -25,15 +25,15 @@ $j(document).ready(function()
 		$j(this).css("display", "none");
 	});
 	
-	$j("#band1").focus(function(){ hightlightBands(); AddABandByNumber(1); });
-	$j("#band2").focus(function(){ hightlightBands(); AddABandByNumber(2); });
-	$j("#band3").focus(function(){ hightlightBands(); AddABandByNumber(3); });
-	$j("#band4").focus(function(){ hightlightBands(); AddABandByNumber(4); });
-	$j("#band5").focus(function(){ hightlightBands(); AddABandByNumber(5); });
-	$j("#band6").focus(function(){ hightlightBands(); AddABandByNumber(6); });
-	$j("#band7").focus(function(){ hightlightBands(); AddABandByNumber(7); });
-	$j("#band8").focus(function(){ hightlightBands(); AddABandByNumber(8); });
-	$j("#band9").focus(function(){ hightlightBands(); AddABandByNumber(9);});
+	$j("#band1").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(1); });
+	$j("#band2").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(2); });
+	$j("#band3").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(3); });
+	$j("#band4").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(4); });
+	$j("#band5").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(5); });
+	$j("#band6").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(6); });
+	$j("#band7").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(7); });
+	$j("#band8").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(8); });
+	$j("#band9").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(9); });
 	$j("#band10").focus(function(){ hightlightBands(); });
 	
 	$j("#VenueContainer input").focus(function() { highlightVenue(); });
