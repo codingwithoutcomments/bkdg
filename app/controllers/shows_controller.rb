@@ -15,7 +15,7 @@ class ShowsController < ApplicationController
       location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
       @shows = location.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
     
-    set_current_user_if_logged_in()
+     set_current_user_if_logged_in()
     
     respond_to do |format|
       format.html # index.html.erb
@@ -225,7 +225,7 @@ class ShowsController < ApplicationController
      @venueName = params[:venueName]
      
      @location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
-     @venue = Venue.find(:first, :conditions => ["name = ? and location_id = ?", @venueName, @location.id] )
+     @venue = Venue.find(:first, :conditions => ["name = ? and location_id = ?", @venueName.upcase, @location.id] )
 
      if(@venue == nil) then 
        
@@ -235,7 +235,7 @@ class ShowsController < ApplicationController
        @PartialMatch = Venue.name_like(venueNameModified);
        if(@PartialMatch.length > 0) then 
          @isPartialMatch = "true" 
-         @MatchName = @PartialMatch.at(0).name
+         @MatchName = @PartialMatch.at(0).name.capitalize
        end
        
       else 
@@ -256,7 +256,6 @@ private
     venueName = venueName.gsub("THE", "")
     
     venueName.strip!
-    #logger.debug(venueName)
     
     return venueName
   end
