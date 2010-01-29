@@ -123,6 +123,8 @@ class ShowsController < ApplicationController
       
       @venue = Venue.find(:first, :conditions=> ["name = ?", @venueName] )
       
+      debugger()
+      
      if @show.errors.size > 0
         
         format.html { render :action => "new" }
@@ -235,7 +237,8 @@ class ShowsController < ApplicationController
        @PartialMatch = Venue.name_like(venueNameModified);
        if(@PartialMatch.length > 0) then 
          @isPartialMatch = "true" 
-         @MatchName = @PartialMatch.at(0).name.capitalize
+         @MatchName = capitalize_first_letter_of_each_word(@PartialMatch.at(0).name)
+         
        end
        
       else 
@@ -249,6 +252,16 @@ class ShowsController < ApplicationController
    end
   
 private
+
+  def capitalize_first_letter_of_each_word(input)
+    output = ""
+    input = input.split(" ")
+    input.each {|word| output += word.capitalize + " " }
+    debugger()
+    output.strip!
+    
+    return output;
+  end 
 
   def formatVenueNameForSearch(venueName)
     venueName = venueName.gsub("the", "")
