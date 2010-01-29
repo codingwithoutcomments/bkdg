@@ -257,7 +257,6 @@ private
     output = ""
     input = input.split(" ")
     input.each {|word| output += word.capitalize + " " }
-    debugger()
     output.strip!
     
     return output;
