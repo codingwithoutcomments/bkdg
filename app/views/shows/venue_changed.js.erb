@@ -20,7 +20,7 @@ $j(document).ready(function()
 	
 	if(isPartialMatch == "true")
 	{
-		errorString    += "Did you mean '"+possibleVenue+"'?  <a id='yes'>Yes</a> <a id='no'>No</a><br/>";
+		errorString    += "Did you mean '"+possibleVenue+"'?  <a id='yes'>Yes</a><br/>";
 		errorString    += "Or would you like to <a id='CreateANewVenue'>Create A New Venue?</a></div>";
 		
 	}else{
@@ -36,7 +36,7 @@ $j(document).ready(function()
 	unselectAllInputBoxes();
 	
 	$j("#CreateANewVenue").click(function(){  
-		alert("here");
+		window.location = "/venues/new";
 	});
 	
 	$j("#yes").click(function(){

@@ -108,8 +108,7 @@ class ShowsController < ApplicationController
     
     @show = Show.new(params[:show])
     
-    if(@venueName == "")  then @show.throw_error("How will there be a show without a venue?") end
-    
+    #add all the band names to the show
     @form_band_list_array = [:band1, :band2, :band3, :band4, :band5, :band6, :band7, :band8, :band9, :band10]
     @band_array = []
     @form_band_list_array.each do |form_element|
@@ -119,11 +118,32 @@ class ShowsController < ApplicationController
       end
     end
     
+    if(@venueName == "")  then @show.errors.add_to_base("How will there be a show without a venue?") end
+    
+    #check to see if venue exists in database
+    @venue = Venue.find(:first, :conditions=> ["name = ?", @venueName.upcase] )
+    
+    #if it doesn't check to see if there is a partial match
+    #and display variou options
+    if(@venue == nil && @show.errors.size == 0) then 
+       
+       errorString  = "The venue '<b>"+ @venueName +"</b>' was not found in "+ @location.city + ", " + @location.state + ".<br/>"
+       venueNameModified = formatVenueNameForSearch(@venueName)
+       @PartialMatch = Venue.name_like(venueNameModified);
+       if(@PartialMatch.length > 0) then 
+         @MatchName = capitalize_first_letter_of_each_word(@PartialMatch.at(0).name)
+         
+        errorString    += "Did you mean '<span id='possibleVenue'>"+@MatchName+"</span>'?  <a id='yes'>Yes</a><br/>";
+     		errorString    += "Or would you like to <a id='CreateANewVenue'>Create A New Venue?</a>";
+         @show.errors.add_to_base(errorString)
+       else
+         errorString    += "Maybe you typed wrong. Or maybe you know something we don't.<br/>";
+     		 errorString    += "Help us out? <a id='CreateANewVenue'>Create A New Venue?</a>";
+         @show.errors.add_to_base(errorString)
+       end
+     end
+    
     respond_to do |format|
-      
-      @venue = Venue.find(:first, :conditions=> ["name = ?", @venueName] )
-      
-      debugger()
       
      if @show.errors.size > 0
         
@@ -238,7 +258,6 @@ class ShowsController < ApplicationController
        if(@PartialMatch.length > 0) then 
          @isPartialMatch = "true" 
          @MatchName = capitalize_first_letter_of_each_word(@PartialMatch.at(0).name)
-         
        end
        
       else 
@@ -252,6 +271,8 @@ class ShowsController < ApplicationController
    end
   
 private
+
+
 
   def capitalize_first_letter_of_each_word(input)
     output = ""

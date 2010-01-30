@@ -116,6 +116,13 @@
 	text-decoration:underline;
 }
 
+#errorExplanation a
+{
+	color:white;
+	font-size:130%;
+	text-decoration:underline;
+}
+
 #PriceContainer
 {
 	width:715px;

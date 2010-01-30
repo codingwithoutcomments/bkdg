@@ -23,7 +23,18 @@
 
 <% form_for(@show) do |f| %>
 
-  <%= f.error_messages %>
+    <% if @show.errors.size > 0 then %>
+	<div id="errorExplanation" class="errorExplanation">
+		<h2><%= @show.errors.size %> errors prohibited this show from being saved</h2>
+		<p>There were problems with the following fields:</p>
+		<ul>
+			<% @show.errors.each_full { |msg| %>  <li><%= msg %> </li> <% } %> 
+		</ul>
+	</div>
+   <% end %>
+
+   <!-- <%= f.error_messages %> -->
+
   <div id='BandsContainer'>
   	<div id='BandHeader'>Bands</div>
  	 <div class='Bands'><%= text_field_tag :band1,  band1txt %><span class='AddABand'><a>Add Another Band</a></span><div class='Caption'>Who's Playing?</div></div>

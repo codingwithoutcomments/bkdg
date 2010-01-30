@@ -25,15 +25,15 @@ $j(document).ready(function()
 		$j(this).css("display", "none");
 	});
 	
-	$j("#band1").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(1); });
-	$j("#band2").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(2); });
-	$j("#band3").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(3); });
-	$j("#band4").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(4); });
-	$j("#band5").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(5); });
-	$j("#band6").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(6); });
-	$j("#band7").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(7); });
-	$j("#band8").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(8); });
-	$j("#band9").focus(function(){ hightlightBands(); }).click(function(){ AddABandByNumber(9); });
+	$j("#band1").focus(function(){ hightlightBands(); });
+	$j("#band2").focus(function(){ hightlightBands(); });
+	$j("#band3").focus(function(){ hightlightBands(); });
+	$j("#band4").focus(function(){ hightlightBands(); });
+	$j("#band5").focus(function(){ hightlightBands(); });
+	$j("#band6").focus(function(){ hightlightBands(); });
+	$j("#band7").focus(function(){ hightlightBands(); });
+	$j("#band8").focus(function(){ hightlightBands(); });
+	$j("#band9").focus(function(){ hightlightBands(); });
 	$j("#band10").focus(function(){ hightlightBands(); });
 	
 	$j("#VenueContainer input").focus(function() { highlightVenue(); });
@@ -48,6 +48,15 @@ $j(document).ready(function()
 	$j("#DoorContainer").click(function(){ highlightShowTime(); }).find("#show_time").focus(function(){ highlightShowTime(); });
 	
 	$j("#AgeContainer").click(function() { highlightAgeRestrictions() });
+	
+	$j("#yes").click(function(){
+		$j("#name_of_venue").attr("value",$j("#possibleVenue").html());
+		$j("#errorExplanation").fadeOut();
+	});
+	
+	$j("#CreateANewVenue").click(function(){  
+		window.location = "/venues/new";
+	});
 
 });
 

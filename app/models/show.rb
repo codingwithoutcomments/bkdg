@@ -66,14 +66,14 @@ class Show < ActiveRecord::Base
   
   def has_at_least_one_band_playing
     if(bands.size == 0)
-      errors.add("How can there be a show without any bands?", "")
+      errors.add_to_base("How can there be a show without any bands?")
     end
   end
   
   def advance_price_greater_than_zero_or_free
     if !advanceprice.nil?
         if(is_numeric?(advanceprice) == false) then
-          errors.add("The advanced price you have entered is not valid.", '') 
+          errors.add_to_base("The advanced price you have entered is not valid.") 
         end
     end
   end
@@ -81,7 +81,7 @@ class Show < ActiveRecord::Base
     def price_greater_than_zero_or_free
       if !price.nil?
           if(is_numeric?(price) == false) then
-            errors.add(:price, ' not valid') 
+            errors.add_to_base("The Price Is Not Valid") 
           end
       end      
     end
