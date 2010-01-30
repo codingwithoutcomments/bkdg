@@ -1,0 +1,90 @@
+.show-bandlisting
+{	
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	margin-top:10px;
+}
+
+.band
+{
+	width:440px;
+	color:black;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:20px;
+	font-weight:bold;
+}
+
+.band a
+{
+	color:black;
+}
+
+.band:first-child
+{
+	background-color:#FFFF01;
+	font-size:130%;
+	text-decoration:underline;
+	padding:6px;
+	padding-left:3px;
+	padding-top:3px;
+}
+
+.band a:hover
+{
+	text-decoration:underline;
+}
+
+#show-images {
+	float:left;
+	margin-top:10px;
+	margin-left: 20px;
+}
+
+#showVenueName
+{
+	font-size:130%;
+}
+
+.show-address
+{
+	margin-top: 7px;
+	background-color: #F2F2F2;
+	padding: 7px 7px 7px 7px;
+}
+
+.show-address a
+{
+	color: #7C0343;
+}
+
+.price-time
+{
+	margin-top:6px;
+}
+
+.price-time span
+{
+	background-color:#FFFF01; 
+	color:black;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:140%;
+	font-weight:bold;
+	padding-left:6px;
+}
+
+.price-time a
+{
+	color:black;
+}
+
+#price
+{
+	padding-right:5px;
+	padding-left:0px;
+}
+
+.showcommentcontainer {
+	float:left;
+	width:86px;
+}

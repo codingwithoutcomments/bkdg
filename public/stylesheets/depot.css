@@ -192,39 +192,10 @@ code {
 	margin-right:10px;
 }
 
-.show-bandlisting
-{
-	
-	margin-top:10px;
-}
-
-.show-bandlisting a
-{
-	color:#7C0343;
-	font-size: 130%;
-}
-
 .mapit
 {
 	font-size: 70%;
 	
-}
-
-.price-time a
-{
-	font-size: 70%;
-	color:#7C0343;
-}
-.show-address
-{
-	margin-top: 7px;
-	background-color: #F2F2F2;
-	padding: 7px 7px 7px 7px;
-}
-
-.show-address a
-{
-	color: #7C0343;
 }
 
 #subheader
@@ -465,6 +436,14 @@ code {
 }
 
 .attendingword
+{
+	width: 66px;
+	text-align: center;
+	color:#000;
+	font-size:70%;
+}
+
+.commentword
 {
 	width: 66px;
 	text-align: center;

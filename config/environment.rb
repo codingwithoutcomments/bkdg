@@ -11,7 +11,7 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 #uncomment this line for deployment to heroku
-require "#{RAILS_ROOT}/vendor/gems/environment.rb"
+#require "#{RAILS_ROOT}/vendor/gems/environment.rb"
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -21,12 +21,12 @@ Rails::Initializer.run do |config|
 
   # Skip frameworks you're not going to use. To use Rails without a database
   # you must remove the Active Record framework.
-  # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
+  # config.frameworks -= [ :active_record, :active_resource, :action_m ailer ]
 
   # Specify gems that this application depends on. 
-  # They can then be installed with "rake gems:install" on new installations.
+  # They c an then be installed with "rake gems:install" on new installations.
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
-  # config.gem "bj"
+  # config.gem "bj" 
   #config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
   config.gem 'searchlogic', :version =>'2.4.2'
   config.gem "hpricot", :version => '0.8.2'

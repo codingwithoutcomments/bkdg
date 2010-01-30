@@ -1,10 +1,13 @@
+<script type="text/javascript" src="/javascripts/show.js"></script>
+<%= stylesheet_link_tag 'show' %>
+
 <div id="mainbar-full">
 <div id="showinfo">
 	
 	<% attending_highlight_helper(@current_user, @shows_that_user_is_attending, @show) %>
 	
 	<div id = "subheader">
-		<b><h3><%= @show.bands.at(0).band_name %> @ <%= @show.venue.name %> </h3></b>
+		<b><h3><%= @show.bands.at(0).band_name %> @ <%= capitalize_first_letter_of_each_word(@show.venue.name) %> </h3></b>
 	</div>
 	
 	<div class ="show-date">
@@ -22,33 +25,34 @@
 			
 		<div class = "show-bandlisting">
 			 <% @show.bands.each do |band| %>
-				   <%= link_to band.band_name, { :controller => "bands", :action => "index", :id => band.id }, :id => band.id %><br />
+				   <div class='band'><%= link_to band.band_name, { :controller => "bands", :action => "index", :id => band.id }, :id => band.id %></div>
 			 <% end %>
 		    </div>
 		
-		<div class="show-address">
-			  <%= link_to @show.venue.name, :controller => "venues", :action => "show", :id =>@show.venue.id %><br />
-			  <%=h @show.venue.address %><br />
-			  <%=h @show.location.city %>, <%=h @show.location.state %><br />
+		 <div class="show-address">
+			  <div id='showVenueName'><%= link_to capitalize_first_letter_of_each_word(@show.venue.name), :controller => "venues", :action => "show", :id =>@show.venue.id %></div>
+			  <div><%=h @show.venue.address %></div>
+			  <div><%=h @show.location.city %>, <%=h @show.location.state %></div>
 			  <span class="mapit"><a href = <%= map_it(@show) %>>Show On Map</a></span>
 		  </div>
 	
 
 		<div class = "price-time">
+			
+			<span id='time'>
+			<% if(@show.time != '') %>
+				<%= @show.time %>
+			<% else %>
+				<%= link_to 'Add Show Time', edit_show_path(@show) %>
+			<% end %> |
+			</span>
+			
+			<span id='price'>
 			<% if(@show.price != nil) %>
 				$<%= @show.price.to_i %>
 			<% else %>
 				<%= link_to 'Add Price', edit_show_path(@show) %>
-			<% end %>
-			
-			|
-	
-			<% if(@show.time != '') %>
-				<%= @show.time %><br />
-			<% else %>
-				<%= link_to 'Add Show Time', edit_show_path(@show) %>
-			<% end %>
-	
+			<% end %> </span>
 
 		  <% if(@show.description != nil) %>
 		  	<b>Description:</b>
@@ -87,10 +91,24 @@
 	</div>
 
 	<div id = "show-images">
-		<img src = "<%= @show.bands.at(0).bandpictures.at(0).largesquare %>"><br /><img src = "<%= @show.bands.at(0).bandpictures.at(1).largesquare %>"><br />
+		<% randomPictures = generate_two_random_band_pictures(@show) %>
+		<img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(0)).largesquare %>"><br /><img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(1)).largesquare %>"><br />
 		<div><%= link_to 'View all ' + @show.bands.at(0).bandpictures.count.to_s + ' pictures', edit_show_path(@show) %></div>
 	</div>
 	
+</div>
+
+<div id = "subheader" style=''>
+	<b><h3>Comments</h3></b>
+</div>
+
+<div class="showcommentcontainer">
+	<div class="comment">
+			<span class="comment-counts">
+				<<%= comment_counts_helper(@show.comments.count) %>><%= @show.comments.count %></<%= comment_counts_helper(@show.comments.count) %>>
+			</span>
+	</div>
+	<div class="commentword" id="attending-word-<%= @show.id %>">Comments</div> 
 </div>
 
 <div id="commentarea">

@@ -31,6 +31,30 @@ module ShowsHelper
     end
   end
   
+  def generate_two_random_band_pictures(show)
+    
+    randomNumbers = []
+    firstRandomNumber = rand(show.bands.at(0).bandpictures.count)
+    randomNumbers << firstRandomNumber
+    begin
+      secondRandomNumber = rand(show.bands.at(0).bandpictures.count)
+    end while secondRandomNumber == firstRandomNumber
+    
+    randomNumbers << secondRandomNumber
+    
+    return randomNumbers
+    
+  end
+  
+  def capitalize_first_letter_of_each_word(input)
+    output = ""
+    input = input.split(" ")
+    input.each {|word| output += word.capitalize + " " }
+    output.strip!
+    
+    return output;
+  end
+  
   def attending_highlight_helper(user_logged_in,shows_attending, show)
     if(user_logged_in)
         shows_attending.each do |show_attending|
