@@ -3,6 +3,7 @@ var $j = jQuery.noConflict();
 $j(document).ready(function()
 {
 	$j('<%= escape_javascript(render(:partial => "single_comment", :locals => { :comment => @comment }))%>').insertAfter('.singleComment:last');
+	$j('.singleComment:last').find(".usercomment").effect("highlight", { color: '#FFFF01' }, 4000);
 	$j('.comment-counts').html('<%= escape_javascript(render(:partial => "comment_count", :locals => {:show => @show })) %>');
 	$j('textarea').attr("value", "");
 
