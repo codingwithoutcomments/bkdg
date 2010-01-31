@@ -58,8 +58,6 @@ module ShowsHelper
   def attending_highlight_helper(user_logged_in,shows_attending, show)
     if(user_logged_in)
         shows_attending.each do |show_attending|
-           RAILS_DEFAULT_LOGGER.error(show_attending.id.to_s)
-           RAILS_DEFAULT_LOGGER.error(show.id.to_s)
           if(show_attending.id.to_s == show.id.to_s)
             @attendingshow = true
             return "show-summary-attending"
@@ -82,6 +80,22 @@ module ShowsHelper
       return "Attending"
     else
       return "Attend"
+    end
+  end
+  
+  def attendingTheShow?
+    if (@attendingshow)
+      return "You Are Attending The Show.  Click To Back Out."
+    else
+      return "Gonna go?  Click To Attend."
+    end
+  end
+  
+  def getAttendStyle
+    if (@attendingshow)
+      return "attendingtheshow"
+    else
+      return ""
     end
   end
   

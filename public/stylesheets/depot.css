@@ -560,7 +560,9 @@ code {
 	margin-left: -4px;
 	font-size: 70%;
 	float:left;
+	cursor:pointer;
 }
+
 
 .extrausercontrols
 {

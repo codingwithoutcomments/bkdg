@@ -1,0 +1,34 @@
+if @attending_show_already
+  
+  page.replace_html("attendincrement", "Gonna go?  Click To Attend.")
+  
+  page.replace_html("attending-id-" + @current_show.id.to_s, :partial => "number_attending", :object => @current_show.attending)
+  if(!@on_show_detail_page) 
+    page.visual_effect(:highlight, "show-summary-" + @current_show.id.to_s, :duration => 0.2, :startcolor => '#FFFF01', :endcolor => '#FFFFFF', :restorecolor => '#FFFFFF')
+  end
+  
+  page['clicktoattend'].removeClassName('attendingtheshow')
+  
+else
+  page.insert_html :before, 'header', "<div id='notice'>Attending " + @current_show.bands.at(0).band_name + " on " + @current_show.date.strftime('%A, %b %e %Y') + "</div>"
+  page.hide('notice')
+  page.visual_effect(:appear, 'notice', :duration => 1.0)
+  page.visual_effect(:fade, 'notice', :duration => 1, :delay => 3)
+  page.delay(5) do
+    page.remove('notice')
+  end
+  
+  
+  page.replace_html("attendincrement", "You Are Attending The Show.  Click To Back Out.")
+  
+  page.replace_html("attending-id-" + @current_show.id.to_s, :partial => "number_attending", :object => @current_show.attending)
+  
+  page['clicktoattend'].addClassName('attendingtheshow')
+  
+  if(!@on_show_detail_page)
+    page.visual_effect(:highlight, "show-summary-" + @current_show.id.to_s, :duration => 0.2, :startcolor => '#FFFFFF', :endcolor => '#FFFF01', :restorecolor => '#FFFF01')
+  end
+end
+
+
+

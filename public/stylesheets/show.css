@@ -30,6 +30,11 @@
 	padding-top:3px;
 }
 
+.attendingtheshow
+{
+	background-color:#F90887;
+}
+
 .band a:hover
 {
 	text-decoration:underline;

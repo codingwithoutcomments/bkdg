@@ -62,23 +62,16 @@
 		</div>
 
   		<div class = "attendcommentcontainer">
-			<div class="attend-recommend">
+			<div id='clicktoattend' class="attend-recommend <%= getAttendStyle() %>">
 					<% if @current_user %>
-						<%= link_to_remote attendingshow?, {
-					   		:url => { :action => "increment_attending", :id => @show.id, :user_id => @current_user.id, :show_detail_page => true }}, :class => "attendincrement", :title => "Click to Attend/Unattend" %>
+						<%= link_to_remote attendingTheShow?, {
+					   		:url => { :action => "increment_attending_on_show_page", :id => @show.id, :user_id => @current_user.id, :show_detail_page => true }}, :class => "attendincrement", :title => "Click to Attend/Unattend" %>
 					<% else %>
 					    <%= link_to_remote "Attend", {
 					   		:url => { :action => "need_to_be_logged_in", :id => @show.id }}, :class => "attenderror" %>
 					<% end %>
 			</div> 
 				
-			<div class = "attend-recommend"><% if @current_user %>
-						<%=link_to 'Comment', :action => "comment" %>
-					<% else %>
-					    <%= link_to_remote "Comment", {
-					   		:url => { :action => "need_to_be_logged_in", :id => @show.id }}, :class => "commenterror" %>
-					<% end %>
-			</div>
 		</div>
 			
 		<div class="extrausercontrols">

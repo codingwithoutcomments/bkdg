@@ -221,6 +221,41 @@ class ShowsController < ApplicationController
       redirect_to :action => 'index'
   end
   
+  def increment_attending_on_show_page
+    
+    @on_show_detail_page = params[:show_detail_page]
+    
+    #check first to see if already attending show
+    if already_attending?(params[:user_id], params[:id])
+      @show = Show.find(params[:id])
+      @current_show = @show
+      @show.attending = @show.attending - 1
+      @show.user_not_attending(get_current_user())
+      
+      @show.save
+      @attending_show_already = true
+    else
+      
+      @attending_show_already = false
+      
+      @show = Show.find(params[:id])
+      @show.attending = @show.attending + 1
+      @show.user_attending(get_current_user())
+      @show.save
+      @current_show = @show
+      
+    end
+    
+     respond_to do |format|
+        format.js
+     end
+    
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid show #{params[:id]}")
+      flash[:notice] = "Invalid Show"
+      redirect_to :action => 'index'
+  end
+  
   def venue_changed
     
      city = getCityOfUser()
