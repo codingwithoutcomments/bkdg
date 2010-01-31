@@ -33,6 +33,9 @@
 .attendingtheshow
 {
 	background-color:#F90887;
+	font-size:130%;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:bold;
 }
 
 .band a:hover
@@ -99,7 +102,6 @@
 	color:black;
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:140%;
-	font-weight:bold;
 	padding-left:6px;
 }
 

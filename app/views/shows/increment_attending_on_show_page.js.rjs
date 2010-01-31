@@ -1,6 +1,6 @@
 if @attending_show_already
   
-  page.replace_html("attendincrement", "Gonna go?  Click To Attend.")
+  page.replace_html("attendincrement", "Are you going?  Click To Attend.")
   
   page.replace_html("attending-id-" + @current_show.id.to_s, :partial => "number_attending", :object => @current_show.attending)
   if(!@on_show_detail_page) 
@@ -19,7 +19,7 @@ else
   end
   
   
-  page.replace_html("attendincrement", "You Are Attending The Show.  Click To Back Out.")
+  page.replace_html("attendincrement", "You Are Attending This Show.")
   
   page.replace_html("attending-id-" + @current_show.id.to_s, :partial => "number_attending", :object => @current_show.attending)
   

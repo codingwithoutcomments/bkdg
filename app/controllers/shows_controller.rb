@@ -13,7 +13,7 @@ class ShowsController < ApplicationController
       state = getStateOfUser()
       
       location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
-      @shows = location.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
+      @shows = location.shows.paginate :per_page => 20, :page => params[:page], :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC'
     
      set_current_user_if_logged_in()
     

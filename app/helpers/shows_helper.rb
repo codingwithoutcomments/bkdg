@@ -85,9 +85,9 @@ module ShowsHelper
   
   def attendingTheShow?
     if (@attendingshow)
-      return "You Are Attending The Show.  Click To Back Out."
+      return "You Are Attending This Show."
     else
-      return "Gonna go?  Click To Attend."
+      return "Are you going?  Click To Attend."
     end
   end
   

@@ -31,6 +31,8 @@ Rails::Initializer.run do |config|
   config.gem 'searchlogic', :version =>'2.4.2'
   config.gem "hpricot", :version => '0.8.2'
   config.gem 'gravtastic', :version => '2.2.0'
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
