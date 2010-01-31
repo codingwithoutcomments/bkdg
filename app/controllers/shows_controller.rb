@@ -2,7 +2,7 @@ require 'erb'
 require 'open-uri'
 require 'rubygems'
 require 'hpricot'
-
+require 'will_paginate'
 
 class ShowsController < ApplicationController
   
