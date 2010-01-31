@@ -62,7 +62,7 @@
 		</div>
 
   		<div class = "attendcommentcontainer">
-			<div id='clicktoattend' class="attend-recommend <%= getAttendStyle() %>">
+			<div id='clicktoattend' class="attend-recommend attendingtheshow">
 					<% if @current_user %>
 						<%= link_to_remote attendingTheShow?, {
 					   		:url => { :action => "increment_attending_on_show_page", :id => @show.id, :user_id => @current_user.id, :show_detail_page => true }}, :class => "attendincrement", :title => "Click to Attend/Unattend" %>
@@ -77,10 +77,7 @@
 		<div class="extrausercontrols">
 			<%= link_to 'Edit', edit_show_path(@show) %>
 		</div>
-		
-		
 
-		
 	</div>
 
 	<div id = "show-images">
@@ -107,14 +104,21 @@
 <div id="commentarea">
 	<div class = "comments">
 	<% @show.comments.each do |comment| %>
-		<div class = usercomment><%= comment.user.username %> -- <%= comment.user_comment %></div>
+		<div class='singleComment'>
+			<div class = 'usercomment'><%= comment.user_comment %></div>
+			<div class='commentInformation'>
+				<div><%= image_tag comment.user.gravatar_url(:size => 40) %></div>
+				<div><%= comment.user.username %></div>
+			</div>
+			<hr style='width:625px;'>
+		</div>
 	  <% end %>
 	<div class="usercomment"></div>
 	</div>
 	<br />
 	
 	<div id = "leaveacomment">
-		Leave A Comment:<br /><br />
+		You have something to say?<br /><br />
 		<% form_remote_tag :url => { :action => "LeaveComment", :id => @show.id } do %>
 			<%= text_area_tag :comment, nil, :rows => 5, :cols => 60, :class =>"resizable" %><br /><br />
 		<div class="wmd-preview"></div>

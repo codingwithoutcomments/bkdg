@@ -68,6 +68,31 @@
 	margin-top:6px;
 }
 
+.usercomment
+{
+	font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;
+	font-size:100%;
+	margin-top:20px;
+	width:100%;
+}
+
+.commentInformation
+{
+	width:100%;
+	text-align:right;
+}
+
+.singleComment
+{
+	width:600px;
+}
+
+.usercomment
+{
+	padding-left:10px;
+	padding-right:10px;
+}
+
 .price-time span
 {
 	background-color:#FFFF01; 

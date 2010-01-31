@@ -18,6 +18,8 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
   
+  is_gravtastic :name, :rating => 'R', :secure => true, :default => 'identicon'
+  
   has_and_belongs_to_many :shows
   has_many :comments
   

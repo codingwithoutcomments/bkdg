@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100104163632) do
+ActiveRecord::Schema.define(:version => 20100131051330) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20100104163632) do
     t.string   "username"
     t.boolean  "admin",           :default => false
     t.integer  "points",          :default => 0
+    t.string   "email"
   end
 
   create_table "venues", :force => true do |t|
