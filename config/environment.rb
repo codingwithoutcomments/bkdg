@@ -11,7 +11,7 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 #uncomment this line for deployment to heroku
-require "#{RAILS_ROOT}/vendor/gems/environment.rb"
+require "/vendor/gems/environment.rb"
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -30,7 +30,7 @@ Rails::Initializer.run do |config|
   #config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
   config.gem 'searchlogic', :version =>'2.4.2'
   config.gem "hpricot", :version => '0.8.2'
-  #config.gem 'gravtastic', :version => '2.2.0'
+  config.gem 'gravtastic', :version => '2.2.0'
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
