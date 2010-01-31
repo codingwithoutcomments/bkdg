@@ -30,7 +30,7 @@ Rails::Initializer.run do |config|
   #config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
   config.gem 'searchlogic', :version =>'2.4.2'
   config.gem "hpricot", :version => '0.8.2'
-  config.gem 'gravtastic', :version => '2.2.0'
+  #config.gem 'gravtastic', :version => '2.2.0'
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
