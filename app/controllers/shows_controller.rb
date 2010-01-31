@@ -60,7 +60,6 @@ class ShowsController < ApplicationController
     #create a new comment
     @comment = Comment.new
     user_comment = params[:comment]
-    #comment_to_insert = ERB::Util.html_escape(params[:comment]) 
     @comment.user_comment = user_comment
     
     #add the comment to the user

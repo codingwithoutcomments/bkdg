@@ -1,0 +1,8 @@
+<div class='singleComment'>
+	<div class = 'usercomment'><%= comment.user_comment %></div>
+	<div class='commentInformation'>
+		<div><%= image_tag comment.user.gravatar_url(:size => 40) %></div>
+		<div><%= comment.user.username %></div>
+	</div>
+	<hr style='width:625px;'>
+</div>

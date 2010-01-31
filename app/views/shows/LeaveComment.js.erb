@@ -2,6 +2,8 @@ var $j = jQuery.noConflict();
 
 $j(document).ready(function()
 {
-	$j('<%= escape_javascript(render(:partial => "single_comment", :object => @comment))%>').insertAfter('.singleComment:last');
+	$j('<%= escape_javascript(render(:partial => "single_comment", :locals => { :comment => @comment }))%>').insertAfter('.singleComment:last');
+	$j('.comment-counts').html('<%= escape_javascript(render(:partial => "comment_count", :locals => {:show => @show })) %>');
+	$j('textarea').attr("value", "");
 
 });
