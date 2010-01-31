@@ -1,1 +1,7 @@
-jQuery('<div class = "usercomment"><%= @comment.user.username %><%= @comment.user_comment.gsub(/'/, "&apos;") %></div>').insertAfter(".usercomment:last");
+var $j = jQuery.noConflict();
+
+$j(document).ready(function()
+{
+	$j('<%= escape_javascript(render(:partial => "single_comment", :object => @comment))%>').insertAfter('.singleComment:last');
+
+});

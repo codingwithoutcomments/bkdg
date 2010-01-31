@@ -82,7 +82,8 @@
 
 	<div id = "show-images">
 		<% randomPictures = generate_two_random_band_pictures(@show) %>
-		<img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(0)).largesquare %>"><br /><img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(1)).largesquare %>"><br />
+		<img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(0)).largesquare %>"><br />
+		<img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(1)).largesquare %>"><br />
 		<div><%= link_to 'View all ' + @show.bands.at(0).bandpictures.count.to_s + ' pictures', edit_show_path(@show) %></div>
 	</div>
 	
