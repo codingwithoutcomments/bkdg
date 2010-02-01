@@ -95,7 +95,38 @@
 .commentInformation
 {
 	width:625px;
-	
+}
+
+.commentCreated
+{
+	width:150px;
+	float:right;
+	font-family:Arial,Helvetica,sans-serif;
+	text-align:left;
+}
+
+.utility
+{
+	float:left;
+	width:625px;
+}
+
+.gravitar
+{
+	float:left;
+}
+
+.usernameLink
+{
+	float:left;
+	margin-left:10px;
+}
+
+.usernamePoints
+{
+	float:left;
+	margin-left:10px;
+	width:50px;
 }
 
 .commentUserInfo
