@@ -76,14 +76,39 @@
 	font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;
 	font-size:100%;
 	margin-top:20px;
-	width:100%;
+	width:500px;
 	margin-bottom:5px;
+}
+
+#somethingToSay
+{
+	background-color:#FFFF01;
+	color:black;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:140%;
+	font-weight:bold;
+	width:350px;
+	padding-left:15px;
+	margin-top:10px;
 }
 
 .commentInformation
 {
-	width:100%;
-	text-align:right;
+	width:625px;
+	
+}
+
+.commentUserInfo
+{
+	width:150px;
+	float:right;
+	background-color:#F2F2F2;
+}
+
+.commentUserInfo a
+{
+	font-size:90%;
+	font-family:Arial,Helvetica,sans-serif;
 }
 
 .singleComment
@@ -95,6 +120,7 @@
 {
 	padding-left:10px;
 	padding-right:10px;
+	float:left;
 }
 
 .price-time span
@@ -109,9 +135,16 @@
 .price-time a
 {
 	color:black;
+	text-decoration:underline;
+	
 }
 
 #price
+{
+	padding-left:0px;
+}
+
+#allages
 {
 	padding-right:5px;
 	padding-left:0px;
@@ -121,3 +154,5 @@
 	float:left;
 	width:86px;
 }
+
+

@@ -53,7 +53,13 @@
 				$<%= @show.price.to_i %>
 			<% else %>
 				<%= link_to 'Add Price', edit_show_path(@show) %>
-			<% end %> </span>
+			<% end %> | </span>
+			
+			<span id='allages'>
+			<% if(@show.allowed_in != nil) %>
+				<%= @show.allowed_in %>
+			<% end %>
+		 	</span>
 
 		  <% if(@show.description != nil) %>
 		  	<b>Description:</b>
@@ -75,9 +81,9 @@
 				
 		</div>
 			
-		<div class="extrausercontrols">
+		<!-- ><div class="extrausercontrols">
 			<%= link_to 'Edit', edit_show_path(@show) %>
-		</div>
+		</div> -->
 
 	</div>
 
@@ -108,16 +114,18 @@
 	<% @show.comments.each do |comment| %>
 		<%= render(:partial => "single_comment", :locals => { :comment => comment }) %>
 	  <% end %>
-	<div class="usercomment"></div>
+	<div class="singleComment"></div>
 	</div>
 	
+	<div style='clear:both;'>
+	
 	<div id = "leaveacomment">
-		You have something to say?<br /><br />
+		<div id='somethingToSay'>Do you have something to say?</div>
 		<% form_remote_tag :url => { :action => "LeaveComment", :id => @show.id } do %>
-			<%= text_area_tag :comment, nil, :rows => 5, :cols => 60, :class =>"resizable" %><br /><br />
-		<div class="wmd-preview"></div>
-		<br />
-		<input name="commit" type="submit" value="Add Comment" />
+			<%= text_area_tag :comment, nil, :rows => 5, :cols => 90, :class =>"resizable" %><br />
+			<div class="wmd-preview"></div>
+			<br />
+			<input name="commit" type="submit" value="Add Comment" />
 
 		<% end %>
 

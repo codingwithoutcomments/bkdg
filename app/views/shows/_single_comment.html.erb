@@ -1,8 +1,11 @@
 <div class='singleComment'>
 	<div class = 'usercomment'><span><%= comment.user_comment %></span></div>
 	<div class='commentInformation'>
-		<div><%= image_tag comment.user.gravatar_url(:size => 40) %></div>
-		<div><%= comment.user.username %></div>
+		<div class='commentUserInfo'>
+			<div style='float:left;'><%= image_tag comment.user.gravatar_url(:size => 40) %></div>
+			<div style='float:left;margin-left:10px;'><%= link_to comment.user.username, comment.user %></div>
+			<div style='float:left;margin-left:10px;width:50px;'><%=     comment.user.points.to_s     %></div>
+		</div>
 	</div>
-	<hr style='width:625px;'>
+	<hr style='width:625px;float:left;'>
 </div>
