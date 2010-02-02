@@ -74,8 +74,7 @@
 						<%= link_to_remote attendingTheShow?, {
 					   		:url => { :action => "increment_attending_on_show_page", :id => @show.id, :user_id => @current_user.id, :show_detail_page => true }}, :class => "attendincrement", :title => "Click to Attend/Unattend" %>
 					<% else %>
-					    <%= link_to_remote "Attend", {
-					   		:url => { :action => "need_to_be_logged_in", :id => @show.id }}, :class => "attenderror" %>
+						<a class = "attenderror"> <%=  attendingTheShow? %> </a>
 					<% end %>
 			</div> 
 				
