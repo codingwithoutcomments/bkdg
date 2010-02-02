@@ -73,6 +73,12 @@ module ShowsHelper
       result = 'about 1 hour ago'
     elsif val < 60  * 60 * (24 / 1.02) then
       result = "about #{(val / 60 / 60 * 1.02).to_i} hours ago"
+    elsif val < 60  * 60 * (48 / 1.02) then
+        result = "about 1 day ago"
+    elsif val < 60  * 60 * (72 / 1.02) then
+            result = "about 2 days ago"
+    elsif val < 60  * 60 * (96 / 1.02) then
+            result = "about 3 days ago"
     else
       result = old_time.strftime("%b %d, %Y %H:%M")
 

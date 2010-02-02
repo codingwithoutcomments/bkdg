@@ -738,6 +738,11 @@ code {
     margin-bottom:7px;
 }
 
+.error-notification a{
+	color:white;
+	text-decoration:underline;
+}
+
 .wmd-preview {
   background-color:#eeeeee;
   width: 600px;

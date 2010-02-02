@@ -117,16 +117,23 @@
 	</div>
 	
 	<div style='clear:both;'>
+		
+		<div id = "leaveacomment">
+			<div id='somethingToSay'>Do you have something to say?</div>
+			<% form_remote_tag :url => { :action => "LeaveComment", :id => @show.id } do %>
+				<%= text_area_tag :comment, nil, :rows => 5, :cols => 90, :class =>"resizable" %><br />
+				<div class="wmd-preview"></div><br>
+				
+				<% if @current_user %>
+					<input name="commit" type="submit" value="Add Comment" class='post_a_comment'/><br />
+				<% else %>
+					<a value="Add Comment" class='post_a_comment commenterror'/>Add Comment</a><br />
+				<% end %>
+			
 	
-	<div id = "leaveacomment">
-		<div id='somethingToSay'>Do you have something to say?</div>
-		<% form_remote_tag :url => { :action => "LeaveComment", :id => @show.id } do %>
-			<%= text_area_tag :comment, nil, :rows => 5, :cols => 90, :class =>"resizable" %><br />
-			<div class="wmd-preview"></div>
-			<br />
-			<input name="commit" type="submit" value="Add Comment" />
+				
+			<% end %>	
 
-		<% end %>
 
 		<br /><br />
 	</div>

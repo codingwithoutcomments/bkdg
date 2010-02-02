@@ -31,7 +31,8 @@ jQuery(document).ready(function() {
 	    jQuery('.error-notification').remove();
 	    var err = jQuery('<div>').addClass('error-notification')
 	                         .html('<h2>Please <a href = "/login">login</a> or <a href = "/users/new">signup</a> <br> to comment on shows</h2>(click on this box to close)')
-	                         .css('left', jQuery(this).position().left);
+	                         .css('left', jQuery(this).position().left +30)
+							 .css('top', jQuery(this).position().top - 110);
 	    jQuery(this).after(err);
 	    jQuery(err).fadeIn('slow');
 	});
