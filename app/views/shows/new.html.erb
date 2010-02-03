@@ -52,9 +52,11 @@
  	<p>
 	<div id='PriceContainer'>
 	<%= f.label :price, "Price", :class=>"PriceLabel"%><br />
+	<%= f.select :price_option, Show::PRICE_OPTIONS, :prompt => "Choose A Pricing Option" %>
+	<div class='Caption'>How Much?</div>
 	    <div class='DoorTicketPrice'>
-			<span class='moneySign'>$</span><%= f.text_field :price, :size => 3 %> at the door
-			<div class='Caption'>How Much?</div>
+			<div><span class='moneySign'>$</span><%= f.text_field :price, :size => 3 %> at the door </div>
+			<div class='CaptionSmall'>Specify a Door Price OR an Advanced Price OR Both</div>
 		</div>
 		<div class='AdvanceTicketPrice'><span class='moneySign'>$</span><%= f.text_field :advanceprice, :size => 3 %> in advance</div>
 	</div>

@@ -25,8 +25,8 @@ class Show < ActiveRecord::Base
   has_many :comments
   
   SHOW_TIMES = [['11:30 PM', '11:30 PM'], ['11:00 PM', '11:00 PM'], ['10:30 PM', '10:30 PM'], ['10:00 PM', '10:00 PM'], ['10:00 PM', '10:00 PM'], ['09:30 PM', '9:30 PM'], ['09:00 PM', '9:00 PM'], ['08:30 PM', '8:30 PM'], ['08:00 PM', '8:00 PM'], ['07:30 PM', '7:30 PM'], ['07:00 PM', '7:00 PM'], ['06:30 PM', '6:30 PM'], ['06:00 PM', '6:00 PM'], ['05:30 PM', '5:30 PM'], ['05:00 PM', '5:00 PM'] , ['04:30 PM', '4:30 PM'], ['04:00 PM', '4:00 PM'], ['03:30 PM', '3:30 PM'], ['03:00 PM', '3:00 PM'], ['02:30 PM', '2:30 PM'], ['02:00 PM', '2:00 PM'], ['01:30 PM', '1:30 PM'], ['01:00 PM', '1:00 PM'], ['12:30 PM', '12:30 PM'], ['12:00 PM', '12:00 PM'], ['11:30 AM', '11:30 AM'], ['11:00 AM', '11:00 AM'], ['10:30 AM', '10:30 AM'], ['10:00 AM', '10:00 AM'], ['9:30 AM', '9:30 AM'], ['10:00 AM', '10:00 AM'], ['09:30 AM', '9:30 AM'], ['09:00 AM', '9:00 AM'], ['08:30 AM', '8:30 AM'], ['08:00 AM', '8:00 AM'], ['07:30 AM', '7:30 AM'], ['07:00 AM', '7:00 AM'], ['06:30 AM', '6:30 AM'], ['06:00 AM', '6:00 AM'], ['05:30 AM', '5:30 AM'], ['05:00 AM', '5:00 AM'] , ['04:30 AM', '4:30 AM'], ['04:00 AM', '4:00 AM'], ['03:30 AM', '3:30 AM'], ['03:00 AM', '3:00 AM'], ['02:30 AM', '2:30 AM'], ['02:00 AM', '2:00 AM'], ['01:30 AM', '1:30 AM'], ['01:00 AM', '1:00 AM'], ['12:30 AM', '12:30 AM'], ['12:00 AM', '12:00 AM']]
-  validate :price_greater_than_zero_or_free
-  validate :advance_price_greater_than_zero_or_free
+  PRICE_OPTIONS = [['This Show Costs Money ($$)', 'MONEY'],  ['This Show Accepts Donations', 'DONATION'], ['This Show Is Free', 'FREE'], ['I Don\'t Know', 'UNKNOWN']]
+  validate :price_option_chosen  
   validate :has_at_least_one_band_playing
   
   def add_comment_to_show(comment_to_add)
@@ -63,6 +63,25 @@ class Show < ActiveRecord::Base
   end
   
   protected
+  
+  def price_option_chosen
+        
+    #check to see that a pricing option was selected
+    if(price_option == "")
+      errors.add_to_base("Please Select A Pricing Option")
+    else
+      if(price_option == "MONEY")
+        #check to see at least a door price OR an advanced price was chosen
+        if price.nil? && advanceprice.nil? then
+          errors.add_to_base("Please choose an Advanced Price OR a Door Price OR Both")
+        else
+          #advance price and door price greater than zero or free
+          advance_price_greater_than_zero_or_free
+          price_greater_than_zero_or_free
+        end
+      end
+    end
+  end
   
   def has_at_least_one_band_playing
     if(bands.size == 0)

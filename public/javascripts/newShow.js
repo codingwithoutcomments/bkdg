@@ -15,6 +15,9 @@ $j(document).ready(function()
 	//start with the first and second band shown on the screen
 	DisplayInitialBands();
 	
+	//Display Initial Price if the money option is selected
+	DisplayInitialPrice();
+	
 	//display advanced price if it exists
 	DisplayAdvancedPriceIfExists();
 	
@@ -38,6 +41,8 @@ $j(document).ready(function()
 	
 	$j("#VenueContainer input").focus(function() { highlightVenue(); });
 	
+	$j("#PriceContainer").click(function() { highlightPrice();  });
+	
 	$j(".DoorTicketPrice input").focus(function() { highlightPrice(); });
 	$j(".AdvanceTicketPrice input").focus(function() { highlightPrice(); });
 	
@@ -57,8 +62,37 @@ $j(document).ready(function()
 	$j("#CreateANewVenue").click(function(){  
 		window.location = "/venues/new";
 	});
+	
+	$j("#show_price_option").change(function(){ price_option_changed(); });
 
 });
+
+function DisplayInitialPrice()
+{
+	var selectedText = $j("#show_price_option :selected").text();
+	if(selectedText == "This Show Costs Money ($$)")
+	{
+		$j(".DoorTicketPrice").show();
+		$j(".AdvanceTicketPrice").show();
+	
+	}
+	
+}
+
+function price_option_changed()
+{
+	var selectedText = $j("#show_price_option :selected").text();
+	if(selectedText == "This Show Costs Money ($$)")
+	{
+		$j(".DoorTicketPrice").fadeIn();
+		$j(".AdvanceTicketPrice").fadeIn();
+	
+	}else{
+		
+		$j(".DoorTicketPrice").fadeOut();
+		$j(".AdvanceTicketPrice").fadeOut();
+	}
+}
 
 function DisplayAdvancedPriceIfExists()
 {

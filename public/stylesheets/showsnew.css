@@ -60,6 +60,14 @@
 	font-size:150%;
 }
 
+.CaptionSmall
+{
+	float:right;
+	margin-right:10px;
+	color:white;
+	font-size:100%;
+}
+
 .CaptionDoors
 {
 	float:right;
@@ -108,6 +116,17 @@
 	padding-bottom:6px;
 	background-color:#FFFF01;
 	color:black;
+	display:none;
+}
+
+.DoorTicketPrice
+{
+	margin-top:10px;
+	display:none;
+}
+
+.AdvanceTicketPrice
+{
 	display:none;
 }
 
