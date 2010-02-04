@@ -43,7 +43,7 @@ class ShowsController < ApplicationController
     
     #check to see if the band has any pictures available for display
     #if not then retrieve the links from last.fm
-    if(!@headliner.has_pictures?)  
+    if(!@headliner.has_pictures?)
       retrieve_pictures(@headliner) 
     end
     
@@ -360,20 +360,22 @@ private
   end
   
   def retrieve_pictures(headliner)
-    headliner_sans_spaces = headliner.band_name.gsub(' ', '+')
+    headliner_sans_spaces = headliner.get_XML_ready_string()
     last_fm_get_picture_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getimages&artist=" + headliner_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
-    doc = Hpricot.XML(open(last_fm_get_picture_string))
-      (doc/:sizes).each do |sizes|
-        picture = Bandpicture.new
-        picture.original = sizes.at("size[@name='original']").inner_html
-        picture.large = sizes.at("size[@name='large']").inner_html
-        picture.largesquare = sizes.at("size[@name='largesquare']").inner_html
-        picture.medium = sizes.at("size[@name='medium']").inner_html
-        picture.small = sizes.at("size[@name='small']").inner_html
-        picture.save
-        headliner.add_picture_to_band(picture)
-      end
+    xml_retrieved = open(last_fm_get_picture_string)
+    doc = Hpricot.XML(xml_retrieved)
+        (doc/:sizes).each do |sizes|
+          picture = Bandpicture.new
+          picture.original = sizes.at("size[@name='original']").inner_html
+          picture.large = sizes.at("size[@name='large']").inner_html
+          picture.largesquare = sizes.at("size[@name='largesquare']").inner_html
+          picture.medium = sizes.at("size[@name='medium']").inner_html
+          picture.small = sizes.at("size[@name='small']").inner_html
+          picture.save
+          headliner.add_picture_to_band(picture)
+        end
   end
+  
   
   def set_current_user_if_logged_in
     if(session[:user_id])

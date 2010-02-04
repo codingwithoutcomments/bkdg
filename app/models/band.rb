@@ -20,12 +20,29 @@ class Band < ActiveRecord::Base
   end
   
   def has_pictures?
-     RAILS_DEFAULT_LOGGER.error(bandpictures.count.to_s)
+    debugger()
     if (bandpictures.count == 0)
       return false
     else 
       return true
     end
+  end
+  
+  def get_XML_ready_string()
+    band = band_name
+    band = band.gsub('+', '%2B')
+    band = band.gsub(' ', '+')
+    band = band.gsub('&', '%26')
+    band = band.gsub('$', '%24')
+    band = band.gsub(',', '%2C')
+    band = band.gsub('/', '%2F')
+    band = band.gsub(':', '%3A')
+    band = band.gsub(';', '%3B')
+    band = band.gsub('=', '%3D')
+    band = band.gsub('?', '%3F')
+    band = band.gsub('@', '%40')
+    
+    return band
   end
   
 end
