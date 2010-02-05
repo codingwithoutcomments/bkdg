@@ -20,7 +20,6 @@ class Band < ActiveRecord::Base
   end
   
   def has_pictures?
-    debugger()
     if (bandpictures.count == 0)
       return false
     else 

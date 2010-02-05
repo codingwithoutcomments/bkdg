@@ -39,14 +39,13 @@ class ShowsController < ApplicationController
     @show = Show.find(params[:id])
     @comments = @show.comments
     @bands = @show.bands
-    @headliner = Band.find(@bands.at(0).id)
+    @headliner = @bands.at(0)
     
     #check to see if the band has any pictures available for display
     #if not then retrieve the links from last.fm
     if(!@headliner.has_pictures?)
       retrieve_pictures(@headliner) 
     end
-    
     set_current_user_if_logged_in()
     
     rescue ActiveRecord::RecordNotFound
