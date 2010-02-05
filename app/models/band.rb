@@ -8,7 +8,10 @@
 #
 
 class Band < ActiveRecord::Base
-  has_and_belongs_to_many :shows
+  
+  has_many :bands_shows
+  has_many :shows, :through => :played_games
+  
   has_many :bandpictures
   
   def add_picture_to_band(picture)
