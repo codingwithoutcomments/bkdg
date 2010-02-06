@@ -132,14 +132,14 @@ module ShowsHelper
   end
   
   def populate_headliner(show)
-    return show.bands.at(0).band_name
+    return capitalize_first_letter_of_each_word(show.bands.at(0).band_name)
   end
   
   def populate_openers(show)
     if(show.bands.count > 1)
       openers = ""
-      1.upto(show.bands.count - 2) { |i| openers += show.bands.at(i).band_name + ", " }
-      openers += show.bands.at(show.bands.count - 1).band_name
+      1.upto(show.bands.count - 2) { |i| openers += capitalize_first_letter_of_each_word(show.bands.at(i).band_name) + ", " }
+      openers += capitalize_first_letter_of_each_word(show.bands.at(show.bands.count - 1).band_name)
       return openers
     end
   end

@@ -40,13 +40,15 @@ class ShowsController < ApplicationController
     @comments = @show.comments
     @bands = @show.bands
     @headliner = @bands.at(0)
-    
     #check to see if the band has any pictures available for display
     #if not then retrieve the links from last.fm
     if(!@headliner.has_pictures?)
       retrieve_pictures(@headliner) 
     end
+    
     set_current_user_if_logged_in()
+    
+    debugger()
     
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access invalid show #{params[:id]}")

@@ -75,7 +75,7 @@
 		
 				<div>
 				<div class="venue">
-					<div class="venue-name"><%=h show.venue.name %></div>
+					<div class="venue-name"><%=h capitalize_first_letter_of_each_word(show.venue.name) %></div>
 				    <div class="date-time-price">
 						<%=h show.date.strftime("%b %e") %> | <%= show.time %> | $<%=h show.price.to_i %>
 					</div>
