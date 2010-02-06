@@ -1,0 +1,15 @@
+<% if(show.price_option == 'UNKNOWN') %>
+	<%= link_to 'Add Price', edit_show_path(@show) %>
+<% else %>
+
+	<% if (show.price_option == 'FREE') then %>
+		FREE
+	<% elsif (show.price_option == 'DONATION') %>
+		By Donation
+	<% else %>
+		<% if show.price != nil then %> $<%= show.price.to_i %> DOS <% end %>
+		<% if show.price != nil && show.advanceprice != nil then %> | <% end %>
+		<% if show.advanceprice != nil then %> $<%= show.advanceprice.to_i %> ADV <% end %>
+	<% end %>
+	
+<% end %>
