@@ -21,6 +21,9 @@ $j(document).ready(function()
 	//display advanced price if it exists
 	DisplayAdvancedPriceIfExists();
 	
+	//on error, highlight the error-ed part of the form
+	DisplayErroredSectionOfForm();
+	
 	$j(".AddABand").click( function() {  AddABand(); } );
 	
 	$j(".SpecifyAdvance").click(function() {
@@ -66,6 +69,16 @@ $j(document).ready(function()
 	$j("#show_price_option").change(function(){ price_option_changed(); });
 
 });
+
+function DisplayErroredSectionOfForm()
+{
+	areaToHighlight = $j("#highlight").attr("value");
+	if(areaToHighlight == "venue") highlightVenue();
+	if(areaToHighlight == "bands") hightlightBands();
+	if(areaToHighlight == "time") highlightShowTime();;
+    if(areaToHighlight == "price") highlightPrice();
+		
+}
 
 function DisplayInitialPrice()
 {

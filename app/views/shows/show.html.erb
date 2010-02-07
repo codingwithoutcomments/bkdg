@@ -41,7 +41,7 @@
 		<div class = "price-time">
 			
 			<span id='time'>
-			<% if(@show.time != '') %>
+			<% if(@show.time != 'UNKNOWN') %>
 				<%= @show.time %>
 			<% else %>
 				<%= link_to 'Add Show Time', edit_show_path(@show) %>

@@ -48,8 +48,6 @@ class ShowsController < ApplicationController
     
     set_current_user_if_logged_in()
     
-    debugger()
-    
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access invalid show #{params[:id]}")
       flash[:notice] = "Invalid Show"
@@ -118,7 +116,10 @@ class ShowsController < ApplicationController
       end
     end
     
-    if(@venueName == "")  then @show.errors.add_to_base("How will there be a show without a venue?") end
+    if(@venueName == "")  then 
+      @show.errors.add_to_base("How will there be a show without a venue?") 
+      @highlight = "venue"
+    end
     
     #check to see if venue exists in database
     @venue = Venue.find(:first, :conditions=> ["name = ?", @venueName.upcase] )
@@ -148,6 +149,7 @@ class ShowsController < ApplicationController
         format.html { redirect_to(@show) }
         format.xml  { render :xml => @show, :status => :created, :location => @show }
       else
+        @highlight = @show.ErroredSectionOfForm
         format.html { render :action => "new" }
         format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
       end
@@ -304,10 +306,12 @@ private
       errorString    += "Did you mean '<span id='possibleVenue'>"+@MatchName+"</span>'?  <a id='yes'>Yes</a><br/>";
    		errorString    += "Or would you like to <a id='CreateANewVenue'>Create A New Venue?</a>";
        @show.errors.add_to_base(errorString)
+       @highlight = "venue"
      else
        errorString    += "Maybe you typed wrong. Or maybe you know something we don't.<br/>";
    		 errorString    += "Help us out? <a id='CreateANewVenue'>Create A New Venue?</a><";
        @show.errors.add_to_base(errorString)
+       @highlight = "venue"
      end
   end
 
