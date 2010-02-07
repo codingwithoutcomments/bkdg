@@ -33,8 +33,8 @@
 		 <div class="show-address">
 			  <div id='showVenueName'><%= link_to capitalize_first_letter_of_each_word(@show.venue.name), :controller => "venues", :action => "show", :id =>@show.venue.id %></div>
 			  <div><%=h @show.venue.address %></div>
-			  <div><%=h @show.location.city %>, <%=h @show.location.state %></div>
-			  <span class="mapit"><a href = <%= map_it(@show) %>>Show On Map</a></span>
+			  <div style='margin-bottom:5px;'><%=h @show.location.city %>, <%=h @show.location.state %></div>
+			  <span id="mapit"><a href = <%= map_it(@show) %> target="_blank">Show On Map</a></span>
 		  </div>
 	
 

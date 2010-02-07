@@ -19,7 +19,6 @@
 
 class Show < ActiveRecord::Base
   has_and_belongs_to_many :users
-  
   has_many :bands_shows
   has_many :bands, :through => :bands_shows, :order => "bands_shows.id ASC"
   

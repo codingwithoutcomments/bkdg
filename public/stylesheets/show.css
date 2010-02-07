@@ -111,6 +111,13 @@
 	width:625px;
 }
 
+#mapit
+{
+	font-size: 70%;
+	background:url(/images/mappin.png)  center right no-repeat;
+	padding-right:20px;
+}
+
 .gravitar
 {
 	float:left;
