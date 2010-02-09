@@ -38,6 +38,44 @@
 	font-weight:bold;
 }
 
+.attendcommentcontainer
+{
+	width:100%;
+	float:left;
+}
+
+.controlContainer
+{
+	margin-top:30px;
+	width:450px;
+	float:left;
+}
+
+.EditFlagContainer
+{
+	color:black;
+	font-size:80%;
+	width:70px;
+	margin-top:20px;
+}
+
+.EditFlagContainer a
+{
+	background-color:#60A49F;
+	color:white;
+	padding:3px;
+}
+
+.PostedContainer
+{
+	float:right;
+}
+
+.postedTime
+{
+	font-size:70%;
+}
+
 .band a:hover
 {
 	text-decoration:underline;
@@ -59,6 +97,14 @@
 	margin-top: 7px;
 	background-color: #F2F2F2;
 	padding: 7px 7px 7px 7px;
+	width:440px;
+}
+
+#showinformation
+{
+	float: left;
+	margin-right:10px;
+	width:450px;
 }
 
 .show-address a

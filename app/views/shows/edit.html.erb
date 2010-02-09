@@ -1,34 +1,53 @@
+<script type="text/javascript" src="/javascripts/newShow.js"></script>
+<%= stylesheet_link_tag 'showsnew' %>
 <div id="mainbar-full">
+	
+<%
+		#populate the text on the band input boxes if they exist
+		band1txt, band2txt, band3txt, band4txt, band5txt, band6txt, band7txt, band8txt, band9txt, band10txt = ""
+		if(!@band_array.nil?) then
+			band1txt = capitalize_first_letter_of_each_word(@band_array.at(0).band_name) if @band_array.at(0) != nil
+			band2txt = capitalize_first_letter_of_each_word(@band_array.at(1).band_name) if @band_array.at(1) != nil
+			band3txt = capitalize_first_letter_of_each_word(@band_array.at(2).band_name) if @band_array.at(2) != nil
+			band4txt = capitalize_first_letter_of_each_word(@band_array.at(3).band_name) if @band_array.at(3) != nil
+			band5txt = capitalize_first_letter_of_each_word(@band_array.at(4).band_name) if @band_array.at(4) != nil
+			band6txt = capitalize_first_letter_of_each_word(@band_array.at(5).band_name) if @band_array.at(5) != nil
+			band7txt = capitalize_first_letter_of_each_word(@band_array.at(6).band_name) if @band_array.at(6) != nil
+			band8txt = capitalize_first_letter_of_each_word(@band_array.at(7).band_name) if @band_array.at(7) != nil
+			band9txt = capitalize_first_letter_of_each_word(@band_array.at(8).band_name) if @band_array.at(8) != nil
+			band10txt = capitalize_first_letter_of_each_word(@band_array.at(9).band_name) if @band_array.at(9) != nil
+			
+		end
 
-<h1>Editing show</h1>
+		#populate the venue text if it exists
+		nameOfVenue = ""
+		if(!@venueName.nil?) then
+			nameOfVenue = @venueName
+		end	
+%>
+
+<div style='display:hidden;' id='highlight' value=<%= @highlight %> >
+
+<div id='subheader'>
+	<h2>Editing <%=h band1txt %> show in <%=h @userCity %>, <%=h @userState %> </h3>
+</div><br/>
 
 <% form_for(@show) do |f| %>
-  <%= f.error_messages %>
 
-  <p>
-    <%= f.label :headliner %><br />
-    <%= f.text_field :headliner %>
-  </p>
-  <p>
-    <%= f.label :openers %><br />
-    <%= f.text_field :openers %>
-  </p>
-  <p>
-    <%= f.label :venue %><br />
-    <%= f.text_field :venue %>
-  </p>
-  <p>
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-   <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </p>
+  <div id='BandsContainer'>
+  	<div id='BandHeader'>Bands</div>
+ 	 <div class='Bands'><%= text_field_tag :band1,  band1txt %><span class='AddABand'><a>Add Another Band</a></span><div class='Caption'>Who's Playing?</div></div>
+	  <div class='Bands'><%= text_field_tag :band2, band2txt %></div>
+	  <div class='Bands'><%= text_field_tag :band3, band3txt %></div>
+	  <div class='Bands'><%= text_field_tag :band4, band4txt %></div>
+	  <div class='Bands'><%= text_field_tag :band5, band5txt %></div>
+	  <div class='Bands'><%= text_field_tag :band6, band6txt %></div>
+	  <div class='Bands'><%= text_field_tag :band7, band7txt %></div>
+	  <div class='Bands'><%= text_field_tag :band8, band8txt %></div>
+	  <div class='Bands'><%= text_field_tag :band9, band9txt %></div>
+	  <div class='Bands'><%= text_field_tag :band10, band10txt %></div>
+  </div>
+  
   <p>
 	Time<br />
     <%= f.select :time, Show::SHOW_TIMES, :prompt => "Select Show Time"%>

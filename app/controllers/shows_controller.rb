@@ -40,6 +40,7 @@ class ShowsController < ApplicationController
     @comments = @show.comments
     @bands = @show.bands
     @headliner = @bands.at(0)
+    @posted_by = User.find(@show.posted_by)
     #check to see if the band has any pictures available for display
     #if not then retrieve the links from last.fm
     if(!@headliner.has_pictures?)
@@ -93,6 +94,9 @@ class ShowsController < ApplicationController
   # GET /shows/1/edit
   def edit
     @show = Show.find(params[:id])
+    @band_array = @show.bands
+    @userCity = getCityOfUser()
+    @userState = getStateOfUser()
   end
   
   # POST /shows
@@ -129,6 +133,12 @@ class ShowsController < ApplicationController
     if(@venue == nil && @show.errors.size == 0) then 
        check_for_partial_match()
      end
+     
+     #added posted_by user_id to show
+     @user = get_current_user
+     if(@user != nil) then
+       @show.posted_by = @user.id
+      end
      
     respond_to do |format|
       
