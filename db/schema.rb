@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100207192713) do
+ActiveRecord::Schema.define(:version => 20100210154519) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(:version => 20100207192713) do
     t.datetime "updated_at"
   end
 
+  add_index "bands_shows", ["band_id", "show_id"], :name => "index_bands_shows_on_show_id_and_band_id", :unique => true
   add_index "bands_shows", ["band_id"], :name => "index_bands_shows_on_band_id"
-  add_index "bands_shows", ["show_id", "band_id"], :name => "index_bands_shows_on_show_id_and_band_id", :unique => true
 
   create_table "comments", :force => true do |t|
     t.text     "user_comment"
@@ -66,14 +66,15 @@ ActiveRecord::Schema.define(:version => 20100207192713) do
     t.datetime "updated_at"
     t.decimal  "price"
     t.time     "showtime"
-    t.integer  "attending",                                  :default => 0
+    t.integer  "attending",    :default => 0
     t.string   "time"
     t.integer  "location_id"
     t.integer  "venue_id"
-    t.decimal  "advanceprice", :precision => 8, :scale => 2
+    t.decimal  "advanceprice"
     t.string   "allowed_in"
     t.string   "price_option"
     t.integer  "posted_by"
+    t.integer  "edited_by"
   end
 
   create_table "shows_users", :id => false, :force => true do |t|

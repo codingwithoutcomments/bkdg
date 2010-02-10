@@ -109,7 +109,7 @@ class Show < ActiveRecord::Base
   def advance_price_greater_than_zero_or_free
     if !advanceprice.nil?
         if(is_numeric?(advanceprice) == false) then
-          errors.add_to_base("The advanced price you have entered is not valid.") 
+          errors.add_to_base("The Advanced Price you have entered is not valid.") 
           @highlight = "price" if @highlight == nil
         end
     end
@@ -118,7 +118,7 @@ class Show < ActiveRecord::Base
     def price_greater_than_zero_or_free
       if !price.nil?
           if(is_numeric?(price) == false) then
-            errors.add_to_base("The Price Is Not Valid") 
+            errors.add_to_base("The Door Price Is Not Valid") 
              @highlight = "price" if @highlight == nil
           end
       end      
@@ -135,7 +135,7 @@ class Show < ActiveRecord::Base
      
       isMatch = false
       #first check to make sure > 0.01
-      s.to_s.match(/^\d+\.\d$/) == nil ? isMatch = false : isMatch = true;
+      s.to_s.match(/^\d+\.\d\d?$/) == nil ? isMatch = false : isMatch = true;
       
       #then see if costs nothing
       if(s.to_s == "0.0") then isMatch = true; end

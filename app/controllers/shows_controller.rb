@@ -175,7 +175,8 @@ class ShowsController < ApplicationController
     @band_array = @show.bands
     @userCity = getCityOfUser()
     @userState = getStateOfUser()
-    @venueName = @show.venue.name
+    @venueName = params[:name_of_venue]
+    @location = Location.find(:first, :conditions => ["city = ? and state = ?", @userCity, @userState])
     
      #add all the band names to the show
       @form_band_list_array = [:band1, :band2, :band3, :band4, :band5, :band6, :band7, :band8, :band9, :band10]
@@ -198,7 +199,31 @@ class ShowsController < ApplicationController
          @show.errors.add_to_base("How can there be a show without any bands?") 
          @highlight = "bands"
       end
+      
+      #check to see if venue name, if no error
+      #if yes see if venue exists, if venue doesn't exist check for partial
+      if(@venueName == "")  then
+        debugger()
+        @show.errors.add_to_base("How will there be a show without a venue?") 
+        @highlight = "venue"
+      else
 
+        #check to see if venue exists in database
+        @venue = Venue.find(:first, :conditions=> ["name = ?", @venueName.upcase] )
+
+        #if it doesn't check to see if there is a partial match
+        #and display variou options
+        if(@venue == nil && @show.errors.size == 0) then 
+           check_for_partial_match()
+         end
+      end
+
+       #added posted_by user_id to show
+       @user = get_current_user
+       if(@user != nil) then
+         @show.edited_by = @user.id
+        end
+    
     respond_to do |format|
       
        if @show.errors.size > 0
@@ -210,6 +235,7 @@ class ShowsController < ApplicationController
         format.html { redirect_to(@show) }
         format.xml  { head :ok }
       else
+        @highlight = @show.ErroredSectionOfForm
         format.html { render :action => "edit" }
         format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
       end
@@ -312,23 +338,26 @@ class ShowsController < ApplicationController
      
      @venueName = params[:venueName]
      
-     @location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
-     @venue = Venue.find(:first, :conditions => ["name = ? and location_id = ?", @venueName.upcase, @location.id] )
+     if(@venueName != "")
+     
+       @location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
+       @venue = Venue.find(:first, :conditions => ["name = ? and location_id = ?", @venueName.upcase, @location.id] )
 
-     if(@venue == nil) then 
+       if(@venue == nil) then 
        
-       @venueFound = "false"
+         @venueFound = "false"
        
-       venueNameModified = formatVenueNameForSearch(@venueName)
-       @PartialMatch = Venue.name_like(venueNameModified);
-       if(@PartialMatch.length > 0) then 
-         @isPartialMatch = "true" 
-         @MatchName = capitalize_first_letter_of_each_word(@PartialMatch.at(0).name)
+         venueNameModified = formatVenueNameForSearch(@venueName)
+         @PartialMatch = Venue.name_like(venueNameModified);
+         if(@PartialMatch.length > 0) then 
+           @isPartialMatch = "true" 
+           @MatchName = capitalize_first_letter_of_each_word(@PartialMatch.at(0).name)
+         end
+       
+        else 
+           @venueFound = "true" 
        end
-       
-      else 
-         @venueFound = "true" 
-     end
+      end
 
      respond_to do |format|
        format.js

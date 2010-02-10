@@ -67,10 +67,10 @@
 	<%= f.select :price_option, Show::PRICE_OPTIONS, :prompt => "Choose A Pricing Option" %>
 	<div class='Caption'>How Much?</div>
 	    <div class='DoorTicketPrice'>
-			<div><span class='moneySign'>$</span><%= f.text_field :price, :size => 3 %> at the door </div>
+			<div><span class='moneySign'>$</span><%= f.text_field :price, :size => 3, :value => sprintf("%.2f", @show.price) %> at the door </div>
 			<div class='CaptionSmall'>Specify a Door Price OR an Advanced Price OR Both</div>
 		</div>
-		<div class='AdvanceTicketPrice'><span class='moneySign'>$</span><%= f.text_field :advanceprice, :size => 3 %> in advance</div>
+		<div class='AdvanceTicketPrice'><span class='moneySign'>$</span><%= f.text_field :advanceprice, :size => 3, :value =>sprintf("%.2f", @show.advanceprice) %> in advance</div>
 	</div>
 	</p><br/>
 
