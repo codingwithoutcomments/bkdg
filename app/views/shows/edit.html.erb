@@ -22,17 +22,21 @@
 		#populate the venue text if it exists
 		nameOfVenue = ""
 		if(!@venueName.nil?) then
-			nameOfVenue = @venueName
+			nameOfVenue = capitalize_first_letter_of_each_word(@venueName)
 		end	
 %>
 
 <div style='display:hidden;' id='highlight' value=<%= @highlight %> >
 
 <div id='subheader'>
-	<h2>Editing <%=h band1txt %> show in <%=h @userCity %>, <%=h @userState %> </h3>
+	<h3>Editing <%=h band1txt %> show on <%=h @show.date.strftime("%b %e") %> in <%=h @userCity %>, <%=h @userState %> </h3>
 </div><br/>
 
 <% form_for(@show) do |f| %>
+
+	<% if @show.errors.size > 0 then %>
+			<%= render(:partial => "display_errors", :object => @show)%>
+   <% end %>
 
   <div id='BandsContainer'>
   	<div id='BandHeader'>Bands</div>
@@ -47,17 +51,58 @@
 	  <div class='Bands'><%= text_field_tag :band9, band9txt %></div>
 	  <div class='Bands'><%= text_field_tag :band10, band10txt %></div>
   </div>
-  
-  <p>
-	Time<br />
-    <%= f.select :time, Show::SHOW_TIMES, :prompt => "Select Show Time"%>
-  <p>
-	<br/>
-    <%= f.submit "Update" %>
+
+  <p><br/>
+	<div id = 'VenueContainer'>
+   		Venue <br />
+    	<%= text_field_tag :name_of_venue, nameOfVenue %>
+		<div class='CaptionVenue'>Where at?</div>
+		<%= observe_field :name_of_venue, :url => { :action => :venue_changed}, :with => "'venueName=' +encodeURIComponent(value)" %>
+	</div>
+   </p><br/>
+
+	<p>
+	<div id='PriceContainer'>
+	<%= f.label :price, "Price", :class=>"PriceLabel"%><br />
+	<%= f.select :price_option, Show::PRICE_OPTIONS, :prompt => "Choose A Pricing Option" %>
+	<div class='Caption'>How Much?</div>
+	    <div class='DoorTicketPrice'>
+			<div><span class='moneySign'>$</span><%= f.text_field :price, :size => 3 %> at the door </div>
+			<div class='CaptionSmall'>Specify a Door Price OR an Advanced Price OR Both</div>
+		</div>
+		<div class='AdvanceTicketPrice'><span class='moneySign'>$</span><%= f.text_field :advanceprice, :size => 3 %> in advance</div>
+	</div>
+	</p><br/>
+
+	<p>
+	   <div id='DateContainer'>
+	   	 	<%= f.label :date %><br />
+		    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+		<div class='Caption'>When?  I don't want to miss it.</div>
+		</div>
+	 </p><br/>
+	
+	 <p>
+	   <div id='DoorContainer'>
+		<%= f.label :Doors_at %><br />
+		<%= f.select :time, Show::SHOW_TIMES, :prompt => "Choose A Show Time"%>
+		<div class='CaptionDoors'>When are the doors opening?</div>
+		</div>
+	  </p><br/>
+
+	  <p>
+		<div id='AgeContainer'>
+			<span id='ageLabel'>Who's allowed in?</span><br />
+			<span id='21plus'><%= radio_button "show", "allowed_in", "21+", options = { :checked => true }%>&nbsp;21+ &nbsp;</span>
+			<span id='AllAges'><%= radio_button "show", "allowed_in", "All Ages"%>&nbsp;All Ages &nbsp;</span>
+			<div class='CaptionAge'>Age Restrictions?</div>
+		</div>
+	  </p><br/>
+    <%= f.submit "Save Edits", :class =>"post_a_show" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @show %> |
-<%= link_to 'Back', shows_path %>
+<!-- <%= link_to 'Show', @show %> |
+<%= link_to 'Back', shows_path %> -->
 
 </div>

@@ -57,7 +57,8 @@
 					<div class="attend-recommend">
 						<% if @current_user %>
 							<%= link_to_remote attendingshow?, {
-						   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, :class => "attendincrement", :title => "Click to Attend/Unattend" %>
+						   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, 
+									:class => "attendincrement", :title => "Click to Attend/Unattend" %>
 						<% else %>
 						    <%= link_to_remote "Attend", {
 						   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "attenderror" %>

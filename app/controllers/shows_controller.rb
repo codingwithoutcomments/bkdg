@@ -97,6 +97,7 @@ class ShowsController < ApplicationController
     @band_array = @show.bands
     @userCity = getCityOfUser()
     @userState = getStateOfUser()
+    @venueName = @show.venue.name
   end
   
   # POST /shows
@@ -169,10 +170,42 @@ class ShowsController < ApplicationController
   # PUT /shows/1
   # PUT /shows/1.xml
   def update
+    
     @show = Show.find(params[:id])
+    @band_array = @show.bands
+    @userCity = getCityOfUser()
+    @userState = getStateOfUser()
+    @venueName = @show.venue.name
+    
+     #add all the band names to the show
+      @form_band_list_array = [:band1, :band2, :band3, :band4, :band5, :band6, :band7, :band8, :band9, :band10]
+      
+      #if at least one band is still in the list on the update
+      #then process the bands
+      if(atLeastOneBand?(@form_band_list_array)) then
+          #delete all the bands
+          while @show.bands.length != 0
+            @show.remove_band_from_show(@show.bands.at(0))
+          end 
+      
+          #re-add the bands
+          @form_band_list_array.each_with_index do |form_element, index|
+            if(params[form_element] != '') 
+              @show.add_band_to_show(params[form_element])  
+            end
+          end
+      else
+         @show.errors.add_to_base("How can there be a show without any bands?") 
+         @highlight = "bands"
+      end
 
     respond_to do |format|
-      if @show.update_attributes(params[:show])
+      
+       if @show.errors.size > 0
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
+          
+      elsif @show.update_attributes(params[:show])
         flash[:notice] = 'Show was successfully updated.'
         format.html { redirect_to(@show) }
         format.xml  { head :ok }
@@ -305,6 +338,18 @@ class ShowsController < ApplicationController
   
 private
 
+  def atLeastOneBand?(form_band_list_array)
+       #check to make sure at least one band is still in the list
+        atLeastOneBandInList = false
+        form_band_list_array.each do |form_element|
+          if(params[form_element] != '') 
+              atLeastOneBandInList = true
+          end
+        end
+        
+        return atLeastOneBandInList
+  end
+
   def check_for_partial_match
     
      errorString  = "The venue '<b>"+ @venueName +"</b>' was not found in "+ @location.city + ", " + @location.state + ".<br/>"
@@ -321,7 +366,7 @@ private
        errorString    += "Maybe you typed wrong. Or maybe you know something we don't.<br/>";
    		 errorString    += "Help us out? <a id='CreateANewVenue'>Create A New Venue?</a><";
        @show.errors.add_to_base(errorString)
-       @highlight = "venue"
+       @highlight = "band"
      end
   end
 

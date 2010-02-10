@@ -191,12 +191,6 @@ code {
 	clear: both;
 }
 
-#showinformation
-{
-	float: left;
-	margin-right:10px;
-}
-
 .mapit
 {
 	font-size: 70%;
@@ -578,12 +572,6 @@ code {
 .extrausercontrols a:link, a:visited
 {
 	color: #7C0343;
-}
-
-.attendcommentcontainer
-{
-	width:100%;
-	float:left;
 }
 
 .attend-recommend a

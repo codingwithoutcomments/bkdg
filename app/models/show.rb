@@ -49,11 +49,15 @@ class Show < ActiveRecord::Base
       band = Band.new(:band_name => band_to_add.upcase) 
       band.save
     end
-    bands << band
+    
+    #only add the band if it hasn't already been added
+    if(bands.find(:first, :conditions => ["band_name = ?", band.band_name]) == nil)
+      bands << band
+    end
   end
   
   def remove_band_from_show(band)
-    bands.delete(band)
+      bands.delete(band)
   end
   
   def user_attending(user)
