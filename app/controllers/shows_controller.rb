@@ -41,7 +41,7 @@ class ShowsController < ApplicationController
     @bands = @show.bands
     @headliner = @bands.at(0)
     @posted_by = User.find(@show.posted_by)
-    @edited_by = User.find(@show.edited_by)
+    @edited_by = User.find(:first, :conditions => ["id = ?", @show.edited_by])
     #check to see if the band has any pictures available for display
     #if not then retrieve the links from last.fm
     if(!@headliner.has_pictures?)
