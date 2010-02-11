@@ -71,6 +71,12 @@
 	float:right;
 }
 
+.EditedContainer
+{
+	float:right;
+	margin-right:10px;
+}
+
 .postedTime
 {
 	font-size:70%;

@@ -55,6 +55,15 @@ module ShowsHelper
     return output;
   end
   
+  def format_price(price)
+    integerPrice = price.to_i
+    if(price > integerPrice.to_i) then
+      return(sprintf("%.2f", price))
+    else
+      return integerPrice
+    end
+  end
+  
   def didwhen(old_time)
 
     val = Time.now - old_time

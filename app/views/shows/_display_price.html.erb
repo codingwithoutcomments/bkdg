@@ -7,9 +7,9 @@
 	<% elsif (show.price_option == 'DONATION') %>
 		By Donation
 	<% else %>
-		<% if show.price != nil then %> $<%= show.price.to_i %> DOS <% end %>
+		<% if show.price != nil then %> $<%= format_price(show.price) %> DOS <% end %>
 		<% if show.price != nil && show.advanceprice != nil then %> | <% end %>
-		<% if show.advanceprice != nil then %> $<%= show.advanceprice.to_i %> ADV <% end %>
+		<% if show.advanceprice != nil then %> $<%= format_price(show.advanceprice) %> ADV <% end %>
 	<% end %>
 	
 <% end %>

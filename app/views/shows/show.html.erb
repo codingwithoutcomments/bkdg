@@ -82,6 +82,7 @@
 		</div>
 		
 		<div class= "controlContainer">
+			
 			<div class='PostedContainer'>
 				<div class='postedTime'>posted <%= didwhen(@show.created_at)%></div>
 				<div class='commentUserInfo'>
@@ -89,7 +90,19 @@
 					<div class='usernameLink'><%= link_to @posted_by.username, @posted_by %></div>
 					<div class='usernamePoints'><%=     @posted_by.points.to_s     %></div>
 				</div>
-			</div>		
+			</div>
+			
+			<% if(@edited_by != nil) then %>
+				<div class='EditedContainer'>
+					<div class='postedTime'>edited <%= didwhen(@show.updated_at)%></div>
+					<div class='commentUserInfo'>
+						<div class='gravitar'><%= image_tag @edited_by.gravatar_url(:size => 40) %></div>
+						<div class='usernameLink'><%= link_to @edited_by.username, @posted_by %></div>
+						<div class='usernamePoints'><%=     @edited_by.points.to_s     %></div>
+					</div>
+				</div>
+			
+			<% end %>
 		
 		</div>
 		

@@ -41,6 +41,7 @@ class ShowsController < ApplicationController
     @bands = @show.bands
     @headliner = @bands.at(0)
     @posted_by = User.find(@show.posted_by)
+    @edited_by = User.find(@show.edited_by)
     #check to see if the band has any pictures available for display
     #if not then retrieve the links from last.fm
     if(!@headliner.has_pictures?)
@@ -231,6 +232,7 @@ class ShowsController < ApplicationController
           format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
           
       elsif @show.update_attributes(params[:show])
+        @show.touch
         flash[:notice] = 'Show was successfully updated.'
         format.html { redirect_to(@show) }
         format.xml  { head :ok }
