@@ -517,12 +517,18 @@ code {
 
 .headliner-name
 {
-	font-size: 130%;
+
+		background-color:#FFFF01;
+		font-size:130%;
+		text-decoration:underline;
+		font-family:Arial,Helvetica,sans-serif;
+		font-weight:bold;
+		
 }
 
 .headliner-name a
 {
-	color:#7C0343;
+	color:black;
 }
 
 .openers
@@ -571,7 +577,6 @@ code {
 
 .extrausercontrols a:link, a:visited
 {
-	color: #7C0343;
 }
 
 .attend-recommend a
@@ -595,7 +600,14 @@ code {
 	padding: 2px 2px 12px 2px;
 	margin: 1em 0 0 0 -25px;
 	font-weight: 0;
-	font-size: 120%;
+	font-size: 100%;
+	font-family:Arial,Helvetica,sans-serif;
+}
+
+.venue-name a
+{
+	text-decoration:underline;
+	color:black;
 }
 
 .remove-venue a {
@@ -617,7 +629,7 @@ code {
 	padding: 2px 2px 2px 2px;
 	margin: 15px 0 0 0;
 	font-weight: 0;
-	font-size: 120%;
+	font-size: 100%;
 }
 
 .module

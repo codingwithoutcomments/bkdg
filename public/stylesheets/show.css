@@ -165,9 +165,19 @@
 
 #mapit
 {
-	font-size: 70%;
-	background:url(/images/mappin.png)  center right no-repeat;
-	padding-right:20px;
+	font-size: 60%;
+	padding:3px;
+}
+
+.venueAddress
+{
+	margin-left:2px;
+}
+
+.venueCityState
+{
+	margin-left:2px;
+	margin-bottom:5px;
 }
 
 .gravitar

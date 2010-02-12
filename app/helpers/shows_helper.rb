@@ -64,6 +64,14 @@ module ShowsHelper
     end
   end
   
+  def format_price_label(show, price)
+    if(show.price_option == "MONEY")
+      return sprintf("%.2f", price)
+    else
+      return price
+    end
+  end
+  
   def didwhen(old_time)
 
     val = Time.now - old_time
@@ -122,7 +130,7 @@ module ShowsHelper
   
   def attendingshow?
     if (@attendingshow)
-      return "Attending"
+      return "You Are Attending This Show"
     else
       return "Attend"
     end

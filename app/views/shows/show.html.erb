@@ -8,7 +8,7 @@
 	<% attending_highlight_helper(@current_user, @shows_that_user_is_attending, @show) %>
 	
 	<div id = "subheader">
-		<b><h3><%= @show.bands.at(0).band_name %> @ <%= capitalize_first_letter_of_each_word(@show.venue.name) %> </h3></b>
+		<b><h3><%= capitalize_first_letter_of_each_word(@show.bands.at(0).band_name) %> @ <%= capitalize_first_letter_of_each_word(@show.venue.name) %> </h3></b>
 	</div>
 	
 	<div class ="show-date">
@@ -34,11 +34,13 @@
 		    </div>
 		
 		 <div class="show-address">
-			  <div id='showVenueName'><%= link_to capitalize_first_letter_of_each_word(@show.venue.name), 
-								:controller => "venues", :action => "show", :id =>@show.venue.id %></div>
-			  <div><%=h @show.venue.address %></div>
-			  <div style='margin-bottom:5px;'><%=h @show.location.city %>, <%=h @show.location.state %></div>
+			  <span id='showVenueName'><%= link_to capitalize_first_letter_of_each_word(@show.venue.name), 
+								:controller => "venues", :action => "show", :id =>@show.venue.id %>
+			</span>
+			  <div class='venueAddress'><%=h @show.venue.address %></div>
+			  <div class='venueCityState'><%=h @show.location.city %>, <%=h @show.location.state %></div>
 			  <span id="mapit"><a href = <%= map_it(@show) %> target="_blank">Show On Map</a></span>
+			
 		  </div>
 	
 

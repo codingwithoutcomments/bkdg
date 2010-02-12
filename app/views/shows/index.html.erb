@@ -51,7 +51,7 @@
 						<% if (show.bands.count > 1)%>
 							<%= populate_openers(show) %>
 						<% else %>
-							<%= link_to 'Add Opening Band(s)', :action =>'index' %>
+							<br />
 						<% end %>
 					</div>
 					<div class="attend-recommend">
@@ -76,9 +76,9 @@
 		
 				<div>
 				<div class="venue">
-					<div class="venue-name"><%=h capitalize_first_letter_of_each_word(show.venue.name) %></div>
+					<div class="venue-name"><%= link_to capitalize_first_letter_of_each_word(show.venue.name), show.venue %></div>
 				    <div class="date-time-price">
-						<%=h show.date.strftime("%b %e") %> | <%= show.time %> | $<%=h show.price.to_i %>
+						<%= render(:partial => "display_price", :locals => { :show => show }) %> | <%= show.allowed_in %>
 					</div>
 						
 				</div>
