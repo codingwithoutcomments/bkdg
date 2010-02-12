@@ -99,6 +99,13 @@ class ShowsController < ApplicationController
     @userCity = getCityOfUser()
     @userState = getStateOfUser()
     @venueName = @show.venue.name
+    @highlight = params[:highlight]
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @show }
+    end
+    
   end
   
   # POST /shows

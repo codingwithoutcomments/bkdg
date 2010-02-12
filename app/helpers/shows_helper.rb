@@ -66,7 +66,11 @@ module ShowsHelper
   
   def format_price_label(show, price)
     if(show.price_option == "MONEY")
-      return sprintf("%.2f", price)
+      if(price != nil) then
+          return sprintf("%.2f", price)
+      else
+          return ""
+      end
     else
       return price
     end

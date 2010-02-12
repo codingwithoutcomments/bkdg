@@ -1,5 +1,5 @@
 <% if(show.price_option == 'UNKNOWN') %>
-	<%= link_to 'Add Price', edit_show_path(@show) %>
+	<%= link_to 'Add Price', edit_show_path(@show, :highlight => "price") %>
 <% else %>
 
 	<% if (show.price_option == 'FREE') then %>

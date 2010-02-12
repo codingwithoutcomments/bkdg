@@ -50,7 +50,7 @@
 				<% if(@show.time != 'UNKNOWN') %>
 					<%= @show.time %>
 				<% else %>
-					<%= link_to 'Add Show Time', edit_show_path(@show) %>
+					<%= link_to 'Add Show Time', edit_show_path(@show, :highlight => "time") %>
 				<% end %> |
 			</span>
 			
@@ -107,10 +107,6 @@
 			<% end %>
 		
 		</div>
-		
-		<!-- ><div class="extrausercontrols">
-			<%= link_to 'Edit', edit_show_path(@show) %>
-		</div> -->
 
 	</div>
 
