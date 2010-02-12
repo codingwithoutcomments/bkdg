@@ -63,14 +63,8 @@
 						    <%= link_to_remote "Attend", {
 						   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "attenderror" %>
 						<% end %>
-						 </div> 
-						<div class = "attend-recommend"><% if @current_user %>
-							<%=link_to 'Comment', :action => "comment" %>
-						<% else %>
-						    <%= link_to_remote "Comment", {
-						   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "commenterror" %>
-						<% end %>
 					</div>
+					 
 				</div>
 			</div>
 		
