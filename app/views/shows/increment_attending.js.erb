@@ -1,0 +1,38 @@
+var $j = jQuery.noConflict();
+
+var attending_show_already  = '<%= @attending_show_already %>';
+var attending_show_id       = '<%= @current_show.id.to_s %>'
+
+$j(document).ready(function()
+{
+
+	if(attending_show_already == "true")
+	{
+  
+	  $j("#attendincrement").html("Click To Attend This Show");
+	  $j("#attendincrement").parent(".attend-recommend").css("background-color", "#FFFFFF");
+		$j("#attendincrement").parent(".attend-recommend").find("a").css("color", "black").css("text-decoration", "underline");
+	  $j("#attending-id-" + attending_show_id).html('<%= escape_javascript(render(:partial => "number_attending", :locals => { :number_attending => @current_show.attending }))%>');
+	  $j("#show-summary-" + attending_show_id).animate({backgroundColor:"#FFFFFF"}, 200);
+  
+	}else{
+		
+		$j('<%= escape_javascript(render(:partial => "notice_show_attending", :locals => { :show => @current_show }))%>').insertBefore('#header');
+  		$j("#notice")
+			.css("display", "none")
+			.fadeIn("slow");
+			
+		setTimeout(function() { $j('#notice').fadeOut("slow", function(){  $j(this).remove(); }) }, 3000);
+		
+		$j("#attendincrement").html("You Are Attending This Show");
+		$j("#attendincrement").parent(".attend-recommend").css("background-color", "#F90887");
+		$j("#attendincrement").parent(".attend-recommend").find("a").css("color", "white").css("text-decoration", "none");
+		$j("#attending-id-" + attending_show_id).html('<%= escape_javascript(render(:partial => "number_attending", :locals => { :number_attending => @current_show.attending }))%>');
+		$j("#show-summary-" + attending_show_id).animate({backgroundColor:"#FFFF01"}, 1000);
+	
+	}
+	
+});
+
+
+
