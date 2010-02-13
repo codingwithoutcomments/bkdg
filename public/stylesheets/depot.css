@@ -521,6 +521,8 @@ code {
 		font-size:130%;
 		font-family:Arial,Helvetica,sans-serif;
 		font-weight:bold;
+		background-color:#FFFF01;
+		text-decoration:underline;
 		
 }
 
@@ -609,13 +611,13 @@ code {
 	font-weight: 0;
 	font-size: 110%;
 	font-family:Arial,Helvetica,sans-serif;
-	font-weight:bold;
 }
 
 .venue-name a
 {
 	color:black;
 	text-decoration:underline;
+	font-weight:bold;
 }
 
 .openers a

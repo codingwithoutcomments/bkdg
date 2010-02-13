@@ -113,7 +113,8 @@ module ShowsHelper
         shows_attending.each do |show_attending|
           if(show_attending.id.to_s == show.id.to_s)
             @attendingshow = true
-            return "show-summary-attending"
+            #return "show-summary-attending"
+            return "show-summary"
           end
         end
         @attendingshow = false
