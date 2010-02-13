@@ -173,7 +173,7 @@ module ShowsHelper
     if (@attendingshow)
       return "You Are Attending This Show."
     else
-      return "Are you going?  Click To Attend."
+      return "You in brah?  Click To Attend."
     end
   end
   

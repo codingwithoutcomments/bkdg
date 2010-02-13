@@ -4,24 +4,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Admin: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold', 'login' %>
+  <title>BKDG Login</title>
+  <%= stylesheet_link_tag 'scaffold', 'depot' %>
+  <%= javascript_include_tag :defaults %>
 </head>
 <body>
 
-<p style="color: green"><%= flash[:notice] %></p>
-<div id = "container">
+<% if flash[:notice] -%>
+  <div id= "flashnotice"><%= flash[:notice] %></div>
+<% end -%>
+
+<div id="container">
+	
+	<br/>
+	
 	<div id ="header">
 	    <div class = "bkdg-title">
 				<h1>
-					<a href = "/">Bad Kids Dance Good</a>
+					Bad Kids Dance Good
 				</h1>
-					<code class="header">$ show listings</code>
+					
 	    </div>
-	    <div class = "beta">Beta</div>
-		
-	 </div>	
-</div>	
+	 </div>
+	
+	<div class='showsMarquee'>shows shows shows shows shows shows shows shows shows shows shows shows</div>
+	
+  </div>
 
 <%= yield  %>
 

@@ -1,6 +1,6 @@
 .login-form
 {
-	width: 300px;
+	width: 500px;
 	margin: 1em auto;
 
 }
@@ -17,11 +17,13 @@
 }
 
 .login-form label {
-	width: 5em;
+	width: 6em;
 	float: left;
 	text-align: right;
 	padding-top: 0.2em;
 	display: block;
+	margin-right:5px;
+	color:black;
 }
 
 .login-form select, .depot-form textarea, .depot-form input {
@@ -29,7 +31,19 @@
 }
 
 .login-form .submit{
-	margin-left: 17em;
+	display:block;
+	background-color:#60A494;
+	color:white;
+	border:none;
+	padding:10px 40px;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:140%;
+	font-weight:bold;
+	margin-left:230px;
+	margin-top:20px;
+	cursor:pointer;
+	width:200px;
+	
 }
 
 .login-form div{
@@ -50,54 +64,87 @@ h2 {
 	font-weight: bold;
 }
 
+.PleaseLogIn
+{
+	background-color:#F90887;
+	font-size:150%;
+	color:white;
+	padding:5px 40px;
+	width:400px;
+}
+
+.Email
+{
+	width:4800px;
+}
+
+.Password
+{
+	width:480px;
+}
+
+.EmailLabel
+{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:120%;
+}
+
+.PasswordLabel
+{
+	
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:120%;
+}
+
+#name
+{
+	height:30px;
+	width:300px;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:140%;
+	font-weight:bold;
+	padding-left:2px;
+	
+}
+
+#password
+{
+	height:30px;
+	width:300px;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:140%;
+	font-weight:bold;
+	padding-left:2px;
+}
+
 div.bkdg-title 
 {   
 	background-color: #fff;
-	line-height: 35px;
+	line-height: 45px;
 	vertical-align: center;
-	padding-top: -10px;
-	width: 800px;
 }
 
 div.bkdg-title h1 { 
 
 	font:  425% Verdana;
-	clear: both; 
 	font-weight: bold; 
-	letter-spacing: -10px; 
-	height:20px;
+	letter-spacing: -10px;
+	height:30px;
+	color:#7C0343;
 	
-}
-	
-.bkdg-title h1 a { 
-	text-decoration: none;	 
-}
-
-.bkdg-title a:link, a:visited { 
-	color: #7C0343; 
-}
-
-.bkdg-title	a:hover { 
-	text-decoration: none; 
-	color: #f90887;
-}
-
-code.header { 
-	margin-left: 70px;
-    font-size: 90%; 
-	background-color: #fcf095;
-}
-
-code {
-	 
-	background-color: #fcf095;
 }
 
 #header {
 	
-	width: 700px;
-	margin: 0 auto 35px;
-	
+	width: 790px;
+	margin: 0 auto 35px;	
+}
+
+.showsMarquee
+{
+	margin:0 auto;
+	text-align:center;
+	background-color:#FFFF01;
 }
 
 #container{
