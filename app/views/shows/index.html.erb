@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/javascripts/jquery-ui-1.8rc1.custom.min.js"></script>
 <div id = "mainbar-full">
 
 	<div id = "subheader">
@@ -54,13 +55,13 @@
 							<%= link_to 'Add Openers', edit_show_path(show, :highlight => "bands") %>
 						<% end %>
 					</div>
-					<div class="attend-recommend">
+					<div class="attend-recommend <%= attending_click_helper(@current_user, @shows_that_user_is_attending, show) %>">
 						<% if @current_user %>
 							<%= link_to_remote attendingshow?, {
 						   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, 
 									:class => "attendincrement", :title => "Click to Attend/Unattend" %>
 						<% else %>
-						    <%= link_to_remote "Attend", {
+						    <%= link_to_remote "Click To Attend This Show", {
 						   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "attenderror" %>
 						<% end %>
 					</div>

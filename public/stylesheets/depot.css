@@ -550,8 +550,7 @@ code {
 
 .attend-recommend 
 {
-	background-color: #60A49F;
-	color: #ffffff;
+	
 	display: inline-block;
 	padding-top: 2px;
 	padding-right: 4px;
@@ -565,6 +564,22 @@ code {
 	cursor:pointer;
 }
 
+.alreadyattending
+{
+	background-color:#F90887;
+}
+
+.alreadyattending a
+{
+	color: #ffffff;
+}
+.notattending a
+{
+	
+	color:black;
+	text-decoration:underline;
+}
+
 
 .extrausercontrols
 {
@@ -574,11 +589,6 @@ code {
 
 .extrausercontrols a:link, a:visited
 {
-}
-
-.attend-recommend a
-{
-	color: #ffffff;
 }
 
 .venue {
