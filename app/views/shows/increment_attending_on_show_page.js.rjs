@@ -1,5 +1,7 @@
 if @attending_show_already
   
+  page['clicktoattend'].removeClassName('attendingtheshow')
+  page['clicktoattend'].addClassName('notattendingtheshow')
   page.replace_html("attendincrement", "Are you going?  Click To Attend.")
   
   page.replace_html("attending-id-" + @current_show.id.to_s, :partial => "number_attending", :object => @current_show.attending)
@@ -16,7 +18,8 @@ else
     page.remove('notice')
   end
   
-  
+  page['clicktoattend'].removeClassName('notattendingtheshow')
+  page['clicktoattend'].addClassName('attendingtheshow')
   page.replace_html("attendincrement", "You Are Attending This Show.")
   
   page.replace_html("attending-id-" + @current_show.id.to_s, :partial => "number_attending", :object => @current_show.attending)

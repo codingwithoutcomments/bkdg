@@ -143,12 +143,23 @@ module ShowsHelper
       end
   end
   
+  def attending_helper
+  
+      if (@attendingshow)
+        return "attendingtheshow"
+      else
+        return "notattendingtheshow"
+      end
+  end
+  
   def map_it(show)
     link = "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q="
     link = link + show.venue.address.gsub(' ','+') if show.venue.address != nil
     link = link + "+" + show.location.city + "+" + show.location.state
     return link
   end
+  
+  
   
   def attendingshow?
     if (@attendingshow)

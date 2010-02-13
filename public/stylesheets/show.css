@@ -38,6 +38,25 @@
 	font-weight:bold;
 }
 
+.attendingtheshow a
+{
+	color:white;
+}
+
+.notattendingtheshow
+{
+	color:black;
+	font-size:130%;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:bold;
+}
+
+.notattendingtheshow a
+{
+	color:black;
+	text-decoration:none;
+}
+
 .attendcommentcontainer
 {
 	width:100%;
@@ -61,8 +80,8 @@
 
 .EditFlagContainer a
 {
-	background-color:#60A49F;
-	color:white;
+	color:black;
+	text-decoration:underline;
 	padding:3px;
 }
 

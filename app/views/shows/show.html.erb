@@ -20,7 +20,6 @@
 			<%= render(:partial => "number_attending", :object => @show.attending)%>
 		</div>
 		<div class="attendingword" id="attending-word-<%= @show.id %>">Attending</div>
-		<div class='EditFlagContainer'><%= link_to 'Edit', edit_show_path(@show) %> <a>Flag</a> </div>	
 		
     </div>	
 	
@@ -72,7 +71,7 @@
 		</div>
 
   		<div class = "attendcommentcontainer">
-			<div id='clicktoattend' class="attend-recommend attendingtheshow">
+			<div id='clicktoattend' class="attend-recommend <%= attending_helper() %>">
 					<% if @current_user %>
 						<%= link_to_remote attendingTheShow?, {
 					   		:url => { :action => "increment_attending_on_show_page", :id => @show.id, :user_id => @current_user.id, :show_detail_page => true }}, 
@@ -84,6 +83,8 @@
 		</div>
 		
 		<div class= "controlContainer">
+			
+			<span class='EditFlagContainer'><%= link_to 'Edit', edit_show_path(@show) %> | <a>Flag</a> </span>	
 			
 			<div class='PostedContainer'>
 				<div class='postedTime'>posted <%= didwhen(@show.created_at)%></div>
