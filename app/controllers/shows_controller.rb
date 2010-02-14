@@ -82,13 +82,25 @@ class ShowsController < ApplicationController
   # GET /shows/new
   # GET /shows/new.xml
   def new
+    
+    @user = get_current_user()
     @userCity = getCityOfUser()
     @userState = getStateOfUser()
     @show = Show.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @show }
+      
+      if(@user == nil)
+        
+        session[:original_uri] = request.request_uri
+        format.html { redirect_to :controller => 'login', :action => 'index' }
+        format.xml  { render :xml => @show }
+      else
+        format.html # new.html.erb
+        format.xml  { render :xml => @show }
+      end
+      
+      
     end
   end
 
@@ -111,6 +123,7 @@ class ShowsController < ApplicationController
   # POST /shows
   # POST /shows.xml
   def create
+    
     @userCity = getCityOfUser()
     @userState = getStateOfUser()
     @venueName = params[:name_of_venue]
