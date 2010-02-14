@@ -485,6 +485,10 @@ private
           picture.save
           headliner.add_picture_to_band(picture)
         end
+        
+      rescue OpenURI::HTTPError
+        logger.error("Unable to get pictures for #{headliner.band_name} from last.fm")
+      
   end
   
   
