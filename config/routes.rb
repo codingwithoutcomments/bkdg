@@ -7,14 +7,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :locations
   map.resources :venues
   map.resources :comments
+  map.resources :user_sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
-  map.connect 'login', :controller => 'login', :action => 'index'
-  map.connect 'logout', :controller => 'login', :action => 'logout'
+  map.login 'login', :controller => 'user_sessions', :action => 'new'  
+  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'  
   map.connect 'signup', :controller => 'user', :action => 'new'
 
   # Sample of named route:

@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'login' %>
+
+<div class = "login-form">
+	 <% form_for @user_session do |form| %>  
+	 <%= form.error_messages %>
+	
+			<div class='PleaseLogIn'>Please Log In</div>
+			
+			<div class='Email'>
+				<span class='EmailLabel'><label for="name">Email </label></span>
+				<span><%= form.text_field :username %></span>
+			</div>
+			
+			<div class='Password'>
+				<span class='PasswordLabel'><label for="password">Password </label></span>
+ 				<span><%= form.password_field :password %></span>
+			</div>
+			
+			<div>
+				<%= form.submit "Login", :class => "submit" %>
+			</div>
+		
+	<% end %>
+</div>

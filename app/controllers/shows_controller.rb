@@ -450,13 +450,10 @@ private
 
   def already_attending?(user_id, show_id)
     user = get_current_user
-    shows_that_user_is_attending = user.shows
-    shows_that_user_is_attending.each do |attending_show|
-      if(show_id.to_s == attending_show.id.to_s) 
-        return true
-      end
-        
-    end    
+    show = user.shows.find(:first, :conditions => ["id = ?", show_id])
+    if(show != nil) then
+      return true
+    end
     
     return false;
   end
@@ -493,9 +490,8 @@ private
   
   
   def set_current_user_if_logged_in
-    if(session[:user_id])
-      @current_user = User.find(session[:user_id])
-      @shows_that_user_is_attending = @current_user.shows
+    if(current_user)
+      @shows_that_user_is_attending = current_user.shows
     end
   end
 

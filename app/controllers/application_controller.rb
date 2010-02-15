@@ -2,9 +2,10 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :authorize, :except => :login
+  #before_filter :authorize, :except => :login
   before_filter :set_city
   helper :all # include all helpers, all the time
+  helper_method :current_user
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -17,12 +18,21 @@ class ApplicationController < ActionController::Base
    
 protected
 
-  def authorize
-    unless User.find_by_id(session[:admin_id])
-      session[:original_uri] = request.request_uri
-      redirect_to :controller => 'admin', :action => 'login'
-    end
-  end
+  #def authorize
+  #  unless User.find_by_id(session[:admin_id])
+  #    session[:original_uri] = request.request_uri
+  #    redirect_to :controller => 'admin', :action => 'login'
+  #  end
+  #end
+  
+   def current_user_session  
+     return @current_user_session if defined?(@current_user_session)  
+     @current_user_session = UserSession.find  
+   end  
+     
+   def current_user  
+     @current_user = current_user_session && current_user_session.record  
+   end
   
   def set_city
     session[:city] = "Seattle"
