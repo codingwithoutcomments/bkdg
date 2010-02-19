@@ -28,11 +28,11 @@ Rails::Initializer.run do |config|
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
   # config.gem "bj" 
   #config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
-  config.gem 'searchlogic', :version =>'2.4.2'
-  config.gem "hpricot", :version => '0.8.2'
-  config.gem 'gravtastic', :version => '2.2.0'
-  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
-  config.gem 'binarylogic-authlogic', :source => 'http://gems.github.com'
+  #config.gem 'searchlogic', :version =>'2.4.2'
+  #config.gem "hpricot", :version => '0.8.2'
+  #config.gem 'gravtastic', :version => '2.2.0'
+  #config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  #config.gem 'binarylogic-authlogic', :source => 'http://gems.github.com'
   
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"

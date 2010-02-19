@@ -146,7 +146,7 @@
 	<div style='clear:both;'>
 		
 		<div id = "leaveacomment">
-			<div id='somethingToSay'>Do Make Say Think?</div>
+			<div id='somethingToSay'>Got something to say?</div>
 			<% form_remote_tag :url => { :action => "LeaveComment", :id => @show.id } do %>
 				<%= text_area_tag :comment, nil, :rows => 5, :cols => 90, :class =>"resizable" %><br />
 				<div class="wmd-preview"></div><br>
