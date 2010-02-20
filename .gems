@@ -1,5 +1,5 @@
 searchlogic --version 2.4.2
-hpricot --version 0.8.2 --source code.whytheluckystiff.net
+hpricot --version 0.8.2
 gravtastic --version 2.2.0
 mislav-will_paginate --version 2.3.11 --source gems.github.com
 binarylogic-authlogic --version 2.1.1 --source gems.github.com
