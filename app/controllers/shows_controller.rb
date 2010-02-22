@@ -455,7 +455,7 @@ private
   end
 
   def already_attending?(user_id, show_id)
-    user = User.find(session[:user_id])
+    user = User.find(user_id)
     show = user.shows.find(:first, :conditions => ["id = ?", show_id])
     if(show != nil) then
       return true
