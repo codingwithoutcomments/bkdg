@@ -60,23 +60,27 @@ class ShowsController < ApplicationController
   
   def LeaveComment
     
-    #create a new comment
-    @comment = Comment.new
-    user_comment = params[:comment]
-    @comment.user_comment = user_comment
+    if(current_user)
     
-    #add the comment to the user
-    @user = get_current_user
-    @user.add_comment_to_user(@comment)
-    @user.save
+      #create a new comment
+      @comment = Comment.new
+      user_comment = params[:comment]
+      @comment.user_comment = user_comment
     
-    #add the comment to the show
-    @show = Show.find(params[:id])
-    @show.add_comment_to_show(@comment)
-    @show.save
+      #add the comment to the user
+      @user = get_current_user
+      @user.add_comment_to_user(@comment)
+      @user.save
     
-    respond_to do |format|
-         format.js
+      #add the comment to the show
+      @show = Show.find(params[:id])
+      @show.add_comment_to_show(@comment)
+      @show.save
+    
+      respond_to do |format|
+           format.js
+      end
+      
     end
     
   end
@@ -451,7 +455,7 @@ private
   end
 
   def already_attending?(user_id, show_id)
-    user = get_current_user
+    user = User.find(session[:user_id])
     show = user.shows.find(:first, :conditions => ["id = ?", show_id])
     if(show != nil) then
       return true
