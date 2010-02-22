@@ -19,7 +19,9 @@ require 'authlogic'
 
 class User < ActiveRecord::Base
   
-  acts_as_authentic
+  acts_as_authentic do |c|
+      c.login_field = 'email'
+  end
   
   include Gravtastic
   
@@ -38,6 +40,11 @@ class User < ActiveRecord::Base
   
   def remove_comment_from_user(comment_to_remove)
     comments.delete(comment_to_remove)
+  end
+  
+  def deliver_password_reset_instructions!  
+    reset_perishable_token!  
+    Notifier.deliver_password_reset_instructions(self)  
   end
     
 private

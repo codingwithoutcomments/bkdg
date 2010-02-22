@@ -7,9 +7,6 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 #RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
-# Bootstrap the Rails environment, frameworks, and default configuration
-#require File.join(File.dirname(__FILE__), 'boot')
-
 require File.join(File.dirname(__FILE__), 'boot')
 
 #uncomment this line for deployment to heroku
@@ -28,13 +25,13 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on. 
   # They c an then be installed with "rake gems:install" on new installations.
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
-  # config.gem "bj" 
-  #config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
-  #config.gem 'searchlogic', :version =>'2.4.2'
-  #config.gem "hpricot", :version => '0.8.2'
-  #config.gem 'gravtastic', :version => '2.2.0'
-  #config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
-  #config.gem 'binarylogic-authlogic', :source => 'http://gems.github.com'
+  # uncomment out the following gems for deployment to heroku
+  config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
+  config.gem 'searchlogic', :version =>'2.4.2'
+  config.gem "hpricot", :version => '0.8.2'
+  config.gem 'gravtastic', :version => '2.2.0'
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  config.gem 'binarylogic-authlogic', :source => 'http://gems.github.com'
   
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
@@ -47,6 +44,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
