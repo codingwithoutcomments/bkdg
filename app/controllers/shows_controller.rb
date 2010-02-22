@@ -324,6 +324,8 @@ class ShowsController < ApplicationController
     
     @on_show_detail_page = params[:show_detail_page]
     
+    @showID = params[:id]
+    
     #check first to see if already attending show
     if already_attending?(params[:user_id], params[:id])
       @show = Show.find(params[:id])
@@ -465,12 +467,7 @@ private
   end
   
   def get_current_user
-    
-    if(session[:user_id])
-      @current_user = User.find(session[:user_id])
-    end
-    
-    return @current_user
+    return current_user
   end
   
   def retrieve_pictures(headliner)
