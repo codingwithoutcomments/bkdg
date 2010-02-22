@@ -6,7 +6,7 @@ require 'will_paginate'
 
 class ShowsController < ApplicationController
   
-  #before_filter :require_user, :only => [:index]
+  before_filter :require_user, :only => [:index]
   
   # GET /shows
   # GET /shows.xml
