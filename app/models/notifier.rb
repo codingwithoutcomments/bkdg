@@ -12,7 +12,7 @@
   #    end
    
      
-    #default_url_options[:host] = "badkidsdancegood.com"  
+    default_url_options[:host] = "badkidsdancegood.com"  
    
     def password_reset_instructions(user) 
       
