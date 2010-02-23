@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
     render
   end
 
-  def createSQL
+  def create
     @user = User.find_by_email(params[:email])
     if @user
       @user.deliver_password_reset_instructions!
