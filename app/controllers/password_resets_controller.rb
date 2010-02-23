@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
     render
   end
 
-  def create
+  def createSQL
     @user = User.find_by_email(params[:email])
     if @user
       @user.deliver_password_reset_instructions!
@@ -40,6 +40,7 @@ class PasswordResetsController < ApplicationController
 
   private
     def load_user_using_perishable_token
+      perishable_token = params[:id]
       @user = User.find_using_perishable_token(params[:id])
       unless @user
         flash[:notice] = "We're sorry, but we could not locate your account. " +
