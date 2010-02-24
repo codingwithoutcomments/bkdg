@@ -4,14 +4,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Users: <%= controller.action_name %></title>
+  <%= yield :title %>
   <%= stylesheet_link_tag 'scaffold', 'depot' %>
 </head>
 <body>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<% if flash[:notice] -%>
+  <div id= "flashnotice"><%= flash[:notice] %></div>
+<% end -%>
 
-<%= yield  %>
+<div id="container">
+
+	<br/>
+
+	<div id ="header">
+	    <div class = "bkdg-title">
+				<h1>
+					Bad Kids Dance Good
+				</h1>
+
+	    </div>
+	 </div>
+
+	<div class='showsMarquee'>shows shows shows shows shows shows shows shows shows shows shows shows</div>
+
+  </div>
+
+<%= yield %>
 
 </body>
 </html>

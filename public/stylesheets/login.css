@@ -1,3 +1,9 @@
+.errorForm
+{
+	width:700px;
+	margin:1em auto;
+}
+
 .login-form
 {
 	width: 500px;
@@ -76,7 +82,7 @@ h2 {
 
 .Email
 {
-	width:4800px;
+	width:480px;
 }
 
 .Password

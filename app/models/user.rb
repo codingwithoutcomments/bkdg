@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
   
   is_gravtastic :email, :rating => 'R', :secure => true, :default => 'identicon'
   
+  validates_uniqueness_of :username
+  validates_presence_of   :username
+  validates_length_of     :username, :minimum => 3
+  
   has_and_belongs_to_many :shows
   has_many :comments
   

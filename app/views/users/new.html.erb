@@ -1,32 +1,36 @@
-<div class = "newuser-form">
+<%= stylesheet_link_tag 'usernew' %>
+<% content_for :title do %>  <title>BKDG: Create A New User</title> <% end %> 
 
 <% form_for(@user) do |f| %>
-  <%= f.error_messages %>
+  <div class='errorForm'><%= f.error_messages %></div>
 
-  <fieldset>
-  <legend> Enter User Details</legend>
+<div class = "newUserForm">
 
-  <p>
-    <%= f.label :email, 'E-Mail' %><br />
-    <%= f.text_field :email , :size => 40%>
-  </p>
-  <p>
-    <%= f.label :username, 'Username' %><br />
-    <%= f.text_field :username , :size => 40%>
-  </p>
-  <p>
-    <%= f.label :password, 'Password' %><br />
-    <%= f.password_field :password, :size => 40 %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation, 'Confirm' %><br />
-    <%= f.password_field :password_confirmation, :size => 40 %>
-  </p>
+  <div class='EnterUserDetails'> Create A New User</div>
+
+	<div class='Email'>
+		<span class='EmailLabel'><label for="name">E-Mail</label></span>
+		<span><%= f.text_field :email %></span>
+	</div>
+	
+	<div class='Username'>
+		<span class='UsernameLabel'><label for="password">Username </label></span>
+		<span><%= f.text_field :username %></span>
+	</div>
+	
+	<div class='Password'>
+		<span class='PasswordLabel'><label for="name">Password</label></span>
+		<span><%= f.password_field :password %></span>
+	</div>
+	
+	<div class='Password'>
+		<span class='PasswordLabel'><label for="password">Confirm</label></span>
+		<span><%= f.password_field :password_confirmation %></span>
+	</div>
+	
   <p>
     <%= f.submit "Create Account", :class => "submit" %>
   </p>
 
-</fieldset>
+</div>
 <% end %>
-
-<%= link_to 'Back', users_path %>

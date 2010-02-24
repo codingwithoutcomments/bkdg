@@ -1,9 +1,11 @@
 <%= stylesheet_link_tag 'login' %>
 
-<div class = "login-form">
+
 	 <% form_for @user_session do |form| %>  
-	 <%= form.error_messages %>
-	
+	 <div class='errorForm'><%= form.error_messages %></div>
+
+<div class = "login-form">
+		
 			<div class='PleaseLogIn'>Please Log In</div>
 			
 			<div class='Email'>
