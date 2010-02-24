@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'  
   map.connect 'signup', :controller => 'user', :action => 'new'
   map.resources :password_resets
-  #map.connect 'reset_password', :controller => 'password_resets', :action => 'new'
+  map.connect 'reset_password', :controller => 'password_resets', :action => 'new'
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'

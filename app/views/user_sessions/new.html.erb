@@ -19,6 +19,14 @@
 			<div>
 				<%= form.submit "Login", :class => "submit" %>
 			</div>
+			
+			<div class='SignUp'>
+				<%= link_to 'Don\'t have an account?', new_user_path %>
+			</div>
+			
+			<div class='ResetPassword'>
+				<%= link_to 'Reset Password', password_resets_path %>
+			</div>
 		
 	<% end %>
 </div>
