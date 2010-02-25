@@ -1,13 +1,21 @@
-<%= stylesheet_link_tag 'login' %>
+<%= stylesheet_link_tag 'passwordreset' %>
+<% content_for :title do %>  <title>BKDG: Password Reset</title> <% end %> 
 
-<h1>Forgot Password</h1>
-
-Fill out the form below and instructions to reset your password will be emailed to you:<br />
-<br />
-
-<% form_tag do %>
-  <label>Email:</label><br />
-  <%= text_field_tag "email" %><br />
-  <br />
-  <%= submit_tag "Reset my password", {:controller => 'password_resets',:action => 'create'} %>
-<% end %>
+<div class = "passwordReset-form">
+	<% form_tag do %>
+	
+		<div class='PleaseLogIn'>Forgot Password</div>
+		
+		<div style='margin-bottom:30px;'>Fill out the form below and instructions to reset your password will be emailed to you:</div>
+		
+		<div class='Email'>
+			<span class='EmailLabel'><label for="name">Email </label></span>
+			<span><%= text_field_tag "email" %></span>
+		</div>
+		
+	  <div>
+	  	<%= submit_tag "Reset my password", {:controller => 'password_resets',:action => 'create', :class => 'submit'}  %>
+	  </div>
+	
+	<% end %>
+</div>

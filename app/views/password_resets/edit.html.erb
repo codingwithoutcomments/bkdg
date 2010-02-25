@@ -1,12 +1,25 @@
-<h1>Change My Password</h1>
+<%= stylesheet_link_tag 'passwordreset' %>
+<% content_for :title do %>  <title>BKDG: Change My Password</title> <% end %>
 
 <% form_for @user, :url => password_reset_path, :method => :put do |f| %>
-  <%= f.error_messages %>
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %><br />
-  <br />
-  <%= f.submit "Update my password and log me in" %>
-<% end %>
+	<div class='errorForm'><%= f.error_messages %></div>
+
+<div class = "passwordReset-form">
+	
+	<div class='PleaseLogIn'>Change My Password</div>
+
+	<div class='Password'>
+		<span class='PasswordLabel'><label for="name">Password</label></span>
+		<span><%= f.password_field :password %></span>
+	</div>
+	
+	<div class='Password'>
+		<span class='PasswordLabel'><label for="password">Confirm</label></span>
+		<span><%= f.password_field :password_confirmation %></span>
+	</div>
+	
+	  <div>
+	  	<%= f.submit "Update my password and log me in", :class => 'submitUpdatePassword' %>
+	  </div>
+	<% end %>
+</div>
