@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>BKDG Login</title>
+  <%= stylesheet_link_tag 'scaffold', 'depot', 'bands' %>
+</head>
+<body>
+
+<% if flash[:notice] -%>
+  <div id= "flashnotice"><%= flash[:notice] %></div>
+<% end -%>
+
+<div id="container">
+	
+	<div id="hmenus">
+		<div id ="hlinks">
+			<% if current_user %>
+				<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user.id) %> |
+				<%= link_to 'logout', logout_path %> |
+			<% else %>
+				<%= link_to 'login', login_path %> |
+				<%= link_to 'signup', new_user_path %> |
+			<% end %>
+			<%= link_to 'settings', { :action => "settings"} %> |
+			<%= link_to 'about', { :action => "about"} %> |
+			<%= link_to 'faq', { :action => "faq"} %>
+		</div>
+		<div id = "show-search">
+			<% form_tag( {:controller => "shows", :action => "search"}, {:method => "get"}) do %>  
+			    <div style="margin:3px;padding3px;">
+				<%= text_field_tag(:q, "search", {:class => "textbox"}) %>
+				</div>  
+			<% end %>
+		</div>
+	</div>
+	
+	<div id ="header">
+	    <div class = "bkdg-title">
+				<h1>
+					Bad Kids Dance Good
+				</h1>
+					
+	    </div>
+	 </div>
+	
+	<div class='showsMarquee'>shows shows shows shows shows shows shows shows shows shows shows shows shows shows</div>
+	<div class='optionsMarquee'>&nbsp; <%= link_to 'home', { :controller => "shows", :action => "index"} %> &nbsp; <%= link_to 'my shows', { :action => "index"} %> &nbsp; <span><%= link_to 'users', { :action => "index"} %></span> &nbsp;<%= link_to 'post a show', new_show_path, {:id => "postashowbutton"} %> &nbsp;</div>
+
+	
+  </div>
+
+<%= yield  %>
+
+</body>
+</html>

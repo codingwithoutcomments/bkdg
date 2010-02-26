@@ -1,0 +1,17 @@
+<div class='band'>
+	
+	<div id = "subheader">
+		<h3>Pictures Of <%= capitalize_first_letter_of_each_word(@band.band_name) %></h3>
+	</div>
+
+   <div class='bandContent'>
+	<% for picture in @bandPictures %>
+		<div class='singlePicture'>
+			<img src = "<%= picture.largesquare%>"><br />
+		</div>
+	<% end %>
+	
+	<%= will_paginate @bandPictures %>
+	
+	</div>
+</div>

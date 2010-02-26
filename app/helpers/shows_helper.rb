@@ -46,15 +46,6 @@ module ShowsHelper
     
   end
   
-  def capitalize_first_letter_of_each_word(input)
-    output = ""
-    input = input.split(" ")
-    input.each {|word| output += word.capitalize + " " }
-    output.strip!
-    
-    return output;
-  end
-  
   def format_price(price)
     integerPrice = price.to_i
     if(price > integerPrice.to_i) then

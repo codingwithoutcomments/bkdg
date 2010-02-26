@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :bands
+
   map.resources :venues
 
   map.resources :users
@@ -20,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :password_resets
   map.connect 'reset_password', :controller => 'password_resets', :action => 'new'
   map.connect 'password_resets', :controller => 'password_resets', :action => 'new'
+  map.connect 'bands/:id/pictures', :controller => 'bands', :action => 'pictures'
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
