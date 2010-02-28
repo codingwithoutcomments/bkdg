@@ -28,6 +28,11 @@ div.bkdg-title h1 {
 	
 }
 
+.singlePicture a img
+{
+	border: 0px;
+}
+
 #header {
 	
 	width: 790px;
@@ -81,7 +86,18 @@ div.bkdg-title h1 {
 
 .bandContent
 {
+	
+	margin: 0 auto;
+	width: 715px;
 	margin-top:10px;
+}
+
+.singlePictureContent
+{
+	margin-top:10px;
+	text-align:center;
+	width:715px;
+
 }
 
 .singlePicture
@@ -90,6 +106,35 @@ div.bkdg-title h1 {
 	padding:20px;
 	margin-top:20px;
 	margin-bottom:20px;
+}
+
+#PictureViewerHeader
+{
+	border-bottom: 1px solid #777777;
+	height: 60px;
+	width: 715px;
+	clear: both;
+}
+
+#PictureViewerHeader h3
+{
+	font-size: 160%;
+	line-height: 40px;
+	margin-bottom: 0pt;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:bold;
+}
+
+.SinglePicturePagination
+{
+	width:120px;
+	float:right;
+}
+
+.PictureController
+{
+	font-size:80%;
+	
 }
 
 

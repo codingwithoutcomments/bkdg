@@ -1,17 +1,31 @@
 <div class='band'>
 	
-	<div id = "subheader">
+	<div id = "PictureViewerHeader">
 		<h3>Pictures Of <%= capitalize_first_letter_of_each_word(@band.band_name) %></h3>
+		<div class='PictureController'>
+			<span>Photo <%= CalulateStartingPhotoNumber(@page).to_s %> - <%= CalculateEndingPhotoNumber(@page, @totalPictures).to_s %> out of <%= @totalPictures.to_s %></span> | 
+			<span><%= link_to capitalize_first_letter_of_each_word(@band.band_name) + ' Profile', :controller =>'bands', :action => 'show', :id => @bandID %></span> 
+			<span><%= will_paginate @bandPictures, :page_links => false, :class => 'SinglePicturePagination' %></span></div>
+		</div>
 	</div>
 
    <div class='bandContent'>
+	<% photoNumber = CalulateStartingPhotoNumber(@page) %>
 	<% for picture in @bandPictures %>
+		
 		<div class='singlePicture'>
-			<img src = "<%= picture.largesquare%>"><br />
+			<%= link_to '<img src = '+ picture.largesquare+'>', :controller => 'bands', :action => 'picture', :id => @bandID, :page => photoNumber %>
 		</div>
+		
+		<% photoNumber = photoNumber + 1 %>
 	<% end %>
 	
-	<%= will_paginate @bandPictures %>
-	
+	<div id = "subheader">
 	</div>
+	<br />
+	<br />
+	</div>
+	
+	
+	
 </div>

@@ -52,10 +52,28 @@ class BandsController < ApplicationController
   # GET /bands/1/pictures
   def pictures
     
-    showID = params[:id]
-    @band = Band.find(:first, :conditions => ["id = ?", showID])
+    @bandID = params[:id]
+    @page   = params[:page]
+    @band   = Band.find(:first, :conditions => ["id = ?", @bandID])
+    @totalPictures = @band.bandpictures.count
     
     @bandPictures = @band.bandpictures.paginate :per_page => 12, :page => params[:page]
+    
+    respond_to do |format|
+      format.html # pictures.html.erb
+      format.xml  { render :xml => @venue }
+    end
+  end
+  
+  # get /bands/1/picture/1
+  def picture
+    
+    @bandID = params[:id]
+    @pictureNumber = params[:page]
+    @band = Band.find(:first, :conditions => ["id = ?", @bandID])
+    @totalPictures = @band.bandpictures.count
+    
+    @bandPictures = @band.bandpictures.paginate :per_page => 1, :page => params[:page]
     
     respond_to do |format|
       format.html # pictures.html.erb
