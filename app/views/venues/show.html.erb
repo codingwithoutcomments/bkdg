@@ -14,17 +14,30 @@
 		<div class='venueInformation'>
 			<div id='venueName'><%= capitalize_first_letter_of_each_word(@venue.name) %></div>
 			<div id='venueAddress'>
-				<%= @venue.address %><br />
-				<%= @venue.location.city %>, <%=@venue.location.state %><br />
+				<div>
+					<% if @venue.address != nil%>
+						<%= @venue.address %>
+					<% else %>
+						(This Venue's Location Is A Secret)
+					<% end %>
+				</div>
+				<div>
+					<%= @venue.location.city %>, <%=@venue.location.state %><br />
+				</div>
 			</div>
-			<div id='website'>
+			<div id='venueWebsite'>
 				<% if @venue.website != nil %>
 					<%= @venue.website %>
 				<% else %>
 					<%= link_to "Add A Website", edit_venue_path(@venue) %>
 				<% end %>
 			</div>
-			<div id='phoneNumber'>
+			<div id='venuePhoneNumber'>
+				<% if @venue.phone != nil %>
+					<%= @venue.phone %>
+				<% else %>
+					<%= link_to "Add A Phone Number", edit_venue_path(@venue) %>
+				<% end %>
 			</div>
 			<div id='controls'>
 				<%= link_to 'Edit', edit_venue_path(@venue) %> 
@@ -32,6 +45,17 @@
 			
 		</div>
 	</div>
+
+	<div id = "subheader">
+		<b><h3><%= @venue.shows.count %> Upcoming Shows</h3></b>
+	</div>
+	
+	<div id="single-show">
+	<% for show in @venue.shows %>
+				<div class ="show-date">
+					<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
+				</div>
+	<% end %>
 
 
 

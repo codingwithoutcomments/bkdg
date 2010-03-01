@@ -2,6 +2,7 @@
 {
 	width: 715px;
 	margin-top:10px;
+	margin-bottom:30px;
 }
 
 .venueMap
@@ -34,12 +35,45 @@
 	padding: 3px 10px;
 }
 
+#venueAddress a
+{
+	text-decoration:underline;
+	font-size:80%;
+	color:black;
+}
+
 #controls
+{
+	padding: 3px 10px;
+	margin-top:170px;
+}
+
+#controls a
+{
+	text-decoration:underline;
+	font-size:80%;
+	color:black;
+}
+
+#venueWebsite
+{
+	padding: 3px 10px;
+	margin-top:5px;
+}
+
+#venueWebsite a
+{
+	text-decoration:underline;
+	font-size:80%;
+	color:black;
+}
+
+#venuePhoneNumber
 {
 	padding: 3px 10px;
 }
 
-#controls a
+#venuePhoneNumber a
 {
 	text-decoration:underline;
 	font-size:80%;
