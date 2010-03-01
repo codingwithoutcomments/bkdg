@@ -1,0 +1,19 @@
+.NewVenueElement
+{
+	width:715px;
+	padding-left:6px;
+	padding-bottom:6px;
+	
+}
+
+.create_a_venue {
+background-color:#60A49F;
+color:#FFFFFF;
+float:left;
+font-size:24px;
+font-weight:bold;
+padding:14px 16px;
+font-family:Arial,Helvetica,sans-serif;
+margin-bottom:10px;
+cursor:pointer;
+}

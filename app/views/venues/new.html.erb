@@ -1,34 +1,44 @@
-<h1>New venue</h1>
+<%= stylesheet_link_tag 'venuenew' %>
+<div id="mainbar-full">
+
+<div id='subheader'>
+	<h3>Create a Venue in <%= @userCity %>, <%= @userState %></h3>
+</div><br/>
 
 <% form_for(@venue) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name, 'Name' %><br />
-    <%= f.text_field :name , :size => 40%>
-  </p>
-  <p>
-    <%= f.label :address, 'Address' %><br />
-    <%= f.text_field :address , :size => 40%>
-  </p>
-  <p>
-    <%= f.label :phone, 'Phone' %><br />
-    <%= f.text_field :phone, :size => 40 %>
-  </p>
-  <p>
-    <%= f.label :website, 'Website' %><br />
-    <%= f.text_field :website, :size => 40 %>
-  </p>
-
-<p>
-    <%= f.label :location_id, 'Location ID' %><br />
-    <%= f.text_field :location_id, :size => 40 %>
-  </p>
-
+  	<div class='NewVenueElement'>
+	    <%= f.label :name, 'Name Of Venue' %><br />
+	    <%= f.text_field :name , :size => 25 %>
+	</div>
+  </p><br />
 
   <p>
-    <%= f.submit "Create" %>
-  </p>
+  	<div class='NewVenueElement'>
+	    <%= f.label :address, 'Address' %><br />
+	    <%= f.text_field :address , :size => 25 %>
+	 </div>
+  </p><br />
+
+  <p>
+  	<div class='NewVenueElement'>
+	    <%= f.label :website, 'Website' %><br />
+	    <%= f.text_field :website, :size => 25 %>
+	  </div>
+  </p><br />
+
+  <p>
+  	<div class='NewVenueElement'>
+	    <%= f.label :phone, 'Phone' %><br />
+	    <%= f.text_field :phone, :size => 13 %>
+	 </div>
+  </p><br />	
+
+  <div>
+    <%= f.submit "Create A Venue", :class =>"create_a_venue" %>
+  </div>
 <% end %>
 
-<%= link_to 'Back', venues_path %>
+</div>

@@ -1,0 +1,47 @@
+.venueContent
+{
+	width: 715px;
+	margin-top:10px;
+}
+
+.venueMap
+{
+	padding:10px;
+	background-color:#F2F2F2;
+	margin-left:10px;
+	float:left;
+}
+
+.venueInformation
+{
+	float:left;
+	width:340px;
+	font-family:Arial,Helvetica,sans-serif;
+	margin-left:20px;
+}
+
+#venueName
+{
+	font-size:130%;
+	font-weight:bold;
+	background-color:#FFFF01;
+	padding: 3px 10px;
+	width:300px;
+}
+
+#venueAddress
+{
+	padding: 3px 10px;
+}
+
+#controls
+{
+	padding: 3px 10px;
+}
+
+#controls a
+{
+	text-decoration:underline;
+	font-size:80%;
+	color:black;
+}

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100215155651) do
+ActiveRecord::Schema.define(:version => 20100301032937) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20100215155651) do
     t.string   "largesquare"
     t.string   "medium"
     t.string   "small"
+    t.string   "extralarge"
   end
 
   create_table "bands", :force => true do |t|

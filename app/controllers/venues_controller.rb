@@ -14,6 +14,13 @@ class VenuesController < ApplicationController
   # GET /venues/1.xml
   def show
     @venue = Venue.find(params[:id])
+    @venueLocation = @venue.location
+    
+    @venueMapLink = "http://maps.google.com/maps/api/staticmap?center="+ @venue.address.to_s + "+" + @venue.location.city + "+" + @venue.location.state 
+    @venueMapLink = @venueMapLink +"&zoom=15&size=320x320&maptype=roadmap&markers=color:blue|label:*|" 
+    @venueMapLink = @venueMapLink + @venue.address.to_s + "+" 
+    @venueMapLink = @venueMapLink + @venue.location.city 
+    @venueMapLink = @venueMapLink + "+"+ @venue.location.state + "&sensor=false"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +32,9 @@ class VenuesController < ApplicationController
   # GET /venues/new.xml
   def new
     @venue = Venue.new
+    
+    @userCity = get_user_city()
+    @userState = get_user_state()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,9 +51,23 @@ class VenuesController < ApplicationController
   # POST /venues.xml
   def create
     @venue = Venue.new(params[:venue])
-
+    
+    if(@venue.name != nil) then
+      @venue.name = @venue.name.upcase
+    end
+    
+    @userCity = get_user_city()
+    @userState = get_user_state()
+    
+    @location = Location.city_equals(@userCity).state_equals(@userState).first
+    @venue.location_id = @location.id
+    
     respond_to do |format|
       if @venue.save
+        
+        @location.add_venue_to_location(@venue)
+        @location.save
+        
         flash[:notice] = 'Venue was successfully created.'
         format.html { redirect_to(@venue) }
         format.xml  { render :xml => @venue, :status => :created, :location => @venue }

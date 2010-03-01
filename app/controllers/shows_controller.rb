@@ -482,6 +482,7 @@ private
           picture.largesquare = sizes.at("size[@name='largesquare']").inner_html
           picture.medium = sizes.at("size[@name='medium']").inner_html
           picture.small = sizes.at("size[@name='small']").inner_html
+          picture.extralarge = sizes.at("size[@name='extralarge']").inner_html
           picture.save
           headliner.add_picture_to_band(picture)
         end

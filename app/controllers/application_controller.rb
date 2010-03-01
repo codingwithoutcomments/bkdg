@@ -66,4 +66,12 @@ protected
     session[:state] = "Washington"
   end
   
+  def get_user_city
+    return session[:city]
+  end
+  
+  def get_user_state
+    return session[:state]
+  end
+  
 end

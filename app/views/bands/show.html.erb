@@ -5,10 +5,10 @@
 		</div>
 	
 	   <div class='bandContent'>
-		<% if @band.has_pictures? then%>
-			<% randomBandPicture = generate_one_random_band_picture(@band) %>
-			<img src = "<%= @band.bandpictures.at(randomBandPicture).original %>">
-		<% end %>
+			<% if @band.has_pictures? then%>
+				<% randomBandPicture = generate_one_random_band_picture(@band) %>
+				<img src = "<%= @band.bandpictures.at(randomBandPicture).extralarge %>">
+			<% end %>
 		
 		</div>
 	</div>
