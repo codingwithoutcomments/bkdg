@@ -28,4 +28,22 @@ class Location < ActiveRecord::Base
     venues.remove(venue)
   end
   
+  def get_city_parameterized()
+
+    tempCity = city
+    tempCity = tempCity.gsub('+', '%2B')
+    tempCity = tempCity.gsub(' ', '+')
+    tempCity = tempCity.gsub('&', '%26')
+    tempCity = tempCity.gsub('$', '%24')
+    tempCity = tempCity.gsub(',', '%2C')
+    tempCity = tempCity.gsub('/', '%2F')
+    tempCity = tempCity.gsub(':', '%3A')
+    tempCity = tempCity.gsub(';', '%3B')
+    tempCity = tempCity.gsub('=', '%3D')
+    tempCity = tempCity.gsub('?', '%3F')
+    tempCity = tempCity.gsub('@', '%40')
+    
+    return tempCity
+  end
+  
 end

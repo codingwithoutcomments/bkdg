@@ -28,6 +28,24 @@ class Venue < ActiveRecord::Base
     shows.delete(show)
   end
   
+  def get_address_parameterized()
+
+    tempAddress = address
+    tempAddress = tempAddress.gsub('+', '%2B')
+    tempAddress = tempAddress.gsub(' ', '+')
+    tempAddress = tempAddress.gsub('&', '%26')
+    tempAddress = tempAddress.gsub('$', '%24')
+    tempAddress = tempAddress.gsub(',', '%2C')
+    tempAddress = tempAddress.gsub('/', '%2F')
+    tempAddress = tempAddress.gsub(':', '%3A')
+    tempAddress = tempAddress.gsub(';', '%3B')
+    tempAddress = tempAddress.gsub('=', '%3D')
+    tempAddress = tempAddress.gsub('?', '%3F')
+    tempAddress = tempAddress.gsub('@', '%40')
+    
+    return tempAddress
+  end
+  
 private
 
   def unqiueness_of_venue_name_in_city
@@ -51,5 +69,7 @@ private
     
     return output;
   end
+  
+  
   
 end

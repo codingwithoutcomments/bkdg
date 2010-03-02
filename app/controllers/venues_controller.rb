@@ -16,10 +16,10 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     @venueLocation = @venue.location
     
-    @venueMapLink = "http://maps.google.com/maps/api/staticmap?center="+ @venue.address.to_s + "+" + @venue.location.city + "+" + @venue.location.state 
+    @venueMapLink = "http://maps.google.com/maps/api/staticmap?center="+ @venue.get_address_parameterized + "+" + @venue.location.get_city_parameterized + "+" + @venue.location.state 
     @venueMapLink = @venueMapLink +"&zoom=15&size=320x320&maptype=roadmap&markers=color:blue|label:*|" 
-    @venueMapLink = @venueMapLink + @venue.address.to_s + "+" 
-    @venueMapLink = @venueMapLink + @venue.location.city 
+    @venueMapLink = @venueMapLink + @venue.get_address_parameterized + "+" 
+    @venueMapLink = @venueMapLink + @venue.location.get_city_parameterized 
     @venueMapLink = @venueMapLink + "+"+ @venue.location.state + "&sensor=false"
 
     respond_to do |format|
