@@ -122,7 +122,21 @@
 	
 </div>
 
-<div id = "subheader" style=''>
+<div id = "subheader">
+	<b><h3>Users Attending</h3></b>
+</div>
+
+<div id='userIconContainer'>
+	<% @show.users.each do |user| %>
+		<div class='singleUser'>
+			<%= link_to "<img src ='" + user.gravatar_url(:size => 40) + "'>", {:controller => 'users', :action => 'show', :id => user }, :title => user.username %>
+		</div>
+	<% end %>
+</div>
+
+<div >
+
+<div id = "subheader">
 	<b><h3>Comments</h3></b>
 </div>
 

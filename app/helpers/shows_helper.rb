@@ -145,8 +145,8 @@ module ShowsHelper
   
   def map_it(show)
     link = "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q="
-    link = link + show.venue.address.gsub(' ','+') if show.venue.address != nil
-    link = link + "+" + show.location.city + "+" + show.location.state
+    link = link + show.venue.get_address_parameterized if show.venue.address != nil
+    link = link + "+" + show.location.get_city_parameterized + "+" + show.location.state
     return link
   end
   

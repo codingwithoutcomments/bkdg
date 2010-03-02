@@ -277,6 +277,25 @@
 	width:86px;
 }
 
+#userIconContainer
+{
+	margin-top:10px;
+	margin-left:30px;
+	width:550px;
+	background-color:#F7F7F7;
+}
+
+.singleUser
+{
+	float:left;
+	padding:5px;
+}
+
+.singleUser img
+{
+	border: 0px;
+}
+
 .post_a_comment {
 background-color:#60A49F;
 color:#FFFFFF;
