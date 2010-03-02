@@ -120,9 +120,9 @@
 											<%= link_to 'Add Openers', edit_show_path(show, :highlight => "bands") %>
 										<% end %>
 									</div>
-									<div class="attend-recommend <%= attending_click_helper(current_user, @current_user.shows, show) %>">
+									<div class="attend-recommend">
 										<% if @current_user %>
-											<%= link_to_remote attendingshow?, {
+											<%= link_to_remote 'Remove this show from my list', {
 										   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, 
 													:class => "attendincrement", :title => "Click to Attend/Unattend" %>
 										<% else %>

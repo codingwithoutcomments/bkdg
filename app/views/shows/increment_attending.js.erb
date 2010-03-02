@@ -10,11 +10,9 @@ $j(document).ready(function()
 	{
   
 	  $j("#attendincrement").html("Click To Attend This Show");
-	  $j("#attendincrement").parent(".attend-recommend").css("background-color", "#FFFFFF");
-		$j("#attendincrement").parent(".attend-recommend").find("a").css("color", "black").css("text-decoration", "underline");
 	  $j("#attending-id-" + attending_show_id).html('<%= escape_javascript(render(:partial => "number_attending", :locals => { :number_attending => @current_show.attending }))%>');
-	  //$j("#show-summary-" + attending_show_id).animate({backgroundColor:"#FFFFFF"}, 200);
-  
+	  $j("#show-summary-" + attending_show_id).find(".attendingsymbol").fadeOut(function(){ $(this).remove(); });
+	
 	}else{
 		
 		$j('<%= escape_javascript(render(:partial => "notice_show_attending", :locals => { :show => @current_show }))%>').insertBefore('#header');
@@ -22,14 +20,14 @@ $j(document).ready(function()
 			.css("display", "none")
 			.fadeIn("slow");
 			
+		$j("#attendincrement").html("Remove This Show From My List");
+		$j("#attending-id-" + attending_show_id).html('<%= escape_javascript(render(:partial => "number_attending", :locals => { :number_attending => @current_show.attending }))%>');
+		$j("#show-summary-" + attending_show_id).find(".headliner-name").append("<div class='attendingsymbol' title='attending!' style='display:none;'>A</div>").find(".attendingsymbol").fadeIn();
+		
+			
 		setTimeout(function() { $j('#notice').fadeOut("slow", function(){  $j(this).remove(); }) }, 3000);
 		
-		$j("#attendincrement").html("You Are Attending This Show");
-		$j("#attendincrement").parent(".attend-recommend").css("background-color", "#F90887");
-		$j("#attendincrement").parent(".attend-recommend").find("a").css("color", "white").css("text-decoration", "none");
-		$j("#attending-id-" + attending_show_id).html('<%= escape_javascript(render(:partial => "number_attending", :locals => { :number_attending => @current_show.attending }))%>');
-		//$j("#show-summary-" + attending_show_id).animate({backgroundColor:"#FFFF01"}, 1000);
-	
+		
 	}
 	
 });

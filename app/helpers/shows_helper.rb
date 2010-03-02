@@ -116,15 +116,6 @@ module ShowsHelper
   end
   
   
-  
-  def attendingshow?
-    if (@attendingshow)
-      return "You Are Attending This Show"
-    else
-      return "Click To Attend This Show"
-    end
-  end
-  
   def attendingTheShow?
     if (@attendingshow)
       return "You Are Attending This Show."

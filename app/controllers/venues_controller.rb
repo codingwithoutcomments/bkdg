@@ -13,6 +13,7 @@ class VenuesController < ApplicationController
   # GET /venues/1
   # GET /venues/1.xml
   def show
+    @current_user = current_user
     @venue = Venue.find(params[:id])
     @venueLocation = @venue.location
     @venueShows = @venue.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')

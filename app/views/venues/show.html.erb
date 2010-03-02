@@ -86,7 +86,12 @@
 					
 						<div>
 							<div class="headliner">
-								<div class="headliner-name"><%=link_to populate_headliner(show), :controller => 'shows', :action => 'show', :id => show %></div>
+								<div class="headliner-name">
+									<%=link_to populate_headliner(show), :controller => 'shows', :action => 'show', :id => show %>
+									<% if @attendingshow then %>
+										<div class='attendingsymbol' title='attending!'>A</div>
+									<% end %>
+								</div>
 								<div class="openers">
 									<% if (show.bands.count > 1)%>
 										<%= populate_openers(show) %>
@@ -94,7 +99,7 @@
 										<%= link_to 'Add Openers', edit_show_path(show, :highlight => "bands") %>
 									<% end %>
 								</div>
-								<div class="attend-recommend <%= attending_click_helper(current_user, current_user.shows, show) %>">
+								<div class="attend-recommend">
 									<% if @current_user %>
 										<%= link_to_remote attendingshow?, {
 									   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, 

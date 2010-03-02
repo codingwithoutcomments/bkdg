@@ -523,14 +523,14 @@ code {
 		font-size:130%;
 		font-family:Arial,Helvetica,sans-serif;
 		font-weight:bold;
-		background-color:#FFFF01;
-		text-decoration:underline;
+		background-color:#FFFF01;	
 		
 }
 
 .headliner-name a
 {
 	color:black;
+	text-decoration:underline;
 }
 
 .openers
@@ -565,6 +565,24 @@ code {
 	font-size: 70%;
 	float:left;
 	cursor:pointer;
+}
+
+.attend-recommend a
+{
+	color:black;
+	text-decoration:underline;
+}
+
+.attendingsymbol
+{
+	background-color:#F90887;
+	color:white;
+	padding:2px;
+	font-weight:bold;
+	font-size:100%;
+	float:right;
+	cursor:pointer;
+	text-decoration:none;
 }
 
 .alreadyattending
