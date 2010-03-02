@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100302002724) do
+ActiveRecord::Schema.define(:version => 20100302041653) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -102,6 +102,10 @@ ActiveRecord::Schema.define(:version => 20100302002724) do
     t.integer  "points",              :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "shows_posted"
+    t.string   "website"
+    t.string   "location"
+    t.string   "age"
   end
 
   create_table "venues", :force => true do |t|

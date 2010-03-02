@@ -14,7 +14,17 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-
+    
+    if(current_user) then
+      if current_user.id == @user.id then
+        @currentUserViewing = true
+      else
+        @currentUserViewing = false
+      end
+    else
+      @currentUserViewing = false
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
@@ -61,8 +71,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = "User #{@user.name} was successfully updated."
-        format.html { redirect_to(:action =>'index') }
+        flash[:notice] = "User #{@user.username} was successfully updated."
+        format.html { redirect_to(:action =>'show', :id => @user.id) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

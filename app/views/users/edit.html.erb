@@ -4,17 +4,25 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
     <%= f.label :username %><br />
     <%= f.text_field :username %>
   </p>
+
+ <p>
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </p>
+
   <p>
-	<%= f.label :admin %>
-    <%= f.select :admin, [['No', false], ['Yes', true]], :prompt => "Select Show Time"%>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+
   <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+
   <p>
     <%= f.submit "Update" %>
   </p>

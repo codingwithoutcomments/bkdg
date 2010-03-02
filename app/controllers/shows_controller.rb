@@ -183,6 +183,9 @@ class ShowsController < ApplicationController
         @location.add_show_to_location(@show)
         @location.save
         
+        @user.shows_posted = @user.shows_posted + 1
+        @user.save
+        
         flash[:notice] = 'Show was successfully created.'
         format.html { redirect_to(@show) }
         format.xml  { render :xml => @show, :status => :created, :location => @show }

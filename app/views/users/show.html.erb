@@ -1,13 +1,77 @@
+<%= stylesheet_link_tag 'usernew' %>
 
-<p>
-  <b>Username:</b>
-  <%=h @user.username %>
-</p>
+<% content_for :uppermenu do %>
+  <div id="hmenus">
+	<div id ="hlinks">
+		<% if current_user %>
+			<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user.id) %> |
+			<%= link_to 'logout', logout_path %> |
+		<% else %>
+			<%= link_to 'login', login_path %> |
+			<%= link_to 'signup', new_user_path %> |
+		<% end %>
+		<%= link_to 'settings', { :action => "settings"} %> |
+		<%= link_to 'about', { :action => "about"} %> |
+		<%= link_to 'faq', { :action => "faq"} %>
+	</div>
+	<div id = "show-search">
+		<% form_tag( {:controller => "shows", :action => "search"}, {:method => "get"}) do %>  
+		    <div style="margin:3px;padding3px;">
+			<%= text_field_tag(:q, "search", {:class => "textbox"}) %>
+			</div>  
+		<% end %>
+	</div>
+</div>
 
-<p>
-  <b>Points:</b>
-  <%=h @user.points %>
-</p>
+<% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% content_for :subheader do %>  
+	<div class='optionsMarquee'>&nbsp; <%= link_to 'home', { :controller => "shows", :action => "index"} %> &nbsp; <%= link_to 'my shows', { :action => "index"} %> &nbsp; <span><%= link_to 'users', { :action => "index"} %></span> &nbsp;<%= link_to 'post a show', new_show_path, {:id => "postashowbutton"} %> &nbsp;</div>
+<% end %>
+
+<div id = "mainbar-full">
+	
+	<div id = "subheader">
+		<h3>User Profile for <%=h @user.username %></h3>
+	</div>
+
+	<div class='userContainer'>
+		
+		<div class='userImage'>
+			<%= image_tag @user.gravatar_url(:size => 250) %>
+			<a href = "http://en.gravatar.com/site/signup">Change Picture At Gravitar.com</a>
+		</div>
+		
+		<div class='userInformation'>
+			
+			<div class='userCategories'>
+				<div class='userCategory'>Name</div>
+				<%if @user.website != nil %> <div class='userCategory'>Website</div>  <% end %>
+				<%if @user.location != nil %><div class='userCategory'>Location</div> <% end %>
+				<%if @user.age != nil %>     <div class='userCategory'>Age</div>      <% end %>
+				<div class='userCategory'>Points</div>
+				<div class='userCategory'>Shows Posted</div>
+			</div>
+			
+			<div class='userAnswers'>
+				<div class='userAnswer' answer='first'><%=h @user.username %></div>
+				<%if @user.website != nil %> <div class='userAnswer'><a href = "<%=h @user.website %>"><%=h @user.website %></a></div> <% end %>
+				<%if @user.location != nil %> <div class='userAnswer'><%=h @user.location %></div> <% end %>
+				<%if @user.age != nil %> <div class='userAnswer'><%=h @user.age %></div> <% end %>
+				<div class='userAnswer'> <%=h @user.points %></div>
+				<div class='userAnswer'><%=h @user.shows_posted %></div>
+			</div>
+			
+			<div class='userControls'>
+				<% if (@currentUserViewing) then%>
+					<%= link_to 'Edit', edit_user_path(@user) %>
+				<% end %>
+			</div>
+			
+		</div>
+		
+		
+		
+	</div>
+
+</div>
