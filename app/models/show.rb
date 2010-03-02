@@ -36,7 +36,7 @@ class Show < ActiveRecord::Base
   validate :a_show_time_has_been_chosen
   
   def to_param
-    "#{id}-#{bands.at(0).band_name.downcase.parameterize}+at+#{venue.name.downcase.parameterize}"
+    "#{id}-#{bands.at(0).band_name.downcase.parameterize}-at-#{venue.name.downcase.parameterize}"
   end
   
   def add_comment_to_show(comment_to_add)
