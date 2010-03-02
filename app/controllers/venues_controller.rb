@@ -15,6 +15,7 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @venueLocation = @venue.location
+    @venueShows = @venue.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
     
     @venueMapLink = "http://maps.google.com/maps/api/staticmap?center="+ @venue.get_address_parameterized + "+" + @venue.location.get_city_parameterized + "+" + @venue.location.state 
     @venueMapLink = @venueMapLink +"&zoom=15&size=320x320&maptype=roadmap&markers=color:blue|label:*|" 

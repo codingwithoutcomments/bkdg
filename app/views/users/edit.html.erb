@@ -1,32 +1,69 @@
-<h1>Editing user</h1>
+<%= stylesheet_link_tag 'usernew' %>
+<% content_for :uppermenu do %>
+  <div id="hmenus">
+	<div id ="hlinks">
+		<% if current_user %>
+			<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user.id) %> |
+			<%= link_to 'logout', logout_path %> |
+		<% else %>
+			<%= link_to 'login', login_path %> |
+			<%= link_to 'signup', new_user_path %> |
+		<% end %>
+		<%= link_to 'settings', { :action => "settings"} %> |
+		<%= link_to 'about', { :action => "about"} %> |
+		<%= link_to 'faq', { :action => "faq"} %>
+	</div>
+	<div id = "show-search">
+		<% form_tag( {:controller => "shows", :action => "search"}, {:method => "get"}) do %>  
+		    <div style="margin:3px;padding3px;">
+			<%= text_field_tag(:q, "search", {:class => "textbox"}) %>
+			</div>  
+		<% end %>
+	</div>
+</div>
 
-<% form_for(@user) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-
- <p>
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </p>
-
-  <p>
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </p>
-
-  <p>
-    <%= f.label :age %><br />
-    <%= f.text_field :age %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<% content_for :subheader do %>  
+	<div class='optionsMarquee'>&nbsp; <%= link_to 'home', { :controller => "shows", :action => "index"} %> &nbsp; <%= link_to 'my shows', { :action => "index"} %> &nbsp; <span><%= link_to 'users', { :action => "index"} %></span> &nbsp;<%= link_to 'post a show', new_show_path, {:id => "postashowbutton"} %> &nbsp;</div>
+<% end %>
+
+<div id = "mainbar-full">
+
+	<div id = "subheader">
+		<h3>Editing Profile for <%=h @user.username %></h3>
+	</div>
+
+	<% form_for(@user) do |f| %>
+	  <%= f.error_messages %>
+
+	  <br />
+	  <p>
+	    <%= f.label :username %><br />
+	    <%= f.text_field :username %>
+	  </p>
+
+	 <p>
+	    <%= f.label :website %><br />
+	    <%= f.text_field :website %>
+	  </p>
+	
+	  <p>
+	    <%= f.label :location %><br />
+	    <%= f.text_field :location %>
+	  </p>
+
+	  <p>
+	    <%= f.label :age %><br />
+	    <%= f.text_field :age %>
+	  </p>
+	<br />
+	
+	  <p>
+	    <%= f.submit "Update" %>
+	  </p>
+	<br />
+	<% end %>
+
+	<%= link_to 'Back To User Profile', @user %>
+</div>

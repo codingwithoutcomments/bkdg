@@ -46,18 +46,18 @@
 			
 			<div class='userCategories'>
 				<div class='userCategory'>Name</div>
-				<%if @user.website != nil %> <div class='userCategory'>Website</div>  <% end %>
-				<%if @user.location != nil %><div class='userCategory'>Location</div> <% end %>
-				<%if @user.age != nil %>     <div class='userCategory'>Age</div>      <% end %>
+				<%if @user.website != nil && @user.website != "" then %> <div class='userCategory'>Website</div>  <% end %>
+				<%if @user.location != nil && @user.location != "" %><div class='userCategory'>Location</div> <% end %>
+				<%if @user.age != nil && @user.age != "" %>     <div class='userCategory'>Age</div>      <% end %>
 				<div class='userCategory'>Points</div>
 				<div class='userCategory'>Shows Posted</div>
 			</div>
 			
 			<div class='userAnswers'>
 				<div class='userAnswer' answer='first'><%=h @user.username %></div>
-				<%if @user.website != nil %> <div class='userAnswer'><a href = "<%=h @user.website %>"><%=h @user.website %></a></div> <% end %>
-				<%if @user.location != nil %> <div class='userAnswer'><%=h @user.location %></div> <% end %>
-				<%if @user.age != nil %> <div class='userAnswer'><%=h @user.age %></div> <% end %>
+				<%if @user.website != nil && @user.website != "" %> <div class='userAnswer'><a href = "<%=h @user.website %>"><%=h @user.website %></a></div> <% end %>
+				<%if @user.location != nil && @user.location != "" %> <div class='userAnswer'><%=h @user.location %></div> <% end %>
+				<%if @user.age != nil && @user.age != "" %> <div class='userAnswer'><%=h @user.age %></div> <% end %>
 				<div class='userAnswer'> <%=h @user.points %></div>
 				<div class='userAnswer'><%=h @user.shows_posted %></div>
 			</div>
@@ -70,8 +70,87 @@
 			
 		</div>
 		
-		
-		
 	</div>
+		
+		<div id = "subheader">
+			<h3>Shows Attending</h3>
+		</div>
+		
+		<div id = "shows">
 
-</div>
+			
+				<% for show in @userShows %>
+					<div id="single-show">
+							<% if firstShowOnDate(@previousDate, show) %>
+								<div class ="show-date">
+									<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
+								</div>
+							<% end %>
+							<% @previousDate = show.date %>
+						
+							<div class="<%= attending_highlight_helper(@user, @user.shows, show) %>" id="show-summary-<%= show.id %>">
+						
+							<div>
+
+								<div class="attendingcontainer">
+									<div class="attending" id="attending-id-<%= show.id %>">
+										<%= render(:partial => "number_attending", :object => show.attending)%>
+									</div>
+									<div class="attendingword" id="attending-word-<%= show.id %>">Attending</div> 
+							    </div>
+
+								<div class="commentcontainer">
+									<div class="comment">
+											<span class="comment-counts">
+												<<%= comment_counts_helper(0) %>><%= show.comments.count %></<%= comment_counts_helper(0) %>>
+											</span>
+						            </div>
+									<div class="attendingword">Comments</div>
+					        	</div>
+
+							</div>
+						
+							<div>
+								<div class="headliner">
+									<div class="headliner-name"><%=link_to populate_headliner(show), :action => 'show', :id => show %></div>
+									<div class="openers">
+										<% if (show.bands.count > 1)%>
+											<%= populate_openers(show) %>
+										<% else %>
+											<%= link_to 'Add Openers', edit_show_path(show, :highlight => "bands") %>
+										<% end %>
+									</div>
+									<div class="attend-recommend <%= attending_click_helper(current_user, @current_user.shows, show) %>">
+										<% if @current_user %>
+											<%= link_to_remote attendingshow?, {
+										   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, 
+													:class => "attendincrement", :title => "Click to Attend/Unattend" %>
+										<% else %>
+										    <%= link_to_remote "Click To Attend This Show", {
+										   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "attenderror" %>
+										<% end %>
+									</div>
+
+							</div>
+						
+							<div>
+								<div class="venue">
+									<div class="venue-name"><%= link_to capitalize_first_letter_of_each_word(show.venue.name), show.venue %></div>
+								    <div class="date-time-price">
+										<%= render(:partial => "display_date_time_price", :locals => { :show => show }) %>
+									</div>
+
+								</div>
+							</div>
+						
+							</div>
+							</span>
+					</div>
+				<% end %>
+				<br /><br />
+			
+		<div id="sidebar">  
+		</div>
+		
+		</div> <!-- shows -->
+</div><!-- mainBar Full -->

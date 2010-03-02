@@ -10,4 +10,39 @@ module ApplicationHelper
     return output;
   end
   
+  def attending_click_helper(user_logged_in,shows_attending, show)
+    if(user_logged_in)
+        shows_attending.each do |show_attending|
+          if(show_attending.id.to_s == show.id.to_s)
+            @attendingshow = true
+            return "alreadyattending"
+          end
+        end
+        @attendingshow = false
+        return "notattending"
+        
+      else
+        @attendingshow = false
+        return "notattending"
+      end
+  end
+  
+  def attending_highlight_helper(user_logged_in,shows_attending, show)
+    if(user_logged_in)
+        shows_attending.each do |show_attending|
+          if(show_attending.id.to_s == show.id.to_s)
+            @attendingshow = true
+            #return "show-summary-attending"
+            return "show-summary"
+          end
+        end
+        @attendingshow = false
+        return "show-summary"
+        
+      else
+        @attendingshow = false
+        return "show-summary"
+      end
+  end
+  
 end

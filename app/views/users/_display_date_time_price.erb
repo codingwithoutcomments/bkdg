@@ -1,0 +1,29 @@
+<% if show.time == "UNKNOWN" then %>
+	<%= link_to 'Add Time', edit_show_path(show, :highlight => "time") %>
+<% else %>
+	<%=h show.time %>
+<% end %> 
+| 
+<% if(show.price_option == 'UNKNOWN') %>
+	<%= link_to 'Add Price', edit_show_path(show, :hightlight => "price") %>
+<% else %>
+
+	<% if (show.price_option == 'FREE') then %>
+		FREE
+	<% elsif (show.price_option == 'DONATION') %>
+		Donation
+	<% else %>
+		<% if show.price != nil then %> 
+			$<%= format_price(show.price) %> DOS
+		<% else %>
+		 	$<%= format_price(show.advanceprice) %> ADV 
+		<% end %>
+	<% end %>
+	
+<% end %>
+| 
+<% if(show.allowed_in == "All Ages") then %>
+	<span title='All Ages' style='cursor:pointer;'>AA</span>
+<% else %>
+	21+
+<%end %>
