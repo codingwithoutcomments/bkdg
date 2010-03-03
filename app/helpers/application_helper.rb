@@ -52,4 +52,25 @@ module ApplicationHelper
     end
   end
   
+  def days_away_helper(showDate)
+    
+      year = showDate.strftime("%Y")
+      month = showDate.strftime("%m")
+      day = showDate.strftime("%e")
+      showDate = Date.new(year.to_i, month.to_i, day.to_i)
+      
+      val = showDate - DateTime.now
+      
+      #puts val
+      if val.to_i == -1 then
+        result = 'Today'
+      elsif val.to_i == 0 then
+        result = 'Tomorrow'
+      else
+        result = (val.to_i + 2).to_s + " Days Away" 
+
+      end
+      result
+  end
+  
 end

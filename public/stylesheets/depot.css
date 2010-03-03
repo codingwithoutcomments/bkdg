@@ -527,6 +527,15 @@ code {
 		
 }
 
+.daysAway
+{
+	float:right;
+	width:235px;
+	text-align:center;
+	font-size:80%;
+	margin-top:5px;
+}
+
 .headliner-name a
 {
 	color:black;
