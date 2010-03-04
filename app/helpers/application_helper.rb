@@ -52,25 +52,22 @@ module ApplicationHelper
     end
   end
   
-  def days_away_helper(showDate)
-    
-      year = showDate.strftime("%Y")
-      month = showDate.strftime("%m")
-      day = showDate.strftime("%e")
-      showDate = Date.new(year.to_i, month.to_i, day.to_i)
-      
-      val = showDate - DateTime.now
-      
-      #puts val
-      if val.to_i == -1 then
-        result = 'Today'
-      elsif val.to_i == 0 then
-        result = 'Tomorrow'
+  def days_away_helper(showDate, showtime)
+      hoursToAdd = 20.hours
+      if(showtime == "UNKNOWN") then 
+        hoursToAdd = 20.hours
       else
-        result = (val.to_i + 2).to_s + " Days Away" 
-
+        hour = showtime.at(0)
+        dayNight = showtime[-2..-1]
+        if(dayNight == "AM") then
+          hoursToAdd = hour.to_i.hours
+        else
+          hoursToAdd = hour.to_i + 12
+          hoursToAdd = hoursToAdd.hours
+        end
       end
-      result
+    
+      return distance_of_time_in_words(Time.now, showDate + hoursToAdd, include_seconds = false)
   end
   
 end

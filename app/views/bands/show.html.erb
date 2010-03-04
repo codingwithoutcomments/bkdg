@@ -5,11 +5,32 @@
 		</div>
 	
 	   <div class='bandContent'>
-			<% if @band.has_pictures? then%>
-				<% randomBandPicture = generate_one_random_band_picture(@band) %>
-				<img src = "<%= @band.bandpictures.at(randomBandPicture).extralarge %>">
-			<% end %>
-		
+			<div class='bandInfoSinglePicture'>
+				<div>
+					<% if @band.has_pictures? then%>
+						<% randomBandPicture = generate_one_random_band_picture(@band) %>
+						<img src = "<%= @band.bandpictures.at(randomBandPicture).extralarge %>">
+					<% end %>
+				</div>
+				<div>
+					<% if @band.bandpictures.count != 0 %>
+						<% link_to 'View all ' + @band.bandpictures.count.to_s, :action => 'index' %>
+					<% end %>
+				</div>
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</div>
 	</div>
 	

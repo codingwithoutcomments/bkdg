@@ -108,6 +108,15 @@ div.bkdg-title h1 {
 	margin-bottom:20px;
 }
 
+.bandInfoSinglePicture
+{
+	width:300px;
+	height:400px;
+	background-color:#F2F2F2;
+	padding:20px;
+	text-align:center;
+}
+
 #PictureViewerHeader
 {
 	border-bottom: 1px solid #777777;
