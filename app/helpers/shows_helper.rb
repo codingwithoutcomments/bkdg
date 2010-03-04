@@ -70,7 +70,7 @@ module ShowsHelper
   def didwhen(old_time)
 
     val = Time.now - old_time
-    #puts val
+    puts val
     if val < 10 then
       result = 'just a moment ago'
     elsif val < 40  then
@@ -92,10 +92,12 @@ module ShowsHelper
     elsif val < 60  * 60 * (96 / 1.02) then
             result = "about 3 days ago"
     else
-      result = old_time.strftime("%b %d, %Y %H:%M")
+      result = old_time.strftime("%b %d, %Y")
 
     end
     result
+    
+    #time_ago_in_words(old_time, include_seconds = false) + " ago"
   end
 
   

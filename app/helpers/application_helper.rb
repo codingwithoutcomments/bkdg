@@ -70,4 +70,6 @@ module ApplicationHelper
       return distance_of_time_in_words(Time.now, showDate + hoursToAdd, include_seconds = false)
   end
   
+  
+  
 end
