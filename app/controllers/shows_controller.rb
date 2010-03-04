@@ -183,6 +183,7 @@ class ShowsController < ApplicationController
         @location.add_show_to_location(@show)
         @location.save
         
+        if @user.shows_posted == nil then @user.shows_posted = 0 end
         @user.shows_posted = @user.shows_posted + 1
         @user.save
         
