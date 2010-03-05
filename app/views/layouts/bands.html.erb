@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>BKDG</title>
+  <%= yield :title %>
   <%= stylesheet_link_tag 'scaffold', 'depot', 'bands' %>
 </head>
 
@@ -19,7 +19,7 @@
 	<div id="hmenus">
 		<div id ="hlinks">
 			<% if current_user %>
-				<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user.id) %> |
+				<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user) %> |
 				<%= link_to 'logout', logout_path %> |
 			<% else %>
 				<%= link_to 'login', login_path %> |

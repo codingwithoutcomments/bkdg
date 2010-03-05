@@ -108,14 +108,7 @@ div.bkdg-title h1 {
 	margin-bottom:20px;
 }
 
-.bandInfoSinglePicture
-{
-	width:300px;
-	height:400px;
-	background-color:#F2F2F2;
-	padding:20px;
-	text-align:center;
-}
+
 
 #PictureViewerHeader
 {
@@ -144,6 +137,71 @@ div.bkdg-title h1 {
 {
 	font-size:80%;
 	
+}
+
+.bandInfoSinglePicture
+{
+	width:300px;
+	text-align:center;
+	float:left;
+}
+
+.bandInfoStats
+{
+	float:left;
+	width:360px;
+	padding:10px;
+}
+
+.bandInfoBandName
+{
+	width:100%;
+	background-color:#FFFF01;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:bold;
+	font-size:180%;
+	padding: 5px 10px;
+}
+
+.bandContent label.category {
+	width: 6em;
+	float: left;
+	text-align: right;
+	padding-top: 0.2em;
+	display: block;
+	margin-right:5px;
+	color:black;
+}
+
+.bandContent label.value {
+	width: 6em;
+	float: left;
+	text-align: left;
+	padding-top: 0.2em;
+	display: block;
+	margin-right:5px;
+	color:black;
+}
+
+.BandStatValue
+{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:120%;
+	margin-left:10px;
+	float:left;
+	text-align:left;
+	width:250px;
+}
+
+.BandStat
+{
+	width:480px;
+}
+
+.BandStatLabel
+{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:120%;
 }
 
 

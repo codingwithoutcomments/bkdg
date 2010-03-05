@@ -1,3 +1,4 @@
+<% content_for :title do %>  <title>BKDG: Editing <%=capitalize_first_letter_of_each_word(@show.bands.at(0).band_name) %> at  <%=capitalize_first_letter_of_each_word(@show.venue.name) %></title> <% end %>
 <script type="text/javascript" src="/javascripts/newShow.js"></script>
 <%= stylesheet_link_tag 'showsnew' %>
 <div id="mainbar-full">

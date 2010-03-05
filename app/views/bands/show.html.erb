@@ -1,3 +1,4 @@
+<% content_for :title do %>  <title>BKDG: Profile for <%=capitalize_first_letter_of_each_word(@band.band_name) %></title> <% end %>
 	<div class='band'>
 		
 		<div id = "subheader">
@@ -10,12 +11,39 @@
 					<% if @band.has_pictures? then%>
 						<% randomBandPicture = generate_one_random_band_picture(@band) %>
 						<img src = "<%= @band.bandpictures.at(randomBandPicture).extralarge %>">
+						
 					<% end %>
 				</div>
 				<div>
-					<% if @band.bandpictures.count != 0 %>
-						<% link_to 'View all ' + @band.bandpictures.count.to_s, :action => 'index' %>
+					<% if @band.has_pictures? then %>
+						<%= link_to 'View all ' + @band.bandpictures.count.to_s + ' pictures', :action => 'pictures', :id => @band.id %>
 					<% end %>
+				</div>
+			</div>
+			
+			<div class='bandInfoStats'>
+				<div class='bandInfoBandName'>
+					<%= capitalize_first_letter_of_each_word(@band.band_name) %>
+				</div>
+				
+				<div class='BandStat'>
+					<span class='BandStatLabel'><label for="hometown" class='category'>Hometown </label></span>
+					<div class='BandStatValue'><label for="hometownValue" class ='value'>&nbsp;</label></div>
+				</div>
+				
+				<div class='BandStat'>
+					<span class='BandStatLabel'><label for="hometown" class='category'>Website </label></span>
+					<div class='BandStatValue'><label for="hometownValue" class ='value'>&nbsp;</label></div>
+				</div>
+				
+				<div class='BandStat'>
+					<span class='BandStatLabel'><label for="hometown" class='category'>Twitter </label></span>
+					<div class='BandStatValue'><label for="hometownValue" class ='value'>&nbsp;</label></div>
+				</div>
+				
+				<div class='BandStat'>
+					<span class='BandStatLabel'><label for="hometown" class='category'>Shows </label></span>
+					<div class='BandStatValue'><label for="hometownValue" class ='value'>&nbsp;</label></div>
 				</div>
 				
 			</div>

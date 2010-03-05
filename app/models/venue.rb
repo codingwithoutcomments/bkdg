@@ -19,6 +19,10 @@ class Venue < ActiveRecord::Base
   validates_presence_of :address
   
    validate :unqiueness_of_venue_name_in_city
+   
+   def to_param
+     "#{id}-#{name.downcase.parameterize}"
+   end
   
   def add_show_to_venue(show)
     shows << show

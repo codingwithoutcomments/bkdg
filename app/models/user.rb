@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :shows
   has_many :comments
   
+  def to_param
+    "#{id}-#{username}"
+  end
+  
   def attending_show(show)
     shows << show
   end

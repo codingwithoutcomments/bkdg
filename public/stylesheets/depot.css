@@ -548,6 +548,7 @@ code {
 	padding-top: 2px;
 	line-height: 18px;
 	float:left;
+	font-family: Arial,Helvetica,sans-serif;
 }
 
 .openers a
@@ -680,6 +681,7 @@ code {
 	margin: 0px 0 0 0;
 	font-weight: 0;
 	font-size: 100%;
+	font-family:Arial,Helvetica,sans-serif;
 }
 
 .date-time-price a
