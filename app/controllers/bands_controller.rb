@@ -15,8 +15,8 @@ class BandsController < ApplicationController
   # GET /bands/1
   # GET /bands/1.xml
   def show
-    showID = params[:id]
-    @band = Band.find(:first, :conditions => ["id = ?", showID])
+    
+    @band = Band.find(params[:id])
     
      if(!@band.has_pictures?)
         retrieve_pictures(@band) 

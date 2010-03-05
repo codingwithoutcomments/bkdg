@@ -14,6 +14,10 @@ class Band < ActiveRecord::Base
   
   has_many :bandpictures
   
+  def to_param
+     "#{id}-#{band_name.downcase.parameterize}"
+   end
+  
   def add_picture_to_band(picture)
     bandpictures << picture
   end

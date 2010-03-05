@@ -29,13 +29,13 @@
 		<div class = "show-bandlisting">
 			 <% @show.bands.each do |band| %>
 				   <div class='band'><%= link_to capitalize_first_letter_of_each_word(band.band_name), { 
-					:controller => "bands", :action => "show", :id => band.id }, :id => band.id %></div>
+					:controller => "bands", :action => "show", :id => band }, :id => band.id %></div>
 			 <% end %>
 		    </div>
 		
 		 <div class="show-address">
 			  <span id='showVenueName'><%= link_to capitalize_first_letter_of_each_word(@show.venue.name), 
-								:controller => "venues", :action => "show", :id =>@show.venue.id %>
+								:controller => "venues", :action => "show", :id =>@show.venue %>
 			</span>
 			  <div class='venueAddress'><%=h @show.venue.address %></div>
 			  <div class='venueCityState'><%=h @show.location.city %>, <%=h @show.location.state %></div>
