@@ -174,7 +174,7 @@ div.bkdg-title h1 {
 }
 
 .bandContent label.value {
-	width: 6em;
+	width: 7.8em;
 	float: left;
 	text-align: left;
 	padding-top: 0.2em;
@@ -188,9 +188,31 @@ div.bkdg-title h1 {
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:120%;
 	margin-left:10px;
+	margin-top:5px;
 	float:left;
 	text-align:left;
 	width:250px;
+}
+
+.BandStatUpcomingShows
+{
+	font-family:Arial,Helvetica,sans-serif;
+	margin-left:15px;
+	margin-top:0px;
+	float:left;
+	text-align:left;
+	width:250px;
+	font-wight:bold;
+	color:#808185;
+	font-size:300%;
+}
+
+
+.BandStatValue a
+{
+	color:black;
+	text-decoration:underline;
+	width:500px;
 }
 
 .BandStat
@@ -204,6 +226,9 @@ div.bkdg-title h1 {
 	font-size:120%;
 }
 
-
+#bandSummary
+{
+	padding:10px;
+}
 
 

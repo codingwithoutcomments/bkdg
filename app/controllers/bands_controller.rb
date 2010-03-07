@@ -45,7 +45,7 @@ class BandsController < ApplicationController
 
   # GET /bands/1/edit
   def edit
-    @bands = Band.find(params[:id])
+    @band = Band.find(params[:id])
     
     respond_to do |format|
       format.html # edit.html.erb
@@ -71,9 +71,8 @@ class BandsController < ApplicationController
   # get /bands/1/picture/1
   def picture
     
-    @bandID = params[:id]
     @pictureNumber = params[:page]
-    @band = Band.find(:first, :conditions => ["id = ?", @bandID])
+    @band = Band.find(params[:id])
     @totalPictures = @band.bandpictures.count
     
     @bandPictures = @band.bandpictures.paginate :per_page => 1, :page => params[:page]

@@ -28,22 +28,37 @@
 				
 				<div class='BandStat'>
 					<span class='BandStatLabel'><label for="hometown" class='category'>Hometown </label></span>
-					<div class='BandStatValue'><label for="hometownValue" class ='value'>Seattle, WA</label></div>
+					<% if(@band.hometown == nil) %>
+						<div class='BandStatValue'><%= link_to 'Add A Hometown', 
+						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
+					<% else %>
+						<div class='BandStatValue'><%=@band.hometown%></div>
+					<% end %>
 				</div>
 				
 				<div class='BandStat'>
 					<span class='BandStatLabel'><label for="hometown" class='category'>Website </label></span>
-					<div class='BandStatValue'><label for="hometownValue" class ='value'>MySpace</label></div>
+					<% if(@band.website == nil) %>
+						<div class='BandStatValue'><%= link_to 'Add A Website', 
+						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
+					<% else %>
+						<div class='BandStatValue'><%=@band.website%></div>
+					<% end %>
 				</div>
 				
 				<div class='BandStat'>
 					<span class='BandStatLabel'><label for="hometown" class='category'>Twitter </label></span>
-					<div class='BandStatValue'><label for="hometownValue" class ='value'>Jlazer</label></div>
+					<% if(@band.website == nil) %>
+						<div class='BandStatValue'><%= link_to 'Add A Twitter Account', 
+						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
+					<% else %>
+						<div class='BandStatValue'><%=@band.website%></div>
+					<% end %>
 				</div>
 				
 				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="hometown" class='category'>Shows </label></span>
-					<div class='BandStatValue'><label for="hometownValue" class ='value'><%= @band.shows.count %></label></div>
+					<span class='BandStatLabel'><label for="hometown" class='category'>Upcoming Shows </label></span>
+					<div class='BandStatUpcomingShows'><%= @band.shows.count %></div>
 				</div>
 				
 			</div>
@@ -53,7 +68,7 @@
 			</div>
 			
 			<div id='bandSummary'>
-				<%= @band.info %>
+					<%= @band.info %>
 			</div>
 			
 			

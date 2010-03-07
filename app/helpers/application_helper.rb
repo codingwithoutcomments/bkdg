@@ -53,22 +53,42 @@ module ApplicationHelper
   end
   
   def days_away_helper(showDate, showtime)
+      hoursToAdd = CalculateHoursToAdd(showDate, showtime)
+      return distance_of_time_in_words(showDate + hoursToAdd, Time.now, include_seconds = false)
+  end
+  
+  def away_or_ago_helper(showDate, showtime)
+    hoursToAdd = CalculateHoursToAdd(showDate, showtime)
+    difference = Time.now - (showDate + hoursToAdd)
+    
+    if(difference < 0)
+      return "away"
+    else
+      return "ago"
+    end
+    
+  end
+  
+  def CalculateHoursToAdd(showDate, showtime)
       hoursToAdd = 20.hours
       if(showtime == "UNKNOWN") then 
         hoursToAdd = 20.hours
       else
         hour = showtime.at(0)
+        halfhour = showtime.at(2)
         dayNight = showtime[-2..-1]
         if(dayNight == "AM") then
           hoursToAdd = hour.to_i.hours
         else
-          hoursToAdd = hour.to_i + 12
+          hoursToAdd = hour.to_f + 12.0
+          if(halfhour == "3") then
+            hoursToAdd = hoursToAdd + 0.5
+          end
           hoursToAdd = hoursToAdd.hours
         end
-      end
-    
-      return distance_of_time_in_words(Time.now, showDate + hoursToAdd, include_seconds = false)
+    end
   end
+  
   
   
   

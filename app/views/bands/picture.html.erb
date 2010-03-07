@@ -5,8 +5,8 @@
 		<h3>Pictures Of <%= capitalize_first_letter_of_each_word(@band.band_name) %></h3>
 		<div class='PictureController'>
 			<span>Picture <%= @pictureNumber %> of <%= @totalPictures %></span> | 
-			<span><%= link_to 'Back To Pictures of ' + capitalize_first_letter_of_each_word(@band.band_name), :controller =>'bands', :action => 'pictures', :id => @bandID  %></span> | 
-			<span><%= link_to capitalize_first_letter_of_each_word(@band.band_name) + '\'s Profile', :controller =>'bands', :action => 'show', :id => @bandID %>
+			<span><%= link_to 'Back To Pictures of ' + capitalize_first_letter_of_each_word(@band.band_name), :controller =>'bands', :action => 'pictures', :id => @band  %></span> | 
+			<span><%= link_to capitalize_first_letter_of_each_word(@band.band_name) + '\'s Profile', :controller =>'bands', :action => 'show', :id => @band %>
 			<span><%= will_paginate @bandPictures, :page_links => false, :class => 'SinglePicturePagination' %></span></div>
 	</div>
 
