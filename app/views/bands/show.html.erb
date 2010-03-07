@@ -28,7 +28,7 @@
 				
 				<div class='BandStat'>
 					<span class='BandStatLabel'><label for="hometown" class='category'>Hometown </label></span>
-					<% if(@band.hometown == nil) %>
+					<% if(@band.hometown == nil || @band.hometown == "") %>
 						<div class='BandStatValue'><%= link_to 'Add A Hometown', 
 						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
 					<% else %>
@@ -37,28 +37,32 @@
 				</div>
 				
 				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="hometown" class='category'>Website </label></span>
-					<% if(@band.website == nil) %>
+					<span class='BandStatLabel'><label for="website" class='category'>Website </label></span>
+					<% if(@band.website == nil || @band.website == "") %>
 						<div class='BandStatValue'><%= link_to 'Add A Website', 
 						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
 					<% else %>
-						<div class='BandStatValue'><%=@band.website%></div>
+						<div class='BandStatValue'><a href='<%= @band.website %>' target="_blank"><%= remove_http(@band.website) %></a></div>
 					<% end %>
 				</div>
 				
 				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="hometown" class='category'>Twitter </label></span>
-					<% if(@band.website == nil) %>
+					<span class='BandStatLabel'><label for="twitter" class='category'>Twitter </label></span>
+					<% if(@band.twitter == nil || @band.twitter == "") %>
 						<div class='BandStatValue'><%= link_to 'Add A Twitter Account', 
 						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
 					<% else %>
-						<div class='BandStatValue'><%=@band.website%></div>
+						<div class='BandStatValue'><a href ='<%=append_twitter(@band.twitter)%>' target='_blank'><%= @band.twitter %></a></div>
 					<% end %>
 				</div>
 				
 				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="hometown" class='category'>Upcoming Shows </label></span>
+					<span class='BandStatLabel'><label for="count" class='category'>Upcoming Shows </label></span>
 					<div class='BandStatUpcomingShows'><%= @band.shows.count %></div>
+				</div>
+				 
+				<div class='BandStat'>
+					<span class='BandStatLabel'><label for="control" class='category'><%= link_to 'Edit', :action => 'edit', :id => @band %></label></span>
 				</div>
 				
 			</div>

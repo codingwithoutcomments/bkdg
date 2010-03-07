@@ -186,12 +186,13 @@ div.bkdg-title h1 {
 .BandStatValue
 {
 	font-family:Arial,Helvetica,sans-serif;
-	font-size:120%;
+	font-size:130%;
 	margin-left:10px;
 	margin-top:5px;
 	float:left;
 	text-align:left;
 	width:250px;
+	height:30px;
 }
 
 .BandStatUpcomingShows
@@ -213,6 +214,25 @@ div.bkdg-title h1 {
 	color:black;
 	text-decoration:underline;
 	width:500px;
+}
+
+.BandStatLabel a
+{
+	color:black;
+	text-decoration:underline;
+	font-size:90%;
+}
+
+.BandControlPanel a
+{
+	color:black;
+	text-decoration:underline;
+}
+
+.BandControlerPanel
+{
+	width:480px;
+	float:right;
 }
 
 .BandStat

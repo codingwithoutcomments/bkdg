@@ -25,6 +25,16 @@ module BandsHelper
     end
   end
   
+  def remove_http(website)
+    website = website.gsub(/http:\/\//, "")
+    website = website.gsub(/\/$/, "")
+    website = website.gsub(/www\./, "")
+  end
+  
+  def append_twitter(username)
+    username = "http://twitter.com/" + username
+  end
+  
 private
 
 

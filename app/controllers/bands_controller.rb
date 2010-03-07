@@ -83,7 +83,30 @@ class BandsController < ApplicationController
     end
   end
   
+  def update
+    @band = Band.find(params[:id])
+    respond_to do |format|
+      if @band.update_attributes(params[:band])
+        flash[:notice] = "#{capitalize_first_letter_of_each_word(@band.band_name)} Profile was successfully updated."
+        format.html { redirect_to(:action =>'show', :id => @band) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @band.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
 private
+
+def capitalize_first_letter_of_each_word(input)
+  output = ""
+  input = input.split(" ")
+  input.each {|word| output += word.capitalize + " " }
+  output.strip!
+  
+  return output;
+end
 
 def retrieve_pictures(headliner)
    headliner_sans_spaces = headliner.get_XML_ready_string()

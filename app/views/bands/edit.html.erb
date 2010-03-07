@@ -1,13 +1,36 @@
 <% content_for :title do %>  <title>BKDG: Editing Profile of <%=capitalize_first_letter_of_each_word(@band.band_name) %></title> <% end %>
-<h1>Editing band</h1>
+<div id = "mainbar-full">
 
-<% form_for(@band) do |f| %>
-  <%= f.error_messages %>
+	<div id = "subheader">
+		<h3>Editing Information for <%=h capitalize_first_letter_of_each_word(@band.band_name) %></h3>
+	</div>
 
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+	<% form_for(@band) do |f| %>
+	  <%= f.error_messages %>
 
-<%= link_to 'Show', @band %> |
-<%= link_to 'Back', bands_path %>
+	  <br />
+	  <p>
+	    <%= f.label :hometown %><br />
+	    <%= f.text_field :hometown %>
+	  </p>
+
+	 <p>
+	    <%= f.label :website %><br />
+	    <%= f.text_field :website %>
+	  </p>
+	
+	  <p>
+	    <%= f.label :twitter %><br />
+	    <%= f.text_field :twitter %>
+	  </p>
+
+	<br />
+	
+	  <p>
+	    <%= f.submit "Update" %>
+	  </p>
+	<br />
+	<% end %>
+
+	<%= link_to 'Back To Band Profile', @band %>
+</div>
