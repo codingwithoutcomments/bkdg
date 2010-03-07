@@ -10,7 +10,7 @@
 class Band < ActiveRecord::Base
   
   has_many :bands_shows
-  has_many :shows, :through => :played_games
+  has_many :shows, :through => :bands_shows
   
   has_many :bandpictures
   

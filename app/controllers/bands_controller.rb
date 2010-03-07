@@ -21,6 +21,10 @@ class BandsController < ApplicationController
      if(!@band.has_pictures?)
         retrieve_pictures(@band) 
       end
+      
+      if(@band.info == nil)
+        retrieve_band_info(@band)
+      end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -52,9 +56,8 @@ class BandsController < ApplicationController
   # GET /bands/1/pictures
   def pictures
     
-    @bandID = params[:id]
     @page   = params[:page]
-    @band   = Band.find(:first, :conditions => ["id = ?", @bandID])
+    @band   = Band.find(params[:id])
     @totalPictures = @band.bandpictures.count
     
     @bandPictures = @band.bandpictures.paginate :per_page => 12, :page => params[:page]
@@ -102,6 +105,25 @@ def retrieve_pictures(headliner)
 
      rescue OpenURI::HTTPError
        logger.error("Unable to get pictures for #{headliner.band_name} from last.fm")
+
+ end
+ 
+ def retrieve_band_info(band)
+   band_sans_spaces = band.get_XML_ready_string()
+   last_fm_get_info_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=" + band_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
+   xml_retrieved = open(last_fm_get_info_string)
+   doc = Hpricot.XML(xml_retrieved)
+       (doc/:bio).each do |bio|
+         temp = bio.at("summary").inner_html
+         temp = temp.sub(/<!\[CDATA\[/, "")
+         temp = temp.sub(/\]\]>/, "")
+         temp = temp.gsub(/<\/?a[^>]*>/, "")
+         band.info = temp
+         band.save
+       end
+
+     rescue OpenURI::HTTPError
+       logger.error("Unable to get pictures for #{band.band_name} from last.fm")
 
  end
   

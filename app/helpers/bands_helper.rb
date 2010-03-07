@@ -25,4 +25,8 @@ module BandsHelper
     end
   end
   
+private
+
+
+  
 end

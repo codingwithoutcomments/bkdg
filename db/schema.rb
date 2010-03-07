@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100302041653) do
+ActiveRecord::Schema.define(:version => 20100306193316) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20100302041653) do
 
   create_table "bands", :force => true do |t|
     t.string "band_name"
+    t.text   "info"
   end
 
   create_table "bands_shows", :force => true do |t|
