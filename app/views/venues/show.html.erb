@@ -48,7 +48,7 @@
 	</div>
 
 	<div id = "subheader">
-		<b><h3><%= @venue.shows.count %> Upcoming Shows</h3></b>
+		<b><h3><%= pluralize(@venue.shows.count, "Upcoming Show") %></h3></b>
 	</div>
 	
 	<div id = "shows">
