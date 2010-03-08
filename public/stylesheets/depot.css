@@ -199,6 +199,39 @@ code {
 	
 }
 
+#showHeader
+{
+	border-bottom: 1px solid #777777;
+	height: 35px;
+	width: 715px;
+	clear:both;
+}
+
+#showHeader h3
+{
+	font-size: 160%;
+	line-height: 40px;
+	margin-bottom: 0pt;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:bold;
+	width:350px;
+	float:left;
+}
+
+.ShowPagination
+{
+		width:120px;
+		float:right;
+		margin-top:19px;
+		font-size:80%;
+}
+
+.showsBottomPagination
+{
+	text-align:right;
+	margin-top:10px;
+}
+
 #subheader
 {
 	border-bottom: 1px solid #777777;
