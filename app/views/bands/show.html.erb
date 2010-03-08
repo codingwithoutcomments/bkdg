@@ -62,17 +62,18 @@
 				</div>
 				 
 				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="control" class='category'><%= link_to 'Edit', :action => 'edit', :id => @band %></label></span>
+					<span class='BandStatLabel'><label for="control" class='category'><%= link_to 'Edit Info', :action => 'edit', :id => @band %></label></span>
 				</div>
 				
 			</div>
 			
 			<div id = "subheader">
-				<h3><%= capitalize_first_letter_of_each_word(@band.band_name)%> Info</h3>
+				<h3><%= capitalize_first_letter_of_each_word(@band.band_name)%> Short Summary</h3>
 			</div>
 			
 			<div id='bandSummary'>
-					<%= @band.info %>
+					<div><%= @band.info %></div>
+					<div class='EditShortSummary'><%= link_to 'Edit Short Summary', :action => 'editSummary', :id => @band %></div>
 			</div>
 			
 			

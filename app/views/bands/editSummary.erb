@@ -1,0 +1,24 @@
+<% content_for :title do %>  <title>BKDG: Editing Short Summary of <%=capitalize_first_letter_of_each_word(@band.band_name) %></title> <% end %>
+<div id = "mainbar-full">
+
+	<div id = "subheader">
+		<h3>Editing Short Summary for <%=h capitalize_first_letter_of_each_word(@band.band_name) %></h3>
+	</div>
+
+	<% form_for(@band) do |f| %>
+	  <%= f.error_messages %>
+
+	  <br />
+	    <%= f.text_area :info, :rows => 5, :cols => 90, :class =>"resizable" %><br /><br />
+		<div class="wmd-preview"></div><br>
+
+	<br />
+	
+	  <p>
+	    <%= f.submit "Update" %>
+	  </p>
+	<br />
+	<% end %>
+
+	<%= link_to 'Back To The Profile of ' + capitalize_first_letter_of_each_word(@band.band_name), @band %>
+</div>

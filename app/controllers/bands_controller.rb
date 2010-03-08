@@ -53,6 +53,16 @@ class BandsController < ApplicationController
     end
   end
   
+  # GET /bands/1/edit
+  def editSummary
+    @band = Band.find(params[:id])
+    
+    respond_to do |format|
+      format.html # edit.html.erb
+      format.xml  { render :xml => @venue }
+    end
+  end
+  
   # GET /bands/1/pictures
   def pictures
     
