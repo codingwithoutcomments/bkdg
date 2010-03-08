@@ -87,7 +87,12 @@
 						<div id="single-show">
 								<% if firstShowOnDate(@previousDate, show) %>
 									<div class ="show-date">
-										<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
+										<div style='float:left;'>
+											<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
+										</div>
+										<div style='float:right;margin-right:10px;'>
+											<h2><%= show.location.city %>, <%= show.location.state %></h2>
+										</div>
 									</div>
 								<% end %>
 								<% @previousDate = show.date %>
