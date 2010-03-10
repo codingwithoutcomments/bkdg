@@ -17,7 +17,7 @@
 		</div> -->
 	</div>
 	
-	<% if (@shows.count == 0) then %>
+	<% if (@shows.length == 0) then %>
 		<div id='ShowErrorContainer' class='ShowErrorExplanation'>
 			No Shows are posted yet in <b><%= capitalize_first_letter_of_each_word(@location.city)%>, <%= capitalize_first_letter_of_each_word(@location.state)%>.</b><br/>
 			Help us out? <%= link_to 'Post A Show plz?', :action => 'new'%>
