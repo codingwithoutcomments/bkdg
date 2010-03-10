@@ -65,6 +65,9 @@ protected
     if(session[:city] == nil || session[:city] == "") then
       session[:city] = "SEATTLE"
       session[:state] = "WASHINGTON"
+    else
+      session[:city] = session[:city].upcase
+      session[:state] = session[:state].upcase
     end
   end
   
