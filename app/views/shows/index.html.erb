@@ -1,9 +1,12 @@
-<% content_for :title do %>  <title>BKDG: Shows In <%= @location.city %> </title> <% end %> 
+<% content_for :title do %>  <title>BKDG: Shows In <%= capitalize_first_letter_of_each_word(@location.city) %> </title> <% end %> 
 <script type="text/javascript" src="/javascripts/jquery-ui-1.8rc1.custom.min.js"></script>
 <div id = "mainbar-full">
 
-	<div id = "showHeader">
-		<h3>Shows in Seattle</h3>
+	<div id ="showsHeader">
+		<div class='location'>
+			<div class='city'>Shows in <%= capitalize_first_letter_of_each_word(@location.city) %></div>
+			<div class='changeLocation'><%= link_to 'Change Location', :controller => 'location', :action => 'index' %></div>
+		</div>
 		<!-- <div id="tabs">
 	        <%= link_to 'date', { :action => "index", :sort_by => "date"}, 
 					{:class => is_primary_tab?("date", @sort_by) }  %>
@@ -12,14 +15,13 @@
 	   		<%= link_to 'hott',  { :action => "index", :sort_by => "price"}, 
 							{:class => is_primary_tab?("price", @sort_by) } %>
 		</div> -->
-		
-		<span><%= will_paginate @shows, :page_links => false, :class => 'ShowPagination' %></span>
 	</div>
 
 	<div id = "shows">
 		
-		<div id="single-show">
+	
 		<% for show in @shows %>
+			<div id="single-show">
 				<% if firstShowOnDate(@previousDate, show) %>
 					<div class ="show-date">
 						<div style='float:left'>
@@ -89,8 +91,9 @@
 					</div>
 				</div>
 
-				</div>
+				
 			</span>
+		</div>
 		<% end %>
 		<div>
 			<%= will_paginate @shows, :page_links => false, :class => 'showsBottomPagination' %>

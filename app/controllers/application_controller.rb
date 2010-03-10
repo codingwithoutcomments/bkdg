@@ -62,8 +62,8 @@ protected
        end
   
   def set_city
-    session[:city] = "Seattle"
-    session[:state] = "Washington"
+    session[:city] = "SEATTLE"
+    session[:state] = "WASHINGTON"
   end
   
   def get_user_city
