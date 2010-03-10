@@ -23,7 +23,7 @@
 					<% end %>
 				</div>
 				<div>
-					<%= @venue.location.city %>, <%=@venue.location.state %><br />
+					<%= capitalize_first_letter_of_each_word(@venue.location.city) %>, <%= capitalize_first_letter_of_each_word(@venue.location.state) %><br />
 				</div>
 			</div>
 			<div id='venueWebsite'>

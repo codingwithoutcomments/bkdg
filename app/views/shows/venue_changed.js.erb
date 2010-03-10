@@ -2,8 +2,8 @@ var $j = jQuery.noConflict();
 
 var venueFound  = '<%= @venueFound %>';
 var nameOfVenue = '<%= @venueName %>';
-var locationCity = '<%= @location.city %>';
-var locationState = '<%= @location.state %>';
+var locationCity = '<%= capitalize_first_letter_of_each_word(@location.city) %>';
+var locationState = '<%= capitalize_first_letter_of_each_word(@location.state) %>';
 var isPartialMatch = '<%= @isPartialMatch %>';
 var possibleVenue  = '<%= @MatchName %>';
 

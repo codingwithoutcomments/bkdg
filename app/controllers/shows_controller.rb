@@ -365,7 +365,7 @@ class ShowsController < ApplicationController
          @venueFound = "false"
        
          venueNameModified = formatVenueNameForSearch(@venueName)
-         @PartialMatch = Venue.name_like(venueNameModified);
+         @PartialMatch = Venue.name_like(venueNameModified).location_id_equals(@location.id)
          if(@PartialMatch.length > 0) then 
            @isPartialMatch = "true" 
            @MatchName = capitalize_first_letter_of_each_word(@PartialMatch.at(0).name)

@@ -1,0 +1,25 @@
+#locationsContainer
+{
+	margin-top:10px;
+}
+
+.singleLocation
+{
+	background-color:#FFFF01; 
+	font-size:300%; 
+	color:white; 
+	padding:3px 6px;
+	width:400px;
+}
+
+.singleLocation a
+{
+	color:white;
+}
+
+.singleLocation a:hover
+{
+	text-decoration:underline;
+}
+
+

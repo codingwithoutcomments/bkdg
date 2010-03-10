@@ -5,17 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <%= yield :title %>
-  <%= stylesheet_link_tag 'scaffold', 'depot', 'showsindex' %>
+  <%= stylesheet_link_tag 'scaffold', 'depot' %>
   <%= javascript_include_tag :defaults, 'jquery-1.4', "application"%>
-  <!-- http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js -->
-   <script type="text/javascript" src="/javascripts/tar/jquery.textarearesizer.compressed.js"></script>
-	<script type="text/javascript">
-			/* jQuery textarea resizer plugin usage */
-			jQuery.noConflict()
-			jQuery(document).ready(function() {
-				jQuery('textarea.resizable:not(.processed)').TextAreaResizer();
-			});
-	</script>
 
 </head>
 
@@ -61,7 +52,7 @@
 	    </div>
 		
 		<div class="headerbuttonscontainer">
-				<span><%= link_to 'home', { :action => "index"} %></span>
+				<span><%= link_to 'home', { :controller =>'shows', :action => "index"} %></span>
 				<span><%= link_to 'my shows', { :action => "index"} %></span>
 				<span><%= link_to 'users', { :action => "index"} %></span>
 				<span><%= link_to 'post a show', new_show_path, {:id => "postashowbutton"} %></span>
@@ -72,24 +63,6 @@
 
 <%= yield %>
 
-<script type="text/javascript">
-		// to set WMD's options programatically, define a "wmd_options" object with whatever settings
-		// you want to override.  Here are the defaults:
-      wmd_options = {
-			// format sent to the server.  Use "Markdown" to return the markdown source.
-			output: "HTML",
-
-			// line wrapping length for lists, blockquotes, etc.
-			lineLength: 40,
-
-			// toolbar buttons.  Undo and redo get appended automatically.
-			buttons: "bold italic | link image ",
-
-			// option to automatically add WMD to the first textarea found.  See apiExample.html for usage.
-			autostart: true
-		};
-	</script>
-<script type="text/javascript" src="/javascripts/wmd/wmd.js"></script>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

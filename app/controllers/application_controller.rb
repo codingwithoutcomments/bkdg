@@ -62,8 +62,10 @@ protected
        end
   
   def set_city
-    session[:city] = "SEATTLE"
-    session[:state] = "WASHINGTON"
+    if(session[:city] == nil || session[:city] == "") then
+      session[:city] = "SEATTLE"
+      session[:state] = "WASHINGTON"
+    end
   end
   
   def get_user_city

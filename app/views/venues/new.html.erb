@@ -3,7 +3,7 @@
 <div id="mainbar-full">
 
 <div id='subheader'>
-	<h3>Create a Venue in <%= @userCity %>, <%= @userState %></h3>
+	<h3>Create a Venue in <%= capitalize_first_letter_of_each_word(@userCity) %>, <%= capitalize_first_letter_of_each_word(@userState) %></h3>
 </div><br/>
 
 <% form_for(@venue) do |f| %>

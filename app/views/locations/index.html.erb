@@ -1,0 +1,22 @@
+<% content_for :title do %>  <title>BKDG: Choose Your Location </title> <% end %>
+<%= stylesheet_link_tag 'locations' %>
+<div id = "mainbar-full">
+	
+	<div id='subheader'>
+		<h3>Choose Your Location</h3>
+	</div>
+	
+	<div id='locationsContainer'>
+	
+		<% for location in @locations %>
+			
+				<div class='singleLocation'>
+					<%= link_to location.city, :action => 'show', :city => location.city %> 
+				</div>
+
+			<br />
+		<%end %>
+	
+	</div>
+	
+</div>

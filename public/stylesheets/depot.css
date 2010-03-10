@@ -264,12 +264,16 @@ code {
 {
 	float:left;
 	margin-left:8px;
-	margin-top:17px;
+	margin-top:13px;
 }
 
 .changeLocation a
 {
-	font-size:60%;
+	font-size:80%;
+	font-weight:bold;
+	color:black;
+	text-decoration:underline;
+	background-color:#FFFF01;
 }
 
 #tabs

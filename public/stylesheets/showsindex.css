@@ -1,0 +1,29 @@
+#ShowErrorContainer
+{
+
+	text-align:left;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	padding-left:6px;
+	padding-bottom:6px;
+	margin-top:10px;
+	background-color:#FFFF01;
+	color:black;
+	display:block;
+	width:715px;
+}
+
+#ShowErrorContainer a
+{
+	color:white;
+	font-size:130%;
+	text-decoration:underline;
+}
+
+#ShowErrorExplanation a
+{
+	color:white;
+	font-size:130%;
+	text-decoration:underline;
+}
