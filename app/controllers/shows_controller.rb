@@ -358,7 +358,9 @@ class ShowsController < ApplicationController
      if(@venueName != "")
      
        @location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
-       @venue = Venue.name_equals(@venueName.upcase.strip!).location_id_equals(@location.id).first
+       venueNameFormatted = @venueName.upcase
+       venueNameFormatted.strip!
+       @venue = Venue.name_equals(venueNameFormatted).location_id_equals(@location.id).first
 
        if(@venue == nil) then 
        

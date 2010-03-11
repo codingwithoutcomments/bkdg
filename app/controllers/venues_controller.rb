@@ -56,7 +56,6 @@ class VenuesController < ApplicationController
     
     if(@venue.name != nil) then
       @venue.name = @venue.name.upcase
-      @venue.name.strip!
     end
     
     @userCity = get_user_city()
