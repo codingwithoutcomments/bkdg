@@ -97,7 +97,7 @@
 								<% end %>
 								<% @previousDate = show.date %>
 
-								<div class="<%= attending_highlight_helper(current_user, current_user.shows, show) %>" id="show-summary-<%= show.id %>">
+								<div class="<%= attending_highlight_helper(current_user, if(current_user) then current_user.shows end, show) %>" id="show-summary-<%= show.id %>">
 
 								<div>
 
