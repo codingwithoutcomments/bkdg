@@ -24,6 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'password_resets', :controller => 'password_resets', :action => 'new'
   map.connect 'bands/:id/pictures', :controller => 'bands', :action => 'pictures'
   map.connect 'bands/:id/picture/:page', :controller => 'bands', :action => 'picture'
+  map.connect ':city', :controller => 'shows', :action => 'index'
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'

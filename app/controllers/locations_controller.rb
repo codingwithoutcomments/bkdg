@@ -13,10 +13,21 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       
-        format.html { redirect_to :controller => 'shows', :action => 'index' }
+        format.html { redirect_to :controller => 'shows', :action => 'index', :city => capitalize_first_letter_of_each_word(@location.city) }
         format.xml  { render :xml => @show }
       
     end
+  end
+  
+private
+
+  def capitalize_first_letter_of_each_word(input)
+    output = ""
+    input = input.split(" ")
+    input.each {|word| output += word.capitalize + " " }
+    output.strip!
+  
+    return output;
   end
    
 end

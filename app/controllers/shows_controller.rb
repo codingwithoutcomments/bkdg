@@ -11,10 +11,23 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.xml
   def index
-      city = getCityOfUser()
-      state = getStateOfUser()
+      sessionCity = getCityOfUser()
       
-      @location = Location.find(:first, :conditions => ["city = ? and state = ?", city, state])
+      requestedCity = params[:city]
+      
+      if(requestedCity != nil) then
+        city = requestedCity
+      else
+        city = sessionCity
+      end
+      
+      @location = Location.find(:first, :conditions => ["city = ?", city.upcase])
+      if(@location != nil) then
+        session[:city] = requestedCity
+      else
+        @location = Location.find(:first, :conditions => ["city = ?", sessionCity.upcase])
+      end
+      
       @shows = @location.shows.paginate :per_page => 20, :page => params[:page], :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC'
     
      set_current_user_if_logged_in()
