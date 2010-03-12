@@ -11,20 +11,24 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.xml
   def index
+      cityRequested = false
       sessionCity = getCityOfUser()
-      
       requestedCity = params[:city]
       
-      if(requestedCity != nil) then
+      if(requestedCity != nil && requestedCity != 'shows') then
         city = requestedCity
+        cityRequested = true
       else
         city = sessionCity
       end
       
       @location = Location.find(:first, :conditions => ["city = ?", city.upcase])
-      if(@location != nil) then
+      
+      if(@location != nil && cityRequested == true) then
         session[:city] = requestedCity
-      else
+      end
+      
+      if(@location == nil && cityRequested == true)
         @location = Location.find(:first, :conditions => ["city = ?", sessionCity.upcase])
       end
       
