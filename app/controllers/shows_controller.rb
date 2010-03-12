@@ -25,7 +25,8 @@ class ShowsController < ApplicationController
       @location = Location.find(:first, :conditions => ["city = ?", city.upcase])
       
       if(@location != nil && cityRequested == true) then
-        session[:city] = requestedCity
+        session[:city] = @location.city
+        session[:state] = @location.state
       end
       
       if(@location == nil && cityRequested == true)
