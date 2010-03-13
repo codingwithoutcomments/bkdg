@@ -72,7 +72,6 @@ div.bkdg-title h1 {
 	background-color:white;
 	text-decoration:underline;
 	padding:0px 8px;
-	font-family:Arial,Helvetica,sans-serif;
 }
 
 #container{
@@ -123,7 +122,6 @@ div.bkdg-title h1 {
 	font-size: 160%;
 	line-height: 40px;
 	margin-bottom: 0pt;
-	font-family:Arial,Helvetica,sans-serif;
 	font-weight:bold;
 }
 
@@ -157,7 +155,6 @@ div.bkdg-title h1 {
 {
 	width:100%;
 	background-color:#FFFF01;
-	font-family:Arial,Helvetica,sans-serif;
 	font-weight:bold;
 	font-size:180%;
 	padding: 5px 10px;
@@ -185,7 +182,6 @@ div.bkdg-title h1 {
 
 .BandStatValue
 {
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:130%;
 	margin-left:10px;
 	margin-top:5px;
@@ -197,7 +193,6 @@ div.bkdg-title h1 {
 
 .BandStatUpcomingShows
 {
-	font-family:Arial,Helvetica,sans-serif;
 	margin-left:15px;
 	margin-top:0px;
 	float:left;
@@ -256,7 +251,6 @@ div.bkdg-title h1 {
 
 .BandStatLabel
 {
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:120%;
 }
 

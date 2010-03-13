@@ -41,7 +41,6 @@
 	color:white;
 	border:none;
 	padding:10px 40px;
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:140%;
 	font-weight:bold;
 	margin-left:230px;
@@ -65,7 +64,6 @@ h1 {
 
 h2 {
 	
-	font-family: Verdana, sans-serif;
 	font-size: 130%;
 	font-weight: bold;
 }
@@ -96,20 +94,17 @@ h2 {
 
 .UsernameLabel
 {
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:120%;
 }
 
 .EmailLabel
 {
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:120%;
 }
 
 .PasswordLabel
 {
 	
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:120%;
 }
 
@@ -117,7 +112,6 @@ h2 {
 {
 	height:30px;
 	width:300px;
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:140%;
 	font-weight:bold;
 	padding-left:2px;
@@ -128,7 +122,6 @@ h2 {
 {
 	height:30px;
 	width:300px;
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:140%;
 	font-weight:bold;
 	padding-left:2px;
@@ -216,7 +209,6 @@ div.bkdg-title h1 {
 	background-color:white;
 	text-decoration:underline;
 	padding:0px 8px;
-	font-family:Arial,Helvetica,sans-serif;
 }
 
 .userContainer
@@ -235,7 +227,6 @@ div.bkdg-title h1 {
 
 .userImage a
 {
-	font-family:Arial,Helvetica,sans-serif;
 	text-decoration:underline;
 	color:black;
 }
@@ -245,7 +236,6 @@ div.bkdg-title h1 {
 	margin-left:20px;
 	float:left;
 	width:360px;
-	font-family:Arial,Helvetica,sans-serif;
 }
 
 .userPoints
@@ -307,7 +297,6 @@ div.bkdg-title h1 {
 
 .userControls a
 {
-	font-family:Arial,Helvetica,sans-serif;
 	text-decoration:underline;
 	color:black;
 }

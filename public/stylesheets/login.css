@@ -42,7 +42,6 @@
 	color:white;
 	border:none;
 	padding:10px 40px;
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:140%;
 	font-weight:bold;
 	margin-left:230px;
@@ -92,14 +91,12 @@ h2 {
 
 .EmailLabel
 {
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:120%;
 }
 
 .PasswordLabel
 {
 	
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:120%;
 }
 
@@ -107,7 +104,6 @@ h2 {
 {
 	height:30px;
 	width:300px;
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:140%;
 	font-weight:bold;
 	padding-left:2px;
@@ -118,7 +114,6 @@ h2 {
 {
 	height:30px;
 	width:300px;
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:140%;
 	font-weight:bold;
 	padding-left:2px;

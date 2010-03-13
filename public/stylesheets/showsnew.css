@@ -23,7 +23,6 @@
 .AddABand a
 {
 	color:black;
-	font-family:Arial,Helvetica,sans-serif;
 	text-decoration:underline;
 	padding:2px;
 	margin-top:2px;
@@ -110,7 +109,6 @@
 #VenueErrorContainer
 {
 	width:715px;
-	font-family:Arial,Helvetica,sans-serif;
 	font-size:20px;
 	font-weight:bold;
 	padding-left:6px;
@@ -181,7 +179,6 @@ float:left;
 font-size:24px;
 font-weight:bold;
 padding:14px 16px;
-font-family:Arial,Helvetica,sans-serif;
 margin-bottom:10px;
 cursor:pointer;
 }
