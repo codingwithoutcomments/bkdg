@@ -241,7 +241,7 @@ code {
 #showsHeader
 {
 	border-bottom: 1px solid #777777;
-	height: 33px;
+	height: 30px;
 	width: 715px;
 	clear: both;
 }
@@ -568,9 +568,8 @@ code {
 {
 
 		font-size:130%;
-		font-family:Arial,Helvetica,sans-serif;
-		font-weight:bold;
-		background-color:#FFFF01;	
+		background-color:#FFFF01;
+		padding:2px 2px;
 		
 }
 
@@ -587,6 +586,7 @@ code {
 {
 	color:black;
 	text-decoration:underline;
+	font-weight:900;
 }
 
 .openers
@@ -688,14 +688,13 @@ code {
 	margin: 1em 0 0 0 -25px;
 	font-weight: 0;
 	font-size: 110%;
-	font-family:Arial,Helvetica,sans-serif;
 }
 
 .venue-name a
 {
 	color:black;
 	text-decoration:underline;
-	font-weight:bold;
+	font-weight:700;
 }
 
 .openers a
