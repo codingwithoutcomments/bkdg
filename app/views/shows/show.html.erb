@@ -8,7 +8,7 @@
 	
 	<% attending_highlight_helper(@current_user, @shows_that_user_is_attending, @show) %>
 	
-	<div id = "subheader">
+	<div id = "showsHeader">
 		<b><h3><%= capitalize_first_letter_of_each_word(@show.bands.at(0).band_name) %> @ <%= capitalize_first_letter_of_each_word(@show.venue.name) %> </h3></b>
 	</div>
 	

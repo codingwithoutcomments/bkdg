@@ -4,7 +4,7 @@
 jQuery.noConflict()
 jQuery.ajaxSetup({
 	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-})
+});
 
 jQuery(document).ready(function() {
 			
@@ -40,10 +40,13 @@ jQuery(document).ready(function() {
 	jQuery('.error-notification').live('click', function() {
 	    jQuery(this).fadeOut('fast', function() { jQuery(this).remove(); });
 	});
+	
+	setTimeout('fadeOutFlashNotice()', 3000)
 
-	
-	
-	
-	
-	
-})
+});
+
+function fadeOutFlashNotice()
+{
+	jQuery("#flashnotice").fadeOut("slow");
+}
+
