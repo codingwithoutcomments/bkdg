@@ -40,6 +40,7 @@
 	width:715px;
 	padding-left:6px;
 	padding-bottom:6px;
+	padding-top:3px;
 	
 }
 
@@ -48,6 +49,7 @@
 	width:715px;
 	padding-left:6px;
 	padding-bottom:6px;
+	padding-top:3px;
 	
 }
 
@@ -97,6 +99,7 @@
 	width:715px;
 	padding-left:6px;
 	padding-bottom:6px;
+	padding-top:3px;
 }
 
 #VenueContainer
@@ -104,6 +107,7 @@
 	width:715px;
 	padding-left:6px;
 	padding-bottom:6px;
+	padding-top:3px;
 }
 
 #VenueErrorContainer
@@ -116,6 +120,7 @@
 	background-color:#FFFF01;
 	color:black;
 	display:none;
+	padding-top:3px;
 }
 
 .DoorTicketPrice
@@ -148,6 +153,7 @@
 	width:715px;
 	padding-left:6px;
 	padding-bottom:6px;
+	padding-top:3px;
 }
 
 #show_price
@@ -170,6 +176,7 @@
 	width:715px;
 	padding-left:6px;
 	padding-bottom:6px;
+	padding-top:3px;
 }
 
 .post_a_show {
