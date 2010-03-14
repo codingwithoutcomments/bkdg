@@ -1,6 +1,6 @@
 <% content_for :title do %>  <title>BKDG: Shows In <%= capitalize_first_letter_of_each_word(@location.city) %> </title> <% end %> 
 <script type="text/javascript" src="/javascripts/jquery-ui-1.8rc1.custom.min.js"></script>
-<div style='width:100%;backgrond-color:#D4D5D7;'>
+
 <div id = "mainbar-full">
 
 	<div id ="showsHeader">
@@ -26,7 +26,7 @@
 	
 	<% end %>
 
-	<div id = "shows">
+	<div id = "shows" style='float:left;'>
 
 	
 		<% for show in @shows %>
@@ -90,7 +90,6 @@
 						</div>
 					</div>
 		
-					<div>
 					<div class="venue">
 						<div class="venue-name"><%= link_to capitalize_first_letter_of_each_word(show.venue.name), show.venue %></div>
 					    <div class="date-time-price">
@@ -104,41 +103,44 @@
 			</span>
 		</div>
 		<% end %>
-		<div>
+		<div style='float:left;width:715px;'>
 			<%= will_paginate @shows, :page_links => false, :class => 'showsBottomPagination' %>
 		</div>
-		<br /><br />
-		</div>
+		
+	<!-->		<div id="sidebar">  
 
-		<!-- <div id="sidebar">  
-		  
-		 <div class ="module">
-				<img src ="http://www.americanapparel.net/presscenter/webads/samples/bigs/His%20&%20Hers/american-apparel-webad-hisandhershoodies-0809.jpg">
-		  </div>
-		  <div class = "module">
-			<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/160x600_tie_dye_2_083109.jpg">
-		  </div>
-		
-		  <div class='wideModule'>
-			<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_2_083109.jpg">
-		  </div>
-		
-		  <div class='wideModule'>
-			<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_3_083109.jpg">
-		  </div>
-		
-		  <div class='wideModule'>
-			<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_4_083109.jpg">
-		  </div>
-		
-		  <div class='wideModule'>
-			<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_083109.jpg">
-		  </div>
+			 <div class ="module">
+					<img src ="http://www.americanapparel.net/presscenter/webads/samples/bigs/His%20&%20Hers/american-apparel-webad-hisandhershoodies-0809.jpg">
+			  </div>
+			  <div class = "module">
+				<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/160x600_tie_dye_2_083109.jpg">
+			  </div>
+
+			  <div class='wideModule'>
+				<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_2_083109.jpg">
+			  </div>
+
+			  <div class='wideModule'>
+				<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_3_083109.jpg">
+			  </div>
+
+			  <div class='wideModule'>
+				<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_4_083109.jpg">
+			  </div>
+
+			  <div class='wideModule'>
+				<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/300x250_tie_dye_083109.jpg">
+			  </div>
+			</div>
+			
+		<br /><br />
 		</div> -->
 	
 	</div>
+	
+	
 
-	<div style='text-align:center;float:left;margin-left:250px;margin-bottom:30px;'>
+	<div style='text-align:center;float:left;margin-left:250px;margin-bottom:30px; bac,'>
 		<div>
 			Suggestions?  Comments? Brilliant Ideas?
 		</div>
@@ -150,7 +152,8 @@
 	<br /><br />
 	
 </div>
-</div>
+
+
 <br />
 
 

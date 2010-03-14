@@ -1,5 +1,21 @@
 <%= stylesheet_link_tag 'usernew' %>
-<% content_for :title do %>  <title>BKDG: Create A New User</title> <% end %> 
+<% content_for :title do %>  <title>BKDG: Create A New User</title> <% end %>
+
+<% content_for :uppermenu do %>
+
+<div id ="header">
+    <div class = "bkdg-title">
+			<h1>
+				Bad Kids Dance Good
+			</h1>
+
+    </div>
+ </div>
+
+<div class='showsMarquee'>shows shows shows shows shows shows shows shows shows shows shows shows</div>
+
+<% end %>
+
 
 <% form_for(@user) do |f| %>
   <div class='errorForm'><%= f.error_messages %></div>

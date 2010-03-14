@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag 'venue' %>
 <div id="mainbar-full">
 	
-	<div id = "subheader">
+	<div id = "showsHeader">
 		<b><h3><%= capitalize_first_letter_of_each_word(@venue.name) %> in <%= capitalize_first_letter_of_each_word(@venueLocation.city) %>, 
 			<%= capitalize_first_letter_of_each_word(@venueLocation.state) %>
 		 </h3></b>
@@ -47,12 +47,11 @@
 		</div>
 	</div>
 
-	<div id = "subheader">
+	<div id = "showsHeader">
 		<b><h3><%= pluralize(@venue.shows.count, "Upcoming Show") %></h3></b>
 	</div>
 	
 	<div id = "shows">
-
 		
 			<% for show in @venueShows %>
 				<div id="single-show">
@@ -63,7 +62,7 @@
 						<% end %>
 						<% @previousDate = show.date %>
 					
-						<div class="<%= attending_highlight_helper(current_user, current_user.shows, show) %>" id="show-summary-<%= show.id %>">
+						<div class="<%= attending_highlight_helper(current_user, @shows_that_user_is_attending, show) %>" id="show-summary-<%= show.id %>">
 					
 						<div>
 

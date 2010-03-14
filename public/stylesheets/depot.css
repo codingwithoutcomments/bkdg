@@ -118,7 +118,7 @@ code {
 	color:#7C0343;
 	font-size:300%;
 	width:150px;
-	margin-top:5px;
+	margin-top:18px;
 	margin-bottom:15px;
 	margin-left:30px;
 	font-weight:700;
@@ -191,7 +191,7 @@ code {
 
 #sidebar
 {
-	float: right;
+	float: left;
 	margin-bottom: 60px;
 	width: 220px;
 
@@ -276,8 +276,6 @@ code {
 	float:right;
 	background-color:#D4D5D7;
 	width:425px;
-	
-	margin-top:-15px;
 	height:85px;
 }
 

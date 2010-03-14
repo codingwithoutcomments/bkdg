@@ -23,6 +23,8 @@ class VenuesController < ApplicationController
     @venueMapLink = @venueMapLink + @venue.get_address_parameterized + "+" 
     @venueMapLink = @venueMapLink + @venue.location.get_city_parameterized 
     @venueMapLink = @venueMapLink + "+"+ @venue.location.state + "&sensor=false"
+    
+    set_current_user_if_logged_in()
 
     respond_to do |format|
       format.html # show.html.erb
@@ -107,5 +109,13 @@ class VenuesController < ApplicationController
       format.html { redirect_to(venues_url) }
       format.xml  { head :ok }
     end
+  end
+end
+
+private
+
+def set_current_user_if_logged_in
+  if(current_user)
+    @shows_that_user_is_attending = current_user.shows
   end
 end

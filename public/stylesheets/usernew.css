@@ -64,6 +64,7 @@ h1 {
 
 h2 {
 	
+
 	font-size: 130%;
 	font-weight: bold;
 }
@@ -148,6 +149,12 @@ div.bkdg-title h1 {
 	
 	width: 790px;
 	margin: 0 auto 35px;	
+}
+
+#userHeader
+{
+	width:950px;
+	margin: 0 auto 35px;
 }
 
 .showsMarquee

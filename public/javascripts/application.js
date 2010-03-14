@@ -41,7 +41,10 @@ jQuery(document).ready(function() {
 	    jQuery(this).fadeOut('fast', function() { jQuery(this).remove(); });
 	});
 	
-	setTimeout('fadeOutFlashNotice()', 3000)
+	if(jQuery("#flashnotice").css("display") == "block")
+	{
+		setTimeout('fadeOutFlashNotice()', 1000)
+	}
 
 });
 
