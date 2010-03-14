@@ -6,7 +6,7 @@
 		</div>
 		<div class='commentUserInfo'>
 			<div class='gravitar'><%= image_tag comment.user.gravatar_url(:size => 40) %></div>
-			<div class='usernameLink'><%= link_to comment.user.username, comment.user %></div>
+			<div class='usernameLink'><%= link_to comment.user.username, { :controller => 'users', :action => 'show', :id => comment.user } %></div>
 			<div class='usernamePoints'><%=     comment.user.points.to_s     %></div>
 		</div>
 	</div>

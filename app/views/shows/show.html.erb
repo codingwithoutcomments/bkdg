@@ -91,7 +91,7 @@
 				<div class='postedTime'>posted <%= didwhen(@show.created_at)%></div>
 				<div class='commentUserInfo'>
 					<div class='gravitar'><%= image_tag @posted_by.gravatar_url(:size => 40) %></div>
-					<div class='usernameLink'><%= link_to @posted_by.username, @posted_by %></div>
+					<div class='usernameLink'><%= link_to @posted_by.username, { :controller => 'users', :action => 'show', :id => @posted_by }  %></div>
 					<div class='usernamePoints'><%=     @posted_by.points.to_s     %></div>
 				</div>
 			</div>
@@ -130,7 +130,7 @@
 <div id='userIconContainer'>
 	<% @show.users.each do |user| %>
 		<div class='singleUser'>
-			<%= link_to "<img src ='" + user.gravatar_url(:size => 40) + "'>", {:controller => 'users', :action => 'show', :id => user }, :title => user.username %>
+			<%= link_to "<img src ='" + user.gravatar_url(:size => 40) + "'>", { :controller => 'users', :action => 'show', :id => user }, :title => user.username %>
 		</div>
 	<% end %>
 </div>

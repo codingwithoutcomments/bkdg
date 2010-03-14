@@ -310,19 +310,19 @@ class ShowsController < ApplicationController
   def increment_attending
     
     @on_show_detail_page = params[:show_detail_page]
-    
     @show = Show.find(params[:id])
+    @userWhoPostedShow = User.id_equals(@show.posted_by).first
     @current_show = @show
     
     
     #check first to see if already attending show
     if already_attending?(params[:user_id], params[:id])
       
-      decrement(@show)
+      decrement(@show, @userWhoPostedShow)
       
     else
       
-      increment(@show)
+      increment(@show, @userWhoPostedShow)
       
     end
     
@@ -341,13 +341,14 @@ class ShowsController < ApplicationController
     @on_show_detail_page = params[:show_detail_page]
     @showID = params[:id]
     @show = Show.find(params[:id])
+    @userWhoPostedShow = User.id_equals(@show.posted_by).first
     @current_show = @show
     
     #check first to see if already attending show
     if already_attending?(params[:user_id], params[:id])
-     decrement(@show)
+     decrement(@show, @userWhoPostedShow)
     else
-      increment(@show) 
+      increment(@show, @userWhoPostedShow) 
     end
     
      respond_to do |format|
@@ -404,9 +405,8 @@ class ShowsController < ApplicationController
   
 private
 
-  def decrement(show)
+  def decrement(show, userWhoPostedShow)
   
-    userWhoPostedShow = User.id_equals(show.posted_by).first
     show.attending = show.attending - 1
     show.user_not_attending(get_current_user())
 
@@ -414,23 +414,23 @@ private
 
     if ((current_user.id != userWhoPostedShow.id) && userWhoPostedShow.points >= 5) then
       userWhoPostedShow.points = userWhoPostedShow.points - 5
-      userWhoPostedShow.save
+      userWhoPostedShow.save!
     end
   
     show.save
   
   end
 
-  def increment(show)
+  def increment(show, userWhoPostedShow)
   
     @attending_show_already = false
-    userWhoPostedShow = User.id_equals(show.posted_by).first
+    
     show.attending = show.attending + 1
-    show.user_attending(get_current_user())
+    show.user_attending(get_current_user())   
   
     if current_user.id != userWhoPostedShow.id then
       userWhoPostedShow.points = userWhoPostedShow.points + 5
-      userWhoPostedShow.save
+      userWhoPostedShow.save!
     end
   
     @show.save
