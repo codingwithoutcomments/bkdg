@@ -11,15 +11,17 @@
 	</div>
 
    <div class='bandContent'>
-	<% photoNumber = CalulateStartingPhotoNumber(@page) %>
-	<% for picture in @bandPictures %>
+	<div class='pictureThumbContainer'>
+		<% photoNumber = CalulateStartingPhotoNumber(@page) %>
+		<% for picture in @bandPictures %>
 		
-		<div class='singlePicture'>
-			<%= link_to '<img src = '+ picture.largesquare+'>', :controller => 'bands', :action => 'picture', :id => @band, :page => photoNumber %>
-		</div>
+			<div class='singlePicture'>
+				<%= link_to '<img src = '+ picture.largesquare+'>', :controller => 'bands', :action => 'picture', :id => @band, :page => photoNumber %>
+			</div>
 		
-		<% photoNumber = photoNumber + 1 %>
-	<% end %>
+			<% photoNumber = photoNumber + 1 %>
+		<% end %>
+	</div>
 	
 	<div id = "subheader">
 	</div>
