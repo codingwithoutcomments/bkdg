@@ -87,46 +87,9 @@
 			</div>
 			
 			
-		</div>
+		</div> <!-- header container -->
 			
-		<!-- <div id="hmenus">
-			<div id ="hlinks">
-				<% if current_user %>
-					<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user) %> |
-					<%= link_to 'logout', logout_path %> |
-				<% else %>
-					<%= link_to 'login', login_path %> |
-					<%= link_to 'signup', new_user_path %> |
-				<% end %>
-				<%= link_to 'settings', { :action => "settings"} %> |
-				<%= link_to 'about', { :action => "about"} %> |
-				<%= link_to 'faq', { :action => "faq"} %>
-			</div>
-			<div id = "show-search">
-				<% form_tag( {:controller => "shows", :action => "search"}, {:method => "get"}) do %>  
-				    <div style="margin:3px;padding3px;">
-					<%= text_field_tag(:q, "search", {:class => "textbox"}) %>
-					</div>  
-				<% end %>
-			</div>
-		</div>
-		
-	    <div class = "bkdg-title">
-				<h1>
-					Bad Kids Dance Good
-				</h1>
-					<code class="header">$$ beta</code>
-	    </div>
-		
-		<div class="headerbuttonscontainer">
-				<span><%= link_to 'home', { :action => "index"} %></span>
-				<span><%= link_to 'my shows', { :action => "index"} %></span>
-				<span><%= link_to 'users', { :action => "index"} %></span>
-				<span><%= link_to 'POST A SHOW', new_show_path, {:id => "postashowbutton"} %></span>
-		</div>
-			
-	 </div>	-->
-  </div>
+  </div> <!-- header -->
 
 <%= yield %>
 

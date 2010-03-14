@@ -126,6 +126,7 @@
 	float: left;
 	margin-right:10px;
 	width:450px;
+	margin-bottom:20px;
 }
 
 .show-address a
@@ -273,8 +274,9 @@
 {
 	margin-top:10px;
 	margin-left:30px;
+	margin-bottom:20px;
+	float:left;
 	width:550px;
-	background-color:#F7F7F7;
 }
 
 .singleUser

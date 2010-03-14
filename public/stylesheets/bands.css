@@ -6,7 +6,7 @@
 
 .band
 {
-	width: 700px;
+	width: 950px;
 	margin: 1em auto;
 
 }
@@ -31,12 +31,6 @@ div.bkdg-title h1 {
 .singlePicture a img
 {
 	border: 0px;
-}
-
-#header {
-	
-	width: 790px;
-	margin: 0 auto 35px;	
 }
 
 .showsMarquee
@@ -74,20 +68,11 @@ div.bkdg-title h1 {
 	padding:0px 8px;
 }
 
-#container{
-	
-	clear:both;
-	overflow:hidden;
-	width:100%;
-	margin-top:20px;
-	
-}
-
 .bandContent
 {
 	
 	margin: 0 auto;
-	width: 715px;
+	width: 950px;
 	margin-top:10px;
 }
 
@@ -256,6 +241,7 @@ div.bkdg-title h1 {
 
 #bandSummary
 {
+	width:675px;
 	padding:10px;
 }
 

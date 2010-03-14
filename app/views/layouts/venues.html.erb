@@ -38,48 +38,66 @@ pageTracker._trackPageview();
 	  <div id= "flashnotice"><%= flash[:notice] %></div>
 	<% end -%>
 	
-	<br/>
-	
 	<div id ="header">
-			
-		<div id="hmenus">
-			<div id ="hlinks">
-				<% if current_user %>
-					<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user) %> |
-					<%= link_to 'logout', logout_path %> |
-				<% else %>
-					<%= link_to 'login', login_path %> |
-					<%= link_to 'signup', new_user_path %> |
-				<% end %>
-				<%= link_to 'settings', { :action => "settings"} %> |
-				<%= link_to 'about', { :action => "about"} %> |
-				<%= link_to 'faq', { :action => "faq"} %>
-			</div>
-			<div id = "show-search">
-				<% form_tag( {:controller => "shows", :action => "search"}, {:method => "get"}) do %>  
-				    <div style="margin:3px;padding3px;">
-					<%= text_field_tag(:q, "search", {:class => "textbox"}) %>
-					</div>  
-				<% end %>
-			</div>
-		</div>
 		
-	    <div class = "bkdg-title">
-				<h1>
-					Bad Kids Dance Good
-				</h1>
-					<code class="header">$$ shows</code>
-	    </div>
-		
-		<div class="headerbuttonscontainer">
-				<span><%= link_to 'home', { :controller => 'shows', :action => "index"} %></span>
-				<span><%= link_to 'my shows', { :action => "index"} %></span>
-				<span><%= link_to 'users', { :action => "index"} %></span>
-				<span><%= link_to 'post a show', new_show_path, {:id => "postashowbutton"} %></span>
-		</div>
+		<div id='headerContainer'>
 			
-	 </div>		
-  </div>
+			<div id='bkdgTitle'>
+				<div class='bkdgTitleWord'>bad</div>
+				<div class='bkdgTitleWord'>kids</div>
+				<div class='bkdgTitleWord'>dance</div>
+				<div class='bkdgTitleWordBottom'>good</div>
+			</div>
+				
+			<div id='bkdgHeaderControlPanel'>
+				
+				<div id='joinNow'>
+					<div id='joinNowText'>
+						JOIN NOW!
+					</div>
+				</div>
+				
+				<div id='UserControls'>
+					
+					<div id='loginlogout'>
+						<% if current_user %>
+							<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user) %> |
+							<span><%= link_to 'logout', logout_path %></span> |
+						<% else %>
+							<%= link_to 'login', login_path %> |
+							<%= link_to 'signup', new_user_path %> |
+						<% end %>
+						<span><%= link_to 'about', { :action => "about"} %></span> |
+						<span><%= link_to 'faq', { :action => "faq"} %></span>
+					</div>
+					
+					<div id='searchBar'>
+						<% form_tag( {:controller => "shows", :action => "search"}, {:method => "get"}) do %>  
+						    <div style="margin:3px;padding3px;">
+							<%= text_field_tag(:q, "search for shows, bands, venues", {:class => "textbox"}) %>
+							</div>  
+						<% end %>
+					</div>
+				</div> <!-- UserControls -->
+					
+			</div> <!-- bkdgHeaderControlPanel -->
+			
+			<div id='bkdgHeaderPostAShowContainer'>
+				<div id='bkdgHeaderPostAShow'>
+					<%= link_to 'post a show', new_show_path, {:id => "postashowbutton"} %>
+				</div>
+				
+				<div id='bkdgHeaderHomeMyShowsUsers'>
+					<div class='Dark'><%= link_to 'home', { :controller => 'shows', :action => "index"} %></div>
+					<div class='Pink'><%= link_to 'my shows', { :action => "index"} %></div>
+					<div class='Dark'><%= link_to 'users', { :action => "index"} %></div>
+				</div>
+			</div>
+			
+			
+		</div> <!-- header container -->
+			
+  </div> <!-- header -->
 
 <%= yield %>
 

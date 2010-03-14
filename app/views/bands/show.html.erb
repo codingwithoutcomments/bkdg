@@ -1,7 +1,7 @@
 <% content_for :title do %>  <title>BKDG: Profile for <%=capitalize_first_letter_of_each_word(@band.band_name) %></title> <% end %>
 	<div class='band'>
 		
-		<div id = "subheader">
+		<div id = "showsHeader">
 			<h3><%= capitalize_first_letter_of_each_word(@band.band_name) %></h3>
 		</div>
 	
@@ -67,7 +67,7 @@
 				
 			</div>
 			
-			<div id = "subheader">
+			<div id = "showsHeader">
 				<h3><%= capitalize_first_letter_of_each_word(@band.band_name)%> Short Summary</h3>
 			</div>
 			
@@ -76,7 +76,7 @@
 					<div class='EditShortSummary'><%= link_to 'Edit Short Summary', :action => 'editSummary', :id => @band %></div>
 			</div>
 			
-			<div id = "subheader">
+			<div id = "showsHeader">
 				<b><h3><%= pluralize(@band.shows.count, "Upcoming Show") %></h3></b>
 			</div>
 
