@@ -130,6 +130,12 @@ div.bkdg-title h1 {
 	
 }
 
+#bandInfo
+{
+	margin-bottom:10px;
+	float:left;
+}
+
 .bandInfoSinglePicture
 {
 	width:300px;

@@ -43,10 +43,7 @@ pageTracker._trackPageview();
 		<div id='headerContainer'>
 			
 			<div id='bkdgTitle'>
-				<div class='bkdgTitleWord'>bad</div>
-				<div class='bkdgTitleWord'>kids</div>
-				<div class='bkdgTitleWord'>dance</div>
-				<div class='bkdgTitleWordBottom'>good</div>
+				<%= image_tag('logo.png') %>
 			</div>
 				
 			<div id='bkdgHeaderControlPanel'>
@@ -84,7 +81,7 @@ pageTracker._trackPageview();
 			
 			<div id='bkdgHeaderPostAShowContainer'>
 				<div id='bkdgHeaderPostAShow'>
-					<%= link_to 'post a show', new_show_path, {:id => "postashowbutton"} %>
+					<%= link_to image_tag('postashow.png'), new_show_path, {:id => "postashowbutton"} %>
 				</div>
 				
 				<div id='bkdgHeaderHomeMyShowsUsers'>

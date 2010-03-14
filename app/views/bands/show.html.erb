@@ -6,69 +6,70 @@
 		</div>
 	
 	   <div class='bandContent'>
-			<div class='bandInfoSinglePicture'>
-				<div>
-					<% if @band.has_pictures? then%>
-						<% randomBandPicture = generate_one_random_band_picture(@band) %>
-						<img src = "<%= @band.bandpictures.at(randomBandPicture).extralarge %>">
+			<div id='bandInfo'>
+				<div class='bandInfoSinglePicture'>
+					<div>
+						<% if @band.has_pictures? then%>
+							<% randomBandPicture = generate_one_random_band_picture(@band) %>
+							<img src = "<%= @band.bandpictures.at(randomBandPicture).extralarge %>">
 						
-					<% end %>
+						<% end %>
+					</div>
+					<div>
+						<% if @band.has_pictures? then %>
+							<%= link_to 'View all ' + @band.bandpictures.count.to_s + ' pictures', :action => 'pictures', :id => @band %>
+						<% end %>
+					</div>
 				</div>
-				<div>
-					<% if @band.has_pictures? then %>
-						<%= link_to 'View all ' + @band.bandpictures.count.to_s + ' pictures', :action => 'pictures', :id => @band %>
-					<% end %>
-				</div>
-			</div>
 			
-			<div class='bandInfoStats'>
-				<div class='bandInfoBandName'>
-					<%= capitalize_first_letter_of_each_word(@band.band_name) %>
-				</div>
+				<div class='bandInfoStats'>
+					<div class='bandInfoBandName'>
+						<%= capitalize_first_letter_of_each_word(@band.band_name) %>
+					</div>
 				
-				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="hometown" class='category'>Hometown </label></span>
-					<% if(@band.hometown == nil || @band.hometown == "") %>
-						<div class='BandStatValue'><%= link_to 'Add A Hometown', 
-						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
-					<% else %>
-						<div class='BandStatValue'><%=@band.hometown%></div>
-					<% end %>
-				</div>
+					<div class='BandStat'>
+						<span class='BandStatLabel'><label for="hometown" class='category'>Hometown </label></span>
+						<% if(@band.hometown == nil || @band.hometown == "") %>
+							<div class='BandStatValue'><%= link_to 'Add A Hometown', 
+							{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
+						<% else %>
+							<div class='BandStatValue'><%=@band.hometown%></div>
+						<% end %>
+					</div>
 				
-				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="website" class='category'>Website </label></span>
-					<% if(@band.website == nil || @band.website == "") %>
-						<div class='BandStatValue'><%= link_to 'Add A Website', 
-						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
-					<% else %>
-						<div class='BandStatValue'><a href='<%= @band.website %>' target="_blank"><%= remove_http(@band.website) %></a></div>
-					<% end %>
-				</div>
+					<div class='BandStat'>
+						<span class='BandStatLabel'><label for="website" class='category'>Website </label></span>
+						<% if(@band.website == nil || @band.website == "") %>
+							<div class='BandStatValue'><%= link_to 'Add A Website', 
+							{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
+						<% else %>
+							<div class='BandStatValue'><a href='<%= @band.website %>' target="_blank"><%= remove_http(@band.website) %></a></div>
+						<% end %>
+					</div>
 				
-				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="twitter" class='category'>Twitter </label></span>
-					<% if(@band.twitter == nil || @band.twitter == "") %>
-						<div class='BandStatValue'><%= link_to 'Add A Twitter Account', 
-						{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
-					<% else %>
-						<div class='BandStatValue'><a href ='<%=append_twitter(@band.twitter)%>' target='_blank'><%= @band.twitter %></a></div>
-					<% end %>
-				</div>
+					<div class='BandStat'>
+						<span class='BandStatLabel'><label for="twitter" class='category'>Twitter </label></span>
+						<% if(@band.twitter == nil || @band.twitter == "") %>
+							<div class='BandStatValue'><%= link_to 'Add A Twitter Account', 
+							{ :controller => 'bands', :action => 'edit', :id => @band } %></div>
+						<% else %>
+							<div class='BandStatValue'><a href ='<%=append_twitter(@band.twitter)%>' target='_blank'><%= @band.twitter %></a></div>
+						<% end %>
+					</div>
 				
-				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="count" class='category'>Upcoming Shows </label></span>
-					<div class='BandStatUpcomingShows'><%= @band.shows.count %></div>
-				</div>
+					<div class='BandStat'>
+						<span class='BandStatLabel'><label for="count" class='category'>Upcoming Shows </label></span>
+						<div class='BandStatUpcomingShows'><%= @band.shows.count %></div>
+					</div>
 				 
-				<div class='BandStat'>
-					<span class='BandStatLabel'><label for="control" class='category'><%= link_to 'Edit Info', :action => 'edit', :id => @band %></label></span>
+					<div class='BandStat'>
+						<span class='BandStatLabel'><label for="control" class='category'><%= link_to 'Edit Info', :action => 'edit', :id => @band %></label></span>
+					</div>
 				</div>
-				
 			</div>
 			
 			<div id = "showsHeader">
-				<h3><%= capitalize_first_letter_of_each_word(@band.band_name)%> Short Summary</h3>
+				<h3>About <%= capitalize_first_letter_of_each_word(@band.band_name)%></h3>
 			</div>
 			
 			<div id='bandSummary'>
@@ -91,7 +92,7 @@
 											<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
 										</div>
 										<div style='float:right;margin-right:10px;'>
-											<h2><%= show.location.city %>, <%= show.location.state %></h2>
+											<h2><%= capitalize_first_letter_of_each_word(show.location.city) %>, <%= capitalize_first_letter_of_each_word(show.location.state) %></h2>
 										</div>
 									</div>
 								<% end %>
