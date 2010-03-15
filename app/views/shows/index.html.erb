@@ -3,23 +3,7 @@
 
 <div id = "mainbar-full">
 	
-	<% if @shows != nil then %>
-		<% if @shows.count > 10 then %>
-			<div id="sidebar">  
-				  <div class ="countModule">
-					<div style='color:#808185; font-size:450%;font-style:900;text-align:center;'><%= @location.shows.count %></div>
-					<div style='color:#444444; font-size:80%;text-align:center;'>upcoming shows in <%= capitalize_first_letter_of_each_word(@location.city) %></div>
-				  </div>
-		
-				<div class ="module">
-						<img src ="http://www.americanapparel.net/presscenter/webads/samples/bigs/His%20&%20Hers/american-apparel-webad-hisandhershoodies-0809.jpg">
-				  </div>
-				  <div class = "module">
-					<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/160x600_tie_dye_2_083109.jpg">
-				  </div>
-			</div>
-		<% end %>
-	<% end %>
+	
 
 	<div id ="showsMainHeader">
 		<div class='location'>
