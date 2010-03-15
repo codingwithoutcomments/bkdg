@@ -34,7 +34,7 @@ class ShowsController < ApplicationController
       end
       
       @shows = @location.shows.paginate :per_page => 20, :page => params[:page], :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC'
-    
+      debugger()
      set_current_user_if_logged_in()
     
     respond_to do |format|
