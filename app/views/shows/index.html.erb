@@ -6,13 +6,13 @@
 		<% if @shows.length > 10 then %>
 			<div id="sidebar">  
 				  <div class ="countModule">
-					<div style='color:#808185; font-size:450%;font-style:900;text-align:center;'><%= @allShows.count %></div>
+					<div style='color:#808185; font-size:450%;font-style:900;text-align:center;'><%= @allShows.length %></div>
 					<div style='color:#444444; font-size:80%;text-align:center;'>upcoming shows in <%= capitalize_first_letter_of_each_word(@location.city) %></div>
 				  </div>
 				
 				<div class ="countModule">
-					<div style='color:#808185; font-size:450%;font-style:900;text-align:center;'><%= @allAgesShows.count %></div>
-					<div style='color:#444444; font-size:80%;text-align:center;'>all ages</div>
+					<div style='color:#808185; font-size:450%;font-style:900;text-align:center;'><%= @allAgesShows.length %></div>
+					<div style='color:#444444; font-size:80%;text-align:center;'>all ages shows</div>
 				  </div>
 		
 				<div class ="module">
