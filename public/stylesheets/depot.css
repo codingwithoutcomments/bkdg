@@ -576,7 +576,6 @@ code {
 	color: #7C0343;
 	font-size: 150%;
 	font-weight: 500;
-	font-style:italic;
 }
 
 .show-summary {
@@ -746,7 +745,6 @@ code {
 		font-size:130%;
 		background-color:#FFFF01;
 		padding:2px 2px;
-		
 }
 
 .daysAway
@@ -762,7 +760,8 @@ code {
 {
 	color:black;
 	text-decoration:underline;
-	font-weight:900;
+	font-weight:700;
+	font-family: "museo-sans-1", "museo-sans-2", sans-serif;
 }
 
 .openers
