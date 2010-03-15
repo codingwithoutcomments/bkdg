@@ -191,9 +191,10 @@ code {
 
 #sidebar
 {
-	float: left;
+	float: right;
 	margin-bottom: 60px;
 	width: 220px;
+	clear:both;
 
 }
 
@@ -398,7 +399,26 @@ code {
 	padding-left:5px;
 	padding-top:5px;
 	background-color:#D4D5D7;
-	clear: both;
+	clear:both;
+}
+
+#showsMainHeader
+{
+	border-bottom: 1px solid #777777;
+	height: 30px;
+	width: 710px;
+	padding-left:5px;
+	padding-top:5px;
+	background-color:#D4D5D7;
+	float:left;
+}
+
+#showsMainHeader h3
+{
+	font-size: 140%;
+	line-height: 40px;
+	font-weight:bold;
+
 }
 
 .location
@@ -894,10 +914,22 @@ code {
 	padding-top: 2px;
 	padding-right: 2px;
 	padding-bottom: 2px;
-	padding-left: 2px;
+	padding-left: 15px;
 	margin-bottom: 10px;
 	margin-top: 6px;
 	height: 600px;
+}
+
+.countModule
+{
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 15px;
+	margin-top: 6px;
+	margin-bottom:20px;
+	
+	width:160px;
 }
 
 .wideModule
