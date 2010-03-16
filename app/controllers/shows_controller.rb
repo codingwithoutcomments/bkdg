@@ -72,6 +72,17 @@ class ShowsController < ApplicationController
     
     set_current_user_if_logged_in()
     
+    #check to see 
+    if(current_user) then
+      if current_user.id == @posted_by.id then
+        @currentUserViewing = true
+      else
+        @currentUserViewing = false
+      end
+    else
+      @currentUserViewing = false
+    end
+    
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access invalid show #{params[:id]}")
       flash[:notice] = "Invalid Show"
@@ -193,6 +204,8 @@ class ShowsController < ApplicationController
      @user = get_current_user
      if(@user != nil) then
        @show.posted_by = @user.id
+       @user.points = @user.points + 2
+       @user.save!
       end
      
     respond_to do |format|
@@ -261,7 +274,6 @@ class ShowsController < ApplicationController
       #check to see if venue name, if no error
       #if yes see if venue exists, if venue doesn't exist check for partial
       if(@venueName == "")  then
-        debugger()
         @show.errors.add_to_base("How will there be a show without a venue?") 
         @highlight = "venue"
       else
@@ -314,6 +326,11 @@ class ShowsController < ApplicationController
       format.html { redirect_to(shows_url) }
       format.xml  { head :ok }
     end
+    
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid show #{params[:id]}")
+      flash[:notice] = "Invalid Show"
+      redirect_to :action => 'index'
   end
   
   def increment_attending
