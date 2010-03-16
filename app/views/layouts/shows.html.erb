@@ -17,8 +17,11 @@
 				jQuery('textarea.resizable:not(.processed)').TextAreaResizer();
 				
 				var venueString = jQuery("#venueString").attr("value");
-				var venues = venueString.split(" | ");
-				jQuery("#name_of_venue").autocomplete(venues);
+				if(venueString != null)
+				{
+					var venues = venueString.split(" | ");
+					jQuery("#name_of_venue").autocomplete(venues);
+				}
 			});
 	</script>
 	
