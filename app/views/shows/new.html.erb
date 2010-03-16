@@ -1,5 +1,7 @@
 <% content_for :title do %>  <title>BKDG: Post A Show In <%= @userCity %> </title> <% end %> 
+
 <script type="text/javascript" src="/javascripts/newShow.js"></script>
+<%= stylesheet_link_tag 'jquery.autocomplete.css' %>
 <%= stylesheet_link_tag 'showsnew' %>
 <div id="mainbar-full">
 	
@@ -19,6 +21,7 @@
 %>
 
 <div style='display:hidden;' id='highlight' value=<%= @highlight %> >
+<div style='display:hidden;' id='venueString' value='<%= @venueString %>'>
 
 <div id='showsHeader'>
 	<h3>Post a Show in <%= capitalize_first_letter_of_each_word(@userCity) %>, <%= capitalize_first_letter_of_each_word(@userState) %></h3>

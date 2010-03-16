@@ -9,11 +9,16 @@
   <%= javascript_include_tag :defaults, 'jquery-1.4', "application"%>
   <!-- http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js -->
    <script type="text/javascript" src="/javascripts/tar/jquery.textarearesizer.compressed.js"></script>
+   <script type="text/javascript" src="/javascripts/jquery.autocomplete.min.js"></script>
 	<script type="text/javascript">
 			/* jQuery textarea resizer plugin usage */
 			jQuery.noConflict()
 			jQuery(document).ready(function() {
 				jQuery('textarea.resizable:not(.processed)').TextAreaResizer();
+				
+				var venueString = jQuery("#venueString").attr("value");
+				var venues = venueString.split(" | ");
+				jQuery("#name_of_venue").autocomplete(venues);
 			});
 	</script>
 	

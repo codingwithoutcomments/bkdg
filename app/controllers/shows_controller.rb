@@ -112,6 +112,13 @@ class ShowsController < ApplicationController
     @user = get_current_user()
     @userCity = getCityOfUser()
     @userState = getStateOfUser()
+    location = Location.city_equals(@userCity.upcase).state_equals(@userState.upcase).first
+    @venues = Venue.location_id_equals(location.id)
+    @venueString = ""
+    @venues.each { |venue|
+          @venueString += capitalize_first_letter_of_each_word(venue.name) + " | "
+    }
+    
     @show = Show.new
 
     respond_to do |format|
