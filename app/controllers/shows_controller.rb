@@ -335,8 +335,10 @@ class ShowsController < ApplicationController
   
   def delete_comment
     @commentID = params[:id]
-    @comment = Comment.find(@commentID)
-    @comment.destroy
+    @comment = Comment.find(params[:id])
+    if(current_user && current_user.id == @comment.user.id) then
+      @comment.destroy
+    end
     
     respond_to do |format|
       format.js 
