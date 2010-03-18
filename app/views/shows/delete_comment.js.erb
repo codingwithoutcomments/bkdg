@@ -1,0 +1,16 @@
+var $j = jQuery.noConflict();
+
+var commentIDToDelete  = '<%= @commentID %>';
+
+$j(document).ready(function()
+{
+    	$j(".singleComment").each(function(){
+		var commentID = $j(this).attr("commentid");
+		if(commentID == commentIDToDelete)
+		{
+			$j(this).hide("fade", {}, 1000);
+		}
+	});
+  
+  
+});

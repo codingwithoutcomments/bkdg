@@ -1,9 +1,16 @@
-<div class='singleComment'>
+<div class='singleComment' commentID='<%= comment.id %>'>
 	<div class = 'usercomment'><span><%= comment.user_comment %></span></div>
 	<div class='commentInformation'>
 		<div class='utility'>
 			<span class='commentCreated'><%= didwhen(comment.created_at)%></span>
 		</div>
+		<% if current_user && current_user.id == comment.user.id then %>
+			<div class='commentControls'>
+					<%= link_to_remote 'delete comment', {
+				   		:url => { :action => "delete_comment", :id => comment.id }}, 
+										:title => "Click to Delete Your Comment" %>
+			</div>
+		<% end %>
 		<div class='commentUserInfo'>
 			<div class='gravitar'><%= image_tag comment.user.gravatar_url(:size => 40) %></div>
 			<div class='usernameLink'><%= link_to comment.user.username, { :controller => 'users', :action => 'show', :id => comment.user } %></div>

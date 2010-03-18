@@ -222,7 +222,24 @@
 
 .commentUserInfo a
 {
-	font-size:90%;
+	font-size:80%;
+}
+
+.commentControls
+{
+	float:left;
+	width:103px;
+	padding:3px;
+	text-align:center;
+	margin-left:10px;
+	background-color:#D4D5D7;
+}
+
+.commentControls a
+{
+	text-decoration:underline;
+	color:black;
+	font-size:80%;
 }
 
 .singleComment

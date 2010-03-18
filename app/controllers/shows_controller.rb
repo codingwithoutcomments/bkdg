@@ -333,6 +333,23 @@ class ShowsController < ApplicationController
       redirect_to :action => 'index'
   end
   
+  def delete_comment
+    @commentID = params[:id]
+    @comment = Comment.find(@commentID)
+    @comment.destroy
+    
+    respond_to do |format|
+      format.js 
+    end
+    
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to destroy invalid comment #{params[:id]}")
+      flash[:notice] = "Invalid Comment"
+      redirect_to :action => 'index'
+   end
+    
+    
+  
   def increment_attending
     
     @on_show_detail_page = params[:show_detail_page]

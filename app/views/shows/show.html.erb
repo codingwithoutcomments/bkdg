@@ -1,6 +1,9 @@
 <% content_for :title do %>  <title>BKDG: <%=capitalize_first_letter_of_each_word(@show.bands.at(0).band_name) %> at  <%=capitalize_first_letter_of_each_word(@show.venue.name) %></title> <% end %>
 <script type="text/javascript" src="/javascripts/show.js"></script>
-<script type="text/javascript" src="/javascripts/jquery-ui-1.8rc1.custom.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.effects.fade.min.js"></script>
+<!-- ><script src="http://jquery-ui.googlecode.com/svn/tags/1.8rc3/ui/jquery-ui.js"></script> -->
+
 <%= stylesheet_link_tag 'show' %>
 
 <div id="mainbar-full">
@@ -88,7 +91,7 @@
 			<span class='EditFlagContainer'><%= link_to 'Edit', edit_show_path(@show) %> | 
 				<a>Flag</a>
 				<% if (@currentUserViewing) then %>
-					| <%= link_to 'Delete', show_path(@show), :method => 'delete' %>
+					| <%= link_to 'Delete', show_path(@show), :method => 'delete', :confirm => 'Are You Sure?' %>
 				<% end %>
 			</span>	
 			
@@ -158,7 +161,7 @@
 <div id="commentarea">
 	<div class = "comments">
 	<% @show.comments.each do |comment| %>
-		<%= render(:partial => "single_comment", :locals => { :comment => comment }) %>
+		<%= render(:partial => "single_comment", :locals => { :comment => comment, :current_user => @current_user }) %>
 	  <% end %>
 	<div class="singleComment"></div>
 	</div>
