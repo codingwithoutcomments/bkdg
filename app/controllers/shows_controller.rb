@@ -320,7 +320,9 @@ class ShowsController < ApplicationController
   # DELETE /shows/1.xml
   def destroy
     @show = Show.find(params[:id])
-    @show.destroy
+    if(current_user && current_user.id == @show.posted_by)
+      @show.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to(shows_url) }
