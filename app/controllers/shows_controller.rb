@@ -106,6 +106,7 @@ class ShowsController < ApplicationController
       #add the comment to the show
       @show = Show.find(params[:id])
       @show.add_comment_to_show(@comment)
+      @show.deliver_comment_email(@comment)
       @show.save
     
       respond_to do |format|

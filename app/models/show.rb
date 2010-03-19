@@ -80,6 +80,32 @@ class Show < ActiveRecord::Base
     return @highlight
   end
   
+  def deliver_comment_email(comment)
+    #send to the user who posted the show
+    userWhoPostedShow = User.find(self.posted_by)
+    if(userWhoPostedShow.id != comment.user.id) then
+      Notifier.deliver_comment_to_show_poster(self, comment, userWhoPostedShow)
+    end
+    
+    #send to the other commenters of the show
+    #dont send again to the poster of the show
+    #and to the person who commented
+    emailArray = []
+    self.comments.each { |singleComment|
+       emailArray << singleComment.user.email
+    }
+    
+    emailArray.uniq!
+    
+    emailArray.each { |email|
+      
+      if(email != userWhoPostedShow.email && email != comment.user.email ) then
+        Notifier.deliver_comment_to_other_commenters(self, comment, userWhoPostedShow, email)
+      end
+      
+    }
+  end
+  
   protected
   
   def price_option_chosen
