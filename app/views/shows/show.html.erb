@@ -138,7 +138,8 @@
 <div id='userIconContainer'>
 	<% @show.users.each do |user| %>
 		<div class='singleUser'>
-			<%= link_to "<img src ='" + user.gravatar_url(:size => 40) + "'>", { :controller => 'users', :action => 'show', :id => user }, :title => user.username %>
+			<div class='singleUserIcon'><%= link_to "<img src ='" + user.gravatar_url(:size => 40) + "'>", { :controller => 'users', :action => 'show', :id => user }, :title => user.username %></div>
+			<div class='singleUserName'><%= link_to user.username, { :controller => 'users', :action => 'show', :id => user }, :title => user.username %></div>
 		</div>
 	<% end %>
 </div>
