@@ -324,6 +324,12 @@ code {
 	
 }
 
+#joinNowText a
+{
+	color:white;
+	text-decoration:none;
+}
+
 #UserControls
 {
 	float:left;
