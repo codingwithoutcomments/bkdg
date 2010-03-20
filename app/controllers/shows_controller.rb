@@ -8,6 +8,15 @@ class ShowsController < ApplicationController
   
   #before_filter :require_user, :only => [:index]
   
+  def faq
+    
+     respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @shows }
+      end
+      
+  end
+  
   # GET /shows
   # GET /shows.xml
   def index
@@ -88,6 +97,15 @@ class ShowsController < ApplicationController
       flash[:notice] = "Invalid Show"
       redirect_to :action => 'index'
   end
+  
+  def faq
+
+      respond_to do |format|
+         format.html # index.html.erb
+         format.xml  { render :xml => @shows }
+       end
+
+   end
   
   def LeaveComment
     

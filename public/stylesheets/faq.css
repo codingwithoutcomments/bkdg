@@ -1,0 +1,42 @@
+#question
+{
+	background-color:#FFFF01;
+	width:675px;
+	padding:20px;
+	font-weight:bold;
+}
+
+#question p
+{
+	font-family:Arial, Liberation Sans,DejaVu Sans,sans-serif;
+}
+
+.points
+{
+	text-align:right;
+	font-weight:bold;
+}
+
+td
+{
+	padding:5px;
+	font-weight:500;
+}
+
+#answer
+{
+	width:675px;
+	padding:20px;
+	
+}
+
+.boldness
+{
+	font-family:Arial, Liberation Sans,DejaVu Sans,sans-serif;
+	font-weight:bold;
+}
+
+#answer p
+{
+	font-family:Arial, Liberation Sans,DejaVu Sans,sans-serif;
+}
