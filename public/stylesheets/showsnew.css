@@ -156,6 +156,12 @@
 	padding-top:3px;
 }
 
+#descriptionLabel
+{
+	padding:5px;
+	width:100%;
+}
+
 #show_price
 {
 	margin-left:2px;
@@ -188,5 +194,8 @@ font-weight:bold;
 padding:14px 16px;
 margin-bottom:10px;
 cursor:pointer;
+border: 0px;
+font-size:240%;
+font-family:"museo-1", "museo-2", serif;
 }
 

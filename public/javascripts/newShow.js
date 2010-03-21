@@ -9,6 +9,7 @@ var priceHighlighted = false;
 var dateHighlighted = false;
 var doorsHighlighted = false;
 var ageHighlighted = false;
+var descriptionHighlighted = false;
 	
 $j(document).ready(function()
 {
@@ -56,6 +57,8 @@ $j(document).ready(function()
 	$j("#DoorContainer").click(function(){ highlightShowTime(); }).find("#show_time").focus(function(){ highlightShowTime(); });
 	
 	$j("#AgeContainer").click(function() { highlightAgeRestrictions() });
+	
+	$j("#show_additional_info").click(function(){ highlightShowDescription(); });
 	
 	$j("#yes").click(function(){
 		$j("#name_of_venue").attr("value",$j("#possibleVenue").html());
@@ -148,6 +151,32 @@ function dehighlightAll()
 	dehighlightDate();
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
+	dehighlightShowDescription();
+}
+
+function highlightShowDescription()
+{
+	dehighlightBands();
+	dehighlightVenue();
+	dehighlightPrice();
+	dehighlightDate();
+	dehighlightShowTime();
+	dehighlightAgeRestrictions();
+	
+	if(descriptionHighlighted == false)
+	{
+		$j("#descriptionLabel").css("background-color","#F90887").css("color", "white").find("label").css("font-size", "120%");
+		descriptionHighlighted = true;
+	}
+}
+
+function dehighlightShowDescription()
+{
+	if(descriptionHighlighted == true)
+	{
+		$j("#descriptionLabel").css("background-color","white").css("color", "black").find("label").css("font-size", "100%");
+		descriptionHighlighted = false;
+	}
 }
 
 function highlightAgeRestrictions()
@@ -157,6 +186,7 @@ function highlightAgeRestrictions()
 	dehighlightPrice();
 	dehighlightDate();
 	dehighlightShowTime();
+	dehighlightShowDescription();
 	
 	if(ageHighlighted == false)
 	{
@@ -186,6 +216,7 @@ function highlightShowTime()
 	dehighlightPrice();
 	dehighlightDate();
 	dehighlightAgeRestrictions();
+	dehighlightShowDescription();
 	
 	if(doorsHighlighted == false)
 	{
@@ -213,6 +244,7 @@ function highlightDate()
 	dehighlightPrice();
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
+	dehighlightShowDescription();
 	
 	if(dateHighlighted == false)
 	{
@@ -261,6 +293,7 @@ function highlightPrice()
 	dehighlightDate();
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
+	dehighlightShowDescription();
 	
 	if(priceHighlighted == false)
 	{
@@ -280,6 +313,7 @@ function hightlightBands()
 	dehighlightDate();
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
+	dehighlightShowDescription();
 	
 	if(bandsHighlighted == false)
 	{
@@ -307,6 +341,7 @@ function highlightVenue()
 	dehighlightDate();
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
+	dehighlightShowDescription();
 	
 	if(venueHighlighted == false)
 	{
