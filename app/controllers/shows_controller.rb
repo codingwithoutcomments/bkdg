@@ -98,7 +98,7 @@ class ShowsController < ApplicationController
       redirect_to :action => 'index'
   end
   
-  def edit_additional_info
+  def add_show_description
     
      @show = Show.find(params[:id])
   
@@ -109,7 +109,7 @@ class ShowsController < ApplicationController
     
   end
   
-  def update_additional_info
+  def update_show_description
     
     id = params[:id]
     @show = Show.find(id)

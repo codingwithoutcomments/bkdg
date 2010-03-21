@@ -102,7 +102,7 @@
 		
 		<div class='show-short-description'>
 			<% if @show.additional_info == nil then %>
-				<%= link_to 'Add Show Description', :action => 'edit_additional_info' %>
+				<%= link_to 'Add Show Description', :action => 'add_show_description' %>
 			<% else %>
 				<%= @show.additional_info %>
 			<% end %>
