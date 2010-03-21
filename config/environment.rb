@@ -32,7 +32,7 @@ Rails::Initializer.run do |config|
   config.gem 'gravtastic', :version => '2.2.0'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'binarylogic-authlogic', :source => 'http://gems.github.com'
-  
+  config.gem 'memcached'
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
