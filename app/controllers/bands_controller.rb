@@ -1,16 +1,6 @@
 require 'will_paginate'
 
 class BandsController < ApplicationController
-  # GET /bands
-  # GET /bands.xml
-  def index
-    @bands = Band.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @venues }
-    end
-  end
 
   # GET /bands/1
   # GET /bands/1.xml

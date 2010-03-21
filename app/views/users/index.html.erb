@@ -1,18 +1,89 @@
-<h1>Listing users</h1>
+<% content_for :title do %>  <title>BKDG: Users</title> <% end %>
+<%= stylesheet_link_tag 'usernew' %>
+<% content_for :uppermenu do %>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+  	<div id ="userHeader">
+		<div id='headerContainer'>
+			
+			<div id='bkdgTitle'>
+				<%= image_tag('logo.png') %>
+			</div>
+				
+			<div id='bkdgHeaderControlPanel'>
+				
+				<div id='joinNow'>
+					<div id='joinNowText'>
+						<%= link_to 'JOIN NOW!', new_user_path %>
+					</div>
+				</div>
+				
+				<div id='UserControls'>
+					
+					<div id='loginlogout'>
+						<% if current_user %>
+							<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user) %> |
+							<span><%= link_to 'logout', logout_path %></span> |
+						<% else %>
+							<%= link_to 'login', login_path %> |
+							<%= link_to 'signup', new_user_path %> |
+						<% end %>
+						<span><%= link_to 'about', { :action => "about"} %></span> |
+						<span><%= link_to 'faq', { :controller => 'shows', :action => "faq"} %></span>
+					</div>
+					
+					<div id='searchBar'>
+						<% form_tag( {:controller => "shows", :action => "search"}, {:method => "get"}) do %>  
+						    <div style="margin:3px;padding3px;">
+							<%= text_field_tag(:q, "search for shows, bands, venues", {:class => "textbox"}) %>
+							</div>  
+						<% end %>
+					</div>
+				</div> <!-- UserControls -->
+					
+			</div> <!-- bkdgHeaderControlPanel -->
+			
+			<div id='bkdgHeaderPostAShowContainer'>
+				<div id='bkdgHeaderPostAShow'>
+					<%= link_to image_tag('postashow.png'), new_show_path, {:id => "postashowbutton"} %>
+				</div>
+				
+				<div id='bkdgHeaderHomeMyShowsUsers'>
+					<div class='Dark'><%= link_to 'home', { :controller => 'shows', :action => "index"} %></div>
+					<div class='Pink'><%= link_to 'my shows', { :action => "index"} %></div>
+					<div class='Dark'><%= link_to 'users', { :controller => 'users', :action => "index"} %></div>
+				</div>
+			</div>
+			
+			
+		</div> <!-- header container -->
+	
+	</div> <!-- userHeader -->
 
-<% for user in @users %>
-  <tr>
-    <td><%=h user.username %></td>
-    
-  </tr>
 <% end %>
-</table>
+
+<div id="mainbar-full">
+	<div id = "showsHeader">
+		<h3>Users</h3>
+	</div>
+
+	<div id='allUserListingContainer'>
+
+		<% for user in @users %>
+		  	<div class='singleUserContainer'>
+				<div class='UserUserInfo'>
+					<div class='gravitar'><%= image_tag user.gravatar_url(:size => 40) %></div>
+					<div class='usernameLink'><%= link_to user.username, { :controller => 'users', :action => 'show', :id => user }  %></div>
+					<div class='usernamePoints'><%=     user.points.to_s     %></div>
+				</div>
+			</div>
+		<% end %>
+		
+		<div style='float:left;width:715px;'>
+			<%= will_paginate @shows, :page_links => false, :class => 'usersBottomPagination' %>
+		</div>
+		
+	</div>
 
 <br />
 
-<%= link_to 'New user', new_user_path %>
+</div>

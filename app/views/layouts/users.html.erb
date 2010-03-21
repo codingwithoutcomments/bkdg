@@ -13,13 +13,11 @@
 
 <body>
 
-<% if flash[:notice] -%>
-  <div id= "flashnotice"><%= flash[:notice] %></div>
-<% end -%>
-
 <div id="container">
-
-	<br/>
+	
+	<% if flash[:notice] -%>
+	  <div id= "flashnotice"><%= flash[:notice] %></div>
+	<% end -%>
 	
 	<%= yield :uppermenu %>
 	<%= yield :subheader %>

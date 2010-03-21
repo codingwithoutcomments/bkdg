@@ -308,4 +308,55 @@ div.bkdg-title h1 {
 	color:black;
 }
 
+.singleUserContainer
+{
+	float:left;
+	margin-left:15px;
+	margin-top:20px;
+}
+
+#allUserListingContainer
+{
+	width:750px;
+	margin-left:15px;
+}
+
+.UserUserInfo
+{
+	width:150px;
+	float:right;
+	background-color:#F2F2F2;
+}
+
+.UserUserInfo a
+{
+	font-size:80%;
+}
+
+.gravitar
+{
+	float:left;
+}
+
+.usernameLink
+{
+	float:left;
+	margin-left:10px;
+	width:70px;
+}
+
+.usernamePoints
+{
+	float:left;
+	margin-left:10px;
+	width:50px;
+}
+
+.usersBottomPagination
+{
+	text-align:right;
+	margin-top:30px;
+	margin-right:70px;
+}
+
 
