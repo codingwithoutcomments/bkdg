@@ -3,3 +3,4 @@ hpricot --version 0.8.2
 gravtastic --version 2.2.0
 mislav-will_paginate --version 2.3.11 --source gems.github.com
 binarylogic-authlogic --version 2.1.1 --source gems.github.com
+memcached --version 0.19.1
