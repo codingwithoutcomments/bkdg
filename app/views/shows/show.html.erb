@@ -171,9 +171,12 @@
 
 <div id='userIconContainer'>
 	<% @show.users.each do |user| %>
-		<div class='singleUser'>
-			<div class='singleUserIcon'><%= link_to "<img src ='" + user.gravatar_url(:size => 40) + "'>", { :controller => 'users', :action => 'show', :id => user }, :title => user.username %></div>
-			<div class='singleUserName'><%= link_to user.username, { :controller => 'users', :action => 'show', :id => user }, :title => user.username %></div>
+		<div class='UsersAttendingContainer'>
+			<div class='singleUserOfUsersAttending'>
+				<div class='gravitar'><%= link_to image_tag(user.gravatar_url(:size => 35)), { :controller => 'users', :action => 'show', :id => user } %></div>
+				<div class='usernameLinkUsersAttending'><%= link_to user.username, { :controller => 'users', :action => 'show', :id => user }  %></div>
+				<div class='usernamePointsUsersAttending'><%=     user.points.to_s     %></div>
+			</div>
 		</div>
 	<% end %>
 </div>
