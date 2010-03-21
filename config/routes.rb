@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'bands/:id/pictures', :controller => 'bands', :action => 'pictures'
   map.connect 'bands/:id/picture/:page', :controller => 'bands', :action => 'picture'
   map.connect 'faq', :controller => 'shows', :action => 'faq'
+  map.connect 'shows/:id/edit_additional_info', :controller => 'shows', :action => 'edit_additional_info'
   map.connect ':city', :controller => 'shows', :action => 'index'
 
   # Sample of named route:

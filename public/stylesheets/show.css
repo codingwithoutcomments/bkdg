@@ -139,6 +139,12 @@
 	margin-top:6px;
 }
 
+.show-short-description
+{
+	margin-top:10px;
+	padding:3px;
+}
+
 .usercomment
 {
 	font-size:100%;
@@ -326,14 +332,17 @@
 }
 
 .post_a_comment {
-background-color:#60A49F;
-color:#FFFFFF;
-float:left;
-font-size:36px;
-font-weight:bold;
-padding:14px 16px;
-margin-bottom:10px;
-cursor:pointer;
+	
+	font-family:"museo-1","museo-2", serif;
+	background-color:#60A49F;
+	color:#FFFFFF;
+	float:left;
+	font-size:36px;
+	font-weight:bold;
+	padding:14px 16px;
+	margin-bottom:10px;
+	border:0px;
+	cursor:pointer;
 }
 
 .post_a_comment:hover {

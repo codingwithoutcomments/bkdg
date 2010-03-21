@@ -1,0 +1,56 @@
+<%= stylesheet_link_tag 'EditAdditionalShowInfo' %>
+
+<% content_for :title do %>  
+	<title>BKDG: Edit Additional Info </title> 
+<% end %>
+
+<% content_for :wmd do %>
+
+	<script type="text/javascript">
+			// to set WMD's options programatically, define a "wmd_options" object with whatever settings
+			// you want to override.  Here are the defaults:
+	      wmd_options = {
+				// format sent to the server.  Use "Markdown" to return the markdown source.
+				output: "HTML",
+
+				// line wrapping length for lists, blockquotes, etc.
+				lineLength: 40,
+
+				// toolbar buttons.  Undo and redo get appended automatically.
+				buttons: "bold italic | link ",
+
+				// option to automatically add WMD to the first textarea found.  See apiExample.html for usage.
+				autostart: true
+			};
+		</script>
+	<script type="text/javascript" src="/javascripts/wmd/wmd.js"></script>
+	
+<% end %>
+
+<div id="mainbar-full">
+
+	<div id='subheader'>
+		<h3>Add Show Description for <%= capitalize_first_letter_of_each_word(@show.bands.at(0).band_name)%> @ <%= capitalize_first_letter_of_each_word(@show.venue.name) %></h3>
+	</div><br/>
+
+	<% form_for :show, @show, :url => { :action => 'update_additional_info' } do |f| %>
+	
+		<%= hidden_field_tag 'id', @show.id %> 
+
+		<% if @show.errors.size > 0 then %>
+				<%= render(:partial => "display_errors", :object => @show)%>
+	   <% end %>
+	
+		<br />
+			
+		    <%= f.text_area :additional_info, :rows => 5, :cols => 90, :class =>"resizable" %><br /><br />
+			<div class="wmd-preview" style='width:450px;'></div><br>
+		<br />
+
+	 	<%= f.submit "add show description", :class =>"AddShowInformation" %>
+  
+	<% end %>
+	<br /><br />
+	<%= link_to '<<  Back To ' + capitalize_first_letter_of_each_word(@show.bands.at(0).band_name) + ' at ' + capitalize_first_letter_of_each_word(@show.venue.name), @show %>
+	
+</div>

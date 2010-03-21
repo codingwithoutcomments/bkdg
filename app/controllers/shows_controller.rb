@@ -98,6 +98,37 @@ class ShowsController < ApplicationController
       redirect_to :action => 'index'
   end
   
+  def edit_additional_info
+    
+     @show = Show.find(params[:id])
+  
+    respond_to do |format|
+       format.html # index.html.erb
+       format.xml  { render :xml => @shows }
+     end
+    
+  end
+  
+  def update_additional_info
+    
+    id = params[:id]
+    @show = Show.find(id)
+    respond_to do |format|
+          
+      if @show.update_attributes(params[:show])
+        @show.touch
+        flash[:notice] = 'Show was successfully updated.'
+        format.html { redirect_to(@show) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit_additional_info" }
+        format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+    
+    
+  
   def faq
 
       respond_to do |format|

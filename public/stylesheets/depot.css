@@ -370,6 +370,8 @@ code {
 	height: 34px;
 	width: 715px;
 	clear: both;
+	text-overflow:ellipsis;
+	overflow:hidden;
 }
 
 #subheader h2
@@ -406,6 +408,7 @@ code {
 	padding-top:5px;
 	background-color:#D4D5D7;
 	clear:both;
+	overflow:hidden;
 }
 
 #showsMainHeader
@@ -1050,7 +1053,12 @@ code {
 .wmd-preview {
   background-color:#eeeeee;
   width: 600px;
-	
+}
+
+.wmd-preview-additional-info
+{
+	background-color:#eeeeee;
+	  width: 750px;
 }
 
 .leaveacomment{

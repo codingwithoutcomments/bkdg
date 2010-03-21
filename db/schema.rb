@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100307022718) do
+ActiveRecord::Schema.define(:version => 20100321011750) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20100307022718) do
     t.datetime "updated_at"
     t.decimal  "price"
     t.time     "showtime"
-    t.integer  "attending",    :default => 0
+    t.integer  "attending",       :default => 0
     t.string   "time"
     t.integer  "location_id"
     t.integer  "venue_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20100307022718) do
     t.integer  "posted_by"
     t.integer  "edited_by"
     t.string   "permalink"
+    t.text     "additional_info"
   end
 
   create_table "shows_users", :id => false, :force => true do |t|

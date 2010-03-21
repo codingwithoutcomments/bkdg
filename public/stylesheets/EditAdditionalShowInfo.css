@@ -1,0 +1,10 @@
+.AddShowInformation
+{
+	background-color:#60A49F;
+	border: 0px;
+	font-family: "museo-1", "museo-2", serif;
+	font-size:240%;
+	color:white;
+	cursor:pointer;
+	padding:8px 20px;
+}
