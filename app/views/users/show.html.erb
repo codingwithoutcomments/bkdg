@@ -79,7 +79,7 @@
 		
 		<div class='userInformation'>
 			
-			<div class='userCategories'>
+			<!-- <div class='userCategories'>
 				<div class='userCategory'>Name</div>
 				<%if @user.website != nil && @user.website != "" then %> <div class='userCategory'>Website</div>  <% end %>
 				<%if @user.location != nil && @user.location != "" %><div class='userCategory'>Location</div> <% end %>
@@ -95,11 +95,50 @@
 				<%if @user.age != nil && @user.age != "" %> <div class='userAnswer'><%=h @user.age %></div> <% end %>
 				<div class='userAnswer'> <%=h @user.points %></div>
 				<div class='userAnswer'><%=h @user.shows_posted %></div>
+			</div> -->
+			
+			<div style='width:100%;height:180px;'>
+				<table>
+					<tr>
+						<td class='Category'>Username<td>
+						<td><%=h @user.username %></td>
+					</tr>
+					<% if @user.name != nil && @user.name != "" %>
+						<tr>
+							<td class='Category'>Name<td>
+							<td><%= @user.name %></td>
+						</tr>
+					<% end %>
+					<% if @user.website != nil && @user.website != "" %>
+						<tr>
+							<td class='Category'>Website<td>
+							<td><a href = "<%=h @user.website %>"><%=h @user.website %></a></td>
+						</tr>
+					<% end %>
+					<% if @user.location != nil && @user.location != "" %>
+						<tr>
+							<td class='Category'>Location<td>
+							<td><%=h @user.location %></td>
+						</tr>
+					<% end %>
+					<% if @user.age != nil && @user.age != "" %>
+						<tr>
+							<td class='Category'>Age<td>
+							<td><%=h @user.age %></td>
+						</tr>
+					<%end %>
+					<% if @user.points != nil && @user.points != "" %>
+						<tr>
+							<td class='Category'>Points<td>
+							<td><%=h @user.points %></td>
+						</tr>
+					<% end %>
+				</table>
 			</div>
 			
 			<div class='userControls'>
 				<% if (@currentUserViewing) then%>
-					<%= link_to 'Edit', edit_user_path(@user) %>
+					<%= link_to 'Change/Add Profile Information', edit_user_path(@user) %>
 				<% end %>
 			</div>
 			

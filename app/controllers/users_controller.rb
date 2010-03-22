@@ -31,6 +31,11 @@ class UsersController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @user }
     end
+    
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid user #{params[:id]}")
+      flash[:notice] = "Invalid User"
+      redirect_to :action => 'index'
   end
 
   # GET /users/new
@@ -47,6 +52,20 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    respond_to do |format|
+      if (@user.id == current_user.id) then
+        format.html
+        format.xml
+      else
+        flash[:notice] = "Unknown Action."
+        format.html { redirect_to(:controller => 'users', :action =>'index') }
+      end
+    end
+    
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid user #{params[:id]}")
+      flash[:notice] = "Invalid User"
+      redirect_to :action => 'index'
   end
 
   # POST /users

@@ -299,7 +299,7 @@ div.bkdg-title h1 {
 	margin-top:60px;
 	margin-left:0px;
 	float:left;
-	width:200px;
+	width:250px;
 }
 
 .userControls a
@@ -358,5 +358,17 @@ div.bkdg-title h1 {
 	margin-top:30px;
 	margin-right:70px;
 }
+
+.Category
+{
+	padding:5px;
+	padding-bottom:2px;
+	padding-top:2px;
+	padding-right:20px;
+	text-align:left;
+	color:#444444;
+}
+
+
 
 

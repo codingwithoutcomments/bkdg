@@ -402,10 +402,10 @@ code {
 #showsHeader
 {
 	border-bottom: 1px solid #777777;
-	height: 30px;
+	height: 33px;
 	width: 710px;
 	padding-left:5px;
-	padding-top:5px;
+	padding-top:0px;
 	background-color:#D4D5D7;
 	clear:both;
 	overflow:hidden;
