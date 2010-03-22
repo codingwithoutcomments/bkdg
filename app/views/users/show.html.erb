@@ -129,10 +129,15 @@
 					<%end %>
 					<% if @user.points != nil && @user.points != "" %>
 						<tr>
-							<td class='Category'>Points<td>
+							<td class='Category'>Reputation<td>
 							<td><%=h @user.points %></td>
 						</tr>
 					<% end %>
+
+						<tr>
+							<td class='Category'>Shows Posted<td>
+							<td><%=h @user.shows_posted %></td>
+						</tr>
 				</table>
 			</div>
 			
