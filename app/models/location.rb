@@ -12,6 +12,10 @@ class Location < ActiveRecord::Base
   has_many :shows
   has_many :venues
   
+  def to_param
+    "#{id}-#{get_city_parameterized()}-#{get_state_parameterized()}"
+  end
+  
   def add_show_to_location(show)
     shows << show
   end
@@ -44,6 +48,24 @@ class Location < ActiveRecord::Base
     tempCity = tempCity.gsub('@', '%40')
     
     return tempCity
+  end
+  
+  def get_state_parameterized()
+
+    tempState = state
+    tempState = tempState.gsub('+', '%2B')
+    tempState = tempState.gsub(' ', '+')
+    tempState = tempState.gsub('&', '%26')
+    tempState = tempState.gsub('$', '%24')
+    tempState = tempState.gsub(',', '%2C')
+    tempState = tempState.gsub('/', '%2F')
+    tempState = tempState.gsub(':', '%3A')
+    tempState = tempState.gsub(';', '%3B')
+    tempState = tempState.gsub('=', '%3D')
+    tempState = tempState.gsub('?', '%3F')
+    tempState = tempState.gsub('@', '%40')
+    
+    return tempState
   end
   
 end

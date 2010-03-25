@@ -6,7 +6,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.city_equals(params[:city]).first
+    
+    @location = Location.find(params[:id])
 
     session[:city] = @location.city
     session[:state] = @location.state
