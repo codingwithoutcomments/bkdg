@@ -6,5 +6,6 @@ $j(document).ready(function()
 	$j('.singleComment:last').find(".usercomment").effect("highlight", { color: '#FFFF01' }, 2000);
 	$j('.comment-counts').html('<%= escape_javascript(render(:partial => "comment_count", :locals => {:show => @show })) %>');
 	$j('textarea').attr("value", "");
+	$j("#comment").css("background-color", "white");
 
 });

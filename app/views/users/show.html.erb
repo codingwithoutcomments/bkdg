@@ -1,3 +1,4 @@
+<%= javascript_include_tag :defaults, 'jquery-1.4', "application", 'jquery-ui.min', 'jquery-effects-explode'%>
 <% content_for :title do %>  <title>BKDG: User Profile for <%= @user.username %></title> <% end %>
 <%= stylesheet_link_tag 'usernew' %>
 
@@ -68,34 +69,19 @@
 	
 	<div id = "showsHeader">
 		<h3>User Profile for <%=h @user.username %></h3>
+		
 	</div>
 
 	<div class='userContainer'>
 		
 		<div class='userImage'>
 			<%= image_tag @user.gravatar_url(:size => 250) %>
-			<a href = "http://en.gravatar.com/site/signup">Change Picture At Gravitar.com</a>
+			<% if (@currentUserViewing) then%>
+				<a href = "http://en.gravatar.com/">Change Picture</a>
+			<% end %>
 		</div>
 		
 		<div class='userInformation'>
-			
-			<!-- <div class='userCategories'>
-				<div class='userCategory'>Name</div>
-				<%if @user.website != nil && @user.website != "" then %> <div class='userCategory'>Website</div>  <% end %>
-				<%if @user.location != nil && @user.location != "" %><div class='userCategory'>Location</div> <% end %>
-				<%if @user.age != nil && @user.age != "" %>     <div class='userCategory'>Age</div>      <% end %>
-				<div class='userCategory'>Reputation</div>
-				<div class='userCategory'>Shows Posted</div>
-			</div>
-			
-			<div class='userAnswers'>
-				<div class='userAnswer' answer='first'><%=h @user.username %></div>
-				<%if @user.website != nil && @user.website != "" %> <div class='userAnswer'><a href = "<%=h @user.website %>"><%=h @user.website %></a></div> <% end %>
-				<%if @user.location != nil && @user.location != "" %> <div class='userAnswer'><%=h @user.location %></div> <% end %>
-				<%if @user.age != nil && @user.age != "" %> <div class='userAnswer'><%=h @user.age %></div> <% end %>
-				<div class='userAnswer'> <%=h @user.points %></div>
-				<div class='userAnswer'><%=h @user.shows_posted %></div>
-			</div> -->
 			
 			<div style='width:100%;height:180px;'>
 				<table>
@@ -133,11 +119,12 @@
 							<td><%=h @user.points %></td>
 						</tr>
 					<% end %>
-
+					<% if @user.shows_posted != nil && @user.shows_posted != "" %>
 						<tr>
 							<td class='Category'>Shows Posted<td>
 							<td><%=h @user.shows_posted %></td>
 						</tr>
+					<% end %>
 				</table>
 			</div>
 			
@@ -151,28 +138,45 @@
 		
 	</div>
 		
-		<div id = "showsHeader">
-			<h3>Shows Attending</h3>
+		<div id = "usersShowsHeader">
+			<% if (@sortBy == "posted") then %>
+				<h3>Shows Posted </h3>
+			<% elsif @sortBy == "attended" %>
+				 <h3>Shows Attended </h3>
+			<% else %>
+				<h3>Shows Attending </h3>
+			<% end %>
+			
+			<div id="tabs">
+		        
+				<%= link_to 'attended', { :action => "show", :id => @user, :sort_by => "attended" } ,
+							 				{:class => attending_attended_posted?(@sortBy, "attended") }%>
+											<%= link_to 'attending', { :action => "show", :id => @user, :sort_by => "attending"}, 
+													{:class => attending_attended_posted?(@sortBy, "attending") }  %>
+		   		<%= link_to 'posted', { :action => "show", :id => @user, :sort_by => "posted" } , {:class => attending_attended_posted?(@sortBy, "posted") }%>
+				
+			</div>
 		</div>
 		
 		<div id = "shows">
 
-			
 				<% for show in @userShows %>
-					<div id="single-show">
+					<div id="single-show" class='single-show' showID='<%= show.id %>'>
 							<% if firstShowOnDate(@previousDate, show) %>
 								<div class ="show-date">
 									<div style='float:left'>
 										<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
 									</div>
-									<div class='daysAway'>
-										<h2><%=h days_away_helper(show.date, show.time) + " " + away_or_ago_helper(show.date, show.time)%></h2>
-									</div>
+									<% if @sortBy != "posted"%>
+										<div class='daysAway'>
+											<h2><%=h days_away_helper(show.date, show.time) + " " + away_or_ago_helper(show.date, show.time)%></h2>
+										</div>
+									<% end %>
 								</div>
 							<% end %>
 							<% @previousDate = show.date %>
 						
-							<div class="<%= attending_highlight_helper(@user, @user.shows, show) %>" id="show-summary-<%= show.id %>">
+							<div class="show-summary" id="show-summary-<%= show.id %>">
 						
 							<div>
 
@@ -205,13 +209,10 @@
 										<% end %>
 									</div>
 									<div class="attend-recommend">
-										<% if @current_user %>
-											<%= link_to_remote 'Remove this show from my list', {
-										   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, 
-													:class => "attendincrement", :title => "Click to Attend/Unattend" %>
-										<% else %>
-										    <%= link_to_remote "Click To Attend This Show", {
-										   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "attenderror" %>
+										<% if (@current_user.id == @user.id) && (@sortBy == "attending" || @sortBy == nil)%>
+											<%= link_to_remote 'Remove this show »', {
+										   		:url => { :action => "remove_show_from_attending", :id => show.id, :user_id => @current_user.id } }, 
+													:class => "attendincrement", :title => "Click to no longer attend this show" %>
 										<% end %>
 									</div>
 								</div>

@@ -411,6 +411,25 @@ code {
 	overflow:hidden;
 }
 
+#usersShowsHeader
+{
+	border-bottom:1px solid #666666;
+	clear:both;
+	height:34px;
+	width:715px;
+}
+
+#usersShowsHeader h3
+{
+	font-size: 140%;
+	line-height: 34px;
+	font-weight:bold;
+	float:left;
+	padding-left:10px;
+	padding-right:10px;
+	
+}
+
 #showsMainHeader
 {
 	border-bottom: 1px solid #777777;
@@ -463,8 +482,7 @@ code {
 	float: right;
 	position: relative;
 	margin-right: 10px;
-	font-size: 130%;
-
+	font-size: 110%;
 }
 
 #tabs a
@@ -475,59 +493,24 @@ code {
 	background-attachment: scroll;
 	background-position: 0% 0%;
 	
-	border-width: 1px;
-	border-style: solid;
-	border-color: #eeeeee;
-	
-	background-color: #7C0343;
-	
-	color: white;
+	color: #444444;
 	display: block;
 	float: left;
-	font-size: 90%;
+	font-size: 80%;
 	height: 24px;
 	line-height: 22px;
 	
-	margin: 8px 2px 0pt 0pt;
+	margin: 8px 5px 0pt 5px;
 	
 	padding: 0pt 11px 0pt 11px;
 	
 	text-decoration: none;
+	font-family: "mueso-1", "museo-2", sans-serif;
 
 }
 
 #tabs a:hover
 {
-	background-color: #F90887;
-	background-image: none;
-	background-repeat: repeat;
-	background-attachment: scroll;
-	background-position: 0% 0%;
-	
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #F90887;
-	
-	border-right-width-value: 1px;
-	border-right-style-value: solid;
-	border-right-color-value: #777777;
-	
-	border-bottom-width: 1px;
-	border-bottom-color: white;
-	border-bottom-style: solid;
-	
-	border-left-width-value: 1px;
-	border-left-style-value: solid;
-	border-left-color-value: #777777;
-	
-	line-height: 20px;
-	margin-top: 9px;
-
-}
-
-#tabs a.youarehere
-{
-	
 	background-color: white;
 	background-image: none;
 	background-repeat: repeat;
@@ -538,26 +521,42 @@ code {
 	border-top-style: solid;
 	border-top-color: #777777;
 	
-	border-right-width-value: 1px;
-	border-right-style-value: solid;
+	border-right-width: 1px;
+	border-right-style: solid;
 	border-right-color: #777777;
 	
 	border-bottom-width: 1px;
 	border-bottom-color: white;
 	border-bottom-style: solid;
 	
-	border-left-width-value: 1px;
-	border-left-style-value: solid;
+	border-left-width: 1px;
+	border-left-style: solid;
 	border-left-color: #777777;
+	
+	line-height: 20px;
+	margin-top: 9px;
+	
+	padding: 0pt 11px 0pt 11px;
 
-	color: black;
-	height: 30px;
-	line-height: 28px;
-	margin-top: 3px;
-	padding-top: 0pt;
-	padding-right: 11px;
-	padding-bottom: 0pt;
-	padding-left: 11px;
+}
+
+#tabs a.youarehere
+{
+	
+	background:none repeat scroll 0 0 #FFFFFF;
+	border-color:#777777 #777777 #60A497;
+	border-style:solid;
+	border-width:1px;
+	color:white;
+	font-size:121%;
+	height:30px;
+	line-height:28px;
+	margin-top:3px;
+	padding:0 11px;
+	font-style:bold;
+	
+	background-color:#60A497;
+	font-weight:500;
 }
 
 #footer {

@@ -14,8 +14,18 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
+    
+    @sortBy = params[:sort_by]
+    
     @user = User.find(params[:id])
-    @userShows = @user.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
+    if(@sortBy == nil || @sortBy == "attending") then
+      @userShows = @user.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
+    elsif(@sortBy == "attended")
+      @userShows = @user.shows.find(:all, :conditions => ['date < ?', Date.current - 1.day ], :order => 'date DESC, attending DESC')
+    else
+      @userShows = Show.posted_by_equals(@user.id).descend_by_created_at
+    end
+      
     
     if(current_user) then
       if current_user.id == @user.id then
@@ -84,6 +94,24 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  def remove_show_from_attending
+
+      @show = Show.find(params[:id])
+      @userWhoPostedShow = User.id_equals(@show.posted_by).first
+      @current_show = @show
+
+      decrement(@show, @userWhoPostedShow)
+
+       respond_to do |format|
+          format.js
+       end
+
+      rescue ActiveRecord::RecordNotFound
+        logger.error("Attempt to access invalid show #{params[:id]}")
+        flash[:notice] = "Invalid Show"
+        redirect_to :action => 'index'
+  end
 
   # PUT /users/1
   # PUT /users/1.xml
@@ -114,3 +142,20 @@ class UsersController < ApplicationController
     end
   end
 end
+
+private
+
+  def decrement(show, userWhoPostedShow)
+  
+    show.attending = show.attending - 1
+    show.user_not_attending(current_user)
+
+
+    if ((current_user.id != userWhoPostedShow.id) && userWhoPostedShow.points >= 5) then
+      userWhoPostedShow.points = userWhoPostedShow.points - 5
+      userWhoPostedShow.save!
+    end
+  
+    show.save!
+  
+  end

@@ -1,0 +1,35 @@
+var $j = jQuery.noConflict();
+
+var attending_show_id = '<%= @show.id.to_s %>'
+
+$j(document).ready(function()
+{
+	  var showSummaryClicked = $j("#show-summary-" + attending_show_id);
+	  var showSummarySingleShow = showSummaryClicked.parent(".single-show");
+	  if(showSummarySingleShow.find(".show-date").length == 1)
+	  {
+			var dateInformationSelector = showSummarySingleShow.find(".show-date");
+			var dateInformationHtml = dateInformationSelector.html();
+			var dateInformationHtml = "<div class='show-date'>" + dateInformationHtml + "</div>";
+			
+			$j(".single-show").each(function(){
+				
+				if( $j(this).attr("showID") == attending_show_id )
+				{
+					var nextShow = $j(this).next();
+					if( nextShow.find(".show-date").length == 0 ) 
+					{
+						$j(dateInformationHtml).prependTo(nextShow);
+					}
+				}
+			});
+			
+			showSummarySingleShow.hide("explode", 1000);
+			
+	  }else{
+		
+		showSummarySingleShow.hide("explode", 1000);
+	  }
+	
+	
+});
