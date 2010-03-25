@@ -13,7 +13,7 @@ class Location < ActiveRecord::Base
   has_many :venues
   
   def to_param
-    "#{id}-#{get_city_parameterized()}-#{get_state_parameterized()}"
+    "#{id}-#{city.downcase.parameterize}-#{state.downcase.parameterize}"
   end
   
   def add_show_to_location(show)
