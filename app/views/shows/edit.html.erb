@@ -92,10 +92,10 @@
 	<%= f.select :price_option, Show::PRICE_OPTIONS, :prompt => "Choose A Pricing Option" %>
 	<div class='Caption'>How Much?</div>
 	    <div class='DoorTicketPrice'>
-			<div><span class='moneySign'>$</span><%= f.text_field :price, :size => 3, :value => format_price_label(@show, @show.price) %> at the door </div>
-			<div class='CaptionSmall'>Specify a Door Price OR an Advanced Price OR Both</div>
+			<div><span class='moneySign'>$</span><%= f.text_field :advanceprice, :size => 3, :value => format_price_label(@show, @show.advanceprice) %> in advance </div>
+			<div class='CaptionSmall'>Specify an Advanced Price OR a Door Price OR Both</div>
 		</div>
-		<div class='AdvanceTicketPrice'><span class='moneySign'>$</span><%= f.text_field :advanceprice, :size => 3, :value => format_price_label(@show, @show.advanceprice) %> in advance</div>
+		<div class='AdvanceTicketPrice'><span class='moneySign'>$</span><%= f.text_field :price, :size => 3, :value => format_price_label(@show, @show.price) %> at the door</div>
 	</div>
 	</p><br/>
 
