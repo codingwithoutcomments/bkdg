@@ -1,4 +1,4 @@
-<%= javascript_include_tag :defaults, 'jquery-1.4', "application", 'jquery-ui.min', 'jquery-effects-explode'%>
+<%= javascript_include_tag :defaults, 'jquery-1.4', "application", 'jquery-ui.min', 'jquery-effects-explode', 'user'%>
 <% content_for :title do %>  <title>BKDG: User Profile for <%= @user.username %></title> <% end %>
 <%= stylesheet_link_tag 'usernew' %>
 
@@ -158,88 +158,9 @@
 			</div>
 		</div>
 		
-		<div id = "shows">
-
-				<% for show in @userShows %>
-					<div id="single-show" class='single-show' showID='<%= show.id %>'>
-							<% if firstShowOnDate(@previousDate, show) %>
-								<div class ="show-date">
-									<div style='float:left'>
-										<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
-									</div>
-									<% if @sortBy != "posted"%>
-										<div class='daysAway'>
-											<h2><%=h days_away_helper(show.date, show.time) + " " + away_or_ago_helper(show.date, show.time)%></h2>
-										</div>
-									<% end %>
-								</div>
-							<% end %>
-							<% @previousDate = show.date %>
-						
-							<div class="show-summary" id="show-summary-<%= show.id %>">
-						
-							<div>
-
-								<div class="attendingcontainer">
-									<div class="attending" id="attending-id-<%= show.id %>">
-										<%= render(:partial => "number_attending", :object => show.attending)%>
-									</div>
-									<div class="attendingword" id="attending-word-<%= show.id %>">Attending</div> 
-							    </div>
-
-								<div class="commentcontainer">
-									<div class="comment">
-											<span class="comment-counts">
-												<<%= comment_counts_helper(0) %>><%= show.comments.count %></<%= comment_counts_helper(0) %>>
-											</span>
-						            </div>
-									<div class="attendingword">Comments</div>
-					        	</div>
-
-							</div>
-						
-							<div>
-								<div class="headliner">
-									<div class="headliner-name"><%=link_to populate_headliner(show), :controller => 'shows', :action => 'show', :id => show %></div>
-									<div class="openers">
-										<% if (show.bands.count > 1)%>
-											<%= populate_openers(show) %>
-										<% else %>
-											<%= link_to 'Add Openers', edit_show_path(show, :highlight => "bands") %>
-										<% end %>
-									</div>
-									<div class="attend-recommend">
-										<% if (@current_user.id == @user.id) && (@sortBy == "attending" || @sortBy == nil)%>
-											<%= link_to_remote 'Remove this show »', {
-										   		:url => { :action => "remove_show_from_attending", :id => show.id, :user_id => @current_user.id } }, 
-													:class => "attendincrement", :title => "Click to no longer attend this show" %>
-										<% elsif (@current_user.id == @user.id) && (@sortBy == "attended" || @sortBy == nil)%>
-											<%= link_to_remote 'I didn\'t really attend this show »', {
-										   		:url => { :action => "remove_show_from_attending", :id => show.id, :user_id => @current_user.id } }, 
-													:class => "attendincrement", :title => "Remove This Show From Shows Attended" %>
-										<% end %>
-									</div>
-								</div>
-							</div>
-						
-							<div>
-								<div class="venue">
-									<div class="venue-name"><%= link_to capitalize_first_letter_of_each_word(show.venue.name), show.venue %></div>
-								    <div class="date-time-price">
-										<%= render(:partial => "display_date_time_price", :locals => { :show => show }) %>
-									</div>
-
-								</div>
-							</div>
-						
-							</div>
-							
-					</div>
-				<% end %>
+		<%= render(:partial => "user_shows", :locals => { :userShows => @userShows  }) %>
+		
 				<br /><br />
-			
-		<div id="sidebar">  
-		</div>
 		
 		</div> <!-- shows -->
 </div><!-- mainBar Full -->

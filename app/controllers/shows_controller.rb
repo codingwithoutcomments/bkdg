@@ -44,7 +44,7 @@ class ShowsController < ApplicationController
       
       @allShows = @location.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
       @allAgesShows = @location.shows.allowed_in_equals("All Ages").date_greater_than(Date.current - 1.day)
-      @shows = @allShows.paginate :per_page => 20, :page => params[:page], :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC'
+      @shows = @allShows.paginate :per_page => 20, :page => params[:page]
       
       set_current_user_if_logged_in()
     

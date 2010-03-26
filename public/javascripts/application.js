@@ -53,3 +53,4 @@ function fadeOutFlashNotice()
 	jQuery("#flashnotice").fadeOut("slow");
 }
 
+

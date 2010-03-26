@@ -20,13 +20,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if(@sortBy == nil || @sortBy == "attending") then
       @userShows = @user.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
+      
     elsif(@sortBy == "attended")
       @userShows = @user.shows.find(:all, :conditions => ['date < ?', Date.current - 1.day ], :order => 'date DESC, attending DESC')
     else
       @userShows = Show.posted_by_equals(@user.id).descend_by_created_at
     end
-      
     
+    @userShows = @userShows.paginate :per_page => 5, :page => params[:page]
+      
     if(current_user) then
       if current_user.id == @user.id then
         @currentUserViewing = true
@@ -39,7 +41,14 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @user }
+      format.js {
+            render :update do |page|
+              # 'page.replace' will replace full "results" block...works for this example
+              # 'page.replace_html' will replace "results" inner html...useful elsewhere
+              page.replace 'shows', :partial => 'user_shows', :userShows => @userShows
+            end
+          }
+      
     end
     
     rescue ActiveRecord::RecordNotFound
