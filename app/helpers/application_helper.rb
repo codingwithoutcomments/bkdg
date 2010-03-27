@@ -46,9 +46,9 @@ module ApplicationHelper
   
   def attendingshow?
     if (@attendingshow)
-      return "Remove This Show From My List"
+      return "Remove This Show From My List »"
     else
-      return "Click To Attend This Show"
+      return "Click To Attend This Show »"
     end
   end
   

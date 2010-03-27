@@ -1,13 +1,39 @@
 <% content_for :title do %>  <title>BKDG: Editing <%= capitalize_first_letter_of_each_word(@venue.name) %></title> <% end %>
-<h1>Editing venue</h1>
+<div id="mainbar-full">
+	
+	<div id = "showsHeader">
+		<b><h3>Editing <%= capitalize_first_letter_of_each_word(@venue.name) %> Information
+		 </h3></b>
+	</div>
 
 <% form_for(@venue) do |f| %>
   <%= f.error_messages %>
+
+  <br />
+  <p>
+  	<div class='NewVenueElement'>
+	    <%= f.label :address, 'Address' %><br />
+	    <%= f.text_field :address , :size => 40 %>
+	 </div>
+  </p><br />
+
+  <p>
+  	<div class='NewVenueElement'>
+	    <%= f.label :website, 'Website' %><br />
+	    <%= f.text_field :website, :size => 40 %>
+	  </div>
+  </p><br />
+
+  <p>
+  	<div class='NewVenueElement'>
+	    <%= f.label :phone, 'Phone' %><br />
+	    <%= f.text_field :phone, :size => 13 %>
+	 </div>
+  </p><br />
 
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @venue %> |
-<%= link_to 'Back', venues_path %>
+<%= link_to 'Back to ' + capitalize_first_letter_of_each_word(@venue.name), venues_path %>

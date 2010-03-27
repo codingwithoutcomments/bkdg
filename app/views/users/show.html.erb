@@ -77,7 +77,7 @@
 		<div class='userImage'>
 			<%= image_tag @user.gravatar_url(:size => 250) %>
 			<% if (@currentUserViewing) then%>
-				<a href = "http://en.gravatar.com/">Change Picture</a>
+				<%= link_to 'Change Picture', 'http://en.gravatar.com/', options = { :popup => true } %>
 			<% end %>
 		</div>
 		

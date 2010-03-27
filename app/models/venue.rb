@@ -59,7 +59,7 @@ private
     
     @venue =  @venuesAtLocation.name_equals(name.upcase).first
     
-    if(@venue != nil)  then 
+    if(@venue != nil && @venue.id != id)  then 
       errors.add_to_base(capitalize_first_letter_of_each_word(name) + " already exists in " + @location.city + ", " + @location.state)
     end
       
