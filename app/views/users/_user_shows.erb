@@ -23,7 +23,12 @@
 						<div class="attending" id="attending-id-<%= show.id %>">
 							<%= render(:partial => "number_attending", :object => show.attending)%>
 						</div>
+						<% if @sortBy == "attended" %>
+							<div class="attendingword" id="attending-word-<%= show.id %>">Attended</div> 
+						<% else %>
 						<div class="attendingword" id="attending-word-<%= show.id %>">Attending</div> 
+						<% end %>
+						
 				    </div>
 
 					<div class="commentcontainer">

@@ -1,0 +1,110 @@
+.userShowAttending {
+
+  width:33px;
+  background: #F90887; /* url(/images/attending-bottom.gif) no-repeat left bottom; */
+
+ }
+
+.userShowAttending h2
+{
+	/* background: url(/images/attending-top.gif) no-repeat left top; */
+	padding: 0px 5px 0px 4px;
+	margin-bottom: 7px;
+	text-align: center;
+	vertical-align: center;
+	margin-top: 5px;
+}
+
+.userShowAttending h3
+{
+	/* background: url(/images/attending-top.gif) no-repeat left top; */
+	padding: 7px 0px 7px 0px;
+	margin-bottom: 7px;
+	text-align: center;
+	font-size: 90%;
+	letter-spacing: -1px;
+	margin-top: 5px;
+}
+
+#userShowAttending-counts
+{
+
+	display:block;
+	font-size:200%;
+	color: white;
+
+}
+
+#userShowAttending-counts-smaller
+{
+
+	display:block;
+	font-size:120%;
+	color: white;
+}
+
+.userShowAttendingWord
+{
+	width: 66px;
+	text-align: center;
+	color:#000;
+	font-size:70%;
+}
+
+.userShowCommentWord
+{
+	width: 66px;
+	text-align: center;
+	color:#000;
+	font-size:70%;
+}
+
+.userShowComment-counts
+{
+
+	display:block;
+	font-size:200%;
+	color: white;
+
+}
+
+.userShowComment-counts-smaller
+{
+
+	display:block;
+	font-size:200%;
+	color: white;
+
+}
+
+.commentcontainer
+{
+	float:left;
+	width: 86px;
+	margin-right: 8px;
+	margin-left: -15px;
+}
+
+.userShowAttendingContainer
+{
+	width: 86px;
+	float: left;
+}
+
+#followControl
+{
+	margin-left:2px;
+	padding:5px;
+	font-weight:700;
+	font-size:130%;
+}
+
+#followControl a
+{
+		color:black;
+}
+
+#followControl a:hover
+{
+		background-color:#FFFF01;
+}

@@ -16,8 +16,12 @@ class UsersController < ApplicationController
   def show
     
     @sortBy = params[:sort_by]
-    
     @user = User.find(params[:id])
+    
+    if(current_user)
+      @friendship = current_user.friendships.friend_id_equals(@user.id).first
+    end
+      
     if(@sortBy == nil || @sortBy == "attending") then
       @userShows = @user.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
       
@@ -28,16 +32,6 @@ class UsersController < ApplicationController
     end
     
     @userShows = @userShows.paginate :per_page => 5, :page => params[:page]
-      
-    if(current_user) then
-      if current_user.id == @user.id then
-        @currentUserViewing = true
-      else
-        @currentUserViewing = false
-      end
-    else
-      @currentUserViewing = false
-    end
     
     respond_to do |format|
       format.html # show.html.erb

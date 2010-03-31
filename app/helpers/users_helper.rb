@@ -12,4 +12,8 @@ module UsersHelper
     end
   end
   
+  def return_follow_text(user)
+    return 'Follow '+ user.username + ' »'
+  end
+  
 end

@@ -1,6 +1,6 @@
 <%= javascript_include_tag :defaults, 'jquery-1.4', "application", 'jquery-ui.min', 'jquery-effects-explode', 'user'%>
 <% content_for :title do %>  <title>BKDG: User Profile for <%= @user.username %></title> <% end %>
-<%= stylesheet_link_tag 'usernew' %>
+<%= stylesheet_link_tag 'usernew', 'usershow' %>
 
 <% content_for :uppermenu do %>
 
@@ -83,7 +83,7 @@
 		
 		<div class='userInformation'>
 			
-			<div style='width:100%;height:180px;'>
+			<div style='width:100%;'>
 				<table>
 					<tr>
 						<td class='Category'>Username<td>
@@ -125,11 +125,30 @@
 							<td><%=h @user.shows_posted %></td>
 						</tr>
 					<% end %>
+					<tr>
+						<td class='Category'>Following<td>
+						<td><%=h @user.friendships.length %></td>
+					</tr>
+					<tr>
+						<td class='Category'>Followers<td>
+						<td><%=h @user.inverse_friends.length %></td>
+					</tr>
+					
 				</table>
 			</div>
 			
+			<% if (current_user) && current_user.id != @user.id %>
+			  <div id='followControl'>
+				<% if @friendship != nil then %>
+					Following <%= @user.username %> (<%= link_to "remove", @friendship, :method => :delete %>)
+				<% else %>
+					<%= link_to return_follow_text(@user), friendships_path(:friend_id => @user ), :method => :post %>
+				<% end %>
+			 </div>
+			<% end %>
+			
 			<div class='userControls'>
-				<% if (@currentUserViewing) then%>
+				<% if (current_user.id == @user.id) then%>
 					<%= link_to 'Change/Add Profile Information', edit_user_path(@user) %>
 				<% end %>
 			</div>
@@ -160,7 +179,30 @@
 		
 		<%= render(:partial => "user_shows", :locals => { :userShows => @userShows  }) %>
 		
-				<br /><br />
+		<div id = "showsHeader">
+			<h3>Following</h3>
+		</div>
 		
-		</div> <!-- shows -->
+		<div id='followingContainer'>
+			<ul>
+				<% for friendship in @user.friendships %>
+					<li><%= friendship.friend.username %> (<%= link_to "remove", friendship, :method => :delete %>)</li>
+				<% end %>
+			</ul>
+		</div>
+		
+		<div id = "showsHeader">
+			<h3>Followers</h3>
+		</div>
+		
+		<div id='followerContainer'>
+			<ul>
+				<% for user in @user.inverse_friends %>
+					<li><%= user.username %></li>
+				<% end %>
+			</ul>
+		</div>
+		
+		<br />
+		<br />
 </div><!-- mainBar Full -->

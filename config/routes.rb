@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :friendships
+
   map.resources :bands
 
   map.resources :venues
