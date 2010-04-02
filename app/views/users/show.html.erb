@@ -140,9 +140,9 @@
 			<% if (current_user) && current_user.id != @user.id %>
 			  <div id='followControl'>
 				<% if @friendship != nil then %>
-					Following <%= @user.username %> (<%= link_to "remove", @friendship, :method => :delete %>)
+					Following <%= @user.username %> <span class='followingRemove'><%= link_to_remote "remove »", :url => {:action => :destroy, :controller => 'friendships', :id => @friendship }, :method => :delete %></span>
 				<% else %>
-					<%= link_to return_follow_text(@user), friendships_path(:friend_id => @user ), :method => :post %>
+					<%= link_to_remote return_follow_text(@user), :url => {:controller => 'friendships', :action => 'create', :friend_id => @user }%>
 				<% end %>
 			 </div>
 			<% end %>
