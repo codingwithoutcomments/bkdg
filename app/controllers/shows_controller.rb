@@ -405,22 +405,17 @@ class ShowsController < ApplicationController
     
   
   def increment_attending
-    
-    @on_show_detail_page = params[:show_detail_page]
+    @friendsAttending = params[:friends_attending]
+    @currentUserAttending = params[:youAreAttending]
     @show = Show.find(params[:id])
     @userWhoPostedShow = User.id_equals(@show.posted_by).first
     @current_show = @show
     
-    
     #check first to see if already attending show
     if already_attending?(params[:user_id], params[:id])
-      
       decrement(@show, @userWhoPostedShow)
-      
     else
-      
-      increment(@show, @userWhoPostedShow)
-      
+      increment(@show, @userWhoPostedShow) 
     end
     
      respond_to do |format|

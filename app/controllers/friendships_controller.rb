@@ -15,6 +15,7 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.xml
   def destroy
+    @user = User.find(params[:user])
     @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
   

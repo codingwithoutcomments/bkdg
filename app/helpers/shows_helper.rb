@@ -110,6 +110,43 @@ module ShowsHelper
       end
   end
   
+  def number_of_friends_attending(show, current_user)
+    @i = 0
+    attendingString = ""
+    if(show.users.length > 0) then
+      for friendship in current_user.friendships
+        attending = show.users.id_equals(friendship.friend.id).first
+        if(attending != nil) then 
+          @i = @i + 1 
+        end
+      end
+    end
+    
+    @youAreAtteding = show.users.id_equals(current_user.id).first
+    
+    if(@i > 0)
+      attendingString = attendingString + pluralize(@i, "friend")
+    end
+    
+    if(@youAreAtteding)
+      if(@i == 0) then
+        attendingString = attendingString + "You Are Attending"
+      else
+        attendingString = attendingString + " and you"
+      end
+    end
+    
+    if(@i > 0 || @youAreAtteding == true )
+      if(@i == 1 && @youAreAtteding == nil) then
+        attendingString = attendingString + " is attending"
+      else
+        attendingString = attendingString + " are attending"
+      end
+    end
+    
+    return attendingString
+  end
+  
   def map_it(show)
     link = "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q="
     link = link + show.venue.get_address_parameterized if show.venue.address != nil

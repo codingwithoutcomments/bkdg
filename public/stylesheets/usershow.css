@@ -106,10 +106,48 @@
 
 #followControl a:hover
 {
-		background-color:#FFFF01;
+   background-color:#FFFF01;
 }
 
 .followingRemove
 {
 	font-size:50%;
+}
+
+#followingContainer
+{
+	padding:5px;
+	width:715px;
+}
+
+#followingContainer img
+{
+	border:0px;
+	color:black;
+}
+
+#followerContainer
+{
+	padding:5px;
+	width:715px;
+}
+
+#followerContainer img
+{
+	border:0px;
+	color:black;
+}
+
+#notFollowingAnybody
+{
+	font-size:300%;
+	color:white;
+	background-color:#FFFF01;
+}
+
+#notFollowingAnybody a
+{
+	text-decoration:underline;
+	color:white;
+	background-color:#F90887;
 }

@@ -1,4 +1,4 @@
-<%= javascript_include_tag :defaults, 'jquery-1.4', "application", 'jquery-ui.min', 'jquery-effects-explode', 'user'%>
+<%= javascript_include_tag :defaults, 'jquery-1.4', 'jquery-ui.min', 'jquery.effects.explode', 'user'%>
 <% content_for :title do %>  <title>BKDG: User Profile for <%= @user.username %></title> <% end %>
 <%= stylesheet_link_tag 'usernew', 'usershow' %>
 
@@ -140,7 +140,7 @@
 			<% if (current_user) && current_user.id != @user.id %>
 			  <div id='followControl'>
 				<% if @friendship != nil then %>
-					Following <%= @user.username %> <span class='followingRemove'><%= link_to_remote "remove »", :url => {:action => :destroy, :controller => 'friendships', :id => @friendship }, :method => :delete %></span>
+					Following <%= @user.username %> <span class='followingRemove'><%= link_to_remote "remove »", :url => {:action => :destroy, :controller => 'friendships', :id => @friendship, :user => @user }, :method => :delete %></span>
 				<% else %>
 					<%= link_to_remote return_follow_text(@user), :url => {:controller => 'friendships', :action => 'create', :friend_id => @user }%>
 				<% end %>
@@ -184,11 +184,15 @@
 		</div>
 		
 		<div id='followingContainer'>
-			<ul>
-				<% for friendship in @user.friendships %>
-					<li><%= friendship.friend.username %> (<%= link_to "remove", friendship, :method => :delete %>)</li>
+				<% if @user.friendships.length > 0 %>
+					<% for friendship in @user.friendships %>
+						<%= link_to image_tag(friendship.friend.gravatar_url(:size => 75)), 
+							{ :controller => 'users', :action => 'show', :id => friendship.friend }, 
+										:title => friendship.friend.username %>
+					<% end %>
+				<% else %>
+					<span id='notFollowingAnybody'>NOT FOLLOWING ANYBODY?  UR SILLY.  GO <%= link_to 'HERE', {:controller => 'users', :action => 'index' } %> AND FIND YOU SOME FRIENDZZZ.</span>
 				<% end %>
-			</ul>
 		</div>
 		
 		<div id = "showsHeader">
@@ -196,11 +200,13 @@
 		</div>
 		
 		<div id='followerContainer'>
-			<ul>
+			<% if @user.inverse_friends.length > 0 %>
 				<% for user in @user.inverse_friends %>
-					<li><%= user.username %></li>
+					<%= link_to image_tag(user.gravatar_url(:size => 75)), { :controller => 'users', :action => 'show', :id => user }, :title => user.username %>
 				<% end %>
-			</ul>
+			<% else %>
+				<span id='notFollowingAnybody'>YOU HAVE NO FOLLOWERS. SRRY. </div>
+			<% end %>
 		</div>
 		
 		<br />

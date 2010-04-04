@@ -1,1 +1,1 @@
-Following <%= user.username %> <span class='followingRemove'><%= link_to "remove »", friendship, :method => :delete %></span>
+Following <%= user.username %> <span class='followingRemove'><%= link_to_remote "remove »", :url => {:action => :destroy, :controller => 'friendships', :id => friendship, :user => user }, :method => :delete %></span>

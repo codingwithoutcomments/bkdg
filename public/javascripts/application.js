@@ -27,6 +27,17 @@ jQuery(document).ready(function() {
 	    jQuery(err).fadeIn('slow');
 	});
 	
+	jQuery('.addOpenersError').click(function() {
+	    jQuery('.error-notification').remove();
+	    var err = jQuery('<div>').addClass('error-notification')
+	                         .html('<h2>Please <a href = "/login">login</a> or <a href = "/users/new">signup</a> <br> to add opening bands</h2>(click on this box to close)')
+	                         .css('left', jQuery(this).position().left)
+							 .css('top', jQuery(this).position().top + jQuery(this).height() + 8)
+							 .css('font-size', '80%');
+	    jQuery(this).after(err);
+	    jQuery(err).fadeIn('slow');
+	});
+	
 	jQuery('.commenterror').click(function() {
 	    jQuery('.error-notification').remove();
 	    var err = jQuery('<div>').addClass('error-notification')

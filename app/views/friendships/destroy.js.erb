@@ -2,6 +2,6 @@ var $j = jQuery.noConflict();
 
 $j(document).ready(function()
 {
-	alert('here');
+	$j("#followControl").html('<%= escape_javascript(render(:partial => "display_follow", :locals => { :user => @user }))%>');
 	
 });
