@@ -1,7 +1,7 @@
 <% numberOfFriendsString = number_of_friends_attending(show, current_user) %>
 <% if numberOfFriendsString != "" %>
 	<div class='NumberOfFriendsAttending'><%= numberOfFriendsString %></div>
-	<% if @youAreAtteding then %>
-		<div class='attendingsymbol' title='attending!'>A</div>
-	<% end %>
+<% end %>
+<% if @youAreAtteding then %>
+	<div class='attendingsymbol' title='attending!'>Attending</div>
 <% end %>

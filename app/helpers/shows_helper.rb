@@ -150,7 +150,7 @@ module ShowsHelper
     
     if(@youAreAtteding)
       if(@i == 0) then
-        attendingString = attendingString + "You Are Attending"
+        #attendingString = attendingString + "You Are Attending"
       else
         attendingString = attendingString + " and you"
       end
