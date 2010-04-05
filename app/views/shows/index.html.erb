@@ -87,9 +87,6 @@
 					<div>
 						<div class="headliner">
 							<div class="headliner-name"><%=link_to populate_headliner(show), :action => 'show', :id => show %>
-								<% if @attendingshow then %>
-									<div class='attendingsymbol' title='attending!'>A</div>
-								<% end %>
 							</div>
 							<div class="openers">
 								<% if (show.bands.count > 1)%>

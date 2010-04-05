@@ -11,7 +11,6 @@ $j(document).ready(function()
   
 	  $j("#attendincrement").html("Attend »");
 	  $j("#attending-id-" + attending_show_id).html('<%= escape_javascript(render(:partial => "number_attending", :locals => { :number_attending => @current_show.attending }))%>');
-	  $j("#show-summary-" + attending_show_id).find(".attendingsymbol").fadeOut(function(){ $(this).remove(); });
 	  $j("#friendsAttendingContainer-"+ attending_show_id).html('<%= escape_javascript(render(:partial => "number_of_friends_attending", :locals => {:show => @show, :current_user => @current_user}))%>');
 	
 	}else{
@@ -23,7 +22,6 @@ $j(document).ready(function()
 			
 		$j("#attendincrement").html("Back Out »");
 		$j("#attending-id-" + attending_show_id).html('<%= escape_javascript(render(:partial => "number_attending", :locals => { :number_attending => @current_show.attending }))%>');
-		$j("#show-summary-" + attending_show_id).find(".headliner-name").append("<div class='attendingsymbol' title='attending!' style='display:none;'>A</div>").find(".attendingsymbol").fadeIn();
 		$j("#friendsAttendingContainer-"+ attending_show_id).html('<%= escape_javascript(render(:partial => "number_of_friends_attending", :locals => {:show => @show, :current_user => @current_user}))%>');
 			
 		setTimeout(function() { $j('#notice').fadeOut("slow", function(){  $j(this).remove(); }) }, 3000);

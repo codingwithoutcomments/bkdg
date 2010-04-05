@@ -826,6 +826,7 @@ code {
 	padding-right:3px;
 	padding-bottom:2px;
 	padding-top:2px;
+	float:left;
 	
 	/*color:#7c0343;
 	font-size:140%;
@@ -844,14 +845,13 @@ code {
 {
 	background-color:#F90887;
 	color:white;
-	padding:2px 4px 1px 4px;
-	margin-top:1px;
+	padding:2px 4px 2px 4px;
 	margin-right:3px;
-	font-size:85%;
+	font-size:110%;
 	font-weight:500;
-	float:right;
 	cursor:pointer;
 	text-decoration:none;
+	float:left;
 }
 
 .alreadyattending
