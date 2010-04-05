@@ -234,6 +234,13 @@
 	width:60px;
 }
 
+.usernameLinkFriendAttending
+{
+	float:left;
+	width:85px;
+	text-align:center;
+}
+
 .usernamePoints
 {
 	float:left;
@@ -246,6 +253,23 @@
 	float:left;
 	margin-left:10px;
 	width:50px;
+}
+
+.usernamePointsFriendAttending
+{
+	float:left;
+	text-align:center;
+	width:85px;
+}
+
+.FriendsAttending
+{
+	color:#808185;
+	font-size:350%;
+	text-align:left;
+	margin-top:-10px;
+	margin-bottom:-10px;
+	margin-left:5px;
 }
 
 .commentUserInfo
@@ -269,6 +293,20 @@
 	font-size:70%;
 }
 
+.singleFriendAttending
+{
+	width:90px;
+	float:right;
+	margin-left:10px;
+	margin-top:10px;
+	padding:5px;
+	background-color:#F2F2F2;
+}
+
+.singleFriendAttending a
+{
+	font-size:80%;
+}
 .commentUserInfo a
 {
 	font-size:80%;

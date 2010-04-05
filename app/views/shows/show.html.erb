@@ -165,22 +165,44 @@
 	
 </div>
 
-<div id = "showsHeader">
-	<b><h3>Users Attending</h3></b>
-</div>
+<% if @show.users.length > 0 %>
 
-<div id='userIconContainer'>
+	<div id = "showsHeader">
+		<b><h3>Users Attending</h3></b>
+	</div>
+
 	<% if current_user then %>
-		<% @show.users.each do |user| %>
-			<div class='UsersAttendingContainer'>
-				<div class='singleUserOfUsersAttending'>
-					<div class='gravitar'><%= link_to image_tag(user.gravatar_url(:size => 35)), { :controller => 'users', :action => 'show', :id => user } %></div>
-					<div class='usernameLinkUsersAttending'><%= link_to user.username, { :controller => 'users', :action => 'show', :id => user }  %></div>
-					<div class='usernamePointsUsersAttending'><%=     user.points.to_s     %></div>
+		<div id='userIconContainer'>
+			<% retrieve_friends_attending(@show, current_user)%>
+			<div class='FriendsAttending'> <%= pluralize(@friends_attending.length, 'Friend') %> Attending</div>
+			<% @friends_attending.each do |friend| %>
+				<div class='UsersAttendingContainer'>
+					<div class='singleFriendAttending'>
+						<div class='gravitar'><%= link_to image_tag(friend.gravatar_url(:size => 90)), 
+									{ :controller => 'users', :action => 'show', :id => friend } %></div>
+						<div class='usernameLinkFriendAttending'><%= link_to friend.username, { :controller => 'users', :action => 'show', :id => friend }  %></div>
+					</div>
 				</div>
-			</div>
+			<% end %>
+		</div>
+		
+		<% if @non_friends_attending.length > 0 %>
+			<div id='userIconContainer'>
+				<div class='FriendsAttending'> <%= pluralize(@non_friends_attending.length, 'Other') %></div>
+				<% @non_friends_attending.each do |friend| %>
+					<div class='UsersAttendingContainer'>
+						<div class='singleUserOfUsersAttending'>
+							<div class='gravitar'><%= link_to image_tag(friend.gravatar_url(:size => 35)), 
+										{ :controller => 'users', :action => 'show', :id => friend } %></div>
+							<div class='usernameLinkUsersAttending'><%= link_to friend.username, { :controller => 'users', :action => 'show', :id => friend }  %></div>
+							<div class='usernamePointsUsersAttending'><%=  friend.points.to_s     %></div>
+						</div>
+					</div>
+				<% end %>
+		 	</div>
 		<% end %>
 	<% else %>
+    <div id='userIconContainer'>
 		<% @show.users.each do |user| %>
 			<div class='UsersAttendingContainer'>
 				<div class='singleUserOfUsersAttending'>
@@ -190,8 +212,11 @@
 				</div>
 			</div>
 		<% end %>
+	</div>
 	<% end %>
-</div>
+	
+<% end %>
+
 
 <div >
 

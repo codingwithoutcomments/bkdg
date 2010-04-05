@@ -110,6 +110,26 @@ module ShowsHelper
       end
   end
   
+  def retrieve_friends_attending(show, current_user)
+    
+    @friends_attending = []
+    @non_friends_attending = []
+    
+   @showUsers = show.users
+   0.upto(@showUsers.length - 1) { |i|
+       @friendshipExists = current_user.friendships.friend_id_equals(show.users.at(i).id).first
+       if(@friendshipExists != nil || show.users.at(i).id == current_user.id) then
+         @friends_attending << show.users.at(i)
+        else
+          if(show.users.at(i).id != current_user.id) then
+            @non_friends_attending << show.users.at(i)
+          end
+        end
+        
+    }
+    
+  end
+  
   def number_of_friends_attending(show, current_user)
     @i = 0
     attendingString = ""
