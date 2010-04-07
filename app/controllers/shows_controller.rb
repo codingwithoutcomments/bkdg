@@ -78,6 +78,9 @@ class ShowsController < ApplicationController
     if(!@headliner.has_pictures?)
       retrieve_pictures(@headliner) 
     end
+
+    @bands.at(0).get_songs
+    @songsString = @bands.at(0).get_song_string
     
     set_current_user_if_logged_in()
     

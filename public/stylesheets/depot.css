@@ -205,6 +205,16 @@ code {
 
 }
 
+#grooveSideBar
+{
+	float: right;
+	margin-bottom: 60px;
+	margin-right:10px;
+	width: 220px;
+	clear:both;
+	
+}
+
 #container{
 	
 	width:100%;
@@ -348,7 +358,6 @@ code {
 {
 	width: 715px;
 	float:left;
-	clear: both;
 }
 
 .mapit
@@ -959,6 +968,15 @@ code {
 	margin-bottom: 10px;
 	margin-top: 6px;
 	height: 600px;
+}
+
+.GrooveSharkModule
+{
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-bottom: 10px;
+	margin-top: 75px;
+	height: 252px;
 }
 
 .countModule

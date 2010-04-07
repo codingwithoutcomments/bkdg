@@ -33,6 +33,14 @@
 <%= stylesheet_link_tag 'show' %>
 
 <div id="mainbar-full">
+	
+	<div id="grooveSideBar">  
+
+		<div class ="GrooveSharkModule">
+					
+		 </div>
+		 
+	</div>
 <div id="showinfo">
 	
 	<% attending_highlight_helper(@current_user, @shows_that_user_is_attending, @show) %>
@@ -107,8 +115,22 @@
 				<%= @show.additional_info %>
 			<% end %>
 		</div>
+		
+		<% if @songsString != "" then %>
+		
+			<div style='margin-top:10px;float:left;border:15px solid #60A49F'>
+				<object width="320" height="200"> 
+					<param name="movie" value="http://listen.grooveshark.com/widget.swf"></param> 
+					<param name="wmode" value="window"></param> 	      
+					<param name="allowScriptAccess" value="always"></param> 
+					<param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=<%=@songsString%>&style=metal&bbg=FFFF01&bt=0088FF&bfg=ff0077&p=0"></param>
+					 		<embed src="http://listen.grooveshark.com/widget.swf" type="application/x-shockwave-flash" width="320" 
+					height="200" flashvars="hostname=cowbell.grooveshark.com&songIDs=<%=@songsString%>&style=metal&bbg=FFFFFF&bt=000000&bfg=FFFFFF&p=0" allowScriptAccess="always" wmode="window"></embed></object>
+			</div>
+			
+		<% end %>
 
-  		<div class = "attendcommentcontainer">
+  		<div class = "attendcommentcontainer" style='margin-left:10px;margin-top:10px;'>
 			<div id='clicktoattend' class="attend-recommend <%= attending_helper() %>">
 					<% if @current_user %>
 						<%= link_to_remote attendingTheShow?, {
@@ -264,3 +286,5 @@
 	</div>
 </div>
 </div>
+
+

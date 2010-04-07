@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328213353) do
+ActiveRecord::Schema.define(:version => 20100407053750) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(:version => 20100328213353) do
 
   add_index "bands_shows", ["band_id", "show_id"], :name => "index_bands_shows_on_show_id_and_band_id", :unique => true
   add_index "bands_shows", ["band_id"], :name => "index_bands_shows_on_band_id"
+
+  create_table "bandsongs", :force => true do |t|
+    t.integer  "band_id"
+    t.string   "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "user_comment"
