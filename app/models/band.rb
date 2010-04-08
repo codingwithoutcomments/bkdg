@@ -48,8 +48,11 @@ class Band < ActiveRecord::Base
         if(@songArray.length == 8) then
           song = Bandsong.new
           song.song_id = @songArray.at(1).strip!
-          song.save
-          add_song_to_band(song)
+          if(@songArray.at(4).strip!.upcase == band_name) then
+            debugger()
+            song.save
+            add_song_to_band(song)
+          end
         end
       }
     end
