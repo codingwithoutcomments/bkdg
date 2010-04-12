@@ -155,7 +155,11 @@ class Band < ActiveRecord::Base
               if(venue != nil) then
                 
                 headliner = event.at("headliner").inner_html
-                show = see_if_show_already_exists(venue, headliner)
+                
+                showDateArray = event.at("startDate").inner_html.split(" ")
+                dateString = showDateArray.at(1) + showDateArray.at(2) + showDateArray.at(3)
+                newDate = Date.parse(dateString)
+                show = see_if_show_already_exists(location, headliner, newDate)
                 
                 #create show if doesn't already exist
                 if(show == nil) then
@@ -170,9 +174,6 @@ class Band < ActiveRecord::Base
                    newShow.posted_by = 1
                    
                    #date
-                   showDateArray = event.at("startDate").inner_html.split(" ")
-                   dateString = showDateArray.at(1) + showDateArray.at(2) + showDateArray.at(3)
-                   newDate = Date.parse(dateString)
                    newShow.date = newDate
                    
                    #description
@@ -222,10 +223,10 @@ class Band < ActiveRecord::Base
   
 private
 
-  def see_if_show_already_exists(venue, headliner)
+  def see_if_show_already_exists(location, headliner, date)
     
-    venueShows = venue.shows.date_greater_than(Date.current - 1.day)
-    venueShows.each do |show|
+    locationShows = location.shows.date_equals(date)
+    locationShows.each do |show|
       band = show.bands.band_name_equals(headliner.upcase).first
       if(band !=  nil) then
         return show
