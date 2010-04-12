@@ -59,7 +59,7 @@
 				
 					<div class='BandStat'>
 						<span class='BandStatLabel'><label for="count" class='category'>Upcoming Shows </label></span>
-						<div class='BandStatUpcomingShows'><%= @band.shows.count %></div>
+						<div class='BandStatUpcomingShows'><%= @bandshows.length %></div>
 					</div>
 				 
 					<div class='BandStat'>
@@ -78,13 +78,13 @@
 			</div>
 			
 			<div id = "showsHeader">
-				<b><h3><%= pluralize(@band.shows.count, "Upcoming Show") %></h3></b>
+				<b><h3><%= pluralize(@bandshows.length, "Upcoming Show") %></h3></b>
 			</div>
 
 			<div id = "shows">
 
 
-					<% for show in @band.shows %>
+					<% for show in @bandshows %>
 						<div id="single-show">
 								<% if firstShowOnDate(@previousDate, show) %>
 									<div class ="show-date">
@@ -92,7 +92,7 @@
 											<h2><%=h show.date.strftime("%A, %b %e %Y") %></h2>
 										</div>
 										<div style='float:right;margin-right:10px;'>
-											<h2><%= capitalize_first_letter_of_each_word(show.location.city) %>, <%= capitalize_first_letter_of_each_word(show.location.state) %></h2>
+											<h2><%= capitalize_first_letter_of_each_word(show.location.city) %>, <%= show.location.state %></h2>
 										</div>
 									</div>
 								<% end %>
@@ -124,9 +124,6 @@
 									<div class="headliner">
 										<div class="headliner-name">
 											<%=link_to populate_headliner(show), :controller => 'shows', :action => 'show', :id => show %>
-											<% if @attendingshow then %>
-												<div class='attendingsymbol' title='attending!'>A</div>
-											<% end %>
 										</div>
 										<div class="openers">
 											<% if (show.bands.count > 1)%>
@@ -136,14 +133,6 @@
 											<% end %>
 										</div>
 										<div class="attend-recommend">
-											<% if @current_user %>
-												<%= link_to_remote attendingshow?, {
-											   		:url => { :action => "increment_attending", :id => show.id, :user_id => @current_user.id, :show_detail_page => false }}, 
-														:class => "attendincrement", :title => "Click to Attend/Unattend" %>
-											<% else %>
-											    <%= link_to_remote "Click To Attend This Show", {
-											   		:url => { :action => "need_to_be_logged_in", :id => show.id }}, :class => "attenderror" %>
-											<% end %>
 										</div>
 
 								</div>

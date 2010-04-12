@@ -12,9 +12,13 @@ class BandsController < ApplicationController
         retrieve_pictures(@band) 
       end
       
+      @band.get_upcoming_shows_from_last_fm
+      
       if(@band.info == nil)
         retrieve_band_info(@band)
       end
+      
+      @bandshows = @band.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC')
 
     respond_to do |format|
       format.html # show.html.erb

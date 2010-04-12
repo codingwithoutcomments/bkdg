@@ -24,6 +24,8 @@
 | 
 <% if(show.allowed_in == "All Ages") then %>
 	<span title='All Ages' style='cursor:pointer;'>AA</span>
+<% elsif (show.allowed_in == "UNKNOWN") then %>
+	<span title='Age Restrictions Unknown' style='cursor:pointer;'>UK<span>
 <% else %>
 	21+
-<%end %>
+<% end %>

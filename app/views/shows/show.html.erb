@@ -96,15 +96,12 @@
 			 </span>
 			
 			<span id='allages'>
-			<% if(@show.allowed_in != nil) %>
+			<% if(@show.allowed_in == "UNKNOWN") %>
+				<%= link_to 'Age Restrictions?', edit_show_path(@show) %>
+			<% else %>
 				<%= @show.allowed_in %>
 			<% end %>
 		 	</span>
-
-		  <% if(@show.description != nil) %>
-		  	<b>Description:</b>
-		  	<%=h @show.description %>
-		  <% end %>
 		
 		</div>
 		

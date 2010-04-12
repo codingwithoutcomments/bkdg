@@ -16,7 +16,6 @@ class Venue < ActiveRecord::Base
   belongs_to :location
   
   validates_presence_of :name
-  validates_presence_of :address
   
    validate :unqiueness_of_venue_name_in_city
    
