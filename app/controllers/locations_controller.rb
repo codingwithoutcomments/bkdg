@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       
-        format.html { redirect_to :controller => 'shows', :action => 'index', :city => capitalize_first_letter_of_each_word(@location.city) }
+        format.html { redirect_to :controller => 'shows', :action => 'index', :city => capitalize_first_letter_of_each_word(@location.city), :state => capitalize_first_letter_of_each_word(@location.state)}
         format.xml  { render :xml => @show }
       
     end

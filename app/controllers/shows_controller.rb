@@ -22,16 +22,24 @@ class ShowsController < ApplicationController
   def index
       cityRequested = false
       sessionCity = getCityOfUser()
+      sessionState = getStateOfUser()
       requestedCity = params[:city]
+      requestedState = params[:state]
       
       if(requestedCity != nil && requestedCity != 'shows') then
         city = requestedCity
+        state = requestedState
         cityRequested = true
       else
         city = sessionCity
+        state = sessionState
       end
       
-      @location = Location.find(:first, :conditions => ["city = ?", city.upcase])
+      if(state != nil) then 
+        @location = Location.find(:first, :conditions => ["city = ? and state = ?", city.upcase, state.upcase])
+      else
+        @location = Location.find(:first, :conditions => ["city = ?", city.upcase])
+      end
       
       if(@location != nil && cityRequested == true) then
         session[:city] = @location.city
@@ -39,7 +47,7 @@ class ShowsController < ApplicationController
       end
       
       if(@location == nil && cityRequested == true)
-        @location = Location.find(:first, :conditions => ["city = ?", sessionCity.upcase])
+        @location = Location.find(:first, :conditions => ["city = ? and state = ?", sessionCity.upcase, sessionState.upcase])
       end
       
       @allShows = @location.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
