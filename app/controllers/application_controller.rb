@@ -62,9 +62,9 @@ protected
        end
   
   def set_city
-    if(session[:city] == nil || session[:city] == "") then
+    if(session[:city] == nil || session[:city] == "" || session[:state].length > 2) then
       session[:city] = "SEATTLE"
-      session[:state] = "WASHINGTON"
+      session[:state] = "WA"
     else
       session[:city] = session[:city].upcase
       session[:state] = session[:state].upcase
