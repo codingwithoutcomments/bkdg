@@ -64,6 +64,12 @@ class Show < ActiveRecord::Base
       bands.delete(band)
   end
   
+  def remove_all_bands_from_show
+    bands.each do |band|
+      bands.delete(band)
+    end
+  end
+  
   def user_attending(user)
     users << user
   end

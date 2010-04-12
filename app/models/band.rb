@@ -197,8 +197,7 @@ class Band < ActiveRecord::Base
                   
                    location.save
                    venue.save
-                   
-                    i = 3
+
                 end
 
               end
