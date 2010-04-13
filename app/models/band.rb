@@ -224,7 +224,6 @@ class Band < ActiveRecord::Base
 private
 
   def see_if_show_already_exists(location, headliner, date)
-    
     headliner = headliner.gsub('&amp;', '&')
     locationShows = location.shows.date_equals(date)
     locationShows.each do |show|
