@@ -48,6 +48,7 @@ class Show < ActiveRecord::Base
   end
   
   def add_band_to_show(band_to_add)
+    band_to_add = band_to_add.gsub('&amp;', '&')
     band = Band.find(:first, :conditions => ["band_name = ?", band_to_add.upcase])
     if(band == nil)
       band = Band.new(:band_name => band_to_add.upcase) 

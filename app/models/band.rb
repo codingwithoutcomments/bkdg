@@ -113,6 +113,7 @@ class Band < ActiveRecord::Base
     band = band_name
     band = band.gsub('+', '%2B')
     band = band.gsub(' ', '+')
+    band = band.gsub('&AMP;', '%26')
     band = band.gsub('&', '%26')
     band = band.gsub('$', '%24')
     band = band.gsub(',', '%2C')
@@ -127,7 +128,6 @@ class Band < ActiveRecord::Base
   end
   
   def get_upcoming_shows_from_last_fm
-    
     
     band_sans_spaces = get_XML_ready_string()
     last_fm_event_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getEvents&artist=" + band_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
@@ -225,6 +225,7 @@ private
 
   def see_if_show_already_exists(location, headliner, date)
     
+    headliner = headliner.gsub('&amp;', '&')
     locationShows = location.shows.date_equals(date)
     locationShows.each do |show|
       band = show.bands.band_name_equals(headliner.upcase).first
