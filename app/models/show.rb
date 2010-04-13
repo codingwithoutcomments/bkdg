@@ -70,6 +70,7 @@ class Show < ActiveRecord::Base
     bands.each do |band|
       bands.delete(band)
     end
+    debugger()
   end
   
   def user_attending(user)

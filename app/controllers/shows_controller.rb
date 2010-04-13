@@ -381,6 +381,7 @@ class ShowsController < ApplicationController
   # DELETE /shows/1.xml
   def destroy
     @show = Show.find(params[:id])
+    debugger()
     if(current_user && current_user.id == @show.posted_by)
       @show.remove_all_bands_from_show
       @show.destroy
