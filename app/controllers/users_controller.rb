@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @allUsers = User.descend_by_points()
+    @allUsers = User.find(:all, :order => 'points DESC, last_request_at DESC')
     @users    = @allUsers.paginate :per_page => 20, :page => params[:page]
 
     respond_to do |format|
