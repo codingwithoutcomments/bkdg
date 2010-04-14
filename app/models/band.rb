@@ -129,91 +129,94 @@ class Band < ActiveRecord::Base
   
   def get_upcoming_shows_from_last_fm
     
-    band_sans_spaces = get_XML_ready_string()
-    last_fm_event_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getEvents&artist=" + band_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
-    xml_retrieved = open(last_fm_event_string)
-    doc = Hpricot.XML(xml_retrieved)
-    (doc/:event).each do |event|
-          event_id = event.at("id").inner_html
-          event_country = event.at("country").html
-          #if event doesn't already exist create
-          if(Show.last_fm_event_id_equals(event_id).first == nil && (event_country == "United States" || event_country == "Canada")) then
+    if(shows_last_grabbed == nil || shows_last_grabbed != Date.current)
+    
+      band_sans_spaces = get_XML_ready_string()
+      last_fm_event_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getEvents&artist=" + band_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
+      xml_retrieved = open(last_fm_event_string)
+      doc = Hpricot.XML(xml_retrieved)
+      (doc/:event).each do |event|
+            event_id = event.at("id").inner_html
+            event_country = event.at("country").html
+            #if event doesn't already exist create
+            if(Show.last_fm_event_id_equals(event_id).first == nil && (event_country == "United States" || event_country == "Canada")) then
             
-            #get or create the event location
-            eventLocationArray = event.at("city").inner_html.split(",")
-            location = get_or_create_location(eventLocationArray)
+              #get or create the event location
+              eventLocationArray = event.at("city").inner_html.split(",")
+              location = get_or_create_location(eventLocationArray)
             
-            if(location != nil) then
+              if(location != nil) then
               
-              #get or create the venue
-              venue_name = event.at("name").inner_html
-              venue_address = event.at("street").inner_html
-              venue_phone_number = event.at("phonenumber").inner_html
-              venue_website = event.at("website").inner_html
-              venue = get_or_create_venue(location, venue_name, venue_address, venue_phone_number, venue_website)
+                #get or create the venue
+                venue_name = event.at("name").inner_html
+                venue_address = event.at("street").inner_html
+                venue_phone_number = event.at("phonenumber").inner_html
+                venue_website = event.at("website").inner_html
+                venue = get_or_create_venue(location, venue_name, venue_address, venue_phone_number, venue_website)
               
-              if(venue != nil) then
+                if(venue != nil) then
                 
-                headliner = event.at("headliner").inner_html
+                  headliner = event.at("headliner").inner_html
                 
-                showDateArray = event.at("startDate").inner_html.split(" ")
-                dateString = showDateArray.at(1) + showDateArray.at(2) + showDateArray.at(3)
-                newDate = Date.parse(dateString)
-                show = see_if_show_already_exists(location, headliner, newDate)
+                  showDateArray = event.at("startDate").inner_html.split(" ")
+                  dateString = showDateArray.at(1) + showDateArray.at(2) + showDateArray.at(3)
+                  newDate = Date.parse(dateString)
+                  show = see_if_show_already_exists(location, headliner, newDate)
                 
-                #create show if doesn't already exist
-                if(show == nil) then
-                   newShow = Show.new
+                  #create show if doesn't already exist
+                  if(show == nil) then
+                     newShow = Show.new
                    
-                   #add artists
-                   (event/:artist).each do |artist|
-                     newShow.add_band_to_show(artist.inner_html)
-                   end
+                     #add artists
+                     (event/:artist).each do |artist|
+                       newShow.add_band_to_show(artist.inner_html)
+                     end
                    
-                   #posted by me
-                   newShow.posted_by = 1
+                     #posted by me
+                     newShow.posted_by = 1
                    
-                   #date
-                   newShow.date = newDate
+                     #date
+                     newShow.date = newDate
                    
-                   #description
-                   description = event.at("description").inner_html
-                   if(description != "") then
-                     newShow.additional_info = description[9..-4]
-                   end
+                     #description
+                     description = event.at("description").inner_html
+                     if(description != "") then
+                       newShow.additional_info = description[9..-4]
+                     end
                    
-                   #last_fm_event_id
-                   newShow.last_fm_event_id = event_id
+                     #last_fm_event_id
+                     newShow.last_fm_event_id = event_id
                    
-                   #add showtime
-                  newShow.time = "UNKNOWN"
-                  newShow.allowed_in = "UNKNOWN"
-                  newShow.price_option = "UNKNOWN"
+                     #add showtime
+                    newShow.time = "UNKNOWN"
+                    newShow.allowed_in = "UNKNOWN"
+                    newShow.price_option = "UNKNOWN"
                   
-                  #save show
-                  newShow.save
+                    #save show
+                    newShow.save
                    
-                  location.add_show_to_location(newShow)
-                  venue.add_show_to_venue(newShow)
+                    location.add_show_to_location(newShow)
+                    venue.add_show_to_venue(newShow)
                   
-                   location.save
-                   venue.save
+                     location.save
+                     venue.save
+
+                  end
 
                 end
 
-              end
-
               
-            end
+              end
                
 
-          end
-          #picture.extralarge = sizes.at("size[@name='extralarge']").inner_html
-          #picture.save
-          #headliner.add_picture_to_band(picture)
-     end #event loop
-        
-      
+            end
+
+       end #event loop
+       
+       self.shows_last_grabbed = Date.current
+       self.save
+
+    end
         
       rescue OpenURI::HTTPError
         logger.error("Unable to get shows for #{band_name} from last.fm")

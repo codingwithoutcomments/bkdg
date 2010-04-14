@@ -29,20 +29,12 @@
 			<div class='city'>Shows in <%= capitalize_first_letter_of_each_word(@location.city) %></div>
 			<div class='changeLocation'><%= link_to 'Change Location', :controller => 'locations', :action => 'index' %></div>
 		</div>
-		
-		<!-- <div id="tabs">
-	        <%= link_to 'date', { :action => "index", :sort_by => "date"}, 
-					{:class => is_primary_tab?("date", @sort_by) }  %>
-	   		<%= link_to 'attending', { :action => "index", :sort_by => "attending" } ,
-	 				{:class => is_primary_tab?("attending", @sort_by) }%>
-	   		<%= link_to 'hott',  { :action => "index", :sort_by => "price"}, 
-							{:class => is_primary_tab?("price", @sort_by) } %>
-		</div> -->
 	</div>
 	
 	<% if (@shows.length == 0) then %>
 		<div id='ShowErrorContainer' class='ShowErrorExplanation'>
-			No Shows are posted yet in <b><%= capitalize_first_letter_of_each_word(@location.city)%>, <%= capitalize_first_letter_of_each_word(@location.state)%>.</b><br/>
+			No Shows are posted yet in <b><%= capitalize_first_letter_of_each_word(@location.city)%>, 
+				<%= capitalize_first_letter_of_each_word(@location.state)%>.</b><br/>
 			Help us out? <%= link_to 'Post A Show plz?', :action => 'new'%>
 		</div>
 	
