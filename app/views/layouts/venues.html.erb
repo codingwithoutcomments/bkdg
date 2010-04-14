@@ -43,7 +43,7 @@ pageTracker._trackPageview();
 		<div id='headerContainer'>
 			
 			<div id='bkdgTitle'>
-				<%= link_to image_tag('logo.png'), {:controller => 'shows', :action => 'index' } %>
+				<%= link_to image_tag('logo.png'), root_url %>
 			</div>
 				
 			<div id='bkdgHeaderControlPanel'>
@@ -85,7 +85,7 @@ pageTracker._trackPageview();
 				</div>
 				
 				<div id='bkdgHeaderHomeMyShowsUsers'>
-					<div class='Dark'><%= link_to 'home', { :controller => 'shows', :action => "index"} %></div>
+					<div class='Dark'><%= link_to 'home', root_url %></div>
 					<div class='Pink'><%= link_to 'my shows', { :action => "index"} %></div>
 					<div class='Dark'><%= link_to 'users', { :controller => 'users', :action => "index"} %></div>
 				</div>

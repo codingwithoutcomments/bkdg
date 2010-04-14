@@ -455,6 +455,7 @@ code {
 	padding-top:5px;
 	background-color:#D4D5D7;
 	float:left;
+
 }
 
 #showsMainHeader h3
@@ -642,6 +643,9 @@ code {
   width:66px;
   background: #F90887; /* url(/images/attending-bottom.gif) no-repeat left bottom; */
 
+  -moz-box-shadow: rgba(0,0,0,0.4) 0px 1px 3px;
+  -webkit-box-shadow: rgba(0,0,0,0.4) 0px 1px 3px;
+
  }
 
 .attending h2
@@ -734,6 +738,10 @@ code {
   	width:66px;
 	background: #7C0343; /* url(/images/comments-bottom.gif) no-repeat left bottom; */
 	text-align: center;
+	
+	-moz-box-shadow: rgba(0,0,0,0.4) 0px 1px 3px;
+	-webkit-box-shadow: rgba(0,0,0,0.4) 0px 1px 3px;
+
  }
 
 .comment h2
@@ -768,7 +776,7 @@ code {
 
 		font-size:130%;
 		background-color:#FFFF01;
-		padding:2px 2px;
+		padding:2px 3px;
 }
 
 .daysAway
@@ -792,6 +800,7 @@ code {
 {
 	width:300px;
 	padding-top: 2px;
+	padding-left:2px;
 	line-height: 18px;
 	float:left;
 }
@@ -838,11 +847,15 @@ code {
 	color:white;
 	font-size:110%;
 	background-color:#76A39E;
-	padding-left:3px;
-	padding-right:3px;
+	padding-left:5px;
+	padding-right:5px;
 	padding-bottom:2px;
 	padding-top:2px;
 	float:left;
+	margin-right:2px;
+	
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
 	
 	/*color:#7c0343;
 	font-size:140%;
@@ -857,6 +870,11 @@ code {
 	margin-left:4px;
 }
 
+.attendincrement
+{
+	margin-left:1px;
+}
+
 .attendingsymbol
 {
 	background-color:#F90887;
@@ -868,6 +886,8 @@ code {
 	cursor:pointer;
 	text-decoration:none;
 	float:left;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
 }
 
 .alreadyattending

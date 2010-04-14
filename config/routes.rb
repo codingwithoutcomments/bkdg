@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'faq', :controller => 'shows', :action => 'faq'
   map.connect 'shows/:id/add_show_description', :controller => 'shows', :action => 'add_show_description'
   map.connect 'sitemap.xml', :controller => "sitemap", :action => "sitemap" 
-  map.connect ':city', :controller => 'shows', :action => 'index'
+  map.connect ':city/:state', :controller => 'shows', :action => 'index'
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
@@ -57,7 +57,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "shows", :action => 'index'
+  map.root :controller => "locations", :action => 'route_to_location'
 
   # See how all your routes lay out with "rake routes"
 

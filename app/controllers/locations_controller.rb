@@ -14,10 +14,20 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       
-        format.html { redirect_to :controller => 'shows', :action => 'index', :city => capitalize_first_letter_of_each_word(@location.city), :state => capitalize_first_letter_of_each_word(@location.state)}
+        format.html { redirect_to :controller => 'shows', :action => 'index', :city => capitalize_first_letter_of_each_word(@location.city), :state => @location.state}
         format.xml  { render :xml => @show }
       
     end
+  end
+  
+  def route_to_location
+    
+    respond_to do |format|
+      
+        format.html { redirect_to :controller => 'shows', :action => 'index', :city => capitalize_first_letter_of_each_word(session[:city]), :state => session[:state]}
+      
+    end
+    
   end
   
 private
