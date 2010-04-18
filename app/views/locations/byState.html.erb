@@ -1,0 +1,17 @@
+<% content_for :title do %>  <title>BKDG: Choose Your City </title> <% end %>
+<%= stylesheet_link_tag 'locations' %>
+<div id = "mainbar-full">
+	
+	<div id='showsHeader'>
+		<h3>Choose Your City</h3>
+	</div>
+	
+	<div id='locationsContainer'>
+		<% @locations.each do |location| %>
+		<div class ='cityName'>
+			<%= link_to location.city, :controller => 'shows', :action => 'index',  :city => capitalize_first_letter_of_each_word(location.city), :state => @state %>
+		</div>
+		<% end %>
+	</div>
+	
+</div>

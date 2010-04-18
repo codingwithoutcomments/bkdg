@@ -21,12 +21,14 @@ class LocationsController < ApplicationController
   end
   
   def route_to_location
-    
     respond_to do |format|
-      
         format.html { redirect_to :controller => 'shows', :action => 'index', :city => capitalize_first_letter_of_each_word(session[:city]), :state => session[:state]}
-      
     end
+  end
+  
+  def byState
+    @state = params[:state]
+    @locations = Location.state_equals(@state.upcase).sort_by{|p| p.city.downcase }
     
   end
   

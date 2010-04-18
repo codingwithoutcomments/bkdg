@@ -259,4 +259,25 @@ div.bkdg-title h1 {
 	padding:10px;
 }
 
+#bandSummary div
+{
+	font-family:"athelas-1","athelas-2", sans-serif;
+	line-height:1.4em;
+	font-size:18px;
+}
+
+#bandSummary p
+{
+	font-family:"athelas-1","athelas-2", sans-serif;
+	line-height:1.4em;
+	font-size:18px;
+}
+
+.wmd-preview p
+{
+	font-family:"athelas-1","athelas-2", sans-serif;
+	line-height:1.4em;
+	font-size:18px;
+}
+
 

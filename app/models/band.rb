@@ -8,6 +8,7 @@
 #
 
 require 'open-uri'
+require 'timeout'
 
 class Band < ActiveRecord::Base
   
@@ -38,10 +39,15 @@ class Band < ActiveRecord::Base
   end
   
   def get_songs
+    
     if(!has_songs?) then
       headliner_sans_spaces = get_grooveshark_ready_string()
       get_picture_string = "http://tinysong.com/s/" + headliner_sans_spaces + "&limit=15"
-      responseString = open(get_picture_string)
+      
+      timeout(5) do
+        responseString = open(get_picture_string)
+      end
+      
       responseString.each_line { |line|
       
         @songArray = line[0..-3].split(';')
@@ -55,6 +61,9 @@ class Band < ActiveRecord::Base
         end
       }
     end
+    
+    rescue Timeout::Error
+      logger.error("Unable to get songs for #{band_name} from grooveshark")
       
       rescue OpenURI::HTTPError
         logger.error("Unable to get songs for #{band_name} from grooveshark")

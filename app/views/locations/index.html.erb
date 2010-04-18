@@ -1,22 +1,95 @@
-<% content_for :title do %>  <title>BKDG: Choose Your Location </title> <% end %>
+<% content_for :title do %>  <title>BKDG: Choose Your State </title> <% end %>
 <%= stylesheet_link_tag 'locations' %>
 <div id = "mainbar-full">
 	
 	<div id='showsHeader'>
-		<h3>Choose Your Location</h3>
+		<h3>Choose Your State</h3>
+	</div>
+	
+	<div class='countryHeader'>
+		United States
 	</div>
 	
 	<div id='locationsContainer'>
+		<div class='singleLocation'><%= link_to 'Alabama', :controller => "locations", :action => "byState", :state =>"AL" %></div>
+		<div class='singleLocation'><%= link_to 'Alaska', :controller => "locations", :action => "byState", :state =>"AK" %></div>
+		<div class='singleLocation'><%= link_to 'Arizona', :controller => "locations", :action => "byState", :state =>"AZ" %></div>
+		<div class='singleLocation'><%= link_to 'Arkansas', :controller => "locations", :action => "byState", :state =>"AR" %></div>
+		<div class='singleLocation'><%= link_to 'California', :controller => "locations", :action => "byState", :state =>"CA" %></div>
+		<div class='singleLocation'><%= link_to 'Colorado', :controller => "locations", :action => "byState", :state =>"CO" %></div>
+		<div class='singleLocation'><%= link_to 'Connecticut', :controller => "locations", :action => "byState", :state =>"CT" %></div>
+		<div class='singleLocation'><%= link_to 'Delaware', :controller => "locations", :action => "byState", :state =>"DE" %></div>
+		<div class='singleLocation'><%= link_to 'District Of Columbia', :controller => "locations", :action => "byState", :state =>"DC" %></div>
+		<div class='singleLocation'><%= link_to 'Florida', :controller => "locations", :action => "byState", :state =>"FL" %></div>
+		<div class='singleLocation'><%= link_to 'Georgia', :controller => "locations", :action => "byState", :state =>"GA" %></div>
+		<div class='singleLocation'><%= link_to 'Hawaii', :controller => "locations", :action => "byState", :state =>"HI" %></div>
+		<div class='singleLocation'><%= link_to 'Idaho', :controller => "locations", :action => "byState", :state =>"ID" %></div>
+		<div class='singleLocation'><%= link_to 'Illinois', :controller => "locations", :action => "byState", :state =>"IL" %></div>
+		<div class='singleLocation'><%= link_to 'Iowa', :controller => "locations", :action => "byState", :state =>"IA" %></div>
+		<div class='singleLocation'><%= link_to 'Kansas', :controller => "locations", :action => "byState", :state =>"KS" %></div>
+		<div class='singleLocation'><%= link_to 'Kentucky', :controller => "locations", :action => "byState", :state =>"KY" %></div>
+	</div>
 	
-		<% for location in @locations %>
-			
-				<div class='singleLocation'>
-					<%= link_to location.city, :action => 'show', :id => location %> 
-				</div>
-
-			<br />
-		<%end %>
+	<div id='locationsContainer'>
+		
+		<div class='singleLocation'><%= link_to 'Louisiana', :controller => "locations", :action => "byState", :state =>"LA" %></div>
+		<div class='singleLocation'><%= link_to 'Maine', :controller => "locations", :action => "byState", :state =>"ME" %></div>
+		<div class='singleLocation'><%= link_to 'Maryland', :controller => "locations", :action => "byState", :state =>"MD" %></div>
+		<div class='singleLocation'><%= link_to 'Massachusetts', :controller => "locations", :action => "byState", :state =>"MA" %></div>
+		<div class='singleLocation'><%= link_to 'Michigan', :controller => "locations", :action => "byState", :state =>"MI" %></div>
+		<div class='singleLocation'><%= link_to 'Minnesota', :controller => "locations", :action => "byState", :state =>"MN" %></div>
+		<div class='singleLocation'><%= link_to 'Mississippi', :controller => "locations", :action => "byState", :state =>"MS" %></div>
+		<div class='singleLocation'><%= link_to 'Missouri', :controller => "locations", :action => "byState", :state =>"MO" %></div>
+		<div class='singleLocation'><%= link_to 'Montana', :controller => "locations", :action => "byState", :state =>"MT" %></div>
+		<div class='singleLocation'><%= link_to 'Nebraska', :controller => "locations", :action => "byState", :state =>"NE" %></div>
+		<div class='singleLocation'><%= link_to 'Nevada', :controller => "locations", :action => "byState", :state =>"NV" %></div>
+		<div class='singleLocation'><%= link_to 'New Hampshire', :controller => "locations", :action => "byState", :state =>"NH" %></div>
+		<div class='singleLocation'><%= link_to 'New Jersey', :controller => "locations", :action => "byState", :state =>"NJ" %></div>
+		<div class='singleLocation'><%= link_to 'New Mexico', :controller => "locations", :action => "byState", :state =>"NM" %></div>
+		<div class='singleLocation'><%= link_to 'New York', :controller => "locations", :action => "byState", :state =>"NY" %></div>
+		<div class='singleLocation'><%= link_to 'North Carolina', :controller => "locations", :action => "byState", :state =>"NC" %></div>
+		<div class='singleLocation'><%= link_to 'North Dakota', :controller => "locations", :action => "byState", :state =>"ND" %></div>
+	</div>
 	
+	<div id='locationsContainer'>
+		
+		
+		<div class='singleLocation'><%= link_to 'Ohio', :controller => "locations", :action => "byState", :state =>"OH" %></div>
+		<div class='singleLocation'><%= link_to 'Oklahoma', :controller => "locations", :action => "byState", :state =>"OK" %></div>
+		<div class='singleLocation'><%= link_to 'Oregon', :controller => "locations", :action => "byState", :state =>"OR" %></div>
+		<div class='singleLocation'><%= link_to 'Pennsylvania', :controller => "locations", :action => "byState", :state =>"PA" %></div>
+		<div class='singleLocation'><%= link_to 'Rhode Island', :controller => "locations", :action => "byState", :state =>"RI" %></div>
+		<div class='singleLocation'><%= link_to 'South Carolina', :controller => "locations", :action => "byState", :state =>"SC" %></div>
+		<div class='singleLocation'><%= link_to 'South Dakota', :controller => "locations", :action => "byState", :state =>"SD" %></div>
+		<div class='singleLocation'><%= link_to 'Tennessee', :controller => "locations", :action => "byState", :state =>"TN" %></div>
+		<div class='singleLocation'><%= link_to 'Texas', :controller => "locations", :action => "byState", :state =>"TX" %></div>
+		<div class='singleLocation'><%= link_to 'Utah', :controller => "locations", :action => "byState", :state =>"UT" %></div>
+		<div class='singleLocation'><%= link_to 'Vermont', :controller => "locations", :action => "byState", :state =>"VT" %></div>
+		<div class='singleLocation'><%= link_to 'Virginia', :controller => "locations", :action => "byState", :state =>"VA" %></div>
+		<div class='singleLocation'><%= link_to 'Washington', :controller => "locations", :action => "byState", :state =>"WA" %></div>
+		<div class='singleLocation'><%= link_to 'West Virginia', :controller => "locations", :action => "byState", :state =>"WV" %></div>
+		<div class='singleLocation'><%= link_to 'Wisconsin', :controller => "locations", :action => "byState", :state =>"WI" %></div>
+		<div class='singleLocation'><%= link_to 'Wyoming', :controller => "locations", :action => "byState", :state =>"WI" %></div>
+		
+	</div>
+	
+	<div class='countryHeader'>
+		Canada
+	</div>
+	
+	<div id='locationsContainer'>
+		<div class='singleLocation'><%= link_to 'Alberta', :controller => "locations", :action => "byState", :state =>"AB" %></div>
+		<div class='singleLocation'><%= link_to 'British Columbia', :controller => "locations", :action => "byState", :state =>"BC" %></div>
+	</div>
+	
+	<div id='locationsContainer'>
+		<div class='singleLocation'><%= link_to 'Manitoba', :controller => "locations", :action => "byState", :state =>"MB" %></div>
+		<div class='singleLocation'><%= link_to 'Ontario', :controller => "locations", :action => "byState", :state =>"ON" %></div>
+	</div>
+	
+	<div id='locationsContainer'>
+		<div class='singleLocation'><%= link_to 'Quebec', :controller => "locations", :action => "byState", :state =>"QC" %></div>
+		<div class='singleLocation'><%= link_to 'Saskatchewan', :controller => "locations", :action => "byState", :state =>"SK" %></div>
 	</div>
 	
 </div>

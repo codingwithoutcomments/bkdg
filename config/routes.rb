@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'password_resets', :controller => 'password_resets', :action => 'new'
   map.connect 'bands/:id/pictures', :controller => 'bands', :action => 'pictures'
   map.connect 'bands/:id/picture/:page', :controller => 'bands', :action => 'picture'
+  map.connect 'locations/byState/:state', :controller => 'locations', :action =>'byState'
   map.connect 'faq', :controller => 'shows', :action => 'faq'
   map.connect 'shows/:id/add_show_description', :controller => 'shows', :action => 'add_show_description'
   map.connect 'sitemap.xml', :controller => "sitemap", :action => "sitemap" 

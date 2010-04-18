@@ -1,25 +1,68 @@
 #locationsContainer
 {
 	margin-top:10px;
+	margin-left:15px;
+	float:left;
+	background-color:#FFFF01;
 }
 
 .singleLocation
 {
-	background-color:#FFFF01; 
-	font-size:300%; 
+	
+	font-size:110%; 
 	color:white; 
 	padding:3px 6px;
-	width:400px;
+	width:200px;
+	
 }
 
 .singleLocation a
 {
 	color:white;
+	padding:5px;
+	font-weight:500;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
 }
 
 .singleLocation a:hover
 {
 	text-decoration:underline;
+	background-color:#F90887;
+}
+
+.cityName
+{
+	
+	font-size:300%; 
+	color:white; 
+	padding:3px 6px;
+	width:400px;
+	
+}
+
+.cityName a
+{
+	color:white;
+	padding:5px;
+	font-weight:500;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+.cityName a:hover
+{
+	text-decoration:underline;
+	background-color:#F90887;
+}
+
+.countryHeader
+{
+	margin-left:20px;
+	margin-top:15px;
+	font-size:130%;
+	width:800px;
+	float:left;
 }
 
 
