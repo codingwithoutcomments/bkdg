@@ -188,7 +188,9 @@ class ShowsController < ApplicationController
     @venues = Venue.location_id_equals(location.id)
     @venueString = ""
     @venues.each { |venue|
-          @venueString += capitalize_first_letter_of_each_word(venue.name) + " | "
+          if(venue.name.length < 20) then
+            @venueString += capitalize_first_letter_of_each_word(venue.name) + " | "
+          end
     }
     
     @show = Show.new
