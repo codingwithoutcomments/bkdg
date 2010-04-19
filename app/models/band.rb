@@ -40,6 +40,8 @@ class Band < ActiveRecord::Base
   
   def get_songs
     
+    responseString = ""
+    
     if(!has_songs?) then
       headliner_sans_spaces = get_grooveshark_ready_string()
       get_picture_string = "http://tinysong.com/s/" + headliner_sans_spaces + "&limit=15"
