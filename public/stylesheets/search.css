@@ -1,0 +1,87 @@
+#showMatchesHeader
+{
+	background-color:#FFFF01;
+	font-size:430%;
+	width:710px;
+	color:white;
+	padding-left:5px;
+	clear:both;
+}
+
+#showMatches a
+{
+	color:black;
+}
+
+#showMatches
+{
+	padding:15px;
+	float:left;
+}
+
+#bandMatches
+{
+	padding:15px;
+	float:left;
+}
+
+#venueMatches
+{
+	padding:15px;
+	float:left;
+}
+
+#venueMatches a 
+{
+	color:black;
+	font-size:200%;
+}
+
+#bandMatches a
+{
+	color:black;
+}
+
+.bandMatchBandName
+{
+	margin-bottom:10px;
+	width:126px;
+}
+
+.bandMatchBandNameNoPic
+{
+	margin-bottom:10px;
+}
+
+#showMatches img
+{
+	border:0px;
+}
+
+#bandMatches img
+{
+	border: 0px;
+}
+
+.showMatchShowName
+{
+	float:left;
+	margin-left:10px;
+	font-size:200%;
+	width:600px;
+}
+
+.showMatchShowPicture
+{
+	margin-top:5px;
+	float:left;
+}
+
+.showMatchSingleShow
+{
+	height:90px;
+	clear:both;
+	margin-bottom:5px;
+}
+
+

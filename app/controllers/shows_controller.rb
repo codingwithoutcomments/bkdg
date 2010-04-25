@@ -20,6 +20,7 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.xml
   def index
+    
       cityRequested = false
       sessionCity = getCityOfUser()
       sessionState = getStateOfUser()
@@ -124,6 +125,8 @@ class ShowsController < ApplicationController
     
     id = params[:id]
     @show = Show.find(id)
+    
+    debugger()
     respond_to do |format|
           
       if @show.update_attributes(params[:show])

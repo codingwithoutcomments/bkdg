@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :searches
+
   map.resources :friendships
 
   map.resources :bands
@@ -21,12 +23,14 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => 'user_sessions', :action => 'new'  
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'  
   map.connect 'signup', :controller => 'user', :action => 'new'
+  map.search 'search', :controller => 'search'
   map.resources :password_resets
   map.connect 'reset_password', :controller => 'password_resets', :action => 'new'
   map.connect 'password_resets', :controller => 'password_resets', :action => 'new'
   map.connect 'bands/:id/pictures', :controller => 'bands', :action => 'pictures'
   map.connect 'bands/:id/picture/:page', :controller => 'bands', :action => 'picture'
   map.connect 'locations/byState/:state', :controller => 'locations', :action =>'byState'
+  map.connect 'shows/update_show_description', :controller => 'shows', :action => 'update_show_description'
   map.connect 'faq', :controller => 'shows', :action => 'faq'
   map.connect 'shows/:id/add_show_description', :controller => 'shows', :action => 'add_show_description'
   map.connect 'sitemap.xml', :controller => "sitemap", :action => "sitemap" 

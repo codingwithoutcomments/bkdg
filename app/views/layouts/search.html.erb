@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <%= yield :title %>
+  <%= stylesheet_link_tag 'scaffold', 'depot' %>
+  <%= javascript_include_tag :defaults, 'jquery-1.4'%>
+
+	<script type="text/javascript" src="http://use.typekit.com/dtg4xhr.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+
+<body>
+
+<div id="container">
+	
+	<% if flash[:notice] -%>
+	  <div id= "flashnotice"><%= flash[:notice] %></div>
+	<% end -%>
+	
+	<div id ="header">
+		
+		<div id='headerContainer'>
+			
+			<div id='bkdgTitle'>
+				<%= link_to image_tag('logo.png'), root_url %>
+			</div>
+				
+			<div id='bkdgHeaderControlPanel'>
+				
+				<div id='joinNow'>
+					<div id='joinNowText'>
+						<%= link_to 'JOIN NOW!', new_user_path %>
+					</div>
+				</div>
+				
+				<div id='UserControls'>
+					
+					<div id='loginlogout'>
+						<% if current_user %>
+							<%= link_to "#{current_user.username} (#{current_user.points})", user_path(current_user) %> |
+							<span><%= link_to 'logout', logout_path %></span> |
+						<% else %>
+							<%= link_to 'login', login_path %> |
+							<%= link_to 'signup', new_user_path %> |
+						<% end %>
+						<span><%= link_to 'about', { :action => "about"} %></span> |
+						<span><%= link_to 'faq', { :controller => 'shows', :action => "faq"} %></span>
+						
+					</div>
+					
+					<div id='searchBar'>
+						<% form_tag( search_path , :method => "get") do %>  
+						    <div style="margin:3px;padding3px;">
+							<%= text_field_tag(:q, "search for shows, bands, venues", {:class => "textbox"}) %>
+							</div>  
+						<% end %>
+					</div>
+				</div> <!-- UserControls -->
+					
+			</div> <!-- bkdgHeaderControlPanel -->
+			
+			<div id='bkdgHeaderPostAShowContainer'>
+				<div id='bkdgHeaderPostAShow'>
+					<%= link_to image_tag('postashow.png'), new_show_path, {:id => "postashowbutton"} %>
+				</div>
+				
+				<div id='bkdgHeaderHomeMyShowsUsers'>
+					<div class='Dark'><%= link_to 'home', root_url %></div>
+					<div class='Pink'><%= link_to 'my shows', { :action => "index"} %></div>
+					<div class='Dark'><%= link_to 'users', { :controller => 'users', :action => "index"} %></div>
+				</div>
+			</div>
+			
+			
+		</div> <!-- header container -->
+			
+  </div> <!-- header -->
+
+<div style='width:100%;float:left;'>
+	<%= yield %>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15016570-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

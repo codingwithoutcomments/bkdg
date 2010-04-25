@@ -1,0 +1,68 @@
+<%= stylesheet_link_tag 'search' %>
+<div id = "mainbar-full">
+	
+	<div id = "showsHeader">
+		<b><h3>Search Results </h3></b>
+	</div>
+	
+	<% if @showMatches.length > 0 then %>
+		<div id='showMatchesHeader'>
+			Shows
+		</div>
+	
+		<div id='showMatches'>
+			<% @showMatches.each do |show| %>
+				<div class='showMatchSingleShow'>
+					<div class='showMatchShowPicture'>
+						<%= link_to image_tag(show.bands.at(0).bandpictures.at(rand(show.bands.at(0).bandpictures.length)).medium), :controller => 'shows', :action => 'show', :id => show %>
+					</div>
+					<div class='showMatchShowName'>
+						<%= link_to '<b>' + capitalize_first_letter_of_each_word(show.bands.at(0).band_name) + '</b> at <b>' + capitalize_first_letter_of_each_word(show.venue.name) + '</b> <br/> ' + show.date.strftime("%A, %b %e %Y"), :controller => 'shows', :action => 'show', :id => show %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+	
+	<% if @venueMatches.length > 0 then %>
+		<div id='showMatchesHeader'>
+			Venues
+		</div>
+		
+		<div id='venueMatches'>
+			<% @venueMatches.each do |venue| %>
+				<div><%= link_to capitalize_first_letter_of_each_word(venue.name), :controller => 'venues', :action => 'show', :id => venue %></div>
+			<% end %>
+		</div>
+	
+	<% end %>
+	
+	<% if @bandMatches.length > 0 then %>
+		<div id='showMatchesHeader'>
+			Bands
+		</div>
+		
+		<div id='bandMatches'>
+			<% @bandMatches.each do |band| %>
+				<div>
+					<div>
+						<% if band.bandpictures.length > 0  then %>
+							<%= link_to image_tag(band.bandpictures.at(rand(band.bandpictures.length)).largesquare), :controller => 'bands', :action => 'show', :id => band %>
+						<% end %>
+						
+					</div>
+					<% if band.bandpictures.length > 0  then %>
+						<div class='bandMatchBandName'>
+					<% else %>
+						<div class='bandMatchBandNameNoPic'>
+					<% end %>
+						<%= link_to capitalize_first_letter_of_each_word(band.band_name), :controller => 'bands', :action => 'show', :id => band %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	
+	<% end %>
+	
+	
+</div>
