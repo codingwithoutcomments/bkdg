@@ -25,6 +25,8 @@ class SearchController < ApplicationController
     @bandMatches = @bandMatches.reverse
     
     @venueMatches = @location.venues.name_like(searchQuery.upcase)
+    @venueMatches = @venueMatches.sort_by { |venue| venue.shows.length }
+    @venueMatches = @venueMatches.reverse
     
     respond_to do |format|
       format.html # index.html.erb

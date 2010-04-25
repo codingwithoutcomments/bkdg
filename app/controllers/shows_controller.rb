@@ -17,6 +17,14 @@ class ShowsController < ApplicationController
       
   end
   
+  def about
+    
+    respond_to do  |format|
+      format.html
+    end
+    
+  end
+  
   # GET /shows
   # GET /shows.xml
   def index

@@ -257,6 +257,9 @@ private
     #if it doesn't create
     venues = location.venues
     venue = venues.name_equals(venue_name.upcase).first
+    if(venue == nil) then 
+      venue = venues.name_equals("THE "+ venue_name.upcase).first
+    end
     
     if(venue == nil) then
       newVenue = Venue.new
