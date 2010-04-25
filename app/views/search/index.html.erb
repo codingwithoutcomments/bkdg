@@ -64,5 +64,10 @@
 	
 	<% end %>
 	
+	<% if @showMatches.length == 0 && @venueMatches.length == 0 && @bandMatches.length == 0 %>
+		<div id='NoResultsHolms'>
+			No Resultzzz Holmzzz.  Search something else.  
+		</div>
+	<% end %>
 	
 </div>
