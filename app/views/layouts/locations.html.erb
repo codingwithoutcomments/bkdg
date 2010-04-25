@@ -47,7 +47,7 @@
 							<%= link_to 'login', login_path %> |
 							<%= link_to 'signup', new_user_path %> |
 						<% end %>
-						<span><%= link_to 'about', { :action => "about"} %></span> |
+						<span><%= link_to 'about', { :controller => 'shows', :action => "about"} %></span> |
 						<span><%= link_to 'faq', { :controller => 'shows', :action => "faq"} %></span>
 						
 					</div>
