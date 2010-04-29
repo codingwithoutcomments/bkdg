@@ -113,8 +113,8 @@ def capitalize_first_letter_of_each_word(input)
 end
 
 def retrieve_pictures(headliner)
-   headliner_sans_spaces = headliner.get_XML_ready_string()
-   last_fm_get_picture_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getimages&artist=" + headliner_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
+
+   last_fm_get_picture_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getimages&artist=" + CGI::escape(headliner.band_name) + "&api_key=7a8a93a66b33946440ad048191c80609"
    xml_retrieved = open(last_fm_get_picture_string)
    doc = Hpricot.XML(xml_retrieved)
        (doc/:sizes).each do |sizes|
@@ -135,8 +135,9 @@ def retrieve_pictures(headliner)
  end
  
  def retrieve_band_info(band)
-   band_sans_spaces = band.get_XML_ready_string()
-   last_fm_get_info_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=" + band_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
+
+   band_escaped = CGI::escape(band.band_name)
+   last_fm_get_info_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=" + band_escaped + "&api_key=7a8a93a66b33946440ad048191c80609"
    xml_retrieved = open(last_fm_get_info_string)
    doc = Hpricot.XML(xml_retrieved)
        (doc/:bio).each do |bio|

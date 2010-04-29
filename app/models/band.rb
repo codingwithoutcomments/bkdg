@@ -43,8 +43,8 @@ class Band < ActiveRecord::Base
     responseString = ""
     
     if(!has_songs?) then
-      headliner_sans_spaces = get_grooveshark_ready_string()
-      get_picture_string = "http://tinysong.com/s/" + headliner_sans_spaces + "&limit=15"
+
+      get_picture_string = "http://tinysong.com/s/" + CGI::escape(band_name) + "&limit=15"
       
       timeout(5) do
         responseString = open(get_picture_string)
@@ -142,8 +142,7 @@ class Band < ActiveRecord::Base
     
     if(shows_last_grabbed == nil || shows_last_grabbed != Date.current)
     
-      band_sans_spaces = get_XML_ready_string()
-      last_fm_event_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getEvents&artist=" + band_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
+      last_fm_event_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getEvents&artist=" + CGI::escape(band_name) + "&api_key=7a8a93a66b33946440ad048191c80609"
       xml_retrieved = open(last_fm_event_string)
       doc = Hpricot.XML(xml_retrieved)
       (doc/:event).each do |event|

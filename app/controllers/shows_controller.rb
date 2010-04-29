@@ -627,8 +627,7 @@ private
   end
   
   def retrieve_pictures(headliner)
-    headliner_sans_spaces = headliner.get_XML_ready_string()
-    last_fm_get_picture_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getimages&artist=" + headliner_sans_spaces + "&api_key=7a8a93a66b33946440ad048191c80609"
+    last_fm_get_picture_string = "http://ws.audioscrobbler.com/2.0/?method=artist.getimages&artist=" + CGI::escape(headliner.band_name) + "&api_key=7a8a93a66b33946440ad048191c80609"
     xml_retrieved = open(last_fm_get_picture_string)
     doc = Hpricot.XML(xml_retrieved)
         (doc/:sizes).each do |sizes|
