@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   
   def to_param
-    "#{id}-#{username}"
+    "#{id}-#{username.parameterize}"
   end
   
   def attending_show(show)
