@@ -6,6 +6,10 @@ class SearchController < ApplicationController
     searchQuery = params[:q]
     searchQuery = searchQuery.strip
     
+    searchObject = Search.new
+    searchObject.search_text = searchQuery
+    searchObject.save
+    
     city = get_user_city
     state = get_user_state
     
