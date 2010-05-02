@@ -143,6 +143,11 @@ div.bkdg-title h1 {
 	float:left;
 }
 
+#singlePicture img
+{
+	border: 0px;
+}
+
 .bandInfoStats
 {
 	float:left;

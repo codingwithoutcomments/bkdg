@@ -113,6 +113,11 @@
 	margin-left: 20px;
 }
 
+#show-images img
+{
+	border: 0px;
+}
+
 #showVenueName
 {
 	font-size:130%;

@@ -177,8 +177,10 @@
 	<% if(@show.bands.at(0).bandpictures.count > 1) %>
 		<div id = "show-images">
 			<% randomPictures = generate_two_random_band_pictures(@show) %>
-			<img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(0)).largesquare %>"><br />
-			<img src = "<%= @show.bands.at(0).bandpictures.at(randomPictures.at(1)).largesquare %>"><br />
+			<%= link_to image_tag(@show.bands.at(0).bandpictures.at(randomPictures.at(0)).largesquare), 
+						:controller => 'bands', :action => 'picture', :id => @show.bands.at(0), :page => (randomPictures.at(0) + 1) %><br />
+				<%= link_to image_tag(@show.bands.at(0).bandpictures.at(randomPictures.at(1)).largesquare), 
+						:controller => 'bands', :action => 'picture', :id => @show.bands.at(0), :page => (randomPictures.at(1) + 1) %><br />
 			<div><%= link_to 'View all ' + @show.bands.at(0).bandpictures.count.to_s + ' pictures', :controller => 'bands', :action => 'pictures', :id => @show.bands.at(0).id %></div>
 		</div>
 	<% end %>
