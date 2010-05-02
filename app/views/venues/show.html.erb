@@ -28,7 +28,7 @@
 			</div>
 			<div id='venueWebsite'>
 				<% if @venue.website != nil %>
-					<%= link_to capitalize_first_letter_of_each_word(@venue.name) + " Website", @venue.website, options = { :popup => true } %>
+					<%= link_to capitalize_first_letter_of_each_word(@venue.name) + " Website", verify_has_http(@venue.website), options = { :popup => true } %>
 				<% else %>
 					<%= link_to "Add A Website", edit_venue_path(@venue) %>
 				<% end %>
