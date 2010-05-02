@@ -34,6 +34,10 @@ class ShowsController < ApplicationController
       sessionState = getStateOfUser()
       requestedCity = params[:city]
       requestedState = params[:state]
+      date = params[:date]
+      if(date != nil)
+        dateFormatted = Date.parse(date)
+      end
       
       if(requestedCity != nil && requestedCity != 'shows') then
         city = requestedCity
@@ -59,9 +63,19 @@ class ShowsController < ApplicationController
         @location = Location.find(:first, :conditions => ["city = ? and state = ?", sessionCity.upcase, sessionState.upcase])
       end
       
-      @allShows = @location.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
+      if(dateFormatted != nil) then
+        @allShows = @location.shows.find(:all, :conditions => ['date = ?', dateFormatted ], :order => 'date ASC, attending DESC')
+      else
+        @allShows = @location.shows.find(:all, :conditions => ['date > ?', Date.current - 1.day ], :order => 'date ASC, attending DESC')
+      end
+      
       @allAgesShows = @location.shows.allowed_in_equals("All Ages").date_greater_than(Date.current - 1.day)
       @shows = @allShows.paginate :per_page => 20, :page => params[:page]
+      
+      @city = session[:city] 
+      @state = session[:state]
+      @page = params[:page]
+      @date = params[:date]
       
       set_current_user_if_logged_in()
     

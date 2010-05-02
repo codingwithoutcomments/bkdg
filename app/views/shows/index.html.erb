@@ -1,5 +1,10 @@
 <% content_for :title do %>  <title>BKDG: Shows In <%= capitalize_first_letter_of_each_word(@location.city) %> </title> <% end %> 
-<script type="text/javascript" src="/javascripts/jquery-ui-1.8rc1.custom.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery-ui-1.8.1.custom.min.js"></script>
+<%= javascript_include_tag 'showsindex' %>
+<%= stylesheet_link_tag 'jquery-ui-1.8.1.custom.css' %>
+
+<input TYPE=HIDDEN id='cityValue' value='<%= @city %>'>
+<input TYPE=HIDDEN id='stateValue' value='<%= @state %>'>
 
 <div id = "mainbar-full">
 	
@@ -16,10 +21,11 @@
 				  </div>
 		
 				<div class ="module">
-						<img src ="http://www.americanapparel.net/presscenter/webads/samples/bigs/His%20&%20Hers/american-apparel-webad-hisandhershoodies-0809.jpg">
+						<!-- <img src ="http://www.americanapparel.net/presscenter/webads/samples/bigs/His%20&%20Hers/american-apparel-webad-hisandhershoodies-0809.jpg"> -->
+						<embed width="160" height="600" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" quality="high" src="http://www.americanapparel.net/presscenter/webads/samples/bigs/160x600_pantyCH_left_020309.swf">
 				  </div>
 				  <div class = "module">
-					<img src = "http://www.americanapparel.net/presscenter/webads/samples/bigs/Tie%20Dye/160x600_tie_dye_2_083109.jpg">
+					<embed width="160" height="600" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" quality="high" src="http://www.americanapparel.net/presscenter/webads/samples/bigs/160x600_pantyCH_right_020309.swf" HREF="http://www.americanapparel.com/rsa8341.html">
 				  </div>
 			</div>
 		<% end %>
@@ -29,15 +35,21 @@
 			<div class='city'>Shows in <%= capitalize_first_letter_of_each_word(@location.city) %></div>
 			<div class='changeLocation'><%= link_to 'Change Location', :controller => 'locations', :action => 'index' %></div>
 		</div>
+
+                <div style='float:right; margin-top:-3px; margin-right:5px;'><input type=hidden id="datepicker" title='Choose Date':></div>
 	</div>
 	
-	<% if (@shows.length == 0) then %>
+	<% if (@shows.length == 0 && @date == nil) then %>
 		<div id='ShowErrorContainer' class='ShowErrorExplanation'>
 			No Shows are posted yet in <b><%= capitalize_first_letter_of_each_word(@location.city)%>, 
 				<%= capitalize_first_letter_of_each_word(@location.state)%>.</b><br/>
 			Help us out? <%= link_to 'Post A Show plz?', :action => 'new'%>
 		</div>
-	
+	<% elsif (@shows.length == 0 && @date != nil) then %>
+		<div id='ShowErrorContainer' class='ShowErrorExplanation'>
+			No Shows are posted on <b><%= @date %></b><br/>
+			Help us out? <%= link_to 'Post A Show plz?', :action => 'new'%>
+		</div>
 	<% end %>
 
 
