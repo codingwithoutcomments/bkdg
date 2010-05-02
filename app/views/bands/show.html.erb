@@ -11,7 +11,7 @@
 					<div id='singlePicture'>
 						<% if @band.has_pictures? then%>
 							<% randomBandPicture = generate_one_random_band_picture(@band) %>
-							<%= link_to image_tag(@band.bandpictures.at(randomBandPicture + 1).extralarge), 
+							<%= link_to image_tag(@band.bandpictures.at(randomBandPicture).extralarge), 
 										:controller => 'bands', :action => 'picture', :id => @band, :page => (randomBandPicture + 1) %><br />						
 						<% end %>
 					</div>
