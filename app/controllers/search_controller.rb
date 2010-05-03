@@ -32,6 +32,8 @@ class SearchController < ApplicationController
     @venueMatches = @venueMatches.sort_by { |venue| venue.shows.length }
     @venueMatches = @venueMatches.reverse
     
+    @searchQuery = searchQuery
+    
     respond_to do |format|
       format.html # index.html.erb
     end

@@ -45,8 +45,6 @@ $j(document).ready(function() {
                     $j(this).attr("id", "attendincrement");
 					
 		 });							
-		    
-		
 	
   	$j('.attenderror').click(function() {
 	    $j('.error-notification').remove();

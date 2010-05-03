@@ -28,10 +28,7 @@ div.bkdg-title h1 {
 	
 }
 
-.singlePicture a img
-{
-	border: 0px;
-}
+
 
 .showsMarquee
 {
@@ -93,9 +90,18 @@ div.bkdg-title h1 {
 .singlePicture
 {
 	float:left;
-	padding:20px;
 	margin-top:20px;
 	margin-bottom:20px;
+}
+
+.singlePicture a img:hover
+{
+	border: 20px solid #F90887;
+}
+
+.singlePicture a img
+{
+	border: 20px solid white;
 }
 
 

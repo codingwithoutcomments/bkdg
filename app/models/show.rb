@@ -21,6 +21,7 @@ class Show < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :bands_shows
   has_many :bands, :through => :bands_shows, :order => "bands_shows.id ASC"
+  has_many :flags
   
   belongs_to :location
   belongs_to :venue
@@ -37,6 +38,14 @@ class Show < ActiveRecord::Base
   
   def to_param
     "#{id}-#{bands.at(0).band_name.downcase.parameterize}-at-#{venue.name.downcase.parameterize}"
+  end
+  
+  def add_flag_to_show(flag_to_add)
+    flags << flag_to_add
+  end
+  
+  def remove_flag_from_show(flag_to_remove)
+    flags.delete(flag_to_remove)
   end
   
   def add_comment_to_show(comment_to_add)

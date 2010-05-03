@@ -348,14 +348,14 @@
 
 .usercomment p
 {
-	font-family:"athelas-1","athelas-2", sans-serif;
+	font-family:'Lucida Grande', sans-serif;
 	line-height:1.4em;
 	font-size:18px;
 }
 
 .wmd-preview p
 {
-	font-family:"athelas-1","athelas-2", sans-serif;
+	font-family:'Lucida Grande', sans-serif;
 	line-height:1.4em;
 	font-size:18px;
 }
@@ -452,6 +452,31 @@
 	color:white;
 	text-decoration:none;
 
+}
+
+.flagShow {
+    background-color:#f90887;
+    color:white;
+    cursor:pointer;
+    display: none;
+    padding:15px;
+    padding-top: 0;
+    position:absolute;
+    z-index:1;
+    font-size: 130%;
+    text-align:center;
+}
+
+.flagShow h2 {
+    font-family:Trebuchet MS,Helvetica,sans-serif;
+    font-size:140%;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.flagShow a{
+	color:white;
+	text-decoration:underline;
 }
 
 

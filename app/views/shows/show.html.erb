@@ -143,7 +143,7 @@
 		<div class= "controlContainer">
 			
 			<span class='EditFlagContainer'><%= link_to 'Edit', edit_show_path(@show) %> | 
-				<a>Flag</a>
+				<a class='flagShowButton'>Flag</a>
 				<% if (@currentUserViewing) then %>
 					| <%= link_to 'Delete', show_path(@show), :method => 'delete', :confirm => 'Are You Sure?' %>
 				<% end %>
