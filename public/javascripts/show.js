@@ -7,11 +7,15 @@ $j(document).ready(function()
 	});
 	
 	$j('.flagShowButton').click(function() {
-		var flagHTML = "<div>";
-		flagHTML += "<div style='text-align:left;'><h2>Flag Show:</h2><span>";
+		var flagHTML = "";
+		flagHTML += "<div style='text-align:left;'><h2>Issue With A Show?</h2><span>";
 		flagHTML += "<div style='text-align:left;'><input type='radio' name='group1' value='Offensive'>Offensive, Abusive, Or Hate Speech</span><br>";
 		flagHTML += "<div style='text-align:left;'><input type='radio' name='group1' value='Duplicate'>Duplicate</span>";
-		flagHTML += "</div>";
+		flagHTML += "<div style='text-align:left;margin-top:15px;'>"
+		flagHTML += "<div id='flagCancel'>Cancel</div>"
+		flagHTML += "<div id='flagShow'>Flag Show</div>"
+		flagHTML += "</div>"
+		flagHTML += "";
 	    $j('.flagShow').remove();
 	    var flagBox = $j('<div>').addClass('flagShow')
 	                         .html(flagHTML)
@@ -21,7 +25,7 @@ $j(document).ready(function()
 	    $j(flagBox).fadeIn('slow');
 	});
 	
-	$j('.flagShow').live('click', function() {
-	    $j(this).fadeOut('fast', function() { $j(this).remove(); });
+	$j('#flagCancel').live('click', function() {
+	    $j('.flagShow').fadeOut('fast', function() { $j(this).remove(); });
 	});
 });

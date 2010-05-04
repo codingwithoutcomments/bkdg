@@ -1,4 +1,4 @@
-class Show < ActiveRecord::Base
+class Flag < ActiveRecord::Base
   belongs_to :shows
   
 end

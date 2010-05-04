@@ -455,7 +455,7 @@
 }
 
 .flagShow {
-    background-color:#f90887;
+    background-color:#F90887;
     color:white;
     cursor:pointer;
     display: none;
@@ -477,6 +477,33 @@
 .flagShow a{
 	color:white;
 	text-decoration:underline;
+}
+
+#flagCancel
+{
+	display:block;
+	background-color:#FFFF01;
+	cursor:pointer;
+	color:white;
+	float:left;
+	padding:5px;
+	font-weight:700;
+	font-family:"museo-1","museo-2", serif;
+	margin-left:30px;
+}
+
+#flagShow
+{
+	display:block;
+	background-color:#FFFF01;
+	color:white;
+	cursor:pointer;
+	float:left;
+	margin-left:30px;
+	padding:5px;
+	font-weight:700;
+	font-family:"museo-1","museo-2", serif;
+	
 }
 
 
