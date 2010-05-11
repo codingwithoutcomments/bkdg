@@ -408,6 +408,7 @@
 .showcommentcontainer {
 	float:left;
 	width:86px;
+        margin-top:5px;
 }
 
 #userIconContainer

@@ -636,6 +636,7 @@ code {
 {
 	width: 86px;
 	float: left;
+        margin-top:5px;
 }
 
 .attending {
