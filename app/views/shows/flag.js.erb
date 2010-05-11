@@ -1,0 +1,62 @@
+var $j = jQuery.noConflict();
+
+var showFlagged  = '<%= @showFlagged %>';
+var userPreviouslyFlagged = '<%= @userPreviouslyFlagged %>';
+var showDeleted = '<%= @showDeleted %>';
+
+
+$j(document).ready(function()
+{
+	
+	if(showFlagged == "true")
+	{
+            $j(".flagShowButton").html("flag (1)");  
+
+            $j('<%= escape_javascript(render(:partial => "notice_show_flagged", :locals => { :showband => @showBand, :showdate => @showDate }))%>').insertBefore('#header');
+            $j("#notice")
+                    .css("display", "none")
+                    .fadeIn("slow");
+
+
+            setTimeout(function() { $j('#notice').fadeOut("slow", function(){  $j(this).remove(); }) }, 3000);
+	}
+	
+	if(userPreviouslyFlagged == "true")
+	{
+          //do nothing
+	}
+	
+	if(showDeleted == "true")
+	{
+          $j(".flagshowbutton").html("flag (2)");
+
+          $j("#showinfo").css("background-color", "#777777").css("padding", "10px");
+          $j("#showinfo").after("<div style='width:100%;float:left;margin-top:20px;font-size:200%;'><a href='http://badkidsdancegood.com'>« Back To Shows</a></div>");
+          $j("#show-images").html("");
+          $j("#showh3header").append(" - deleted");
+          $j(".userAttendingContainer").css("display", "none");
+          $j(".commentHeaderConatiner").css("display", "none");
+          $j(".showcommentcontainer").css("display","none");
+          $j(".post_a_comment").css("display", "none");
+          $j(".commentHeaderContainer").css("display", "none");
+          $j("#commentarea").css("position", "absolute").css("left", "-1000px").css("width", "100px");
+          $j(".friendsAttendingContainer").css("display", "none");
+          $j(".nonFriendsAttendingContainer").css("display", "none");
+          $j(".controlContainer").css("display", "none");
+          $j(".show-short-description").css("display", "none");
+          $j(".attendcommentcontainer").css("display", "none");
+
+          $j('<%= escape_javascript(render(:partial => "notice_show_deleted", :locals => {  :showband => @showBand, :showdate => @showDate }))%>').insertBefore('#header');
+          $j("#notice")
+                  .css("display", "none")
+                  .fadeIn("slow");
+
+
+          setTimeout(function() { $j('#notice').fadeOut("slow", function(){  $j(this).remove(); }) }, 3000);
+
+
+	}
+	
+	
+	
+});

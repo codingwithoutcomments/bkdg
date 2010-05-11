@@ -8,6 +8,50 @@ class ShowsController < ApplicationController
   
   #before_filter :require_user, :only => [:index]
   
+  def flag
+    showId = params[:id]
+    @showFlagged = false  
+    @userPreviouslyFlagged = false
+    @showDeleted = false
+
+    if(current_user)
+
+      show = Show.find(showId)
+      @showBand = show.bands.at(0).band_name
+      @showDate = show.date.strftime('%A, %b %e %Y') 
+      
+      #check to make sure user hasn't already flagged the show
+      show.flags.each { |flag|
+          if(current_user.id == flag.user_id) then
+            @userPreviouslyFlagged = true
+          end
+      }
+
+      #if the number of flags equals 2, delete the show
+     if(!@userPreviouslyFlagged && show.flags.length + 1 == 2) then 
+        show.remove_all_bands_from_show
+        show.destroy
+        @showDeleted = true
+     end
+
+      #create a new flag
+      if(!@userPreviouslyFlagged && !@showDeleted) then
+        flag = Flag.new
+        flag.user_id = current_user.id
+        flag.reason = 1
+        flag.save
+        show.add_flag_to_show(flag)
+        @showFlagged = true
+      end
+
+
+    end 
+
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def faq
     
      respond_to do |format|

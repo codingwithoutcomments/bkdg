@@ -9,8 +9,8 @@ $j(document).ready(function()
 	$j('.flagShowButton').click(function() {
 		var flagHTML = "";
 		flagHTML += "<div style='text-align:left;'><h2>Issue With A Show?</h2><span>";
-		flagHTML += "<div style='text-align:left;'><input type='radio' name='group1' value='Offensive'>Offensive, Abusive, Or Hate Speech</span><br>";
-		flagHTML += "<div style='text-align:left;'><input type='radio' name='group1' value='Duplicate'>Duplicate</span>";
+		flagHTML += "<div style='text-align:left;'><input type='radio' name='group1' value='1' checked='checked'>Offensive, Abusive, Or Hate Speech</span><br>";
+		flagHTML += "<div style='text-align:left;'><input type='radio' name='group1' value='2'>Duplicate</span>";
 		flagHTML += "<div style='text-align:left;margin-top:15px;'>"
 		flagHTML += "<div id='flagCancel'>Cancel</div>"
 		flagHTML += "<div id='flagShow'>Flag Show</div>"
@@ -28,4 +28,20 @@ $j(document).ready(function()
 	$j('#flagCancel').live('click', function() {
 	    $j('.flagShow').fadeOut('fast', function() { $j(this).remove(); });
 	});
+
+        $j('#flagShow').live('click', function(){
+	
+            var showID = $j('#showinfo').attr("showid");
+			var flagValue = $j('.flagShow input:radio:checked').val();
+            
+            $j.ajax({
+              url: 'http://www.badkidsdancegood.com/shows/flag/' + showID,
+              success: function(data) {
+				
+              }
+            });
+
+			$j('.flagShow').fadeOut('fast', function() { $j(this).remove(); });
+                        
+        });
 });

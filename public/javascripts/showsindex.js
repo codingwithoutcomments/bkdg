@@ -18,10 +18,10 @@ $j(document).ready(function()
 
                  $j(".ui-datepicker-trigger").attr("title", "Choose A Date");
 
-				$j('<div id="notice">|| Search And Date Selector Now Work Y\'all!  Check it out! ||</div>').insertBefore('#header');
-		  		$j("#notice")
-					.css("display", "none")
-					.fadeIn("slow");
-					
-				setTimeout(function() { $j('#notice').fadeOut("slow", function(){  $j(this).remove(); }) }, 5000);
+//				$j('<div id="notice">|| Search And Date Selector Now Work Y\'all!  Check it out! ||</div>').insertBefore('#header');
+//		  		$j("#notice")
+//					.css("display", "none")
+//					.fadeIn("slow");
+//					
+//				setTimeout(function() { $j('#notice').fadeOut("slow", function(){  $j(this).remove(); }) }, 5000);
 });

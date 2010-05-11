@@ -35,19 +35,13 @@
 
 <div id="mainbar-full">
 	
-	<div id="grooveSideBar">  
 
-		<div class ="GrooveSharkModule">
-
-		 </div>
-		 
-	</div>
-<div id="showinfo">
+<div id="showinfo" showid="<%= @show.id %>">
 	
 	<% attending_highlight_helper(@current_user, @shows_that_user_is_attending, @show) %>
 	
 	<div id = "showsHeader">
-		<b><h3><%= capitalize_first_letter_of_each_word(@show.bands.at(0).band_name) %> @ <%= capitalize_first_letter_of_each_word(@show.venue.name) %> </h3></b>
+		<b><h3 id='showh3header'><%= capitalize_first_letter_of_each_word(@show.bands.at(0).band_name) %> @ <%= capitalize_first_letter_of_each_word(@show.venue.name) %> </h3></b>
 	</div>
 	
 	<div class ="show-date">
@@ -128,7 +122,7 @@
 			
 		<% end %>
 
-  		<div class = "attendcommentcontainer" style='margin-left:10px;margin-top:10px;'>
+  		<div class = "attendcommentcontainer" style='margin-top:10px;'>
 			<div id='clicktoattend' class="attend-recommend <%= attending_helper() %>">
 					<% if @current_user %>
 						<%= link_to_remote attendingTheShow?, {
@@ -142,10 +136,9 @@
 		
 		<div class= "controlContainer">
 			<% if @current_user %>
-				<span class='EditFlagContainer'><%= link_to 'Edit', edit_show_path(@show) %> | 
-					<a class='flagShowButton'>Flag (<%= @show.flags.count %>)</a>
-					<% if (@currentUserViewing) then %>
-						| <%= link_to 'Delete', show_path(@show), :method => 'delete', :confirm => 'Are You Sure?' %>
+				<span class='EditFlagContainer'><%= link_to 'Edit', edit_show_path(@show) %>|<a class='flagShowButton'>Flag
+                                    <% if @show.flags.length >= 1 %>
+                                       (<%= @show.flags.length%>)<% end %></a><% if (@currentUserViewing) then %>|<%= link_to 'Delete', show_path(@show), :method => 'delete', :confirm => 'Are You Sure?' %>
 					<% end %>
 				</span>	
 			<% end %>
@@ -190,12 +183,12 @@
 
 <% if @show.users.length > 0 %>
 
-	<div id = "showsHeader">
+	<div id = "showsHeader" class='userAttendingContainer'>
 		<b><h3>Users Attending</h3></b>
 	</div>
 
 	<% if current_user then %>
-		<div id='userIconContainer'>
+		<div id='userIconContainer' class='friendsAttendingContainer'>
 			<% retrieve_friends_attending(@show, current_user)%>
 			<div class='FriendsAttending'> <%= pluralize(@friends_attending.length, 'Friend') %> Attending</div>
 			<% @friends_attending.each do |friend| %>
@@ -210,7 +203,7 @@
 		</div>
 		
 		<% if @non_friends_attending.length > 0 %>
-			<div id='userIconContainer'>
+			<div id='userIconContainer' class='nonFriendsAttendingContainer'>
 				<div class='FriendsAttending'> <%= pluralize(@non_friends_attending.length, 'Other') %></div>
 				<% @non_friends_attending.each do |friend| %>
 					<div class='UsersAttendingContainer'>
@@ -225,7 +218,7 @@
 		 	</div>
 		<% end %>
 	<% else %>
-    <div id='userIconContainer'>
+    <div id='userIconContainer' class='nonFriendsAttendingContainer'>
 		<% @show.users.each do |user| %>
 			<div class='UsersAttendingContainer'>
 				<div class='singleUserOfUsersAttending'>
@@ -243,7 +236,7 @@
 
 <div >
 
-<div id = "showsHeader">
+<div id = "showsHeader" class='commentHeaderContainer'>
 	<b><h3>Comments</h3></b>
 </div>
 
