@@ -48,7 +48,7 @@
 		<h2><%=h @show.date.strftime("%A, %b %e %Y") %></h2>
 	</div>
 	
-	<div class="attendingcontainer">
+	<div class="attendingcontainer" style='margin-top:5px;'>
 		<div class="attending" id="attending-id-<%= @show.id %>">
 			<%= render(:partial => "number_attending", :object => @show.attending)%>
 		</div>
