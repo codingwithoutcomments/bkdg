@@ -204,7 +204,7 @@
 		
 		<% if @non_friends_attending.length > 0 %>
 			<div id='userIconContainer' class='nonFriendsAttendingContainer'>
-				<div class='FriendsAttending'> <%= pluralize(@non_friends_attending.length, 'Other') %></div>
+				<div class='NonFriendsAttending'> <%= pluralize(@non_friends_attending.length, 'Other') %></div>
 				<% @non_friends_attending.each do |friend| %>
 					<div class='UsersAttendingContainer'>
 						<div class='singleUserOfUsersAttending'>

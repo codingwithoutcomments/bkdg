@@ -284,6 +284,16 @@
 	margin-left:5px;
 }
 
+.NonFriendsAttending
+{
+	color:#808185;
+	font-size:120%;
+	text-align:left;
+	margin-top:-10px;
+	margin-bottom:-10px;
+	margin-left:5px;
+}
+
 .commentUserInfo
 {
 	width:150px;
