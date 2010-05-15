@@ -22,7 +22,7 @@ module ShowsHelper
       return "h2"
     end
   end
-  
+
   def firstShowOnDate(previousDate, show)
     if (previousDate == nil ||  show.date.strftime("%b %e") != previousDate.strftime("%b %e"))
       return true

@@ -71,7 +71,7 @@
 		<% for user in @users %>
 		  	<div class='singleUserContainer'>
 				<div class='UserUserInfo'>
-					<div class='gravitar'><%= image_tag user.gravatar_url(:size => 40) %></div>
+                                  <div class='gravitar'><%= image_tag user.gravatar_url(:size => 40), :alt => 'bk' %></div>
 					<div class='usernameLink'><%= link_to user.username, { :controller => 'users', :action => 'show', :id => user }  %></div>
 					<div class='usernamePoints'><%=     user.points.to_s     %></div>
 				</div>
