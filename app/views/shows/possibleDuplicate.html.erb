@@ -1,0 +1,42 @@
+<% content_for :title do %>  
+	<title>BKDG: Possible Duplicate Of The Show You Posted</title> 
+<% end %>
+<%= stylesheet_link_tag 'search', 'possibleDuplicate' %>
+<div id = "mainbar-full">
+	
+	<div id = "showsHeader">
+		<b><h3>Possible Duplicate Show</h3></b>
+	</div>
+	
+	<div id='similarHeading'>
+		Another show similar to the one you are posting has been found.
+	</div>
+	
+	<div id='showMatches'>	
+		
+		<% @showMatches.each do |show| %>
+			<div class='showMatchSingleShow'>
+				<div class='showMatchShowPicture'>
+					<%= link_to image_tag(show.bands.at(0).bandpictures.at(rand(show.bands.at(0).bandpictures.length)).medium), :controller => 'shows', :action => 'show', :id => show %>
+				</div>
+				<div class='showMatchShowName'>
+					<%= link_to createDuplicateShowPostingString(show), :controller => 'shows', :action => 'show', :id => show %>
+				</div>
+			</div>
+		<% end %>
+		
+	</div>
+	
+	<div id='stillPostHeading'>
+		Do you still want to post your show?
+	</div>
+	
+	<div id='stillPostChoices'>
+		<%= link_to "No, Don't Post It »", { :controller => 'shows', :action => "stillpost", :answer => 'no' }, :class => 'choiceButton' %>
+		<%= link_to "Yes, Just Post It »", { :controller => 'shows', :action => "stillpost", :answer => 'yes'}, :class => 'choiceButton' %>
+	</div>
+	
+	
+	
+	
+</div>

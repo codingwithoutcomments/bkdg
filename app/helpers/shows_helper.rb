@@ -204,4 +204,24 @@ module ShowsHelper
     end
   end
   
+  def createDuplicateShowPostingString(show)
+    showPostingString = '<b>' 
+    showPostingString += capitalize_first_letter_of_each_word(show.bands.at(0).band_name) 
+    showPostingString += '</b> at <b>' 
+    showPostingString += capitalize_first_letter_of_each_word(show.venue.name) 
+    showPostingString += '</b> <br/> '
+    if(show.bands.length > 1) then
+      showPostingString += "w / "
+      1.upto(show.bands.length - 1){ |i|
+        showPostingString += capitalize_first_letter_of_each_word(show.bands.at(i).band_name)
+        if(i != show.bands.length - 1) then
+          showPostingString += ", "
+        end
+      }
+      showPostingString += "<br />" 
+    end
+    showPostingString += show.date.strftime("%A, %b %e %Y")
+    return showPostingString
+  end
+  
 end

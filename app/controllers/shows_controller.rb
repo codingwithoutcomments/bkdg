@@ -142,6 +142,7 @@ class ShowsController < ApplicationController
   # GET /shows/1
   # GET /shows/1.xml
   def show
+        
     @show = Show.find(params[:id])
     @comments = @show.comments
     @bands = @show.bands
@@ -345,29 +346,86 @@ class ShowsController < ApplicationController
      if @show.errors.size > 0
         
         format.html { render :action => "new" }
-        format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
         
-      elsif @show.save
+      elsif @show.valid?
         
-        @venue.add_show_to_venue(@show)
-        @venue.save
+        showMatches = checkForShowMatches(@show)
+                
+        if(showMatches.length != 0) then
+          session['show'] = @show
+          session['venueId'] = @venue.id
+          session['locationId'] = @location.id
+          session['showMatches'] = showMatches
+          format.html { redirect_to :action => 'possibleDuplicate' }
+          
+        else
+                
+          @venue.add_show_to_venue(@show)
+          @venue.save
         
-        @location.add_show_to_location(@show)
-        @location.save
+          @location.add_show_to_location(@show)
+          @location.save
         
-        if @user.shows_posted == nil then @user.shows_posted = 0 end
-        @user.shows_posted = @user.shows_posted + 1
-        @user.save
-        
-        flash[:notice] = 'Show was successfully created.'
-        format.html { redirect_to(@show) }
-        format.xml  { render :xml => @show, :status => :created, :location => @show }
+          if @user.shows_posted == nil then @user.shows_posted = 0 end
+          @user.shows_posted = @user.shows_posted + 1
+          @user.save
+                
+          flash[:notice] = 'Show was successfully created.'
+          format.html { redirect_to(@show) }
+        end
       else
         @highlight = @show.ErroredSectionOfForm
         format.html { render :action => "new" }
-        format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
       end
     end
+  end
+  
+  def possibleDuplicate
+        
+      @showMatches = session['showMatches']
+      
+      respond_to do |format|
+        format.html
+      end
+  end
+  
+  def stillpost
+            
+    show = session['show']
+    user = current_user
+    
+    venueId = session['venueId']
+    locationId = session['locationId']
+    stillPost = params['answer']
+            
+    if(show != nil && stillPost == 'yes') then
+            
+      show.save
+      
+      venue = Venue.find(venueId)
+      venue.add_show_to_venue(show)
+      venue.save
+  
+      location = Location.find(locationId)
+      location.add_show_to_location(show)
+      location.save
+  
+      if user.shows_posted == nil then user.shows_posted = 0 end
+      user.shows_posted = user.shows_posted + 1
+      user.save
+      
+      session['show'] = nil
+          
+      flash[:notice] = 'Show was successfully created.'
+      redirect_to(show)
+      
+    else
+
+      session['show'] = nil
+      flash[:notice] = nil
+      redirect_to root_url
+    end
+    
   end
 
   # PUT /shows/1
@@ -579,6 +637,26 @@ class ShowsController < ApplicationController
    end
   
 private
+
+  def checkForShowMatches(show)
+    city = get_user_city
+    state = get_user_state
+    
+    location = Location.find(:first, :conditions => ["city = ? and state = ?", city.upcase, state.upcase])
+    allShows = location.shows.find(:all, :conditions => ['date = ?', show.date ], :order => 'date ASC, attending DESC')
+        
+    showMatches = []
+    show.bands.each do |band|
+      allShows.each do |show|
+        match = show.bands.band_name_like(band.band_name.upcase).first
+        if(match != nil) then
+          showMatches << show
+        end
+      end
+    end
+    
+    return showMatches
+  end
 
   def decrement(show, userWhoPostedShow)
   
