@@ -17,6 +17,7 @@ class Venue < ActiveRecord::Base
   
   validates_presence_of :name
   
+   validate :unqiueness_of_venue_name_in_city
    
    def to_param
      "#{id}-#{name.downcase.parameterize}"
