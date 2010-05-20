@@ -60,6 +60,10 @@ class VenuesController < ApplicationController
       @venue.name = @venue.name.upcase
     end
     
+    if(@venue.address != nil) then
+      @venue.address = @venue.address.upcase
+    end
+    
     @userCity = get_user_city()
     @userState = get_user_state()
     

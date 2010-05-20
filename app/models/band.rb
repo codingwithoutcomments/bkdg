@@ -256,8 +256,17 @@ private
     #if it doesn't create
     venues = location.venues
     venue = venues.name_equals(venue_name.upcase).first
+    
+    debugger()
+    
     if(venue == nil) then 
       venue = venues.name_equals("THE "+ venue_name.upcase).first
+    end
+    
+    if(venue == nil) then
+      if(venue_address != "" && venue_address != nil) then
+        venue = venues.address_equals(venue_address.upcase).first
+      end
     end
     
     if(venue == nil) then
