@@ -257,8 +257,6 @@ private
     venues = location.venues
     venue = venues.name_equals(venue_name.upcase).first
     
-    debugger()
-    
     if(venue == nil) then 
       venue = venues.name_equals("THE "+ venue_name.upcase).first
     end

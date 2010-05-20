@@ -17,7 +17,7 @@
 			<div id='venueAddress'>
 				<div>
 					<% if @venue.address != nil%>
-						<%= @venue.address %>
+						<%= capitalize_first_letter_of_each_word(@venue.address) %>
 					<% else %>
 						(This Venue's Location Is A Secret)
 					<% end %>
