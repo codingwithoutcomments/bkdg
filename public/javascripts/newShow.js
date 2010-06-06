@@ -79,7 +79,7 @@ $j(document).ready(function()
 function PopulateListOfVenues()
 {
 		$j("#name_of_venue").autocomplete({
-			serviceUrl:'http://www.badkidsdancegood.com/venues',
+			serviceUrl:'/venues',
 			width:480
 		});	
 }
