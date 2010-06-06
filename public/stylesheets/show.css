@@ -365,16 +365,14 @@
 
 .usercomment p
 {
-	font-family:'Lucida Grande', sans-serif;
+	font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;
 	line-height:1.4em;
-	font-size:18px;
 }
 
 .wmd-preview p
 {
-	font-family:'Lucida Grande', sans-serif;
+	font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;
 	line-height:1.4em;
-	font-size:18px;
 }
 
 .price-time span
