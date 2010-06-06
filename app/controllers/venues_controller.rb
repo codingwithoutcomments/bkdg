@@ -1,12 +1,40 @@
 class VenuesController < ApplicationController
+  
+  class VenueList
+    attr_accessor :query, :suggestions
+    
+    def initialize(query, suggestions)
+      @query = query
+      @suggestions = suggestions
+    end
+  end
+  
   # GET /venues
   # GET /venues.xml
   def index
-    @venues = Venue.find(:all)
-
+    q = params[:query]
+    
+    @userCity = get_user_city()
+    @userState = get_user_state()
+    @location = Location.find(:first, :conditions => ["city = ? and state = ?", @userCity, @userState])
+    @locationVenues = @location.venues
+    @venues = @locationVenues.name_like(q)
+    
+    @venueNames = []
+    i = 0
+    @venues.each do |venue|
+      if(i < 10) then
+        @venueNames << capitalize_first_letter_of_each_word(venue.name)
+        i = i + 1
+      else
+        break
+      end
+    end
+        
+    venueList = VenueList.new(q, @venueNames)
+            
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @venues }
+      format.js { render :json => venueList }
     end
   end
 

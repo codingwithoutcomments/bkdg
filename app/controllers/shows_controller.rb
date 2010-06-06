@@ -597,7 +597,7 @@ class ShowsController < ApplicationController
   
   
   def venue_changed
-    
+        
      city = getCityOfUser()
      state = getStateOfUser()
     

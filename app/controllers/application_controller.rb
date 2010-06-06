@@ -25,6 +25,15 @@ protected
   #  end
   #end
   
+  def capitalize_first_letter_of_each_word(input)
+    output = ""
+    input = input.split(" ")
+    input.each {|word| output += word.capitalize + " " }
+    output.strip!
+    
+    return output;
+  end
+  
    def current_user_session  
      return @current_user_session if defined?(@current_user_session)  
      @current_user_session = UserSession.find  
@@ -78,5 +87,22 @@ protected
   def get_user_state
     return session[:state]
   end
+  
+
+       def render_json(json, options={})  
+         callback, variable = params[:callback], params[:variable]  
+         response = begin  
+           if callback && variable  
+             "var #{variable} = #{json};\n#{callback}(#{variable});"  
+           elsif variable  
+             "var #{variable} = #{json};"  
+           elsif callback  
+             "#{callback}(#{json});"  
+           else  
+             json  
+           end  
+         end  
+         render({:content_type => :js, :text => response}.merge(options))  
+       end
   
 end

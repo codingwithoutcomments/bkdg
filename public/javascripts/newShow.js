@@ -25,6 +25,9 @@ $j(document).ready(function()
 	//on error, highlight the error-ed part of the form
 	DisplayErroredSectionOfForm();
 	
+	//populate list of venues
+	PopulateListOfVenues()
+	
 	$j(".AddABand").click( function() {  AddABand(); } );
 	
 	$j(".SpecifyAdvance").click(function() {
@@ -72,6 +75,14 @@ $j(document).ready(function()
 	$j("#show_price_option").change(function(){ price_option_changed(); });
 
 });
+
+function PopulateListOfVenues()
+{
+		$j("#name_of_venue").autocomplete({
+			serviceUrl:'http://www.badkidsdancegood.com/venues',
+			width:480
+		});	
+}
 
 function DisplayErroredSectionOfForm()
 {

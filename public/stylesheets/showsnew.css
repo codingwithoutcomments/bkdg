@@ -50,7 +50,11 @@
 	padding-left:6px;
 	padding-bottom:6px;
 	padding-top:3px;
-	
+}
+
+#BandsContainer input
+{
+	width:300px;
 }
 
 
@@ -108,6 +112,11 @@
 	padding-left:6px;
 	padding-bottom:6px;
 	padding-top:3px;
+}
+
+#VenueContainer input
+{
+	width:480px;
 }
 
 #VenueErrorContainer

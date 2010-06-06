@@ -2,7 +2,7 @@
 
 <script type="text/javascript" src="/javascripts/newShow.js"></script>
 <%= stylesheet_link_tag 'jquery.autocomplete.css' %>
-<%= stylesheet_link_tag 'showsnew' %>
+<%= stylesheet_link_tag 'showsnew', 'styles' %>
 <div id="mainbar-full">
 	
 <%
@@ -52,7 +52,14 @@
    		Venue <br />
     	<%= text_field_tag :name_of_venue, nameOfVenue %>
 		<div class='CaptionVenue'>Where at?</div>
-		<%= observe_field :name_of_venue, :url => { :action => :venue_changed}, :with => "'venueName=' +encodeURIComponent(value)" %>
+		<!-- <%= observe_field :name_of_venue, :url => { :action => :venue_changed}, :with => "'venueName=' +encodeURIComponent(value)" %> -->
+	</div>
+  </p><br/>
+<p>
+   <div id='DateContainer'>
+   	 	<%= f.label :date %><br />
+	    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+	<div class='Caption'>When?  I don't want to miss it.</div>
 	</div>
   </p><br/>
  	<p>
@@ -67,13 +74,7 @@
 		<div class='AdvanceTicketPrice'><span class='moneySign'>$</span><%= f.text_field :price, :size => 3 %> at the door</div>
 	</div>
 </p><br/>
-  <p>
-   <div id='DateContainer'>
-   	 	<%= f.label :date %><br />
-	    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
-	<div class='Caption'>When?  I don't want to miss it.</div>
-	</div>
-  </p><br/>
+  
   <p>
    <div id='DoorContainer'>
 	<%= f.label :Doors_at %><br />

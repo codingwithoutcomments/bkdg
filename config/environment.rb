@@ -33,6 +33,7 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'binarylogic-authlogic', :source => 'http://gems.github.com'
   config.gem 'memcached'
+  config.gem 'json', :version => '1.4.3'
   
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
