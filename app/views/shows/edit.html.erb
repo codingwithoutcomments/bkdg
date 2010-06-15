@@ -85,6 +85,13 @@
 		<%= observe_field :name_of_venue, :url => { :action => :venue_changed}, :with => "'venueName=' +encodeURIComponent(value)" %>
 	</div>
    </p><br/>
+	<p>
+	   <div id='DateContainer'>
+	   	 	<%= f.label :date %><br />
+		    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+		<div class='Caption'>When?  I don't want to miss it.</div>
+		</div>
+	 </p><br/>
 
 	<p>
 	<div id='PriceContainer'>
@@ -99,13 +106,7 @@
 	</div>
 	</p><br/>
 
-	<p>
-	   <div id='DateContainer'>
-	   	 	<%= f.label :date %><br />
-		    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
-		<div class='Caption'>When?  I don't want to miss it.</div>
-		</div>
-	 </p><br/>
+	
 	
 	 <p>
 	   <div id='DoorContainer'>

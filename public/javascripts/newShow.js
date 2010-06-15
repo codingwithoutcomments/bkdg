@@ -199,13 +199,21 @@ function highlightAgeRestrictions()
 	dehighlightShowTime();
 	dehighlightShowDescription();
 	
+	$j("#21plus").css("background-color", "#F90887").css("color", "white");
+	$j("#AllAges").css("background-color", "#F90887").css("color", "white");
+	$j("#Unknown").css("background-color", "#F90887").css("color", "white");
+	
 	if(ageHighlighted == false)
 	{
 		$j("#AgeContainer").css("background-color","#F90887").css("color", "white").find("label").css("font-size", "120%");
-		$j("#21plus").css("background-color", "#FFFF01").css("color", "black");
-		$j("#AllAges").css("background-color", "#FFFF01").css("color", "black");
+									
 		ageHighlighted = true;
 	}
+	
+	if($j("#show_allowed_in_21").is(":checked"))  $j("#21plus").css("background-color", "#FFFF01").css("color", "black");
+	if($j("#show_allowed_in_all_ages").is(":checked")) $j("#AllAges").css("background-color", "#FFFF01").css("color", "black");
+	if($j("#show_allowed_in_unknown").is(":checked")) $j("#Unknown").css("background-color", "#FFFF01").css("color", "black");
+	
 }
 
 function dehighlightAgeRestrictions()
