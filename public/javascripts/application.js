@@ -56,6 +56,26 @@ $j(document).ready(function() {
 	    $j(err).fadeIn('slow');
 	});
 	
+	$j('.timeError').click(function() {
+	    $j('.error-notification').remove();
+	    var err = $j('<div>').addClass('error-notification')
+	                         .html('<h2>Please <a href = "/login">login</a> or <a href = "/users/new">signup</a> <br> to edit the show time</h2>(click on this box to close)')
+	                         .css('left', $j(this).position().left)
+							 .css('top', $j(this).position().top + $j(this).height() + 8);
+	    $j(this).after(err);
+	    $j(err).fadeIn('slow');
+	});
+	
+	$j('.priceError').click(function() {
+	    $j('.error-notification').remove();
+	    var err = $j('<div>').addClass('error-notification')
+	                         .html('<h2>Please <a href = "/login">login</a> or <a href = "/users/new">signup</a> <br> to edit the show price</h2>(click on this box to close)')
+	                         .css('left', $j(this).position().left)
+							 .css('top', $j(this).position().top + $j(this).height() + 8);
+	    $j(this).after(err);
+	    $j(err).fadeIn('slow');
+	});
+	
 	$j('.addOpenersError').click(function() {
 	    $j('.error-notification').remove();
 	    var err = $j('<div>').addClass('error-notification')

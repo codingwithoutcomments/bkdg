@@ -1,11 +1,19 @@
 <% if show.time == "UNKNOWN" then %>
-	<%= link_to 'Add Time', edit_show_path(show, :highlight => "time") %>
+	<% if(current_user) then %>
+		<%= link_to 'Add Time', edit_show_path(show, :highlight => "time") %>
+	<% else %>
+	    <a class='timeError'>Add Time</a>
+	<% end %>
 <% else %>
 	<%=h show.time %>
 <% end %> 
 | 
 <% if(show.price_option == 'UNKNOWN') %>
-	<%= link_to 'Add Price', edit_show_path(show, :hightlight => "price") %>
+	<% if(current_user) then %>
+		<%= link_to 'Add Price', edit_show_path(show, :highlight => "price") %>
+	<% else %>
+		<a class='priceError'>Add Price</a>
+	<% end %>
 <% else %>
 
 	<% if (show.price_option == 'FREE') then %>

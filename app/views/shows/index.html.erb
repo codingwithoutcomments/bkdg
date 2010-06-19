@@ -124,7 +124,7 @@
 					<div class="venue">
 						<div class="venue-name"><%= link_to capitalize_first_letter_of_each_word(show.venue.name), show.venue %></div>
 					    <div class="date-time-price">
-							<%= render(:partial => "display_date_time_price", :locals => { :show => show }) %>
+							<%= render(:partial => "display_date_time_price", :locals => { :show => show, :current_user => @current_user }) %>
 						</div>
 						
 					</div>

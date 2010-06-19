@@ -82,12 +82,16 @@
 				<% if(@show.time != 'UNKNOWN') %>
 					<%= @show.time %>
 				<% else %>
-					<%= link_to 'Add Show Time', edit_show_path(@show, :highlight => "time") %>
+					<% if @current_user then %>
+						<%= link_to 'Add Show Time', edit_show_path(@show, :highlight => "time") %>
+					<% else %>
+						<a class="timeError">Add Show Time</a>
+					<% end %>
 				<% end %> |
 			</span>
 			
 			<span id='price'>
-				<%= render(:partial => "display_price", :locals => { :show => @show }) %>  | 
+				<%= render(:partial => "display_price", :locals => { :show => @show, :current_user => @current_user }) %>  | 
 			 </span>
 			
 			<span id='allages'>
