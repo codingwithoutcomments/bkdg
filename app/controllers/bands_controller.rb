@@ -1,6 +1,8 @@
 require 'will_paginate'
 
 class BandsController < ApplicationController
+  
+  before_filter :store_location
 
   # GET /bands/1
   # GET /bands/1.xml

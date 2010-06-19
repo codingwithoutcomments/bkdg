@@ -1,5 +1,7 @@
 class VenuesController < ApplicationController
   
+  before_filter :store_location
+  
   class VenueList
     attr_accessor :query, :suggestions
     

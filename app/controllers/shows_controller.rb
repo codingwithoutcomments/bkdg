@@ -7,6 +7,7 @@ require 'will_paginate'
 class ShowsController < ApplicationController
   
   #before_filter :require_user, :only => [:index]
+  before_filter :store_location
   
   def flag
     showId = params[:id]

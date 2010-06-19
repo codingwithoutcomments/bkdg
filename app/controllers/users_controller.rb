@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  before_filter :store_location
+  
   # GET /users
   # GET /users.xml
   def index

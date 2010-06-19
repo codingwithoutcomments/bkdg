@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
   
   def index
+    store_location
       if request.post?
         user = User.authenticate(params[:name], params[:password])
         if user

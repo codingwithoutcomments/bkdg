@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  before_filter :store_location
+  
   # GET /searches
   # GET /searches.xml
   def index
