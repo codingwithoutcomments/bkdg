@@ -3,7 +3,7 @@ if @attending_show_already
   page['clicktoattend'].removeClassName('attendingtheshow')
   page['clicktoattend'].addClassName('notattendingtheshow')
   page.replace_html("attendingTheShowQuestion", "")
-  page.replace_html("attendincrement", "You in brah?  Click To Attend »")
+  page.replace_html("attendincrement", "You in brah? Attend »")
   
   page.replace_html("attending-id-" + @current_show.id.to_s, :partial => "number_attending", :object => @current_show.attending)
   if(!@on_show_detail_page) 

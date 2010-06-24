@@ -187,7 +187,7 @@ module ShowsHelper
     if (@attendingshow)
       return "Back Out »"
     else
-      return " Click To Attend »"
+      return " Attend »"
     end
   end
   
