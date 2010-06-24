@@ -1,5 +1,5 @@
 <% if show.price_option != 'FREE' && show.price_option != 'DONATION' then %>
 	<% if show.ticket_link != nil && show.ticket_link != "" then %>
-		<div class='show-ticket-link'><a href="<%= show.ticket_link %>">Buy Tickets To This Show</a></div>
+		<div class='show-ticket-link'><a href="<%= show.ticket_link %>" target=”_blank”>Buy Tickets To This Show</a></div>
 	<% end %>
 <% end %>
