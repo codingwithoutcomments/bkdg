@@ -77,7 +77,6 @@
 	
 
 		<div class = "price-time">
-			
 			<span id='time'>
 				<% if(@show.time != 'UNKNOWN') %>
 					<%= @show.time %>
@@ -95,19 +94,19 @@
 			 </span>
 			
 			<span id='allages'>
-			<% if(@show.allowed_in == "UNKNOWN") %>
-				<%= link_to 'Age Restrictions?', edit_show_path(@show) %>
-			<% else %>
-				<%= @show.allowed_in %>
-			<% end %>
+				<% if(@show.allowed_in == "UNKNOWN") %>
+					<%= link_to 'Age Restrictions?', edit_show_path(@show) %>
+				<% else %>
+					<%= @show.allowed_in %>
+				<% end %>
 		 	</span>
-		
 		</div>
 		
+		
+		<%= render(:partial => "display_ticket_link", :locals => { :show => @show, :current_user => @current_user })%>
+		
 		<div class='show-short-description'>
-			<% if @show.additional_info == nil then %>
-				<%= link_to 'Add Show Description', :action => 'add_show_description' %>
-			<% else %>
+			<% if @show.additional_info != nil || @show.additional_info != "" then %>
 				<%= @show.additional_info %>
 			<% end %>
 		</div>
@@ -125,18 +124,43 @@
 			</div>
 			
 		<% end %>
+		
+		<% if displayHowCanIHelp?(@show, @current_user) then %>
+			<div class='howCanIHelp'>
+				<% if @show.additional_info == nil || @show.additional_info == "" then %>
+					<% if @current_user then %>
+						<div class='show-short-description'>
+							<%= link_to 'Add Show Description »', :action => 'add_show_description' %>
+						</div>
+					<% end %>
+				<% end %>
+			
+				<% if @show.price_option != 'FREE' && @show.price_option != 'DONATION' then %>
+					<% if @show.ticket_link == nil || @show.ticket_link == "" then %>
+						<% if @current_user then %>
+							<div class='ticket-link'><a class='add_ticket_link'>Add Link To Tickets »</a></div>
+						<% end %>
+					<% end %>
+				<% end %>	
+			</div>
+		<% end %>
+		
+		
 
-  		<div class = "attendcommentcontainer" style='margin-top:10px;'>
-			<div id='clicktoattend' class="attend-recommend <%= attending_helper() %>">
+  		<div class = "attendcommentcontainer" style='margin-top:5px;'>
+			<div id='clicktoattend' class="attend-recommend <%= attending_helper() %>" style='float:none;'>
 					<% if @current_user %>
-						<%= link_to_remote attendingTheShow?, {
+						<span id='attendingTheShowQuestion'><%= attendingTheShow? %></span>
+						<%= link_to_remote attendingTheShowTwo?, {
 					   		:url => { :action => "increment_attending_on_show_page", :id => @show.id, :user_id => @current_user.id, :show_detail_page => true }}, 
 											:class => "attendincrement", :title => "Click to Attend/Unattend" %>
 					<% else %>
-						<a class = "attenderror"> <%=  attendingTheShow? %> </a>
+						You in brah?<a class = "attenderror"> Click To Attend »</a>
 					<% end %>
 			</div>
 		</div>
+		
+		
 		
 		<div class= "controlContainer">
 			<% if @current_user %>

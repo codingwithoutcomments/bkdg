@@ -1,0 +1,11 @@
+var $j = jQuery.noConflict();
+
+var ticketLink  = "<%= @show.ticket_link %>";
+
+$j(document).ready(function()
+{
+	var fullTicketLink = "<div class='show-ticket-link'><a>Buy Tickets To This Show</a></div>";
+	$j(fullTicketLink).insertAfter(".price-time");
+	$j(".show-ticket-link a").attr("href", ticketLink + '');
+	$j(".ticket-link").remove();
+});

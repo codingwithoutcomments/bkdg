@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100504035042) do
+ActiveRecord::Schema.define(:version => 20100620234423) do
 
   create_table "bandpictures", :force => true do |t|
     t.string   "original"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20100504035042) do
     t.string   "permalink"
     t.text     "additional_info"
     t.string   "last_fm_event_id"
+    t.string   "ticket_link"
   end
 
   create_table "shows_users", :id => false, :force => true do |t|

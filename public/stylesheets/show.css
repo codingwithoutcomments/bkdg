@@ -30,14 +30,19 @@
 
 .attendingtheshow
 {
-	background-color:#F90887;
 	font-size:130%;
 	font-weight:bold;
+	background-color:#F90887;
+	color:white;
+	
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
 }
 
 .attendingtheshow a
 {
-	color:white;
+	color:black;
+	font-size:90%;
 }
 
 .notattendingtheshow
@@ -45,6 +50,7 @@
 	color:black;
 	font-size:130%;
 	font-weight:bold;
+	
 }
 
 .notattendingtheshow a
@@ -53,15 +59,18 @@
 	text-decoration:none;
 }
 
+.notattendingtheshow a:hover
+{
+}
+
 .attendcommentcontainer
 {
 	width:100%;
-	float:left;
 }
 
 .controlContainer
 {
-	margin-top:30px;
+	margin-top:15px;
 	width:450px;
 	float:left;
 }
@@ -158,7 +167,54 @@
 
 .show-short-description
 {
+	padding:1px;
+	padding-left:3px;
+}
+
+.show-short-description a
+{
+	font-size:80%;
+}
+
+.show-short-description a:hover
+{
+	background-color:#F90887;
+	color:white;
+}
+
+.ticket-link a
+{
+	font-size:80%;
+}
+
+.ticket-link
+{
+	padding:1px;
+	padding-left:3px;
+}
+
+.ticket-link a:hover
+{
+	background-color:#F90887;
+	color:white;
+}
+
+.show-ticket-link
+{
+	background: url(/images/ticket.gif) no-repeat left center;
 	margin-top:10px;
+	margin-left:3px;
+	padding:3px;
+	padding-left:20px;
+	font-weight:500;
+	font-size:130%;
+}
+
+.howCanIHelp
+{
+	border:1px dashed #F90887;
+	width:250px;
+	margin-top:7px;
 	padding:3px;
 }
 
@@ -470,6 +526,37 @@
 
 }
 
+.addTicketLinkHoverBox
+{
+	background-color:#F90887;
+    color:white;
+    cursor:pointer;
+    display: none;
+    padding:20px;
+    position:absolute;
+    z-index:1;
+    font-size: 130%;
+    text-align:center;
+}
+
+.addTicketLinkHoverBox h2
+{
+    font-size:140%;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.addTicketLinkHoverBox a
+{
+	color:white;
+	text-decoration:underline;
+}
+
+.ticketLinkText
+{
+	width:490px;
+}
+
 .flagShow {
     background-color:#F90887;
     color:white;
@@ -480,11 +567,9 @@
     z-index:1;
     font-size: 130%;
     text-align:center;
-    border:10px solid #FFFF01;
 }
 
 .flagShow h2 {
-    font-family:Trebuchet MS,Helvetica,sans-serif;
     font-size:140%;
     font-weight:bold;
     margin-bottom:7px;
@@ -498,8 +583,6 @@
 #flagCancel
 {
 	display:block;
-        font-family:Trebuchet MS,Helvetica,sans-serif;
-	background-color:#60A49F;
 	cursor:pointer;
 	color:white;
 	float:left;
@@ -511,19 +594,55 @@
 
 #flagCancel:hover
 {
-  text-decoration:underline;
+  	background-color:white;
+	  color:#F90887;
 }
 
 #flagShow:hover
 {
-  text-decoration:underline;
+  	background-color:white;
+	  color:#F90887;
 }
 
 #flagShow
 {
 	display:block;
-        font-family:Trebuchet MS,Helvetica,sans-serif;
-	background-color:#60A49F;
+	color:white;
+	cursor:pointer;
+    font-size:130%;
+	float:left;
+	margin-left:30px;
+	padding:5px;
+	font-weight:700;
+}
+
+#ticketCancel
+{
+	display:block;
+	cursor:pointer;
+	color:white;
+	float:left;
+	padding:5px;
+    font-size:130%;
+	font-weight:700;
+	margin-left:130px;
+}
+
+#ticketCancel:hover
+{
+  background-color:white;
+  color:#F90887;
+}
+
+#ticketAdd:hover
+{
+  background-color:white;
+  color:#F90887;
+}
+
+#ticketAdd
+{
+	display:block;
 	color:white;
 	cursor:pointer;
         font-size:130%;

@@ -118,7 +118,7 @@ module ShowsHelper
    @showUsers = show.users
    0.upto(@showUsers.length - 1) { |i|
        @friendshipExists = current_user.friendships.friend_id_equals(show.users.at(i).id).first
-       if(@friendshipExists != nil || show.users.at(i).id == current_user.id) then
+       if(@friendshipExists != nil || show.users.at(i).id != current_user.id) then
          @friends_attending << show.users.at(i)
         else
           if(show.users.at(i).id != current_user.id) then
@@ -177,10 +177,36 @@ module ShowsHelper
   
   def attendingTheShow?
     if (@attendingshow)
-      return "You Are Attending This Show."
+      return "Attending"
     else
-      return "You in brah?  Click To Attend."
+      return "You in brah?"
     end
+  end
+  
+  def attendingTheShowTwo?
+    if (@attendingshow)
+      return "Back Out »"
+    else
+      return " Click To Attend »"
+    end
+  end
+  
+  def displayHowCanIHelp?(show, currentUser)
+    
+     if show.additional_info == nil || show.additional_info == "" then
+			if currentUser then
+			  return true
+			end
+		end
+		
+		if show.price_option != 'FREE' && show.price_option != 'DONATION' then
+			if show.ticket_link == nil || show.ticket_link == "" then
+				 if currentUser then
+				   return true
+				  end
+			end
+		end
+    
   end
   
   def getAttendStyle

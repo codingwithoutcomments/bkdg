@@ -9,6 +9,21 @@ class ShowsController < ApplicationController
   #before_filter :require_user, :only => [:index]
   before_filter :store_location
   
+  def addTicketLink
+    showId = params[:id]
+    ticketLink = params[:ticketLink]
+    
+    if(current_user)
+      @show = Show.find(showId)
+      @show.ticket_link = ticketLink
+      @show.save
+    end
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def flag
     showId = params[:id]
     @showFlagged = false  
