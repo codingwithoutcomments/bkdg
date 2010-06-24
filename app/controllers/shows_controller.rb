@@ -7,7 +7,7 @@ require 'will_paginate'
 class ShowsController < ApplicationController
   
   #before_filter :require_user, :only => [:index]
-  before_filter :store_location
+  before_filter :store_location, :except => [:addTicketLink]
   
   def addTicketLink
     showId = params[:id]
