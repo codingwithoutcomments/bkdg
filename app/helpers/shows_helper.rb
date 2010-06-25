@@ -118,7 +118,7 @@ module ShowsHelper
    @showUsers = show.users
    0.upto(@showUsers.length - 1) { |i|
        @friendshipExists = current_user.friendships.friend_id_equals(show.users.at(i).id).first
-       if(@friendshipExists != nil || show.users.at(i).id != current_user.id) then
+       if(@friendshipExists != nil ) then
          @friends_attending << show.users.at(i)
         else
           if(show.users.at(i).id != current_user.id) then
