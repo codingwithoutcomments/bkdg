@@ -73,7 +73,7 @@ $j(document).ready(function()
  		 var ticketLink = $j(".ticketLinkText").val();
   
          $j.ajax({
-           url: 'http://www.badkidsdancegood.com/shows/addTicketLink/' + showID + '?ticketLink=' + ticketLink,
+           url: 'http://localhost:3000/shows/addTicketLink/' + showID + '?ticketLink=' + ticketLink,
            success: function(data) {
 
            }

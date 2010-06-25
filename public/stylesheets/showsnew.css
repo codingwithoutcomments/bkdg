@@ -98,6 +98,14 @@
 	font-size:130%;
 }
 
+.CaptionTicket
+{
+	float:right;
+	margin-right:10px;
+	color:white;
+	font-size:130%;
+}
+
 #DoorContainer
 {
 	width:715px;
@@ -112,6 +120,20 @@
 	padding-left:6px;
 	padding-bottom:6px;
 	padding-top:3px;
+}
+
+#TicketContainer
+{
+	width:715px;
+	padding-left:6px;
+	padding-bottom:6px;
+	padding-top:3px;
+	margin-top:30px;
+}
+
+#TicketContainer input
+{
+	width:480px;
 }
 
 #VenueContainer input
@@ -130,6 +152,18 @@
 	color:black;
 	display:none;
 	padding-top:3px;
+}
+
+#dividerContainer
+{
+	width:715px;
+}
+
+.divider
+{
+	border:none;
+	border-top:5px dashed #F90887;
+	width:100%;
 }
 
 .DoorTicketPrice

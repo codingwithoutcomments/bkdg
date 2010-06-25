@@ -121,8 +121,20 @@
 			<span id='ageLabel'>Who's allowed in?</span><br />
 			<span id='21plus'><%= radio_button "show", "allowed_in", "21+", options = { :checked => true }%>&nbsp;21+ &nbsp;</span>
 			<span id='AllAges'><%= radio_button "show", "allowed_in", "All Ages"%>&nbsp;All Ages &nbsp;</span>
-			<span id='AllAges'><%= radio_button "show", "allowed_in", "UNKNOWN"%>&nbsp;I Don't Know &nbsp;</span>
+			<span id='Unknown'><%= radio_button "show", "allowed_in", "UNKNOWN"%>&nbsp;I Don't Know &nbsp;</span>
 			<div class='CaptionAge'>Age Restrictions?</div>
+		</div>
+	  </p><br/>
+	
+	<div id='dividerContainer'>
+		<hr class='divider'>
+	</div>
+	
+      <p>
+		<div id='TicketContainer'>
+			<%= f.label :ticket_link, "Online Ticket Link", :class=>"TicketLabel"%><br />
+		    <%= f.text_field :ticket_link %>
+			<div class='CaptionTicket'>Where can i buy?</div>
 		</div>
 	  </p><br/>
 	

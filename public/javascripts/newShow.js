@@ -10,6 +10,7 @@ var dateHighlighted = false;
 var doorsHighlighted = false;
 var ageHighlighted = false;
 var descriptionHighlighted = false;
+var ticketHighlighted = false;
 	
 $j(document).ready(function()
 {
@@ -49,6 +50,8 @@ $j(document).ready(function()
 	$j("#VenueContainer input").focus(function() { highlightVenue(); });
 	
 	$j("#PriceContainer").click(function() { highlightPrice();  });
+	
+	$j("#TicketContainer").click(function(){ highlightTicket() });
 	
 	$j(".DoorTicketPrice input").focus(function() { highlightPrice(); });
 	$j(".AdvanceTicketPrice input").focus(function() { highlightPrice(); });
@@ -163,6 +166,7 @@ function dehighlightAll()
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
 	dehighlightShowDescription();
+	dehighlightTicket();
 }
 
 function highlightShowDescription()
@@ -173,6 +177,7 @@ function highlightShowDescription()
 	dehighlightDate();
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
+	dehighlightTicket();
 	
 	if(descriptionHighlighted == false)
 	{
@@ -190,6 +195,34 @@ function dehighlightShowDescription()
 	}
 }
 
+function highlightTicket()
+{
+	dehighlightBands();
+	dehighlightVenue();
+	dehighlightPrice();
+	dehighlightDate();
+	dehighlightShowTime();
+	dehighlightAgeRestrictions();
+	dehighlightShowDescription();
+	
+	if(ticketHighlighted == false)
+	{
+			var ticketContainer = $j("#TicketContainer");
+			ticketContainer.css("color", "white").css("background-color", "#F90887").css("font-size", "120%");
+			ticketHighlighted = true;
+	}	
+}
+
+function dehighlightTicket()
+{	
+	if(ticketHighlighted == true)
+	{
+			var ticketContainer = $j("#TicketContainer");
+			ticketContainer.css("color", "black").css("background-color", "white").css("font-size", "100%");
+			ticketHighlighted = false;
+	}
+}
+
 function highlightAgeRestrictions()
 {
 	dehighlightBands();
@@ -198,6 +231,7 @@ function highlightAgeRestrictions()
 	dehighlightDate();
 	dehighlightShowTime();
 	dehighlightShowDescription();
+	dehighlightTicket();
 	
 	$j("#21plus").css("background-color", "#F90887").css("color", "white");
 	$j("#AllAges").css("background-color", "#F90887").css("color", "white");
@@ -221,8 +255,9 @@ function dehighlightAgeRestrictions()
 	if(ageHighlighted == true)
 	{
 		$j("#AgeContainer").css("background-color","white").css("color", "black").find("label").css("font-size", "100%");
-		$j("#21plus").css("background-color", "white");
-		$j("#AllAges").css("background-color", "white");
+		$j("#21plus").css("background-color", "white").css("color", "black");
+		$j("#AllAges").css("background-color", "white").css("color", "black");
+		$j("#Unknown").css("background-color", "white").css("color", "black");
 		ageHighlighted = false;
 	}
 	
@@ -236,6 +271,7 @@ function highlightShowTime()
 	dehighlightDate();
 	dehighlightAgeRestrictions();
 	dehighlightShowDescription();
+	dehighlightTicket();
 	
 	if(doorsHighlighted == false)
 	{
@@ -264,6 +300,7 @@ function highlightDate()
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
 	dehighlightShowDescription();
+	dehighlightTicket();
 	
 	if(dateHighlighted == false)
 	{
@@ -313,6 +350,7 @@ function highlightPrice()
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
 	dehighlightShowDescription();
+	dehighlightTicket();
 	
 	if(priceHighlighted == false)
 	{
@@ -333,6 +371,7 @@ function hightlightBands()
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
 	dehighlightShowDescription();
+	dehighlightTicket();
 	
 	if(bandsHighlighted == false)
 	{
@@ -361,6 +400,7 @@ function highlightVenue()
 	dehighlightShowTime();
 	dehighlightAgeRestrictions();
 	dehighlightShowDescription();
+	dehighlightTicket();
 	
 	if(venueHighlighted == false)
 	{
